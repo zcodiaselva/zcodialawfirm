@@ -2504,7 +2504,8 @@ body.active #mobile-nav {
 .law-pro {
     color: #fff;
     border-radius: 30px;
-    background: rgba(15, 60, 103, 0.53);
+    background: rgba(30, 33, 40, 0.53);
+    /*background: rgba(35, 60, 103, 0.53);*/
     border: 3px solid rgba(255, 255, 255, 0.33);
     padding: 85px 20px 82px;
 }
