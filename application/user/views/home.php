@@ -40,4 +40,4 @@ if (isset($aboutus) && !empty($aboutus)) {
 <?php //include APPPATH . 'views/social_part/social_media_part.php'; ?>
 <?php include APPPATH . 'views/team_part/team_part1.php'; ?>
 <?php include APPPATH . 'views/experience_part/experience_part.php'; ?>
-<?php include APPPATH . 'views/social_part/twitter_feed_part.php'; ?>
+<?php //include APPPATH . 'views/social_part/twitter_feed_part.php'; ?>

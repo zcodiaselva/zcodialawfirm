@@ -260,6 +260,8 @@ img {
     .fi::before {
         font-size: 45px;
     }
+
+
 }
 
 
@@ -342,7 +344,7 @@ img {
     left: 0;
     bottom: 0;
     height: 3px;
-    width: 150px;
+    width: 100px;
     background: #d6b34b;
 }
 
@@ -405,7 +407,7 @@ img {
     left: 50%;
     transform: translateX(-50%);
     background: #d6b34b;
-    width: 30px;
+    width: 100px;
     height: 2px;
 }
 
@@ -452,8 +454,9 @@ img {
         margin: 0 auto;
     }
     .section-head-2 h2::before {
-        left: 50%;
-        margin-left: -20px;
+        /*        left: 50%;
+                margin-left: -20px;*/
+        width:100px;
     }
     .section-p {
         padding: 80px 0;
@@ -470,7 +473,7 @@ img {
     }
 
     .section-head-3-1 h2 {
-        line-height: 38px;
+        line-height: 2px;
     }
 
 }
@@ -2500,6 +2503,7 @@ body.active #mobile-nav {
 
 .law-pro {
     color: #fff;
+    border-radius: 30px;
     background: rgba(15, 60, 103, 0.53);
     border: 3px solid rgba(255, 255, 255, 0.33);
     padding: 85px 20px 82px;
@@ -2829,7 +2833,7 @@ body.active #mobile-nav {
 
     .law-pro {
         margin-bottom: 60px;    
-        background-color: #1e2128;
+    background-color: rgba(30, 33, 40, 0.53); 
         background: url(../images/bg/about-bg.jpg);
         background-size: cover;
         position: relative;
@@ -2844,7 +2848,8 @@ body.active #mobile-nav {
         top: 0;
         height: 100%;
         width: 100%;
-        background: rgba(15, 60, 103, 0.53);
+        border-radius: 30px;
+        background: rgba(30, 33, 40, 0.53);
         z-index: -1;
     }
 
@@ -3816,7 +3821,7 @@ body.active #mobile-nav {
 
 .practise-part.section-p {
     padding-bottom: 80px;
-    background-color: #1e2128;
+   background-color: #1e2128;
 }
 
 
@@ -4246,7 +4251,7 @@ body.active #mobile-nav {
 
 .story-box .years {
     padding: 15px 30px;
-    background: #d6b34b;
+    background: #212529;
     color: #fff;
     display: inline-block;
     font-size: 16px;
@@ -4319,7 +4324,8 @@ body.active #mobile-nav {
 }
 
 .story-comment img {
-    position: absolute;
+    position: absolute;    
+    border-radius: 15px;
     right: 6%;
     top: 50%;    height: 60px; width: 60px;
     transform: translate(50%, -50%);
@@ -4396,7 +4402,7 @@ body.active #mobile-nav {
     height: 7px;
     width: 24px;
     border-radius: 0;
-    border: 2px solid #fff;
+    border: 2px solid #616161;
     background: transparent;
     cursor: pointer;
     display: inline-block;
@@ -4413,6 +4419,7 @@ body.active #mobile-nav {
 
 .person-detail .person-img img {
     border: 4px solid #fff;
+    border-radius: 30px;
     width: 100%;
 }
 
@@ -4506,6 +4513,7 @@ body.active #mobile-nav {
 
     .testimonial-box {
         padding: 60px 15px;
+        background-color: rgba(30, 33, 40, 0.53); 
         background: url(../images/bg/testimonial-bg.png) no-repeat;
         background-position: center;
         background-size: 125%;
@@ -4586,6 +4594,7 @@ body.active #mobile-nav {
     content: '';
     top: 0;
     right: 0;
+
     height: 100%;
     width: 51%;
     background: url(../images/bg/testimonial-bg-white.png) no-repeat;
@@ -4954,7 +4963,7 @@ body.active #mobile-nav {
 
 .skill-contact-form label {
     width: 100%;
-    background: #d6b34b;
+    background: #212529;
     color: #fff;
     font-size: 22px;
     padding: 15px 0;
@@ -4980,8 +4989,8 @@ body.active #mobile-nav {
 }
 
 .skill-contact-form .btn-1 {
-    background: #d6b34b;
-    border-color: #d6b34b;
+    background: #212529;
+    border-color: #212529;
     border-radius: 0;
     padding: 15px 38px;
 }
@@ -5069,6 +5078,7 @@ body.active #mobile-nav {
     .skill-box {
         margin-bottom: 60px;
         padding: 60px 30px;
+        background: rgba(30, 33, 40, 0.53); 
         background: url(../images/bg/skill-bg.png) no-repeat;
         background-position: center;
         background-size: cover;
@@ -5487,7 +5497,11 @@ body.active #mobile-nav {
 
 .team-2-item .team-2-img {
     position: relative;
+    border-radius: 30px;
     box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
+    -o-box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
     overflow: hidden;
 }
 
@@ -5602,7 +5616,7 @@ body.active #mobile-nav {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #474747;
+    background-color: #212529;
     opacity: 0.549;
 }
 
@@ -7364,6 +7378,9 @@ body.active #mobile-nav {
     border: 10px solid #ebebeb;
     overflow: hidden;
     box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
+    -o-box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
     margin-bottom: 32px;
 }
 
@@ -7450,6 +7467,9 @@ body.active #mobile-nav {
     width: 100%;
     margin-bottom: 30px;
     box-shadow: 0px 0px 2px 0px rgba(108, 108, 108, 0.25);
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(108, 108, 108, 0.25);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(108, 108, 108, 0.25);
+    -o-box-shadow:  0px 0px 2px 0px rgba(108, 108, 108, 0.25);
     border-radius: 4px;
     border: 1px solid #e7e6e6;
 }
@@ -7460,6 +7480,9 @@ body.active #mobile-nav {
     border: none;
     padding: 5px;
     box-shadow: 0px 0px 2px 0px rgba(108, 108, 108, 0.25);
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(108, 108, 108, 0.25);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(108, 108, 108, 0.25);
+    -o-box-shadow:  0px 0px 2px 0px rgba(108, 108, 108, 0.25);
     border: 1px solid #e7e6e6;
 
 }
@@ -7950,6 +7973,9 @@ body.active #mobile-nav {
     color: #525252;
     height: 410px;
     box-shadow: 0px 3px 9px 0px rgba(108, 108, 108, 0.35);
+    -webkit-box-shadow:0px 3px 9px 0px rgba(108, 108, 108, 0.35);
+    -moz-box-shadow:0px 3px 9px 0px rgba(108, 108, 108, 0.35);
+    -o-box-shadow: 0px 3px 9px 0px rgba(108, 108, 108, 0.35);
     margin-bottom: 65px;
 }
 
