@@ -333,7 +333,7 @@ img {
 }
 
 .section-head-2 h2 span {
-    color: #3c3c3c;
+    color: #221e1f;
 }
 
 .section-head-2 h2::before {
@@ -341,9 +341,9 @@ img {
     content: '';
     left: 0;
     bottom: 0;
-    height: 2px;
-    width: 40px;
-    background: #22242f;
+    height: 3px;
+    width: 150px;
+    background: #d6b34b;
 }
 
 .section-head-2 p {
@@ -2489,6 +2489,7 @@ body.active #mobile-nav {
     position: absolute;
     content: '';
     left: 0;
+    border-right: 15px solid #ddb158;
     top: 0;
     height: 100%;
     width: 50%;
@@ -2649,22 +2650,23 @@ body.active #mobile-nav {
     width: 70px;
     height: 70px;
     background: #22242f;
+    border-radius: 40px;
     top: 4px;
-    left: -18px;
-    z-index: 0;
-    transform: translateY(-50%) rotate(45deg);
+    left: -32px;
     z-index: 0;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;
-    -webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.22);
-    -moz-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.22);
-    box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.22);
+    /* -webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.22);
+     -moz-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.22);
+     box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.22);*/
 }
 
 .about-item-box .about-item-icon i {
     color: #fff;
+    left: -15px;
+    top:35px;
     font-size: 35px;
     position: relative;
 }
@@ -2679,7 +2681,7 @@ body.active #mobile-nav {
 }
 
 .about-item-box:hover .about-item-icon:before {
-    background: #d6b34b;
+    box-shadow: 0px 0px 1px 7px rgba(148, 149, 152, 0.6);
 }
 
 .about-accodian {
@@ -2801,7 +2803,11 @@ body.active #mobile-nav {
         height: 65px;
         width: 65px;
         line-height: 68px;
-        top: -80px;
+        top: -157px;
+    }
+    .about-item-box .about-item-icon i {
+        left: -11px;
+        top: 32px;
     }
     .about-item-box .about-item-icon i::before {
         font-size: 28px;
@@ -2822,7 +2828,8 @@ body.active #mobile-nav {
     }
 
     .law-pro {
-        margin-bottom: 60px;
+        margin-bottom: 60px;    
+        background-color: #1e2128;
         background: url(../images/bg/about-bg.jpg);
         background-size: cover;
         position: relative;
@@ -2883,6 +2890,7 @@ body.active #mobile-nav {
 
     .about-details .section-head-2 {
         padding-bottom: 50px;
+        text-align: center;
     }
     .about-part {
         padding-bottom: 20px;
@@ -2904,11 +2912,11 @@ body.active #mobile-nav {
     }
 
     .about-item-box .about-item-icon {
-        left: -80px;
+        left: -74px;
         height: 45px;
         width: 45px;
         line-height: 48px;
-        top: -100px;
+        top: -127px;
     }
 
     .about-item-box .about-item-icon::before {
@@ -2926,6 +2934,23 @@ body.active #mobile-nav {
         padding-top: 0px;
     }
 
+    .about-item-box .about-item-icon i {
+        color: #fff;
+        left: -11px;
+        top: 26px;
+        font-size: 35px;
+        position: relative;
+    }
+
+    .section-head-2 h2::before {
+        left: 35%;
+        width: 88px;
+        margin-left: 0px;
+    }
+
+    .counter-item{
+        margin-bottom: 30px;
+    }
 }
 
 .about-2-part {
@@ -3313,6 +3338,10 @@ body.active #mobile-nav {
     .about-2-service ul li:not(:last-child) {
         margin-bottom: 25px;
     }
+
+    .about-item-box .about-item-icon i::before {
+
+    }
 }
 
 
@@ -3570,6 +3599,10 @@ body.active #mobile-nav {
     font-size: 52px;
 }
 
+.counter-part {
+    background-color: #1e2128;
+}
+
 .counter-part .container {
     position: relative;
 }
@@ -3582,7 +3615,7 @@ body.active #mobile-nav {
 }
 
 .count-des {
-    padding-left: 30px;
+    padding-left: 15px;
     position: relative;
 }
 
@@ -3598,12 +3631,18 @@ body.active #mobile-nav {
 
 .counter-item {
     display: flex;
+    width: 100%;
+    border-radius: 30px;
     align-items: center;
+    background-color: #fff;
     color: #d6b34b;
+    padding: 25px 0px 24px 0px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .counter-item h2 {
-    font-size: 38px;
+    font-size: 30px;
 }
 
 .counter-item p {
@@ -3631,11 +3670,11 @@ body.active #mobile-nav {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .counter-item h2 {
-        font-size: 33px;
+        font-size: 25px;
     }
     .counter-item p {
-        font-size: 15px;
-        line-height: 25px;
+        font-size: 13px;
+        line-height: 16px;
     }
 
     .counter-item .count-des span {
@@ -3665,7 +3704,21 @@ body.active #mobile-nav {
         background-position: left;
     }
     .counter-item {
-        padding: 15px 0px;
+        padding: 30px 0px;
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+
+    section.counter-part {
+        /*padding: 70px 0;*/
+    }
+
+    .about-item-box .about-item-icon i {
+        color: #fff;
+        left: 0px;
+        top: 25px;
+        font-size: 35px;
+        position: relative;
     }
 
 }
@@ -3711,8 +3764,8 @@ body.active #mobile-nav {
 }
 
 .counter-item .count-des .counter {
-    line-height: 23px;
-    margin-top: 5px;
+    line-height: 10px;
+    margin-top: 11px;
     margin-bottom: 20px;
 }
 
@@ -3771,7 +3824,7 @@ body.active #mobile-nav {
 .practise-item {
     padding: 25px 30px 40px;
     background: #262932;
-     border-radius:24px;
+    border-radius:24px;
     position: relative;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
@@ -3806,7 +3859,7 @@ body.active #mobile-nav {
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;
-     color: #fff;
+    color: #fff;
 }
 
 .practise-item:hover P {
@@ -8778,6 +8831,15 @@ body.active #mobile-nav {
         margin-bottom: 55px;
     }
 
+    .blog-pagination ul li:first-child a {
+        width: 0px; 
+    }
+
+    .blog-pagination ul li:hover a, .blog-pagination ul li.active a {
+        background: #d6b34b !important;
+        color: #fff;
+        width: 21px;
+    }
     .widget-subscribe form input {
         padding: 8px 13px;
     }
