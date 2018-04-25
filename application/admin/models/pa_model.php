@@ -44,11 +44,16 @@ class Pa_model extends CI_Model {
         return $this->db->update($tablename, $array);
     }
 
-    function getData($select, $from, $where = false, $order_by = false) {
+    function getData($select, $from, $where = false, $order_by = false, $limit = false, $sort_by = false) {
         $query = '';
         $this->db->select($select);
-        if (isset($order_by) && !empty($order_by)) {
+        if (isset($order_by) && !empty($order_by) && empty($sort_by)) {
             $this->db->order_by($order_by, "desc");
+        } else if (isset($sort_by) && !empty($sort_by)) {
+            $this->db->order_by($order_by, $sort_by);
+        }
+        if (isset($limit) && !empty($limit)) {
+            $this->db->limit($limit);
         }
         if (isset($where) && !empty($where)) {
             $query = $this->db->get_where($from, $where);
@@ -56,6 +61,7 @@ class Pa_model extends CI_Model {
             $this->db->from($from);
             $query = $this->db->get();
         }
+
 
         if ($query->num_rows() > 0) {
             return $query->result_array();

@@ -7,6 +7,7 @@ class Practice extends CI_Controller {
 
     public $practiceAreas = 'practiceareas';
     public $practiceAreaTypes = 'practicearea_types';
+    public $practiceAreaDetails = 'practicearea_detail';
 
     function __construct() {
         parent::__construct();
@@ -61,6 +62,29 @@ class Practice extends CI_Controller {
 
             $this->load->view('header/header', $data);
             $this->load->view('practicearea_items', $data);
+            $this->load->view('footer', $data);
+        }
+    }
+
+    function details() {
+        if (!$this->tank_auth->is_logged_in()) {
+            redirect('/auth/login/');
+        } else {
+
+            $this->data['menu'] = true;
+            $data['user_id'] = $this->tank_auth->get_user_id();
+            $data['username'] = $this->tank_auth->get_username();
+            $select = 'pat_id, pat_header';
+            $from = $this->practiceAreaTypes;
+            $where = array('pat_status' => 1, 'pat_deleted' => 0);
+            $order_by = 'pat_header';
+            $sort_by = 'asc';
+            $limit = '';
+            $data['practicearea_types'] = $this->pa_model->getData($select, $from, $where, $order_by, $limit, $sort_by);
+
+
+            $this->load->view('header/header', $data);
+            $this->load->view('practice_details', $data);
             $this->load->view('footer', $data);
         }
     }
@@ -247,6 +271,65 @@ class Practice extends CI_Controller {
         $updated = $this->pa_model->updateData($this->practiceAreaTypes, $pat_status, array('pat_id' => $pat_id));
 
         echo $updated;
+    }
+
+    function update_practiceAreaDetails() {// update for practice area details - pa_details_submit action
+        $inserted = 0;
+        $date = new DateTime();
+        $practiceAreaDetailsExists = $PADItem_image = $pad_images = '';
+        $foldername = 'PracticeAreas';
+        $practiceAreaDetails = array(
+            'pat_id' => $this->input->post('pat_id'),
+            'pad_content' => $this->input->post('pad_content')
+        );
+
+//working
+
+        $pat_id = $this->input->post('pat_id');
+
+        if (!empty($_FILES['fileToUpload']['name'])) {
+            $count = count($_FILES['fileToUpload']['name']);
+            for ($index = 0; $index < $count; $index++) {
+                $PADItem_image = '';
+
+                $info = new SplFileInfo($_FILES['fileToUpload']['name'][$index]);
+
+                $pad_image = $date->getTimestamp() . 'pad_image.' . $info->getExtension();
+
+                if ($this->fileupload->uploadfile('pad_image', $pad_image, $foldername)) {
+                    if (isset($foldername) && !empty($foldername)) {
+                        $upd_foldername = $foldername . '/';
+                        $PADItem_image = 'uploads/' . $upd_foldername . $pad_image;
+                    } else {
+                        $PADItem_image = 'uploads/' . $pad_image;
+                    }
+                }
+                if (isset($PADItem_image) && !empty($PADItem_image)) {
+                    $pad_images[] = cleanurl($PADItem_image);
+                }
+            }
+        }
+
+        if (isset($pad_images) && !empty($pad_images) && is_array($pad_images)){
+            echo '<pre>';print_r($pad_images);die;
+        }
+        $checkPADArray = array_filter($practiceAreaDetails);
+
+        $pad_id = $this->input->post('pad_id');
+
+        if (isset($pad_id) && !empty($pad_id)) { //update search
+            $practiceAreaDetailsExists = $this->pa_model->searchContent($this->practiceAreaDetails, array('pad_id' => $pad_id, 'pad_deleted' => 0)); //table, where
+        }
+
+        if (empty($pad_id) && isset($checkPADArray) && !empty($checkPADArray)) {
+            $inserted = $this->pa_model->insertData($this->practiceAreaDetails, $practiceAreaDetails);
+        } else {
+            if (isset($pad_id) && !empty($pad_id) && isset($checkPADArray) && !empty($checkPADArray)) { //update
+                $inserted = $this->pa_model->updateData($this->practiceAreaDetails, $practiceAreaDetails, array('pad_id' => $pad_id, 'pad_deleted' => 0)); //table, where
+            }
+        }
+
+        echo $inserted;
     }
 
     function print_me($message, $content) {

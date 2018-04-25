@@ -72,7 +72,7 @@ function getPATItemDetails(thss) { // get PracticeArea Item details
         {
             var myObj = jQuery.parseJSON(msg);
             $("#txtPATMainHeader").val(myObj[0].pat_header);
-             $("#txtPATIcon").val(myObj[0].pat_icon_class);
+            $("#txtPATIcon").val(myObj[0].pat_icon_class);
             //fillEditor('#txtPATContent', myObj[0].pat_content);
             $("#txtPATContent").val(myObj[0].pat_content);
             if (myObj[0].pat_icon !== '') {
@@ -202,4 +202,61 @@ function pat_submit(thss) {
             }
         });
     }
+}
+
+function pa_details_submit(thss) {
+    var error = false;
+    var pad_id = $(thss).attr('pad_id');
+
+    var practiceCategory = $('.practicecategory_select2').select2("val");
+    var pc_content = $("textArea#txt_pc_content").val();
+    if (practiceCategory < 0) {
+        info_msg('Please select Practice Category!');
+        error = true;
+    } else if (!pc_content) {
+        info_msg('Content should not be empty!');
+        error = true;
+    }
+
+    if (error == false) {
+        var form_data = new FormData();
+        form_data.append('pat_id', practiceCategory);
+        form_data.append('pad_content', pc_content);
+        var image_file_length = document.getElementById('imgPracticeItemUpload').files.length;
+        for (var index = 0; index < image_file_length; index++) {
+            form_data.append("fileToUpload[]", document.getElementById('imgPracticeItemUpload').files[index]);
+        }
+        
+        if (typeof (pad_id) !== 'undefined') {
+            form_data.append('pad_id', pad_id);
+        } else {
+            form_data.append('pad_id', '');
+        }
+        $.ajax({
+            method: "POST",
+            url: "admin.php/practice/update_practiceAreaDetails",
+            data: form_data, contentType: false,
+            cache: false,
+            processData: false,
+            success: function (data) {
+                if (data == 1) {
+                    $(".btnUpdateQC").removeAttr("qc_id");
+                    $(".qc_select2").select2("val", 0);
+                    $('#txtquestion').val('');
+                    clearEditor("#txtanswer");
+                    success_msg('Question & Answer Updated Successfully!!!');
+                    var table = 0;
+                    if (table != 0) {
+                        table.destroy();
+                    }
+                    table = $('#faq_qd_list_dt').DataTable();
+                    table.ajax.reload();
+
+                } else {
+                    error_msg('Question & Answer not Updated!!!');
+                }
+            }
+        });
+    }
+
 }

@@ -5749,7 +5749,7 @@ textArea#txtContentAboutMe {
     resize: none;
 }
 
-textArea#txtPATContent{
+textArea#txtPATContent,textArea#txt_pc_content{
     height: 280px !important; /* 240px*/
     resize: none;
 }
@@ -6237,7 +6237,7 @@ th.dt_status_col.ud_hs{
 }
 
 /* dashboard end */
- 
+
 table#socialiconslist_dt td:nth-child(3),table#socialiconslist_dt td:nth-child(3) {
     text-align: center;    vertical-align: inherit;
 }
@@ -6487,7 +6487,7 @@ i.flat_icon {
 ::-webkit-scrollbar-track {
     background: #f1f1f1; 
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #888; 
@@ -6507,3 +6507,16 @@ textarea#txtAttyExperienceHeader {
     height: 55px;
 }
 
+img.pat_thumbnail {
+    width: 123px;
+    height: 100px;
+    padding: 10px 10px 10px 0px;
+}
+span.del_icon {
+    position: relative;
+    top: -44px;
+    left: -8px;
+}
+span.del_icon {
+    cursor: pointer;
+}

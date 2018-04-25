@@ -319,12 +319,12 @@
                                         echo "active";
                                     }
                                     ?>"><a href="admin.php/about/attorney_skills"><i class="fa fa-angle-double-right"></i>Attorney Skills</a></li>
-                                     <li class="<?php
+                                    <li class="<?php
                                     if ($this->uri->segment(2) == "attorney_skills_category") {
                                         echo "active";
                                     }
                                     ?>"><a href="admin.php/about/attorney_skills_category"><i class="fa fa-angle-double-right"></i>Attorney Skills Category</a></li>
-                                     <li class="<?php
+                                    <li class="<?php
                                     if ($this->uri->segment(2) == "attorney_details") {
                                         echo "active";
                                     }
@@ -381,6 +381,11 @@
                                         echo "active";
                                     }
                                     ?>"><a href="admin.php/practice/items"><i class="fa fa-angle-double-right"></i>Practice Items</a></li>                                    
+                                    <li class="<?php
+                                    if ($this->uri->segment(2) == "details") {
+                                        echo "active";
+                                    }
+                                    ?>"><a href="admin.php/practice/details"><i class="fa fa-angle-double-right"></i>Practice Details</a></li>                                    
                                     <li class="hide <?php
                                     if ($this->uri->segment(2) == "parallax") {
                                         echo "active";

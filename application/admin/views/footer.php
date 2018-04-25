@@ -40,9 +40,7 @@
 <!-- Bootstrap WYSIHTML5 -->
 <script src="themes/backend/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="themes/backend/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
-<?php 
-
-if ($this->uri->segment(1) == 'home') { ?>
+<?php if ($this->uri->segment(1) == 'home') { ?>
     <script src="themes/backend/js/home_page.js" ></script>
 <?php } else if ($this->uri->segment(1) == 'about') { ?>
     <script src="themes/backend/js/about_page.js"></script>
@@ -879,6 +877,15 @@ if ($this->uri->segment(1) == 'home') { ?>
         $(".menuModalText,.menuModalUrl").val('');
         $(".update_menu_modal").attr('parent_id', $('.ddMainMenu').val());
     }
+
+    function preview_images()
+    {
+        var total_file = document.getElementById("imgPracticeItemUpload").files.length;
+        for (var i = 0; i < total_file; i++)
+        {
+            $('#pat_image_preview').append("<span class='pat_thumbnail_outer'><img class='pat_thumbnail' src='" + URL.createObjectURL(event.target.files[i]) + "'><span class='del_icon hide'><i class='fa fa-remove'></i></span></span>");
+        }
+    }
     function get_menuDetails(thss) {
         var selectedMainMenu = $('.ddMainMenu').val();
         $(".confirm_delete_menuItem").attr('parent_id', 0).attr("menu_id", selectedMainMenu);
@@ -953,7 +960,7 @@ if ($this->uri->segment(1) == 'home') { ?>
     $(function () {
 
 
-        $('.qc_select2, #txtHomeSliderBtnLink,#txtPAButtonLink,#txtContactSocialName,#txtHSBBtnLink').select2();
+        $('.qc_select2,.practicecategory_select2, #txtHomeSliderBtnLink,#txtPAButtonLink,#txtContactSocialName,#txtHSBBtnLink').select2();
         $('#txtContactType,.ddMainMenu,.ddSubMenu,.ddPagesMenu,#txtattorney,#txtSocialName,#txtExperienceBtnLink,#txtWCUTypeHeadLink').select2();
         $('input.rememberMe').iCheck({
             checkboxClass: 'icheckbox_square-blue',
@@ -961,7 +968,7 @@ if ($this->uri->segment(1) == 'home') { ?>
             increaseArea: '20%' /* optional */
         });
 
-        $("#txtAbtItemContent,#txtHomeContentTMS,#txtHomeTMContent,#txtContentAboutMe,#txtAbtTLSubHeader,#txtanswer,#txtPAContent,#txtAbtAttyContent").wysihtml5();
+        $("#txtAbtItemContent,#txtHomeContentTMS,#txtHomeTMContent,#txtContentAboutMe,#txtAbtTLSubHeader,#txtanswer,#txtPAContent,#txtAbtAttyContent,#txt_pc_content").wysihtml5();
 
     })
 </script>
