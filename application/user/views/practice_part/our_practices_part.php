@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <div class="section-head practice-head">
-                    <h2><?php echo (isset($about_pa) && !empty($about_pa)) ? $about_pa[0]['pa_mainheader'] : ''; ?></h2>
+                    <h2><?php echo (isset($about_pa) && !empty($about_pa)) ? strtoupper($about_pa[0]['pa_mainheader']) : ''; ?></h2>
                     <p><?php echo (isset($about_pa) && !empty($about_pa)) ? $about_pa[0]['pa_content'] : ''; ?></p>
                 </div>
             </div>

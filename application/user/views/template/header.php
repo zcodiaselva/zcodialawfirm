@@ -66,7 +66,7 @@
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?php echo $fav_image; ?>" type="image/x-icon">
-
+        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <!-- Bootstrap css -->
         <link rel="stylesheet" href="themes/frontend/css/bootstrap.min.css">
         <!-- Fontawesome css -->

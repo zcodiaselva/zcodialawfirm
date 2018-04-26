@@ -290,19 +290,17 @@ class Practice extends CI_Controller {
         if (!empty($_FILES['fileToUpload']['name'])) {
             $count = count($_FILES['fileToUpload']['name']);
             for ($index = 0; $index < $count; $index++) {
-                $PADItem_image = '';
-
                 $info = new SplFileInfo($_FILES['fileToUpload']['name'][$index]);
-
                 $pad_image = $date->getTimestamp() . 'pad_image.' . $info->getExtension();
 
-                if ($this->fileupload->uploadfile('pad_image', $pad_image, $foldername)) {
+                if ($this->fileupload->upload_files('fileToUpload', $pad_image, $foldername)) {
                     if (isset($foldername) && !empty($foldername)) {
                         $upd_foldername = $foldername . '/';
                         $PADItem_image = 'uploads/' . $upd_foldername . $pad_image;
                     } else {
                         $PADItem_image = 'uploads/' . $pad_image;
                     }
+                    echo $PADItem_image;die;
                 }
                 if (isset($PADItem_image) && !empty($PADItem_image)) {
                     $pad_images[] = cleanurl($PADItem_image);

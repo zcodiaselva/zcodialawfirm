@@ -15,16 +15,16 @@ if (isset($wcu) && !empty($wcu)) {
     <div class="container">
         <div class="row d-flex align-items-center">
             <div class="col-md-5">
-                <div class="law-pro text-center">
+                <div class="law-pro text-center hide">
                     <i class="fi flaticon-auction"></i>
-                    <h2><?php echo $wcu_box_head; ?></h2>
+                    <h2><?php echo strtoupper($wcu_box_head); ?></h2>
                     <p class="h3"><?php echo $wcu_box_desc; ?></p>
                 </div>
             </div>
             <div class="col-md-6 offset-md-1">
                 <div class="about-details">
                     <div class="section-head-2">
-                        <h2><?php echo $wcu_head; ?></h2>
+                        <h2><?php echo strtoupper($wcu_head); ?></h2>
                         <p><?php echo $wcu_desc; ?></p>
                     </div>
                     <?php

@@ -32,11 +32,12 @@ if (isset($aboutus) && !empty($aboutus)) {
 ?>
 
 <?php include APPPATH . 'views/template/home_slider.php'; ?>
+<?php include APPPATH . 'views/testimonial_part/testimonial_part.php'; ?>
+<?php include APPPATH . 'views/skill_part/skill_part.php'; ?>
 <?php include APPPATH . 'views/practice_part/our_practices_part.php'; ?>
 <?php include APPPATH . 'views/about_part/about_lawyers_part.php'; ?>
 <?php include APPPATH . 'views/counter_part/counter_part.php'; ?>
-<?php include APPPATH . 'views/testimonial_part/testimonial_part.php'; ?>
-<?php include APPPATH . 'views/skill_part/skill_part.php'; ?>
+
 <?php //include APPPATH . 'views/social_part/social_media_part.php'; ?>
 <?php include APPPATH . 'views/team_part/team_part1.php'; ?>
 <?php include APPPATH . 'views/experience_part/experience_part.php'; ?>

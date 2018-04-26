@@ -40,7 +40,7 @@ if (isset($logo_details) && !empty($logo_details)) {
 
         </div>
         <button class="second-nav-toggler" type="button">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars bars"></i>
         </button>
     </div>
 </nav>

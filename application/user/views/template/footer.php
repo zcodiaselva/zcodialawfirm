@@ -220,6 +220,16 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                          });
                          }
                          */
+//                         var screensize = document.documentElement.clientWidth;
+//                            alert(screensize);
+                        $(window).resize(function () {
+                            $(".bars").css("display", "none");
+                            var screensize = document.documentElement.clientWidth;
+                         //   alert(screensize);
+                            if (parseInt(screensize) < 1024) {
+                                $(".bars").css("display", "block");
+                            }
+                        });
                     });
 
 
@@ -250,7 +260,7 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                             form_data.append('message', message);
                             form_data.append('name', name);
                             form_data.append('mail', mail);
-                            
+
                             $.ajax({
                                 method: "POST",
                                 url: "admin.php/contact/sendmail",
