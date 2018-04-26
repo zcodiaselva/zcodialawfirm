@@ -689,12 +689,19 @@ function attySkills_submit(thss) {
     var txtAttySkillDescription = $("textArea#txtAttySkillDescription").val();
     var txtAttySkillType = $("#txtAttySkillType").val();
     var txtAttyTransitionGoal = $("#txtAttyTransitionGoal").val();
-
+    var txtAttySkillStartColor = $("#txtAttySkillStartColor").val();
+    var txtAttySkillEndColor = $("#txtAttySkillEndColor").val();
     if (!txtAttySkillHeader) {
         info_msg('Skill Header is empty');
         error = true;
     } else if (!txtAttySkillDescription) {
         info_msg('Skill Description is empty');
+        error = true;
+    } else if (!txtAttySkillStartColor) {
+        info_msg('Starting color should not be empty');
+        error = true;
+    } else if (!txtAttySkillEndColor) {
+        info_msg('Ending Color should not be empty');
         error = true;
     }
 //    else if (!txtAttySkillType) {
@@ -712,6 +719,8 @@ function attySkills_submit(thss) {
         form_data.append('atty_st_name', txtAttySkillType);
         form_data.append('atty_st_goal', txtAttyTransitionGoal);
         form_data.append('atty_skill_bg_image', $('#imgAttySkillBGUpload').prop('files')[0]);
+        form_data.append('atty_st_start_color', txtAttySkillStartColor);
+        form_data.append('atty_st_end_color', txtAttySkillEndColor);
         form_data.append('atty_st_image', $('#imgAttySkillTypeUpload').prop('files')[0]);
 
         if (typeof (atty_st_id) !== 'undefined') {
@@ -728,6 +737,9 @@ function attySkills_submit(thss) {
             success: function (data) {
                 if (data == 1) {
                     $("#txtAttySkillType").val("");
+                    $("#txtAttySkillStartColor").val("").trigger('change');
+                    $("#txtAttySkillEndColor").val("").trigger('change');
+                    $(".my-colorpicker2 .input-group-addon").removeAttr('style');
                     $("#txtAttyTransitionGoal").val("");
                     document.getElementById("imgAttySkillTypeUpload").value = "";
                     $("#imgAttySkillTypePreview").removeAttr("style");
@@ -767,6 +779,8 @@ function getAttySkillTypes(thss) {     //getting Attorney's Social Details to ed
                     var myObj = jQuery.parseJSON(msg);
                     if (typeof myObj !== false) {
                         $("#txtAttySkillType").val(myObj[0].atty_st_name);
+                        $("#txtAttySkillStartColor").val(myObj[0].atty_st_start_color).trigger('change');
+                        $("#txtAttySkillEndColor").val(myObj[0].atty_st_end_color).trigger('change');
                         $("#txtAttyTransitionGoal").val(myObj[0].atty_st_goal);
                         $('.btnUpdateAttorneySkills').attr('atty_st_id', atty_st_id);
                         if (myObj[0].atty_st_image !== '') {
@@ -1046,7 +1060,7 @@ function getWCUTypes(thss) { //getting WCU Details to edit
                 var myObj = jQuery.parseJSON(msg);
                 $("#txtWCUTypeHead").val(myObj[0].wcu_type_name);
                 $('#txtWCUTypeDesc').val(myObj[0].wcu_type_desc);
-                  $('#txtWCUTypeHeadLink').val(myObj[0].wcu_type_name_hl).trigger('change');
+                $('#txtWCUTypeHeadLink').val(myObj[0].wcu_type_name_hl).trigger('change');
                 $('#txtWCUTypeIcon').val(myObj[0].wcu_type_icon);
                 $(".btnUpdateWCU").attr("wcu_type_id", myObj[0].wcu_type_id);
                 if (myObj[0].wcu_type_image !== '') {

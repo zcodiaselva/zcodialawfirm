@@ -5997,18 +5997,23 @@ img.dt_image_et {
 }
 /* attorney experience end */
 /* attorney skills types datatable start */
-#attySkillTypes_dt td:nth-child(3), th:nth-child(3)  {
-    text-align: center;    vertical-align: inherit;
-}
-#attySkillTypes_dt td:nth-child(4), th:nth-child(4) {
+
+#attySkillTypes_dt td:nth-child(5), th:nth-child(5) {
     text-align: center;    vertical-align: inherit;
 }
 #attySkillTypes_dt td:last-child, th:last-child {
     text-align: center;    vertical-align: inherit;
 }
 
-img.dt_image_st, img.dt_image_tl, img.dt_image_pat{
+img.dt_image_tl, img.dt_image_pat{
     height:80px;
+}
+.color_image_st{
+    height: 44px;
+    width: 44px;
+}
+.color_image_st_outer > .color_image_st {
+    margin-left: 70px;
 }
 /*
 .attySkillTypes_dt.dataTable th.dt_item_col {

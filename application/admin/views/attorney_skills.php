@@ -43,7 +43,7 @@ if (isset($attorney_skills) && !empty($attorney_skills)) {
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                 <label for="txtAttySkillType">Skill Type</label>
-                                <input type="text" class="form-control" id="txtAttySkillType" value="<?php //echo ($autSubTitle <> '' ? $autSubTitle : '');     ?>" >
+                                <input type="text" class="form-control" id="txtAttySkillType" value="<?php //echo ($autSubTitle <> '' ? $autSubTitle : '');         ?>" >
                             </div>
                             <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                 <label for="txtAttyTransitionGoal">Transition Goal</label>
@@ -51,11 +51,30 @@ if (isset($attorney_skills) && !empty($attorney_skills)) {
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
-
+                        <label >Gradient Color Picker</label>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                <label for="txtAttySkillStartColor">Start Color</label>
+                                <div class="input-group my-colorpicker2">
+                                    <input type="text" class="form-control" id="txtAttySkillStartColor">
+                                    <div class="input-group-addon">
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                <label for="txtAttySkillEndColor">End Color</label>
+                                <div class="input-group my-colorpicker2">
+                                    <input type="text" class="form-control" id="txtAttySkillEndColor">
+                                    <div class="input-group-addon">
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                 
 
                 </div>
                 <!-- /.col -->
@@ -113,7 +132,8 @@ if (isset($attorney_skills) && !empty($attorney_skills)) {
                             <tr>
                                 <th class="dt_item_col attySkillTypes">Skill Type</th>
                                 <th class="dt_item_col attySkillTypes">Goal</th>
-                                <th class="dt_image_col attySkillTypes">Image</th>
+                                <th class="dt_image_col attySkillTypes">Starting Color</th>
+                                <th class="dt_image_col attySkillTypes">Ending Color</th>
                                 <th class="dt_status_col attySkillTypes">Show / Hide</th>
                                 <th class="dt_action_col attySkillTypes">Action</th>
                             </tr>

@@ -20,28 +20,23 @@
                         if (isset($attorney_details) && !empty($attorney_details)) {
                             foreach ($attorney_details['attorney'] as $key => $value) {
                                 ?>
-                                <!-- Single Expert Slider  -->
-                                <div class="swiper-slide">
-                                    <div class="team-2-item text-center">
-                                        <div class="team-2-img">
-                                            <img src="<?php echo $value['attyItem_image']; ?>" alt="">
-                                            <div class="team-2-social">
-                                                <ul>
-                                                    <?php
-                                                    if (isset($value['social']) && !empty($value['social'])) {
-                                                        foreach ($value['social'] as $key1 => $value1) {
-                                                            ?>
-                                                            <li><a href="<?php echo $value1['attySocialLink']; ?>"><i class='<?php echo $value1['social_class']; ?>'></i></a></li>
+                                <div class="single-team">
+                                    <div class="img">
+                                        <img src="<?php echo $value['attyItem_image']; ?>" alt="">
+                                        <div class="content">
+                                            <span class="default"><i class="flaticon-network"></i></span>
+                                            <ul class="social">
+                                                <?php
+                                                if (isset($value['social']) && !empty($value['social'])) {
+                                                    foreach ($value['social'] as $key1 => $value1) {
+                                                        ?>
+                                                        <li><a href="<?php echo $value1['attySocialLink']; ?>" target="_blank"><i class="<?php echo $value1['social_class']; ?>"></i></a></li>
                                                         <?php
-                                                        }
                                                     }
-                                                    ?>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="team-2-des">
-                                            <h4><?php echo $value['attyItem_name']; ?></h4>
-                                            <p><?php echo $value['attyItem_designation']; ?></p>
+                                                }
+                                                ?>
+
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -49,6 +44,8 @@
                             }
                         }
                         ?>
+
+
                     </div>
                     <!-- If we need pagination -->
                     <div class="swiper-pagination"></div>

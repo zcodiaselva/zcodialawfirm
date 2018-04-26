@@ -175,13 +175,13 @@ class About extends CI_Controller {
         } else {
             $data['user_id'] = $this->tank_auth->get_user_id();
             $data['username'] = $this->tank_auth->get_username();
-           // $data['attorney_skills'] = $this->aboutus_model->getData('*', $this->attorney_skills_table, array('atty_skill_status' => 1, 'atty_skill_deleted' => 0), 'atty_skill_id');
+            // $data['attorney_skills'] = $this->aboutus_model->getData('*', $this->attorney_skills_table, array('atty_skill_status' => 1, 'atty_skill_deleted' => 0), 'atty_skill_id');
             $this->load->view('header/header', $data);
             $this->load->view('attorney_skill_category', $data);
             $this->load->view('footer');
         }
     }
-    
+
     function our_experience() {
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
@@ -210,7 +210,6 @@ class About extends CI_Controller {
         }
     }
 
-    
     function update_about_attorney() { //update about attorney form_subit() ajax
         $inserted = 0;
         $date = new DateTime();
@@ -817,6 +816,8 @@ class About extends CI_Controller {
         $aboutAttorneySkillsType = array(
             'atty_st_name' => $this->input->post('atty_st_name'),
             'atty_st_goal' => $this->input->post('atty_st_goal'),
+            'atty_st_start_color' => $this->input->post('atty_st_start_color'),
+            'atty_st_end_color' => $this->input->post('atty_st_end_color')
         );
 
 
@@ -872,7 +873,7 @@ class About extends CI_Controller {
         $data = array();
 
         $atty_options = array();
-        $select = 'atty_st_id, atty_st_name, atty_st_goal, atty_st_image, atty_st_status';
+        $select = 'atty_st_id, atty_st_name, atty_st_goal, atty_st_start_color, atty_st_end_color, atty_st_status';
         $from = $this->attorney_skillsType_table;
         $where = array('atty_st_deleted' => 0);
         $orderby = "atty_st_id";
@@ -883,7 +884,8 @@ class About extends CI_Controller {
             foreach ($abtAttyDetails as $key => $value) {
                 $value['atty_st_name'] = $value['atty_st_name'];
                 $value['atty_st_goal'] = $value['atty_st_goal'];
-                $value['atty_st_image'] = '<img class="dt_image_st ' . (!file_exists($value['atty_st_image']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['atty_st_image'])) ? $value['atty_st_image'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
+                $value['atty_st_start_color'] = '<div class="color_image_st_outer"><div class="color_image_st" style="background-color:' . $value['atty_st_start_color'] . '" ></div></div>';
+                $value['atty_st_end_color'] = '<div class="color_image_st_outer"><div class="color_image_st" style="background-color:' . $value['atty_st_end_color'] . '" ></div></div>';
                 $value['atty_st_status'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['atty_st_status'] == 1 ? ' checked' : '') . ' onclick="change_dt_attySkillType_status($(this));" atty_st_id="' . $value['atty_st_id'] . '" atty_st_status="' . $value['atty_st_status'] . '"><span class="slider round"></span></label></a>';
                 $value['action'] = '<a onclick="getAttySkillTypes($(this));" atty_st_id="' . $value['atty_st_id'] . '" class="edit_attyDetails btn"><i class="fa fa-pencil"></i></a>' . '<a class="btn open_popup_modal" atty_st_id=' . $value['atty_st_id'] . '  data-toggle="modal" data-target="#modal-delete_attySkillTypes" onclick="delAttySkillTypes($(this));"><i class="fa fa-trash-o"></i></a>';
 
@@ -908,7 +910,7 @@ class About extends CI_Controller {
     }
 
     function getAttorneySkillTypes() {// getting  Attorney Skill Types  for editing
-        $select = 'atty_st_id, atty_st_name, atty_st_goal, atty_st_image';
+        $select = 'atty_st_id, atty_st_name, atty_st_goal, atty_st_start_color,atty_st_end_color';
         $from = $this->attorney_skillsType_table;
         $atty_st_id = $this->input->post('atty_st_id');
         $attySTDetails = $this->aboutus_model->getData($select, $from, array('atty_st_id' => $atty_st_id));
@@ -1221,9 +1223,9 @@ class About extends CI_Controller {
 
         echo $deleted;
     }
-    
+
     //attorney breadcrumb start 
-    function update_attorney_bc(){ //update about attorney_bc form_subit() ajax
+    function update_attorney_bc() { //update about attorney_bc form_subit() ajax
         $inserted = 0;
         $date = new DateTime();
         $abtAttyBC_image = $actual_abtAttyBC_image = $isAboutAttyBCExists = '';
@@ -1263,8 +1265,8 @@ class About extends CI_Controller {
 
         echo $inserted;
     }
-    //attorney breadcrumb end 
 
+    //attorney breadcrumb end 
     //experience part end
     function print_me($message, $content) {
         echo '<pre>' . $message;

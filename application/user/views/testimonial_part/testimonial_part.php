@@ -4,12 +4,7 @@
         <div class="row">
             <div class="col-12 col-xl-6 col-lg-6 mb-5 mb-lg-0">
                 <div class="section-head-2 mb-3">
-                    <?php
-                    $word1 = $word2 = $word3 = '';
-                    $aut_main_title = $about_timeline['aut_main_title'];
-                    $title_message = explode(' ', $aut_main_title, 3);
-                    ?>
-                    <h2><?php echo ((isset($title_message[0]) && !empty($title_message[0])) ? $title_message[0] : '') . ' ' . ((isset($title_message[1]) && !empty($title_message[1])) ? $title_message[1] : ''); ?> <span><?php echo ((isset($title_message[2]) && !empty($title_message[2])) ? $title_message[2] : ''); ?></span></h2>
+                    <h2><?php echo strtoupper($about_timeline['aut_main_title']); ?></h2>
                     <p><?php echo $about_timeline['aut_sub_title']; ?></p>
                 </div>
                 <div class="story-box">
@@ -61,7 +56,7 @@
             <div class="col-12 col-xl-5 col-lg-6 offset-xl-1">
                 <div class="testimonial-box">
                     <div class="section-head-2">
-                        <h2>Our Testimonial <span>Pro</span></h2>
+                        <h2>OUR TESTIMONIAL <span>PRO</span></h2>
                         <p>Dummy text of the printing and typesetting industry or has been the industry's standard unknown printa galley.</p>
                     </div>
                     <div class="swiper-container testimonial-slider" data-swiper-config='{"loop": true, "effect": "slide", "speed": 800, "autoplay": 5000, "paginationClickable": true, "spaceBetween": 25 }' >
@@ -94,7 +89,7 @@
                                                         <li><i class="fa fa-star-half-o"></i></li>
                                                     </ul>
                                                     <div class="mains-comment">
-                                                        <p><i class="fa fa-quote-left"></i><?php echo $value_tms['tms_content'];?><i class="fa fa-quote-right"></i> </p>
+                                                        <p><i class="fa fa-quote-left"></i><?php echo $value_tms['tms_content']; ?><i class="fa fa-quote-right"></i> </p>
                                                     </div>
                                                     <img src="<?php echo $value_tms['tms_image_sign']; ?>" alt="">
                                                 </div>

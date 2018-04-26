@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="themes/backend/assets/bower_components/font-awesome/css/font-awesome.min.css">
+        
         <!-- Ionicons -->
         <link rel="stylesheet" href="themes/backend/assets/bower_components/Ionicons/css/ionicons.min.css">
         <link rel="stylesheet" href="themes/backend/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
@@ -21,6 +22,8 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="themes/backend/assets/dist/css/skins/_all-skins.min.css">
+        <!-- Bootstrap Color Picker -->
+        <link rel="stylesheet" href="themes/backend/assets/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
         <link rel="stylesheet" href="themes/backend/assets/dist/css/custom.css" type="text/css">
 
         <!--link href="//cdn.datatables.net/1.10.8/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"-->

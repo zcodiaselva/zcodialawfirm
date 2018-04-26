@@ -24,6 +24,8 @@
 <script src="themes/backend/assets/dist/js/adminlte.min.js"></script>
 <!-- Sparkline -->
 <script src="themes/backend/assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- bootstrap color picker -->
+<script src="themes/backend/assets/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
 <!-- jvectormap  -->
 <script src="themes/backend/assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="themes/backend/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
@@ -920,7 +922,9 @@
             $(".btnEditSubMenu,.btnDelSubMenu").prop("disabled", true);
         }
     }
-
+function change_this(thss){
+    info_msg('here');
+}
     function fillEditor(selector, value) {
         var content = $(selector);
         var contentPar = content.parent()
@@ -969,7 +973,7 @@
         });
 
         $("#txtAbtItemContent,#txtHomeContentTMS,#txtHomeTMContent,#txtContentAboutMe,#txtAbtTLSubHeader,#txtanswer,#txtPAContent,#txtAbtAttyContent,#txt_pc_content").wysihtml5();
-
+$('.my-colorpicker2').colorpicker();
     })
 </script>
 </body>

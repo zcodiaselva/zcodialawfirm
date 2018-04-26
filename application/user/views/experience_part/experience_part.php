@@ -16,7 +16,7 @@ if (isset($attorney_experience) && !empty($attorney_experience)) {
         <div class="row">
             <div class="col-md-7">
                 <div class="section-head-2">
-                    <h2><?php echo $attyExperienceName; ?></h2>
+                    <h2><?php echo strtoupper($attyExperienceName); ?></h2>
                     <p class="white"><?php echo $attyExperienceDesc; ?></p>
                     <img src="<?php echo $attyExperienceSignImage; ?>" alt="">
                 </div>
