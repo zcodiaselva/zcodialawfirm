@@ -6,10 +6,11 @@ class Faq extends CI_Controller {
 
     public $faq_category = 'question_category';
     public $faq_questionDetails = 'qc_detail';
+    public $map_table = 'map';
 
     function __construct() {
         parent::__construct();
-          $this->load->helper('url');
+        $this->load->helper('url');
         $this->load->model('faq_model');
     }
 
@@ -19,17 +20,16 @@ class Faq extends CI_Controller {
         $data['contactus_address'] = $this->faq_model->getData('c_name,c_content,c_icon', 'contactus', array('c_status' => 1, 'c_deleted' => 0, 'c_type' => 1));
         $data['contactus_social'] = $this->faq_model->getData('c_social_link,c_social_name', 'contactus', array('c_status' => 1, 'c_deleted' => 0, 'c_type' => 2));
         $data['contactus_footer'] = $this->faq_model->getData('c_footer_content', 'contactus', array('c_status' => 1, 'c_deleted' => 0, 'c_type' => 3));
+        $data['google_map_enries'] = $this->faq_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
 
         $this->load->view('template/header', $data);
         $this->load->view('faq', $data);
-        $this->load->view('template/footer',$data);
+        $this->load->view('template/footer', $data);
     }
 
     public function slider() {
         $this->load->view('temp');
     }
-
-    
 
     function print_me($message, $content) {
         echo '<pre>' . $message;

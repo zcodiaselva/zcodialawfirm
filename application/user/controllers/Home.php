@@ -32,6 +32,9 @@ class Home extends CI_Controller {
     public $wcu_table = 'wcu';
     public $wcuTypes_table = 'wcu_type';
     public $disclaimer_table = 'disclaimer';
+    public $map_table = 'map';
+    public $about_testimonial_table = 'about_testimonial';
+    public $about_consultation_table = 'about_consultation';
 
     function __construct() {
         parent::__construct();
@@ -75,6 +78,9 @@ class Home extends CI_Controller {
         $data['seo_header'] = $this->home_model->getData('*', $this->seo_header_table, array('sh_status' => 1, 'sh_deleted' => 0), 'sh_id');
         $data['seo_page'] = $this->home_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == '' ? 'Home' : ''), 'sp_status' => 1, 'sp_deleted' => 0));
         $data['footer_submenus'] = $this->home_model->getSubMenus();
+        $data['google_map_enries'] = $this->home_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
+        $data['about_testimonial'] = $this->home_model->getData('*', $this->about_testimonial_table, array('abt_tm_status' => 1, 'abt_tm_deleted' => 0), 'abt_tm_id');
+        $data['about_consultation'] = $this->home_model->getData('*', $this->about_consultation_table, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0), 'abt_consult_id');
 
         $this->load->view('template/header', $data);
         $this->load->view('home', $data);

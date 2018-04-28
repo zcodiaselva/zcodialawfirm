@@ -13,6 +13,8 @@ class Home extends CI_Controller {
     public $home_counter = 'home_counter';
     public $disclaimer_table = 'disclaimer';
     public $disclaimer_acceptor = 'disclaimer_acceptor';
+    public $about_testimonial_table = 'about_testimonial';
+    public $about_consultation_table = 'about_consultation';
 
     function __construct() {
         parent::__construct();
@@ -148,6 +150,21 @@ class Home extends CI_Controller {
 
             $this->load->view('header/header', $data);
             $this->load->view('home_slider_box', $data);
+            $this->load->view('footer');
+        }
+    }
+    
+    function consultation(){
+        if (!$this->tank_auth->is_logged_in()) {
+            redirect('/auth/login/');
+        } else {
+            $data['user_id'] = $this->tank_auth->get_user_id();
+            $data['username'] = $this->tank_auth->get_username();
+            $data['about_consultation'] = $this->home_model->getData('*', $this->about_consultation_table, array('abt_consult_status' => 1), 'abt_consult_id');
+
+
+            $this->load->view('header/header', $data);
+            $this->load->view('about_consultation', $data);
             $this->load->view('footer');
         }
     }
@@ -322,8 +339,7 @@ class Home extends CI_Controller {
         } else {
             $data['user_id'] = $this->tank_auth->get_user_id();
             $data['username'] = $this->tank_auth->get_username();
-            $data['tms_items'] = $this->home_model->getData('*', $this->testimonialSlider, '', 'tms_id');
-
+            $data['about_testimonial'] = $this->home_model->getData('*', $this->about_testimonial_table, '', 'abt_tm_id');
 
             $this->load->view('header/header', $data);
             $this->load->view('home_testimonial_slider', $data);
@@ -474,9 +490,15 @@ class Home extends CI_Controller {
             }
         }
 
+        $abt_testimonial = array('abt_tm_main_title' => $this->input->post('abt_tm_main_title'),
+            'abt_tm_sub_title' => $this->input->post('abt_tm_sub_title')
+        );
+
         $TMSItem = array('tms_name' => $this->input->post('txtHomeTMSName'),
             'tms_content' => $this->input->post('txtHomeContentTMS')
         );
+
+        $IsEmpty_TMSItem = array_filter($TMSItem);
 
         if (isset($TMS_image) && !empty($TMS_image)) {
             $TMSItem['tms_image'] = cleanurl($TMS_image);
@@ -487,18 +509,17 @@ class Home extends CI_Controller {
 
         $tms_id = $this->input->post('tms_id');
 
-        if (isset($tms_id) && !empty($tms_id)) { //update search
-            $isTMSItemExists = $this->home_model->searchContent($this->testimonialSlider, array('tms_id' => $tms_id, 'tms_deleted' => 0)); //table, where
-        } else { //insert search
-            $isTMSItemExists = $this->home_model->searchContent($this->testimonialSlider, array('tms_status' => 1, 'tms_deleted' => 0)); //insert - table, where
+        $is_abt_testimonial_exists = $this->home_model->searchContent($this->about_testimonial_table);
+
+        if ($is_abt_testimonial_exists == 0) {
+            $inserted = $this->home_model->insertData($this->about_testimonial_table, $abt_testimonial);
+        } else if ($is_abt_testimonial_exists <> 0) {
+            $inserted = $this->home_model->updateData($this->about_testimonial_table, $abt_testimonial, array('abt_tm_id' => 1));
         }
 
-        if ($isTMSItemExists <> 0 && isset($tms_id) && !empty($tms_id)) {
-
+        if ($isTMSItemExists <> 0 && isset($tms_id) && !empty($tms_id) && isset($IsEmpty_TMSItem) && !empty($IsEmpty_TMSItem)) {
             if (isset($TMSItem['tms_image']) && !empty($TMSItem['tms_image'])) {
-
                 if (isset($isTMSItemExists[0]['tms_image']) && !empty($isTMSItemExists[0]['tms_image'])) {
-
                     if (file_exists($isTMSItemExists[0]['tms_image'])) {
                         $res = unlink($isTMSItemExists[0]['tms_image']);
                     }
@@ -506,10 +527,8 @@ class Home extends CI_Controller {
             }
 
 
-            if (isset($TMSItem['tms_image_sign']) && !empty($TMSItem['tms_image_sign'])) {
-
+            if (isset($TMSItem['tms_image_sign']) && !empty($TMSItem['tms_image_sign']) && isset($IsEmpty_TMSItem) && !empty($IsEmpty_TMSItem)) {
                 if (isset($isTMSItemExists[0]['tms_image_sign']) && !empty($isTMSItemExists[0]['tms_image_sign'])) {
-
                     if (file_exists($isTMSItemExists[0]['tms_image_sign'])) {
                         $res = unlink($isTMSItemExists[0]['tms_image_sign']);
                     }
@@ -517,11 +536,17 @@ class Home extends CI_Controller {
             }
         }
 
-        if (empty($tms_id)) {
+        if ($is_abt_testimonial_exists == 0) {
+            $inserted = $this->home_model->insertData($this->about_testimonial_table, $abt_testimonial);
+        } else if ($is_abt_testimonial_exists <> 0) {
+            $inserted = $this->home_model->updateData($this->about_testimonial_table, $abt_testimonial, array('abt_tm_id' => 1));
+        }
+
+        if (empty($tms_id) && isset($IsEmpty_TMSItem) && !empty($IsEmpty_TMSItem)) {
             $inserted = $this->home_model->insertData($this->testimonialSlider, $TMSItem);
         } else {
 
-            if (isset($tms_id) && !empty($tms_id)) { //update
+            if (isset($tms_id) && !empty($tms_id) && isset($IsEmpty_TMSItem) && !empty($IsEmpty_TMSItem)) { //update
                 $inserted = $this->home_model->updateData($this->testimonialSlider, $TMSItem, array('tms_id' => $tms_id, 'tms_deleted' => 0)); //table, where
             }
         }
@@ -812,6 +837,29 @@ class Home extends CI_Controller {
         }
 
         echo $deleted;
+    }
+    
+    
+
+    function update_consultation() { //on trigger of abtCounsultation_submit()
+        $inserted = 0;
+
+        $ConsultationItems = array(
+            'abt_consult_main_title' => $this->input->post('abt_consult_main_title'),
+            'abt_consult_sub_title' => $this->input->post('abt_consult_sub_title'),
+            'abt_consult_form_header' => $this->input->post('abt_consult_form_header'),
+            'abt_consult_button_text' => $this->input->post('abt_consult_button_text')
+        );
+
+        $isConsultationItemExists = $this->home_model->searchContent($this->about_consultation_table, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0)); //table, where
+
+        if ($isConsultationItemExists == 0) {
+            $inserted = $this->home_model->insertData($this->about_consultation_table, $ConsultationItems);
+        } else {
+            $inserted = $this->home_model->updateData($this->about_consultation_table, $ConsultationItems, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0));
+        }
+
+        echo $inserted;
     }
 
     function print_me($message, $content) {

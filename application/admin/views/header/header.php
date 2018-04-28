@@ -240,6 +240,11 @@
                                 </a> 
                                 <ul class="treeview-menu">
                                     <li class="<?php
+                                    if ($this->uri->segment(2) == "consultation") {
+                                        echo "active";
+                                    }
+                                    ?>"><a href="admin.php/home/consultation"><i class="fa fa-angle-double-right"></i>Consultation</a></li>
+                                    <li class="<?php
                                     if ($this->uri->segment(2) == "counter_part") {
                                         echo "active";
                                     }

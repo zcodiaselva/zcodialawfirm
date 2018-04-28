@@ -14,14 +14,14 @@ if (isset($wcu) && !empty($wcu)) {
 <section class="about-part">
     <div class="container">
         <div class="row d-flex align-items-center">
-            <div class="col-md-5">
+            <div class="col-md-5 hide">
                 <div class="law-pro text-center hide">
                     <i class="fi flaticon-auction"></i>
                     <h2><?php echo strtoupper($wcu_box_head); ?></h2>
                     <p class="h3"><?php echo $wcu_box_desc; ?></p>
                 </div>
             </div>
-            <div class="col-md-6 offset-md-1">
+            <div class="col-md-12">
                 <div class="about-details">
                     <div class="section-head-2">
                         <h2><?php echo strtoupper($wcu_head); ?></h2>
@@ -32,11 +32,13 @@ if (isset($wcu) && !empty($wcu)) {
                         foreach ($wcu_types as $key => $value) {
                             ?>   
                             <div class="about-item-box">
-                                <h3><a href="<?php echo $value['wcu_type_name_hl']; ?>"><?php echo $value['wcu_type_name']; ?></a></h3>
-                                <p><?php echo $value['wcu_type_desc']; ?></p>
                                 <div class="about-item-icon">
                                     <i class="<?php echo $value['wcu_type_icon']; ?>"></i>
                                 </div>
+
+                                <h3><a href="<?php echo $value['wcu_type_name_hl']; ?>"><?php echo $value['wcu_type_name']; ?></a></h3>
+                                <p><?php echo $value['wcu_type_desc']; ?></p>
+
                             </div>
                             <?php
                         }

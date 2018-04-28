@@ -48,37 +48,11 @@ if (isset($logo_details) && !empty($logo_details)) {
 <div id="mobile-nav" data-prevent-default="true" data-mouse-events="true">
     <div class="mobile-nav-box">
         <div class="mobile-logo">
-            <a href="<?php echo $logo_href; ?>" class="mobile-main-logo"><img src="<?php echo $logo_mobile_image; ?>" alt="<?php echo $logo_alt_text; ?>" style="width:<?php echo $logo_header_width; ?>px; height:<?php echo $logo_header_height; ?>px;"></a>
+            <a href="<?php echo $logo_href; ?>" class="mobile-main-logo"><img src="<?php echo $logo_image; ?>" alt="<?php echo $logo_alt_text; ?>" style="width:<?php echo $logo_header_width; ?>px; height:<?php echo $logo_header_height; ?>px;"></a>
             <a href="#" class="manu-close">MENU <i class="fa fa-times"></i></a>
         </div>
 
         <ul class="mobile-list-nav"></ul>
-
-        <div class="achivement-blog hide">
-            <ul class="flat-list">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-facebook"></i>
-                        <h6>Facebook</h6>
-                        <span class="counter">12546</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-twitter"></i>
-                        <h6>Twiter</h6>
-                        <span class="counter">12546</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-pinterest"></i>
-                        <h6>Pinterest</h6>
-                        <span class="counter">12546</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+ </div>
 </div>
 <!-- Navigation Part End -->

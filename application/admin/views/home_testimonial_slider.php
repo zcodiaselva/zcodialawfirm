@@ -1,15 +1,10 @@
-1<!-- Main content -->
+<!-- Main content -->
 <?php
-//$auHeaderTitle = $auHeaderSubtitle = $auContentMainTitle = $auContentSubTitle = $auContent = $auContentImage = $auSliderImage = '';
-//if (isset($about_me) && !empty($about_me)) {
-//    $auHeaderTitle = $about_me[0]['au_header_title'];
-//    $auHeaderSubtitle = $about_me[0]['au_header_subtitle'];
-//    $auContentMainTitle = $about_me[0]['au_content_main_title'];
-//    $auContentSubTitle = $about_me[0]['au_content_sub_title'];
-//    $auContent = $about_me[0]['au_content'];
-//    $auContentImage = $about_me[0]['au_content_image'];
-//    $auSliderImage = $about_me[0]['au_slider_image'];
-//}
+$abt_testimonial_header = $abt_testimonial_subheader ='';
+if (isset($about_testimonial) && !empty($about_testimonial)) {
+    $abt_testimonial_header = $about_testimonial[0]['abt_tm_main_title'];
+    $abt_testimonial_subheader = $about_testimonial[0]['abt_tm_sub_title'];
+}
 ?>
 
 <section class="content-header">
@@ -38,8 +33,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="txtHomeTMSMainHeader">Main Header</label>
+                        <input type="text" class="form-control" id="txtHomeTMSMainHeader" value="<?php echo $abt_testimonial_header; ?>" >
+                    </div>
+                    <div class="form-group">
+                        <label for="txtHomeTMSSubHeader">Sub Header</label>
+                        <input type="text" class="form-control" id="txtHomeTMSSubHeader" value="<?php echo $abt_testimonial_subheader; ?>" >
+                    </div>
+                    
+                    <div class="form-group">
                         <label for="txtHomeTMSName">Name</label>
-                        <input type="text" class="form-control HomeTMSName" id="txtHomeTMSName" value="<?php //echo //$auHeaderTitle;   ?>">
+                        <input type="text" class="form-control HomeTMSName" id="txtHomeTMSName" >
                     </div>
 
                     <div class="form-group">
@@ -48,14 +52,14 @@
                                 <label>Testimonial User Image</label>
                                 <div id="imgHomeTMSSliderPreview">
                                     <label for="imgHomeTMSSliderUpload" id="imgHomeTMSSliderLabel">Choose File</label>
-                                    <input type="file"  class="HomeTMSSliderUpload" name="imgHomeTMSSliderUpload" id="imgHomeTMSSliderUpload"  value="<?php //echo $auSliderImage;   ?>"  accept="image/gif,image/jpeg,image/png" />
+                                    <input type="file"  class="HomeTMSSliderUpload" name="imgHomeTMSSliderUpload" id="imgHomeTMSSliderUpload"   accept="image/gif,image/jpeg,image/png" />
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                 <label>Testimonial Sign Image</label>
                                 <div id="imgHomeTMSSliderSignPreview">
                                     <label for="imgHomeTMSSliderSignUpload" id="imgHomeTMSSliderSignLabel">Choose File</label>
-                                    <input type="file"  class="HomeTMSSliderSignUpload" name="imgHomeTMSSliderSignUpload" id="imgHomeTMSSliderSignUpload"  value="<?php //echo $auSliderImage;   ?>"  accept="image/gif,image/jpeg,image/png" />
+                                    <input type="file"  class="HomeTMSSliderSignUpload" name="imgHomeTMSSliderSignUpload" id="imgHomeTMSSliderSignUpload"    accept="image/gif,image/jpeg,image/png" />
                                 </div>
 
                             </div>
@@ -67,7 +71,7 @@
 
                     <div class="form-group">
                         <label for="txtContentAboutMe">Content</label>
-                        <textarea class="form-control homeTMS-content ContentTMS" id="txtHomeContentTMS"><?php //echo $auContent;   ?></textarea>
+                        <textarea class="form-control homeTMS-content ContentTMS" id="txtHomeContentTMS"></textarea>
                     </div>
                     <!-- /.form-group -->
                 </div>

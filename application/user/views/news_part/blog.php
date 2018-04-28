@@ -89,16 +89,7 @@
                         <div class="col-12">
                             <div class="blog-pagination d-flex">
                                 <?php echo $pagination; ?>
-                                <!--a href="#" class="pagination-prev"><i class="fa fa-long-arrow-left d-none d-sm-inline-block"></i> Prev</a>
-                                <ul class="flat-list ml-auto mr-auto">
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li class="active"><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li>...</li>
-                                </ul>
-                                <a href="#" class="pagination-next">next <i class="fa fa-long-arrow-right d-none d-sm-inline-block"></i></a-->
-                            </div>
+                               </div>
                         </div>
                     </div>
                 </div>

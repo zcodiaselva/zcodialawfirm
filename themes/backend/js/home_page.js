@@ -40,17 +40,28 @@ function disclaimer_submit(thss) {     //disclaimer - form_submit - ajax
 function home_tms_submit(thss) { //testimonial slider - form_submit - ajax
     var error = false;
     var tms_id = $(thss).attr('tms_id');
+    var txtHomeTMSMainHeader = $("#txtHomeTMSMainHeader").val();
+    var txtHomeTMSSubHeader = $("#txtHomeTMSSubHeader").val();
     var txtHomeTMSName = $("#txtHomeTMSName").val();
     var txtHomeContentTMS = $("textArea#txtHomeContentTMS").val();
-    if (!txtHomeTMSName) {
+    if (!txtHomeTMSMainHeader) {
+        info_msg('Testimonial Header is empty');
+        error = true;
+    } else if (!txtHomeTMSSubHeader) {
+        info_msg('Testimonial Subheader is empty');
+        error = true;
+    }
+    else if (!txtHomeTMSName && !txtHomeTMSMainHeader && !txtHomeTMSSubHeader) {
         info_msg('Testimonial User name is empty');
         error = true;
-    } else if (!txtHomeContentTMS) {
+    } else if (!txtHomeContentTMS && !txtHomeTMSMainHeader && !txtHomeTMSSubHeader) {
         info_msg('Testimonial User Content is empty');
         error = true;
     }
     if (error == false) {
         var form_data = new FormData();
+        form_data.append('abt_tm_main_title', txtHomeTMSMainHeader);
+        form_data.append('abt_tm_sub_title', txtHomeTMSSubHeader);
         form_data.append('txtHomeTMSName', txtHomeTMSName);
         form_data.append('txtHomeContentTMS', txtHomeContentTMS);
         form_data.append('HomeTMS_image', $('#imgHomeTMSSliderUpload').prop('files')[0]);
@@ -631,3 +642,45 @@ function del_htItem(thss) { // delete home temstimonial item - from modal
 }
 
 
+function aboutConsulting_submit(thss) {     //about consultation  - form_submit - ajax
+    var error = false;
+    var txtAbtConsultationMainHeader = $("#txtAbtConsultationMainHeader").val();
+    var txtAbtConsultationSubHeader = $("#txtAbtConsultationSubHeader").val();
+    var txtAbtConsultationFormHeader = $("#txtAbtConsultationFormHeader").val();
+    var txtAbtConsultationButtonText = $("#txtAbtConsultationButtonText").val();
+    if (!txtAbtConsultationMainHeader) {
+        info_msg('Heading Text is empty');
+        error = true;
+    } else if (!txtAbtConsultationSubHeader) {
+        info_msg('Sub Heading Text is empty');
+        error = true;
+    } else if (!txtAbtConsultationFormHeader) {
+        info_msg('Box Heading Text is empty');
+        error = true;
+    } else if (!txtAbtConsultationButtonText) {
+        info_msg('Button Text is empty');
+        error = true;
+    }
+    if (error == false) {
+        var form_data = new FormData();
+        form_data.append('abt_consult_main_title', txtAbtConsultationMainHeader);
+        form_data.append('abt_consult_sub_title', txtAbtConsultationSubHeader);
+        form_data.append('abt_consult_form_header', txtAbtConsultationFormHeader);
+        form_data.append('abt_consult_button_text', txtAbtConsultationButtonText);
+        $.ajax({
+            method: "POST",
+            url: "admin.php/home/update_consultation",
+            data: form_data, contentType: false,
+            cache: false,
+            processData: false,
+            success: function (data) {
+                if (data == 1) {
+                    success_msg('Consultation Content Updated Successfully!!!');
+                } else {
+                    error_msg('Consultation Content not Updated!!!');
+                }
+            }
+        });
+    }
+
+}

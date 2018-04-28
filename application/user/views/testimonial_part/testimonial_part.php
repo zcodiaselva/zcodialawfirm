@@ -1,4 +1,12 @@
 <!-- Testiminial Part Start -->
+
+<?php
+$abt_testimonial_header = $abt_testimonial_subheader ='';
+if (isset($about_testimonial) && !empty($about_testimonial)) {
+    $abt_testimonial_header = $about_testimonial[0]['abt_tm_main_title'];
+    $abt_testimonial_subheader = $about_testimonial[0]['abt_tm_sub_title'];
+}
+?>
 <section class="testimonial-part section-p">
     <div class="container">
         <div class="row">
@@ -56,8 +64,8 @@
             <div class="col-12 col-xl-5 col-lg-6 offset-xl-1">
                 <div class="testimonial-box">
                     <div class="section-head-2">
-                        <h2>OUR TESTIMONIAL <span>PRO</span></h2>
-                        <p>Dummy text of the printing and typesetting industry or has been the industry's standard unknown printa galley.</p>
+                        <h2><?php echo $abt_testimonial_header; ?></h2>
+                        <p><?php echo $abt_testimonial_subheader; ?></p>
                     </div>
                     <div class="swiper-container testimonial-slider" data-swiper-config='{"loop": true, "effect": "slide", "speed": 800, "autoplay": 5000, "paginationClickable": true, "spaceBetween": 25 }' >
                         <div class="swiper-wrapper">

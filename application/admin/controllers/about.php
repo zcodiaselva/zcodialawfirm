@@ -767,7 +767,7 @@ class About extends CI_Controller {
             $inserted = $this->aboutus_model->insertData($this->timelineitems_table, $aboutTimelineItems);
         } else {
 
-            if (isset($autli_id) && !empty($autli_id)) { //update
+            if (isset($autli_id) && !empty($autli_id) && isset($IsEmpty_aboutTimelineItems) && !empty($IsEmpty_aboutTimelineItems)) { //update
                 $inserted = $this->aboutus_model->updateData($this->timelineitems_table, $aboutTimelineItems, array('autli_id' => $autli_id, 'autli_deleted' => 0)); //table, where
             }
         }

@@ -185,8 +185,6 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
 <!--script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"-->
 <script>
 
-//var js = 'fiddle';
-//alert(CryptoJS.MD5(js));
 
 
                     $(document).ready(function () {
@@ -222,18 +220,26 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                          */
 //                         var screensize = document.documentElement.clientWidth;
 //                            alert(screensize);
-                        $(window).resize(function () {
-                            $(".bars").css("display", "none");
-                            var screensize = document.documentElement.clientWidth;
-                         //   alert(screensize);
-                            if (parseInt(screensize) < 1024) {
-                                $(".bars").css("display", "block");
-                            }
-                        });
+                        $(".bars").css("display", "none");
+                        var screensize = document.documentElement.clientWidth;
+                        console.log(screensize);
+                        if (parseInt(screensize) < 1024) {
+                            $(".bars").css("display", "block");
+                        }
+
                     });
 
+                    $(window).resize(function () {
+                        $(".bars").css("display", "none");
+                        var screensize = document.documentElement.clientWidth;
+                        console.log(screensize);
+                        if (parseInt(screensize) < 1024) {
+                            $(".bars").css("display", "block");
+                        }
+                    });
 
                     function contact_submit(thss) {
+
                         var error = false;
                         var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
                         var message = $("#txtContactMessage").val();
@@ -241,10 +247,7 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                         var mail = $('#txtContactEmail').val();
 
 
-                        if (!message) {
-                            info_msg('Message should not be empty!!');
-                            error = true;
-                        } else if (!name) {
+                        if (!name) {
                             info_msg('Name should not be empty!!');
                             error = true;
                         } else if (!mail) {
@@ -252,6 +255,9 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                             error = true;
                         } else if (!pattern.test(mail)) {
                             info_msg('Incorrect E-Mail Address!!');
+                            error = true;
+                        } else if (!message) {
+                            info_msg('Message should not be empty!!');
                             error = true;
                         }
 

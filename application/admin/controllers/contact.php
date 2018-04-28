@@ -345,6 +345,8 @@ class Contact extends CI_Controller {
 
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
+        $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+        $this->email->set_header('Content-type', 'text/html');
         /* mail to admin start */
         $this->email->from('murali.zt91emp24@gmail.com');
         $this->email->to($mail);

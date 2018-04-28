@@ -24,9 +24,9 @@
                     <?php } ?>
 
                     <div class="con-page-form">
-                        <textarea name="message" placeholder="Message" id="txtContactMessage"></textarea>
                         <input type="text" placeholder="Name *" id="txtContactName" class="mar-r">
                         <input type="text" placeholder="Email *" id="txtContactEmail">
+                        <textarea name="message" placeholder="Message" id="txtContactMessage"></textarea>
                         <input value="Submit" class="btnUpdateContactDetails" type="submit" onclick="contact_submit($(this))">
                     </div>
                 </div>

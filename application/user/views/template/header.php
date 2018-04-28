@@ -70,8 +70,7 @@
         <!-- Bootstrap css -->
         <link rel="stylesheet" href="themes/frontend/css/bootstrap.min.css">
         <!-- Fontawesome css -->
-<!--        <link rel="stylesheet" href="themes/frontend/css/font-awesome.min.css">-->
-        <link rel="stylesheet" href="themes/backend/assets/bower_components/font-awesome/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="themes/frontend/css/font-awesome.min.css">
         <!-- Swiper css -->
         <link rel="stylesheet" href="themes/frontend/css/swiper.min.css">
         <!-- Animate css -->
