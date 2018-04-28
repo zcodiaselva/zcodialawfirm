@@ -381,6 +381,9 @@ img {
 .section-head-3-1 {
     margin-bottom: 80px;
 }
+.team-2-part .section-head-3-1 {
+    margin-bottom: 50px;
+}
 
 .section-head-3-1 h2 {
     padding-bottom: 30px;
@@ -407,7 +410,7 @@ img {
     transform: translateX(-50%);
     background: #d6b34b;
     width: 100px;
-    height: 2px;
+    height: 3px;
 }
 
 .section-head-3-1 p {
@@ -635,6 +638,7 @@ img {
     .regular-list li {
         font-size: 17px;
     }
+
 }
 
 .btn-1 {
@@ -746,14 +750,15 @@ img {
     }
 }
 
-@media only screen and (max-width: 991px) {.bars{
-                                               display:block;
-                                           }
-                                           .btn-5 {
-                                               font-size: 16px;
-                                               line-height: 26px;
-                                               padding: 7px 35px;
-                                           }
+@media only screen and (max-width: 991px) {
+    .bars{
+        display:block;
+    }
+    .btn-5 {
+        font-size: 16px;
+        line-height: 26px;
+        padding: 7px 35px;
+    }
 }
 
 
@@ -1526,6 +1531,12 @@ body.active #mobile-nav {
 }
 
 @media (min-width: 1200px) and (max-width: 1600px) {
+    .about-details .section-head-2 h2::before {
+        left: 520px;
+    }
+    .skill-part::after {
+        width: 65.5% !important;
+    }
     .home-one .banner-caption {
         width: 660px;
         transform: translateY(-50%);
@@ -2238,7 +2249,9 @@ body.active #mobile-nav {
     .banner-2-part {
         padding-bottom: 0;
     }
-
+    .single-team .img .content .default {
+        margin-left: -6px;
+    }
     .banner-2-part .banner-inner-6 {
         width: 35%;
         top: -137px;
@@ -2741,7 +2754,7 @@ body.active #mobile-nav {
 }
 
 .about-details .section-head-2 {
-    padding-bottom: 50px;   
+    padding-bottom: 100px;   
 }
 
 .about-item-box .about-item-icon {
@@ -2900,8 +2913,8 @@ body.active #mobile-nav {
     }
 
     .about-item-box {
-        margin-top: 29px;
-        margin-bottom: 50px;
+        /*        margin-top: 29px;
+                margin-bottom: 50px;*/
     }
     .about-item-box .about-item-icon {
         left: -130px;
@@ -2912,7 +2925,9 @@ body.active #mobile-nav {
         padding-bottom: 15px;
         font-size: 30px;
     }
+    .single-team .img .content .default {
 
+    }
     .about-item-box h3 {
         font-size: 19px;
         line-height: 29px;
@@ -3012,10 +3027,8 @@ body.active #mobile-nav {
 
     .about-item-box {
         text-align: center;
+        margin-bottom: 60px;
     }
-
-
-
 
     .about-details .section-head-2 {
         padding-bottom: 50px;
@@ -3968,9 +3981,9 @@ body.active #mobile-nav {
 
 .practise-item:hover {
     background: #262932;
-    -moz-box-shadow:    0 15px 20px rgba(30, 33, 40, 0.53);
-    -webkit-box-shadow: 0 15px 20px rgba(30, 33, 40, 0.53);
-    box-shadow:         0 15px 20px rgba(30, 33, 40, 0.53);
+    -moz-box-shadow:    0 15px 20px rgba(32, 34, 39, 1);
+    -webkit-box-shadow: 0 15px 20px rgba(32, 34, 39, 1);
+    box-shadow:         0 15px 20px rgba(32, 34, 39, 1);
 }
 
 .practise-item h2 {
@@ -4535,9 +4548,9 @@ body.active #mobile-nav {
 }
 
 .testimonial-slider .swiper-pagination .swiper-pagination-bullet {
-    height: 7px;
+    height: 9px;
     width: 24px;
-    border-radius: 0;
+    border-radius: 10px;
     border: 2px solid #616161;
     background: transparent;
     cursor: pointer;
@@ -4547,6 +4560,7 @@ body.active #mobile-nav {
 
 .testimonial-slider .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
     border-color: #d6b34b;
+    background: #d6b34b;
 }
 
 .person-detail {
@@ -4554,7 +4568,7 @@ body.active #mobile-nav {
 }
 
 .person-detail .person-img img {
-    border: 4px solid #fff;
+    border: 3px solid #fff;
     border-radius: 24px;
     width: 100%;
 }
@@ -4625,7 +4639,10 @@ body.active #mobile-nav {
     .story-comment-left {
         padding-left: 0;
     }
-
+    .skill-box .section-head-2 {
+        color: #fff;
+        text-align: left !important;
+    }
     .story-comment {
         padding: 20px 52px 20px 5px;
     }
@@ -5081,6 +5098,8 @@ body.active #mobile-nav {
 
 .skill-part .section-head-2 {
     margin-bottom: 54px;
+    text-align:center;
+    /*width: 90%;*/
 }
 
 .skill-box .section-head-2 {
@@ -5763,7 +5782,7 @@ body.active #mobile-nav {
     position: relative;
 }
 .single-team .img::before {
-    background: #e7af62 none repeat scroll 0 0;
+    background: #d6b34b none repeat scroll 0 0;
     border-radius: 100px;
     bottom: 12px;
     content: "";
@@ -5834,7 +5853,7 @@ body.active #mobile-nav {
 .single-team .img .content .social li a {
     background: #fff none repeat scroll 0 0;
     border-radius: 100px;
-    color: #e7af62;
+    color: #d6b34b;
     display: block;
     height: 35px;
     line-height: 35px;
@@ -5844,18 +5863,7 @@ body.active #mobile-nav {
     background: #333333 none repeat scroll 0 0;
     color: #fff;
 }
-.swiper-wrapper > .swiper-slide > .single-team:last-child .img .content {
-    /*    right: -93px;*/
-}
-.swiper-wrapper > .swiper-slide:nth-child(8) .default {
-    margin-right: -43px;
-}
-.swiper-wrapper > .swiper-slide:nth-child(4) .default {
-    margin-right: 0px;
-}
-.swiper-wrapper > .swiper-slide:nth-child(6) .default {
-    margin-right: -35px !important;
-}
+
 
 @media only screen and (max-width: 1400px) {
     .team-2-part.patten::before {
@@ -5968,7 +5976,7 @@ body.active #mobile-nav {
 }
 
 .team-2-part .swiper-container-horizontal > .swiper-pagination-bullets{
-    bottom: -5px;
+    bottom: -2px;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -5983,6 +5991,9 @@ body.active #mobile-nav {
     }
     .team-2-item {
         margin: 5px 5px 30px 5px;
+    }
+    .team-2-item .default {
+        margin-left: 36px;
     }
     .team-slider {
         padding: 25px 0px 0px;
@@ -6173,9 +6184,10 @@ body.active #mobile-nav {
 }
 
 .footer-widget {
-    background: #3c3c3c;
-    color: #fff;
+    background: #1e2126;
+    color: #dcdcdc;
     padding: 90px 0 80px;
+    border-bottom: 1px solid #1e2126;
 }
 
 .footer-logo {
@@ -6183,7 +6195,7 @@ body.active #mobile-nav {
 }
 
 .footer-logo p {
-    color: #fff;
+    color: #dcdcdc;
     margin-top: 38px;
     max-width: 300px;
 }
@@ -6241,18 +6253,19 @@ body.active #mobile-nav {
 --------------------------------------------------- */
 
 .footer-copyright {
-    background: #2e2e2e;
-    padding: 40px 0;
+    background: #191c21;
+    padding: 20px 0;
     text-align: center;
+    border-top: 2px solid #191c21;
 }
 
 .footer-part .footer-copyright p {
-    color: #c6c5c5;
+    color: #9c9d9f;
     font-weight: 400;
 }
 
 .footer-copyright p a {
-    color: #c6c5c5;
+    color: #9f9f9f;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
@@ -6282,7 +6295,7 @@ body.active #mobile-nav {
     height: 33px;
     width: 33px;
     line-height: 33px;
-    background: #fff;
+    background: #dcdcdc;
     border-radius: 50%;
     text-align: center;
     box-shadow: 0px 0px 7px 0px rgba(133, 133, 133, 0.35);
@@ -6296,8 +6309,9 @@ body.active #mobile-nav {
     font-size: 14px;
 }
 
-.footer-logo ol.flat-list li a:hover i {
-    color: #d6b34b;
+.footer-logo ol.flat-list li a:hover {
+    color: #1e2126;
+    background-color:#d6b34b;
 }
 
 
@@ -8418,6 +8432,7 @@ body.active #mobile-nav {
     margin-bottom: 30px;
     box-shadow: 0px 0px 2px 0px rgba(108, 108, 108, 0.25);
     padding: 15px;
+    resize:none;
     height: 180px;
 }
 
@@ -9015,6 +9030,9 @@ input.btn-1:hover {
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
+    .single-team  .default {
+        margin-left: 0px;
+    }
     .post-single-des .blog-title {
         font-size: 15px;
         line-height: 24px;
@@ -10604,6 +10622,7 @@ p.no-support {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+
     .widget.style-two {
         margin-top: 50px;
     }
@@ -10893,6 +10912,7 @@ p.no-support {
 }
 
 @media only screen and (max-width: 575px) {
+
     .count-des {
         padding-left: 34px;
         position: relative;
@@ -10988,25 +11008,27 @@ div#modal-body-disclaimer {
     }
 }
 @media only screen and (min-width: 768px){
-    .swiper-wrapper > .swiper-slide:nth-child(6) .default {
-        margin-right: 2px !important;
-    }
+
+
 }
 @media only screen and (min-width: 1024px){
-    .swiper-wrapper > .swiper-slide:nth-child(6) .default {
-        margin-right: 0px !important;
 
-    }
 }
-@media only screen and (min-width: 1440px){
+@media only screen and (min-width: 1440px){ 
 
+    .skill-part .section-head-2 {
+        margin-bottom: 54px;
+        text-align: left;
+        width: 90%;
+    }
+    .skill-part::after {
+        width: 64%;
+    }
     .practise-part .section-head h2 {
         color: #fff;
         font-weight:bold;
     }
-    .swiper-wrapper > .swiper-slide:nth-child(6) .default {
-        margin-right: 0px !important;
-    }
+
 
     .section-head-2 h2::before {
         /*left: 540px;*/
@@ -11064,6 +11086,11 @@ div#modal-body-disclaimer {
 
 @media only screen and (min-width: 2560px){
 
+    .skill-part .section-head-2 {
+        margin-bottom: 54px;
+        text-align: left;
+        width: 90%;
+    }
     ul.navbar-nav.ml-auto > li:last-child {
         padding-right: 0px !important;
     }
@@ -11071,7 +11098,7 @@ div#modal-body-disclaimer {
         display: none;
     }
     .skill-part::after{
-        width:59%;
+        width:57%;
     }
     .home-one .banner-caption {
         width: 660px;
@@ -11080,9 +11107,7 @@ div#modal-body-disclaimer {
         position: absolute;
         left: 668px;
     }
-    .swiper-wrapper > .swiper-slide:nth-child(6) .default {
-        margin-right: 2px !important;
-    }
+
 
     .section-head-2 h2::before {
         /*left: 540px;*/
@@ -11133,4 +11158,11 @@ ul.navbar-nav.ml-auto > li:last-child {
 
 .about-details {
     text-align: center;
+}
+.about-details .about-item-box:last-child {
+    margin-bottom: 88px;
+}
+
+.swiper-container.team-3-slider {
+    margin-bottom: 16px;
 }
