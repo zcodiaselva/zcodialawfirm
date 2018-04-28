@@ -33,11 +33,11 @@ if (isset($disclaimer) && !empty($disclaimer)) {
 }
 
 $gmaplat = $gmaplong = $gmapkey = $map_marker_image = '';
-if (isset($google_map_enries) && !empty($google_map_enries)) {
-    $gmaplat = $google_map_enries[0]['map_lat'];
-    $gmaplong = $google_map_enries[0]['map_long'];
-    $gmapkey = $google_map_enries[0]['map_key'];
-    $map_marker_image = $google_map_enries[0]['map_marker_image'];
+if (isset($google_map_entries) && !empty($google_map_entries)) {
+    $gmaplat = $google_map_entries[0]['map_lat'];
+    $gmaplong = $google_map_entries[0]['map_long'];
+    $gmapkey = $google_map_entries[0]['map_key'];
+    $map_marker_image = $google_map_entries[0]['map_marker_image'];
 }
 ?>
 

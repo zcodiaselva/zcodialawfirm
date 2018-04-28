@@ -30,7 +30,7 @@ class ContactUs extends CI_Controller {
         $data['seo_header'] = $this->contactus_model->getData('*', $this->seo_header_table, array('sh_status' => 1, 'sh_deleted' => 0), 'sh_id');
         $data['seo_page'] = $this->contactus_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == '' ? 'Home' : ''), 'sp_status' => 1, 'sp_deleted' => 0));
         $data['footer_submenus'] = $this->contactus_model->getSubMenus();
-        $data['google_map_enries'] = $this->contactus_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
+        $data['google_map_entries'] = $this->contactus_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
         $data['contactus_contact'] = $this->contactus_model->getData('c_content', 'contactus', array('c_name' => 'contactus_content', 'c_status' => 1, 'c_deleted' => 0, 'c_type' => 1));
 
         $this->load->view('template/header', $data);

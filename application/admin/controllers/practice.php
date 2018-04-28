@@ -283,33 +283,37 @@ class Practice extends CI_Controller {
             'pad_content' => $this->input->post('pad_content')
         );
 
-//working
-
-        $pat_id = $this->input->post('pat_id');
-
         if (!empty($_FILES['fileToUpload']['name'])) {
-            $count = count($_FILES['fileToUpload']['name']);
-            for ($index = 0; $index < $count; $index++) {
-                $info = new SplFileInfo($_FILES['fileToUpload']['name'][$index]);
-                $pad_image = $date->getTimestamp() . 'pad_image.' . $info->getExtension();
+            $files_count = count($_FILES['fileToUpload']['name']);
 
-                if ($this->fileupload->upload_files('fileToUpload', $pad_image, $foldername)) {
-                    if (isset($foldername) && !empty($foldername)) {
-                        $upd_foldername = $foldername . '/';
-                        $PADItem_image = 'uploads/' . $upd_foldername . $pad_image;
-                    } else {
-                        $PADItem_image = 'uploads/' . $pad_image;
+            for ($i = 0; $i < $files_count; $i++) {
+                $_FILES['file']['name'] = $_FILES['fileToUpload']['name'][$i];
+                $_FILES['file']['type'] = $_FILES['fileToUpload']['type'][$i];
+                $_FILES['file']['tmp_name'] = $_FILES['fileToUpload']['tmp_name'][$i];
+                $_FILES['file']['error'] = $_FILES['fileToUpload']['error'][$i];
+                $_FILES['file']['size'] = $_FILES['fileToUpload']['size'][$i];
+
+                $uploadPath = 'uploads/' . $foldername . '/';
+                $config['upload_path'] = $uploadPath;
+                $config['allowed_types'] = 'gif|jpg|png';
+
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                if ($this->upload->do_upload('file')) {
+                    $fileData = $this->upload->data();
+                    $info = new SplFileInfo($fileData['file_name']);
+                    $PADItem_image = $uploadPath . $date->getTimestamp() . $i . 'pad_image.' . $info->getExtension();
+                    if (isset($PADItem_image) && !empty($PADItem_image)) {
+                        $pad_images[] = cleanurl($PADItem_image);
                     }
-                    echo $PADItem_image;die;
-                }
-                if (isset($PADItem_image) && !empty($PADItem_image)) {
-                    $pad_images[] = cleanurl($PADItem_image);
                 }
             }
         }
 
-        if (isset($pad_images) && !empty($pad_images) && is_array($pad_images)){
-            echo '<pre>';print_r($pad_images);die;
+        if (isset($pad_images) && !empty($pad_images) && is_array($pad_images)) {
+            echo '<pre>';
+            print_r($pad_images);
+            die;
         }
         $checkPADArray = array_filter($practiceAreaDetails);
 

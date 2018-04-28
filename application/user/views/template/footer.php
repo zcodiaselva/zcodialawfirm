@@ -31,8 +31,8 @@ if (isset($disclaimer) && !empty($disclaimer)) {
     $disclaimer_content = $disclaimer[0]['disclaimer_content'];
 }
 $gmapkey = '';
-if (isset($google_map_enries) && !empty($google_map_enries)) {
-    $gmapkey = $google_map_enries[0]['map_key'];
+if (isset($google_map_entries) && !empty($google_map_entries)) {
+    $gmapkey = $google_map_entries[0]['map_key'];
 }
 ?>
 
@@ -62,9 +62,9 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                     </div>
                 </div>
                 <!-- Single widget-->
-                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-sm-0">
+                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-sm-0 footer_cols">
                     <div class="footer-widget-item">
-                        <h3>Practice Areas</h3>
+                        <h3>PRACTICE AREAS</h3>
                         <ul class="footer-widget-link">
                             <?php
                             if (isset($footer_submenus) && !empty($footer_submenus)) {
@@ -79,9 +79,9 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                     </div>
                 </div>
                 <!-- Single widget-->
-                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0">
+                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0 footer_cols">
                     <div class="footer-widget-item">
-                        <h3>Contact us</h3>
+                        <h3>CONTACT US</h3>
 
                         <ul class="footer-widget-contact">
                             <?php if (isset($contact_email) && !empty($contact_email)) { ?>
@@ -103,9 +103,9 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                     </div>
                 </div>
                 <!-- Single widget-->
-                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0">
+                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0 footer_cols">
                     <div class="footer-widget-item">
-                        <h3>Open Time</h3>
+                        <h3>OPEN TIME</h3>
                         <ul class="footer-widget-office-time">
                             <li>
                                 <p>Opening Day:</p>
@@ -226,8 +226,84 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                         if (parseInt(screensize) < 1024) {
                             $(".bars").css("display", "block");
                         }
+                        var param = (getUrlParam());
+                        if (param[2] == '') {
+                            $("div#nav-list ul > li:nth-child(1) > a").addClass('active');
+                        } else if (param[2] == 'attorney') {
+                            $("div#nav-list ul > li:nth-child(2) > a").addClass('active');
+                        } else if (param[2] == 'practice') {
+                            $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
+                        } else if (param[2] == 'about-us') {
+                            $("div#nav-list ul > li:nth-child(4) > a").addClass('active');
+                        } else if (param[2] == 'news') {
+                            $("div#nav-list ul > li:nth-child(5) > a").addClass('active');
+                        } else if (param[2] == 'contactus') {
+                            $("div#nav-list ul > li:last-child > a").addClass('active');
+                        }
+
+
+                        // Call initialize -- in prod, add this to window.onload or some other DOM ready alternative
+                        initialize();
 
                     });
+
+
+                    function initialize() {
+                        var stylez = [
+                            {
+                                featureType: "all",
+                                stylers: [
+                                    {hue: "#0000ff"},
+                                    {saturation: -75}
+                                ]
+                            },
+                            {
+                                featureType: "poi",
+                                elementType: "label",
+                                stylers: [
+                                    {visibility: "off"}
+                                ]
+                            }
+                        ];
+
+                        var latlng = new google.maps.LatLng($("#map_canvas").attr('data-lat'), $("#map_canvas").attr('data-lng')), // Stockholm
+
+                                mapOptions = {
+                                    mapTypeControlOptions: {
+                                        mapTypeIds: [google.maps.MapTypeId.ROADMAP, "Edited"]
+                                    },
+                                    zoom: 14,
+                                    center: latlng
+                                },
+                                map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions),
+                                styledMapType = new google.maps.StyledMapType(stylez, {name: "Edited"}),
+                                marker = new google.maps.Marker({
+                                    position: latlng,
+                                    map: map,
+                                    animation: google.maps.Animation.DROP,
+                                    title: "Hello World!"
+                                }),
+                                infowindow = new google.maps.InfoWindow({
+                                    content: "<div class='marker_window'></div>"
+                                });
+                        map.mapTypes.set("Edited", styledMapType);
+                        map.setMapTypeId('Edited');
+
+                        function toggleBounce() {
+                            if (marker.getAnimation() != null) {
+                                marker.setAnimation(null);
+                            } else {
+                                marker.setAnimation(google.maps.Animation.BOUNCE);
+                            }
+                        }
+                        console.log(map)
+                        // Add click listener to toggle bounce
+                        google.maps.event.addListener(marker, 'click', function () {
+                            // toggleBounce();
+                            infowindow.open(map, marker);
+                            //setTimeout(toggleBounce, 1500);
+                        });
+                    }
 
                     $(window).resize(function () {
                         $(".bars").css("display", "none");

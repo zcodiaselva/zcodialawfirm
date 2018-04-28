@@ -23,11 +23,23 @@
                         <p><?php echo $contactus_contact[0]['c_content']; ?></p>
                     <?php } ?>
 
+
                     <div class="con-page-form">
-                        <input type="text" placeholder="Name *" id="txtContactName" class="mar-r">
-                        <input type="text" placeholder="Email *" id="txtContactEmail">
-                        <textarea name="message" placeholder="Message" id="txtContactMessage"></textarea>
-                        <input value="Submit" class="btnUpdateContactDetails" type="submit" onclick="contact_submit($(this))">
+                        <div class="row">
+
+                            <div class="col-12 col-lg-12">
+                                <input type="text" placeholder="Name *" id="txtContactName" class="mar-r">
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <input type="text" placeholder="Email *" id="txtContactEmail">
+                            </div>
+                            <div class="col-12">
+                                <textarea name="message" placeholder="Message" id="txtContactMessage"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <input value="Submit" class="btnUpdateContactDetails" type="submit" onclick="contact_submit($(this))">
+                            </div>
+                        </div>
                     </div>
                 </div>
 

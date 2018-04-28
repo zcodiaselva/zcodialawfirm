@@ -31,7 +31,7 @@ class AboutUs extends CI_Controller {
         $data['contactus_footer'] = $this->aboutus_model->getData('*', 'contactus', array('c_status' => 1, 'c_deleted' => 0, 'c_type' => 3));
         $data['seo_header'] = $this->aboutus_model->getData('*', $this->seo_header_table, array('sh_status' => 1, 'sh_deleted' => 0), 'sh_id');
         $data['seo_page'] = $this->aboutus_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == '' ? 'Home' : ''), 'sp_status' => 1, 'sp_deleted' => 0));
-        $data['google_map_enries'] = $this->aboutus_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
+        $data['google_map_entries'] = $this->aboutus_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
 
         $this->load->view('template/header', $data);
         $this->load->view('about-us', $data);

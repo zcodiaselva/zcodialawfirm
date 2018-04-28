@@ -1,6 +1,6 @@
 
 <!-- Counter Part Start -->
-<section class="counter-part section-p">
+<section class="counter-part section-p" style="background-image: url(themes/frontend/images/bg/count_image_bg.jpg);">
     <div class="container">
         <div class="counter-box">
             <div class="row">

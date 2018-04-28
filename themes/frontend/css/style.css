@@ -660,7 +660,7 @@ img {
 .btn-1:hover {
     color: #22242f;
     background: #d6b34b !important;
-    border: 1px solid #d6b34b !important;
+    /*border: 1px solid #d6b34b !important;*/
 }
 
 .btn-1 i {
@@ -1004,7 +1004,7 @@ img {
     left: 0;
     bottom: 0;
     background: #d6b34b;
-    height: 2px;
+    height: 4px;
     width: 0;
     display: inline-block;
     transition: 0.8s;
@@ -2619,10 +2619,7 @@ body.active #mobile-nav {
     content: '';
     left: 0;
     top: 0;
-    height: 100%; opacity: 0.09;
-    filter: alpha(opacity=10);
-    width: 100%;
-    background: linear-gradient(rgba(30, 33, 40, 0.53),rgba(30, 33, 40, 0.53)), url(../images/bg/about-bg.jpg);
+    background: url(../images/bg/background_image.jpg);
     background-size: cover;
     z-index: 0;
 }
@@ -3744,7 +3741,7 @@ body.active #mobile-nav {
 }
 
 .counter-part {
-    background-color: #1e2128;
+    /*background-color: #1e2128;*/
 }
 
 .counter-part .container {
@@ -3981,9 +3978,9 @@ body.active #mobile-nav {
 
 .practise-item:hover {
     background: #262932;
-    -moz-box-shadow:    0 15px 20px rgba(32, 34, 39, 1);
-    -webkit-box-shadow: 0 15px 20px rgba(32, 34, 39, 1);
-    box-shadow:         0 15px 20px rgba(32, 34, 39, 1);
+    -moz-box-shadow:    0 15px 20px rgba(22, 22, 22, 0.35);
+    -webkit-box-shadow: 0 15px 20px rgba(22, 22, 22, 0.35);
+    box-shadow:         0 15px 20px rgba(22, 22, 22, 0.35);
 }
 
 .practise-item h2 {
@@ -6201,7 +6198,7 @@ body.active #mobile-nav {
 }
 
 .footer-widget-item h3 {
-    font-size: 26px;
+    font-size: 20px;
     line-height: 36px;
     margin-bottom: 30px;
     font-weight: bold;
@@ -8460,7 +8457,7 @@ body.active #mobile-nav {
 }
 
 .mar-r {
-    margin-right: 2%;
+    /*margin-right: 2%;*/
 }
 
 .con-page-form input[type="submit"] {
@@ -11166,3 +11163,29 @@ ul.navbar-nav.ml-auto > li:last-child {
 .swiper-container.team-3-slider {
     margin-bottom: 16px;
 }
+.practise-part .section-head h2 {
+    color:#fff;
+}
+
+.con-page-form input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.footer_cols {
+    padding-top: 25px;
+}
+
+/*.gmap_marker {
+    position: absolute;
+    background-color: #d6b34b;
+    width: 125px;
+    border-radius: 64px;
+    height: 125px;
+    top: 10%;
+    left: 45%;
+}*/
+
+#wrapper { width: 100%; margin: 0 auto }
+
+#map_canvas { height: 500px; width: 100% }

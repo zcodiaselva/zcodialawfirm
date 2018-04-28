@@ -48,6 +48,7 @@ class FileUpload {
     }
 
     public function upload_files($file, $filename, $folder_name = false) {
+       
         $chkfolder = $config = '';
 
         if (isset($folder_name) && !empty($folder_name)) {
@@ -62,19 +63,18 @@ class FileUpload {
         $config['allowed_types'] = 'gif|jpg|png';
         $config['file_name'] = $filename;
 
+//        $files = $_FILES;
+//        for ($i = 0; $i < count($_FILES[$file]['name']); $i++) {
+//            $_FILES[$file]['name'] = $files[$file]['name'][$i];
+//            $_FILES[$file]['type'] = $files[$file]['type'][$i];
+//            $_FILES[$file]['tmp_name'] = $files[$file]['tmp_name'][$i];
+//            $_FILES[$file]['error'] = $files[$file]['error'][$i];
+//            $_FILES[$file]['size'] = $files[$file]['size'][$i];
 
 
-        $files = $_FILES;
-        for ($i = 0; $i < count($_FILES[$file]['name']); $i++) {
-            $_FILES[$file]['name'] = $files[$file]['name'][$i];
-            $_FILES[$file]['type'] = $files[$file]['type'][$i];
-            $_FILES[$file]['tmp_name'] = $files[$file]['tmp_name'][$i];
-            $_FILES[$file]['error'] = $files[$file]['error'][$i];
-            $_FILES[$file]['size'] = $files[$file]['size'][$i];
-
-
-            $this->upload->initialize($config);
-            if (!$this->CI->upload->do_upload()) {
+            $this->CI->upload->initialize($config);
+           
+            if (!$this->CI->upload->do_upload($file)) {
                 $error = array('error' => $this->CI->upload->display_errors());
                 echo '<pre>error_upload:';
                 print_r($error);
@@ -83,7 +83,7 @@ class FileUpload {
             } else {
                 return $this->CI->upload->data();
             }
-        }
+//        }
     }
 
     public function cupload($file, $filename) {
