@@ -1249,7 +1249,7 @@ img {
 .con-bottom-inner p {
     font-size: 15px;
     color: #3c3c3c;
-    padding-bottom: 7px;
+    padding: 20px 0px 20px;
 }
 
 .con-bottom-inner p span {
@@ -1786,6 +1786,9 @@ body.active #mobile-nav {
 }
 
 @media only screen and (max-width: 991px) {
+    .header-icon a.btn-1 {
+        padding: 23px 20px;
+    }
     .bars{
         display:none;
     }
@@ -2469,7 +2472,10 @@ body.active #mobile-nav {
     text-transform: uppercase;
     text-align: center;
 }
-
+.cf_field {
+    background-color: #f3f3f3;
+    border-radius: 5px !important;
+}
 .banner-contact form input:-ms-input-placeholder {
     text-transform: uppercase;
 }
@@ -8374,30 +8380,43 @@ body.active #mobile-nav {
     z-index: -1;
 }
 
-.con-bottom-inner h4 {
+.con-bottom-inner h2 {
     font-size: 30px;
     color: #3c3c3c
 }
 
-.con-bottom-inner h4 span {
-    font-size: 30px;
+.con-bottom-inner h2::after {
+    content: "";
+    position: absolute;
+    bottom: -54px;
+    left: 54%;
+    transform: translate(-50%);
+    height: 4px;
+    background: rgb(197, 157, 95);
+    width: 100px;
+    margin: 50px 0px;
+}
+
+
+.con-bottom-inner h2 span {
+    font-size: 30px;font-weight: inherit;
     color: #d6b34b
 }
 
 .con-bottom-inner {
     text-align: center;
-    padding-top: 40px;
-    padding-bottom: 80px;
+    padding-top: 80px;
+    padding-bottom: 0px;
 }
 
-.con-bottom-inner h4 {
+.con-bottom-inner h2 {
     font-size: 30px;
     color: #3c3c3c;
     padding-bottom: 15px;
 }
 
 .con-bottom-inner .per-social {
-    padding-bottom: 30px;
+    padding-bottom: 30px;display:none;
 }
 
 .con-bottom-inner .per-social li {
@@ -8433,7 +8452,7 @@ body.active #mobile-nav {
     height: 180px;
 }
 
-.con-page-form input {
+.con-page-form input.cf_field {
     float: left;
     border: 1px solid #e7e6e6;
     box-shadow: 0px 0px 2px 0px rgba(108, 108, 108, 0.25);
@@ -11167,10 +11186,15 @@ ul.navbar-nav.ml-auto > li:last-child {
     color:#fff;
 }
 
-.con-page-form input {
+.con-page-form input.cf_field {
     width: 100%;
     margin-bottom: 20px;
 }
+.per-social {
+    /*display: none;*/
+}
+
+
 
 .footer_cols {
     padding-top: 25px;
@@ -11221,9 +11245,15 @@ img.logo_img {
 }
 
 img.marker_img {
-    margin-left: 44px;
+    margin-left: 50px;
     margin-bottom: -281px;
+    margin-top: 43px;
     position: relative;
     z-index: 2323423;
 }
+
+/*.gm-style > div:first-child {
+    background: rgba(64, 65, 69,0.65) !important;}
+.gm-style > div:nth-child(2) {
+    background: rgba(64, 65, 69,0.65) !important;}*/
 /* google map style ends */

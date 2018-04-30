@@ -49,6 +49,7 @@
     function m(a) {
         var c = a.c = document.createElement("DIV");
         c.style.position = "absolute";
+        console.log(a.g)
         c.style.zIndex = a.g;
         (a.i = document.createElement("DIV")).style.position = "relative";
         var d = a.j = document.createElement("IMG");
@@ -68,14 +69,14 @@
                 "auto";
         e.style.cursor = "default";
         e.style.clear = "both";
+        
         e.style.position = "relative";
-        var ea = a.ea = document.createElement("DIV");
-        e.style.overflowX = "auto";
-        e.style.overflowY =
-                "auto";
-        e.style.cursor = "default";
-        e.style.clear = "both";
-        e.style.position = "relative";
+        var placeholder = a.placeholder = document.createElement("img");
+        placeholder.classList.add("marker_img");
+        var placeholder_img = 'themes/frontend/images/placeholder.png';
+        placeholder.src = placeholder_img;
+
+        
 
         var f = a.k = document.createElement("DIV");
         e.appendChild(f);
@@ -95,10 +96,11 @@
         l = a.a = document.createElement("DIV");
         l.style.position = "absolute";
         c.style.display = l.style.display = "none";
-        c.appendChild(ea);
+        c.appendChild(placeholder);
         c.appendChild(a.i);
         c.appendChild(d);
         c.appendChild(e);
+      
         f.appendChild(k);
         f.appendChild(g);
         c.appendChild(f);
@@ -129,6 +131,7 @@
         this.set("arrowStyle", a)
     };
     h.prototype.setArrowStyle = h.prototype.da;
+    
     h.prototype.M = function () {
         this.p()
     };
@@ -156,6 +159,7 @@
     };
     h.prototype.arrowPosition_changed = h.prototype.L;
     h.prototype.setZIndex = function (a) {
+  
         this.set("zIndex", a)
     };
     h.prototype.setZIndex = h.prototype.setZIndex;
@@ -164,14 +168,16 @@
     };
     h.prototype.ua = function () {
         var a = this.getZIndex();
+       
         this.c.style.zIndex = this.g = a;
         this.j.style.zIndex = a + 1
     };
-    h.prototype.zIndex_changed = h.prototype.ua;
-    h.prototype.na = function (a) {
+    h.prototype.zIndex_changed = h.prototype.ua; 
+    h.prototype.na = function (a) { 
         this.set("shadowStyle", a)
     };
     h.prototype.setShadowStyle = h.prototype.na;
+   h.prototype.top = '50px';
     h.prototype.qa = function () {
         var a = "",
                 c = "",
@@ -233,6 +239,7 @@
         this.set("borderRadius", a)
     };
     h.prototype.setBorderRadius = h.prototype.fa;
+    
 
     function z(a) {
         return parseInt(a.get("borderRadius"), 10) || 0
@@ -296,7 +303,7 @@
         x(this)
     };
     h.prototype.padding_changed = h.prototype.Z;
-
+ 
     function t(a) {
         return a ? a + "px" : a
     }
@@ -582,6 +589,7 @@
     h.prototype.X = function () {
         x(this)
     };
+    
     h.prototype.minHeight_changed = h.prototype.X;
     h.prototype.J = function (a, c) {
         var d = document.createElement("DIV");
@@ -600,11 +608,11 @@
         d.className = d.className + " " + this.h;
         x(this)
     };
-    h.prototype.addTab = h.prototype.J;
+   // h.prototype.addTab = h.prototype.J;
     h.prototype.ta = function (a, c, d) {
         !this.b.length || 0 > a || a >= this.b.length || (a = this.b[a], void 0 != c && (a.f.innerHTML = a.label = c), void 0 != d && (a.content = d), this.d == a.f && (this.setContent(a.content), F(this)), x(this))
     };
-    h.prototype.updateTab = h.prototype.ta;
+   // h.prototype.updateTab = h.prototype.ta;
     h.prototype.aa = function (a) {
         if (!(!this.b.length || 0 > a || a >= this.b.length)) {
             var c = this.b[a];
@@ -618,7 +626,7 @@
             x(this)
         }
     };
-    h.prototype.removeTab = h.prototype.aa;
+   // h.prototype.removeTab = h.prototype.aa;
 
     function L(a, c, d) {
         var e = document.createElement("DIV");
@@ -655,6 +663,7 @@
                     p = Math.min(f, p),
                     y = 0;
             if (a.b.length)
+               
                 for (var u = 0, q; q = a.b[u]; u++) {
                     var v = L(q.f, r, p);
                     q = L(q.content, r, p);

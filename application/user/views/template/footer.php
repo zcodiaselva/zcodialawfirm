@@ -188,19 +188,42 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 
 <script>
                     var map, infoBubble, infoBubble2;
+                    var markers = [];
                     function init() {
+
+                        var stylez = [
+                            {
+                                featureType: "all",
+                                stylers: [
+                                    {hue: "#0000ff"},
+                                    {saturation: -75}
+                                ]
+                            },
+                            {
+                                featureType: "poi",
+                                elementType: "label",
+                                stylers: [
+                                    {visibility: "off"}
+                                ]
+                            }
+                        ];
+
                         var mapCenter = new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng'));
-                        map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 14,
-                            center: mapCenter,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                        });
+                        styledMapType = new google.maps.StyledMapType(stylez, {name: "Edited"}),
+                                map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 14,
+                                    center: mapCenter,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                });
 
                         var marker = new google.maps.Marker({
                             map: map,
+                            style: stylez,
                             position: new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng')),
-                            draggable: true
+                            //draggable: true,
+                            icon: 'themes/frontend/images/empty_marker.png'
                         });
+                         markers.push(marker);
                         var header_logo = $('.header_logo img').attr('src');
 
                         var contentString = '<div id="content">' +
@@ -213,37 +236,25 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                             position: new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng')),
                             // top:5px
                         });
-
-//                        infoBubble2 = new InfoBubble({
-//                            map: map,
-//                            content: '<div class="gmap_marker">Some label</div>',
-//                            position: new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng')),
-//                            shadowStyle: 0,
-//                            padding: 0,
-//                            backgroundColor: 'transparent',
-//                            borderRadius: 4,
-//                            arrowSize: 0,
-//                            borderWidth: 0,
-//                            borderColor: 'transparent',
-//                            disableAutoPan: true,
-//                            hideCloseButton: true,
-//                            arrowPosition: 0,
-//                            backgroundClassName: 'marker_class',
-//                            arrowStyle: 1
-//                        });
-
+                        map.mapTypes.set("Edited", styledMapType);
+                        map.setMapTypeId('Edited');
+//                        setMapOnAll(null);
+                         setMapOnAll(map);
                         infoBubble.open(map, marker);
-                        //  infoBubble2.open();
-                        updateStyles();
-//                        var div = document.createElement('DIV');
-//                        div.innerHTML = 'Hello';
-
+                                updateStyles();
+          
                     }
                     google.maps.event.addDomListener(window, 'load', init);
+                    function setMapOnAll(map) {
+                        console.log(markers.length)
+                        for (var i = 0; i < markers.length; i++) {
+                            markers[i].setMap(map);
+                        }
+                    }
 
                     function updateStyles() {
                         var shadowStyle = 0;//document.getElementById('shadowstyle').value;
-                        infoBubble.setShadowStyle(shadowStyle);
+                       infoBubble.setShadowStyle(shadowStyle);
 
                         var padding = 0;//document.getElementById('padding').value;
                         infoBubble.setPadding(padding);
@@ -260,17 +271,17 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                         var backgroundColor = 'white';//document.getElementById('backgroundColor').value;
                         infoBubble.setBackgroundColor(backgroundColor);
 
-                        var maxWidth = '150';//document.getElementById('maxWidth').value;
+                        var maxWidth = '160';//document.getElementById('maxWidth').value;
                         infoBubble.setMaxWidth(maxWidth);
 
-                        var maxHeight = '150';//document.getElementById('maxHeight').value;
+                        var maxHeight = '160';//document.getElementById('maxHeight').value;
                         console.log(maxHeight);
                         infoBubble.setMaxHeight(maxHeight);
 
-                        var minWidth = '150';//document.getElementById('minWidth').value;
+                        var minWidth = '160';//document.getElementById('minWidth').value;
                         infoBubble.setMinWidth(minWidth);
 
-                        var minHeight = '150';//document.getElementById('minHeight').value;
+                        var minHeight = '160';//document.getElementById('minHeight').value;
                         infoBubble.setMinHeight(minHeight);
 
                         var arrowSize = 0;//document.getElementById('arrowSize').value;
@@ -284,6 +295,8 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 
                         var closeSrc = '';//document.getElementById('closeSrc').value;
                         infoBubble.setCloseSrc(closeSrc);
+
+                        infoBubble.top = '50';
                     }
 
 
@@ -350,7 +363,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         // Call initialize -- in prod, add this to window.onload or some other DOM ready alternative
         // initialize();
         var placeholder_img = 'themes/frontend/images/placeholder.png';
-        console.log( $("._ibani1_").html());
+        console.log($("._ibani1_").html());
         //$('._ibani1_').before($('<img class="marker_img" src="' + placeholder_img + '" />'));
     });
 

@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-8">
-                <div class="con-bottom-inner">
-                    <h4>CONTACT <span>US</span></h4>
+                <div class="con-bottom-inner section-head">
+                    <h2><span>CONTACT </span>US</h2>
                     <div class="per-social">
                         <ul>
                             <?php
@@ -28,16 +28,16 @@
                         <div class="row">
 
                             <div class="col-12 col-lg-12">
-                                <input type="text" placeholder="Name *" id="txtContactName" class="mar-r">
+                                <input type="text" placeholder="Name" id="txtContactName" class="mar-r contact_name cf_field">
                             </div>
                             <div class="col-12 col-lg-12">
-                                <input type="text" placeholder="Email *" id="txtContactEmail">
+                                <input type="text" placeholder="Email" id="txtContactEmail" class="contact_email cf_field">
                             </div>
                             <div class="col-12">
-                                <textarea name="message" placeholder="Message" id="txtContactMessage"></textarea>
+                                <textarea name="message" placeholder="Message" id="txtContactMessage" class="contact_message cf_field"></textarea>
                             </div>
-                            <div class="col-12">
-                                <input value="Submit" class="btnUpdateContactDetails" type="submit" onclick="contact_submit($(this))">
+                            <div class="col-12 button-row">
+                                <input value="Submit" class="btnUpdateContactDetails c_form btn-1" type="submit" onclick="contact_submit($(this))">
                             </div>
                         </div>
                     </div>

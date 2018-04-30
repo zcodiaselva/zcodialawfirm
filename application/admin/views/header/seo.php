@@ -84,7 +84,7 @@ if (isset($logo_details) && !empty($logo_details)) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="txtSEOGAScript">Google Analytics Script</label>
+                        <label for="txtSEOGAScript">SEO Script</label>
                          <textarea type="text" class="form-control" id="txtSEOGAScript"><?php //echo $logo_title; ?></textarea>
                    </div>
                     <div class="form-group">

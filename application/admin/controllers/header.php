@@ -81,8 +81,16 @@ class Header extends CI_Controller {
             $data['user_id'] = $this->tank_auth->get_user_id();
             $data['username'] = $this->tank_auth->get_username();
             $map = directory_map('./application/user/controllers/');
+            if (isset($map) && !empty($map)) {
+                foreach ($map as $key => $value) {
+                    if (!is_int($key)) {
+                        unset($map[$key]);
+                    }
+                }
+            }
             $unwanted = array('index.html');
             $pages = str_replace('.php', '', array_values(array_diff($map, $unwanted)));
+            
             sort($pages);
             $data['controller_pages'] = $pages;
 
