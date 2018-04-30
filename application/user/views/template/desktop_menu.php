@@ -34,7 +34,7 @@ if (isset($logo_details) && !empty($logo_details)) {
 
 <nav id="navigation" class="navbar navbar-expand-lg nav-bg-white">
     <div class="container">
-        <a class="navbar-brand" href="<?php echo $logo_href; ?>"><img src="<?php echo $logo_image; ?>" alt="<?php echo $logo_alt_text; ?>" style="width:<?php echo $logo_header_width; ?>px; height:<?php echo $logo_header_height; ?>px;"></a>
+        <a class="navbar-brand header_logo" href="<?php echo $logo_href; ?>"><img src="<?php echo $logo_image; ?>" alt="<?php echo $logo_alt_text; ?>" style="width:<?php echo $logo_header_width; ?>px; height:<?php echo $logo_header_height; ?>px;"></a>
         <div class="collapse navbar-collapse" id="nav-list">
             <ul class="navbar-nav ml-auto"></ul>
 

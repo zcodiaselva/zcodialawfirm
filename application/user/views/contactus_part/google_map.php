@@ -10,9 +10,9 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 }
 ?>
 <div class="google-map" id="wrapper">
-    <div id="map_canvas"  data-lat="<?php echo $gmaplat; ?>" data-lng="<?php echo $gmaplong; ?>" data-mrkr1="<?php //echo $map_marker_image; ?>"></div>
-    <!--div class="gmap3-area" data-lat="<?php //echo $gmaplat; ?>" data-lng="<?php //echo $gmaplong; ?>" data-mrkr1="<?php //echo $map_marker_image; ?>"-->
-    </div><!-- /.google-map -->
+    <div id="map"   data-lat="<?php echo $gmaplat; ?>" data-lng="<?php echo $gmaplong; ?>" data-mrkr1="<?php //echo $map_marker_image;  ?>"></div>
+    <!--div class="gmap3-area" data-lat="<?php //echo $gmaplat;  ?>" data-lng="<?php //echo $gmaplong;  ?>" data-mrkr1="<?php //echo $map_marker_image;  ?>"-->
+</div><!-- /.google-map -->
 <!--    <div class='gmap_marker'></div>-->
 </div><!-- /#map -->
 

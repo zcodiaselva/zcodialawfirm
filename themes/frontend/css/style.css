@@ -11175,7 +11175,7 @@ ul.navbar-nav.ml-auto > li:last-child {
 .footer_cols {
     padding-top: 25px;
 }
-
+#wrapper { width: 100%; margin: 0 auto }
 /*.gmap_marker {
     position: absolute;
     background-color: #d6b34b;
@@ -11185,7 +11185,45 @@ ul.navbar-nav.ml-auto > li:last-child {
     top: 10%;
     left: 45%;
 }*/
+/* google map style starts */
 
-#wrapper { width: 100%; margin: 0 auto }
 
-#map_canvas { height: 500px; width: 100% }
+#map { height: 500px; width: 100% }
+
+#styles, #add-tab {
+    float: left;
+    margin-top: 10px;
+    width: 400px;
+}
+#styles label,
+#add-tab label {
+    display: inline-block;
+    width: 130px;
+}
+.marker_class {
+    /*background: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgb(112,112,112)),color-stop(0.51, rgb(94,94,94)),color-stop(0.52, rgb(57,57,57)));*/
+    /*background: -moz-linear-gradient(center top,rgb(112,112,112) 0%,rgb(94,94,94) 51%,rgb(57,57,57) 52%);*/
+}
+.gmap_marker {
+    color: black;
+    font-family: 'Open Sans',sans-serif;
+}
+.phoneytab {
+    font-family: 'Open Sans',sans-serif;
+}
+img.js-info-bubble-close {
+    display: none;
+}
+img.logo_img {
+    height: 47px;
+    margin-top: 52px;
+    margin-left: 18px;
+}
+
+img.marker_img {
+    margin-left: 44px;
+    margin-bottom: -281px;
+    position: relative;
+    z-index: 2323423;
+}
+/* google map style ends */

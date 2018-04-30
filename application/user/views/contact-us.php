@@ -44,6 +44,6 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 
 
 <?php include APPPATH . 'views/contactus_part/google_map.php'; ?>
-<?php include APPPATH . 'views/contactus_part/contactus_info.php'; ?>
+<?php //include APPPATH . 'views/contactus_part/contactus_info.php'; ?>
 <?php include APPPATH . 'views/contactus_part/contactus_form.php'; ?>
 

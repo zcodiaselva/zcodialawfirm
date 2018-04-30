@@ -182,285 +182,413 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $gmapkey; ?>"></script>
 <!--Custom js  -->
 <script src="themes/frontend/js/custom.js"></script>
+<script src="themes/frontend/js/infobubble.js"></script>
+<script src="themes/frontend/js/infobubble-compiled.js"></script>
 <!--script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"-->
+
+<script>
+                    var map, infoBubble, infoBubble2;
+                    function init() {
+                        var mapCenter = new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng'));
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 14,
+                            center: mapCenter,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng')),
+                            draggable: true
+                        });
+                        var header_logo = $('.header_logo img').attr('src');
+
+                        var contentString = '<div id="content">' +
+                                '<img class="logo_img" src="' + header_logo + '" />' +
+                                '</div>';
+
+                        infoBubble = new InfoBubble({
+                            maxWidth: 300,
+                            content: '<div class="gmap_marker">' + contentString + '</div>',
+                            position: new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng')),
+                            // top:5px
+                        });
+
+//                        infoBubble2 = new InfoBubble({
+//                            map: map,
+//                            content: '<div class="gmap_marker">Some label</div>',
+//                            position: new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng')),
+//                            shadowStyle: 0,
+//                            padding: 0,
+//                            backgroundColor: 'transparent',
+//                            borderRadius: 4,
+//                            arrowSize: 0,
+//                            borderWidth: 0,
+//                            borderColor: 'transparent',
+//                            disableAutoPan: true,
+//                            hideCloseButton: true,
+//                            arrowPosition: 0,
+//                            backgroundClassName: 'marker_class',
+//                            arrowStyle: 1
+//                        });
+
+                        infoBubble.open(map, marker);
+                        //  infoBubble2.open();
+                        updateStyles();
+//                        var div = document.createElement('DIV');
+//                        div.innerHTML = 'Hello';
+
+                    }
+                    google.maps.event.addDomListener(window, 'load', init);
+
+                    function updateStyles() {
+                        var shadowStyle = 0;//document.getElementById('shadowstyle').value;
+                        infoBubble.setShadowStyle(shadowStyle);
+
+                        var padding = 0;//document.getElementById('padding').value;
+                        infoBubble.setPadding(padding);
+
+                        var borderRadius = '100%';//document.getElementById('borderRadius').value;
+                        infoBubble.setBorderRadius(borderRadius);
+
+                        var borderWidth = 0;//document.getElementById('borderWidth').value;
+                        infoBubble.setBorderWidth(borderWidth);
+
+                        var borderColor = 'transparent';//document.getElementById('borderColor').value;
+                        infoBubble.setBorderColor(borderColor);
+
+                        var backgroundColor = 'white';//document.getElementById('backgroundColor').value;
+                        infoBubble.setBackgroundColor(backgroundColor);
+
+                        var maxWidth = '150';//document.getElementById('maxWidth').value;
+                        infoBubble.setMaxWidth(maxWidth);
+
+                        var maxHeight = '150';//document.getElementById('maxHeight').value;
+                        console.log(maxHeight);
+                        infoBubble.setMaxHeight(maxHeight);
+
+                        var minWidth = '150';//document.getElementById('minWidth').value;
+                        infoBubble.setMinWidth(minWidth);
+
+                        var minHeight = '150';//document.getElementById('minHeight').value;
+                        infoBubble.setMinHeight(minHeight);
+
+                        var arrowSize = 0;//document.getElementById('arrowSize').value;
+                        infoBubble.setArrowSize(arrowSize);
+
+                        var arrowPosition = 50;//document.getElementById('arrowPosition').value;
+                        infoBubble.setArrowPosition(arrowPosition);
+
+                        var arrowStyle = 0;//document.getElementById('arrowStyle').value;
+                        infoBubble.setArrowStyle(arrowStyle);
+
+                        var closeSrc = '';//document.getElementById('closeSrc').value;
+                        infoBubble.setCloseSrc(closeSrc);
+                    }
+
+
+</script>
 <script>
 
 
 
-                    $(document).ready(function () {
+    $(document).ready(function () {
 
-                        $.ajax({
-                            url: 'admin.php/header/get_menu_entries',
-                            method: 'get', async: false,
-                            dataType: 'json',
-                            success: function (data) {
-                                buildMenu($('.navbar-nav.ml-auto'), data);
-                                $("ul.dropdown-child-manu > li").removeAttr("class");
-                                $("ul.dropdown-child-manu > li > a ").removeAttr("class");
-                            }
-                        });
-                        $.ajax({
-                            url: 'admin.php/header/get_menu_entries',
-                            method: 'get', asycn: false,
-                            dataType: 'json',
-                            success: function (data) {
-                                buildMobileMenu($("ul.mobile-list-nav"), data);
+        $.ajax({
+            url: 'admin.php/header/get_menu_entries',
+            method: 'get', async: false,
+            dataType: 'json',
+            success: function (data) {
+                buildMenu($('.navbar-nav.ml-auto'), data);
+                $("ul.dropdown-child-manu > li").removeAttr("class");
+                $("ul.dropdown-child-manu > li > a ").removeAttr("class");
+            }
+        });
+        $.ajax({
+            url: 'admin.php/header/get_menu_entries',
+            method: 'get', asycn: false,
+            dataType: 'json',
+            success: function (data) {
+                buildMobileMenu($("ul.mobile-list-nav"), data);
 //                                var hasClass = $("ul.submenuItems > li > a").hasClass('dropdownlink');
 //                                $("ul.submenuItems > li > a").removeAttr('class');
-                            }
-                        });
+            }
+        });
 
-                        /* if ($(".da_input").val() !== "1") {
-                         $('#modal-disclaimer').modal('show');
-                         $('#modal-disclaimer').modal({
-                         backdrop: 'static',
-                         keyboard: false
-                         });
-                         }
-                         */
+        /* if ($(".da_input").val() !== "1") {
+         $('#modal-disclaimer').modal('show');
+         $('#modal-disclaimer').modal({
+         backdrop: 'static',
+         keyboard: false
+         });
+         }
+         */
 //                         var screensize = document.documentElement.clientWidth;
 //                            alert(screensize);
-                        $(".bars").css("display", "none");
-                        var screensize = document.documentElement.clientWidth;
-                        console.log(screensize);
-                        if (parseInt(screensize) < 1024) {
-                            $(".bars").css("display", "block");
-                        }
-                        var param = (getUrlParam());
-                        if (param[2] == '') {
-                            $("div#nav-list ul > li:nth-child(1) > a").addClass('active');
-                        } else if (param[2] == 'attorney') {
-                            $("div#nav-list ul > li:nth-child(2) > a").addClass('active');
-                        } else if (param[2] == 'practice') {
-                            $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
-                        } else if (param[2] == 'about-us') {
-                            $("div#nav-list ul > li:nth-child(4) > a").addClass('active');
-                        } else if (param[2] == 'news') {
-                            $("div#nav-list ul > li:nth-child(5) > a").addClass('active');
-                        } else if (param[2] == 'contactus') {
-                            $("div#nav-list ul > li:last-child > a").addClass('active');
-                        }
+        $(".bars").css("display", "none");
+        var screensize = document.documentElement.clientWidth;
+        console.log(screensize);
+        if (parseInt(screensize) < 1024) {
+            $(".bars").css("display", "block");
+        }
+        var param = (getUrlParam());
+        if (param[2] == '') {
+            $("div#nav-list ul > li:nth-child(1) > a").addClass('active');
+        } else if (param[2] == 'attorney') {
+            $("div#nav-list ul > li:nth-child(2) > a").addClass('active');
+        } else if (param[2] == 'practice') {
+            $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
+        } else if (param[2] == 'about-us') {
+            $("div#nav-list ul > li:nth-child(4) > a").addClass('active');
+        } else if (param[2] == 'news') {
+            $("div#nav-list ul > li:nth-child(5) > a").addClass('active');
+        } else if (param[2] == 'contactus') {
+            $("div#nav-list ul > li:last-child > a").addClass('active');
+        }
 
 
-                        // Call initialize -- in prod, add this to window.onload or some other DOM ready alternative
-                        initialize();
+        // Call initialize -- in prod, add this to window.onload or some other DOM ready alternative
+        // initialize();
+        var placeholder_img = 'themes/frontend/images/placeholder.png';
+        console.log( $("._ibani1_").html());
+        //$('._ibani1_').before($('<img class="marker_img" src="' + placeholder_img + '" />'));
+    });
 
-                    });
+
+//    function initialize() {
+//        var stylez = [
+//            {
+//                featureType: "all",
+//                stylers: [
+//                    {hue: "#0000ff"},
+//                    {saturation: -75}
+//                ]
+//            },
+//            {
+//                featureType: "poi",
+//                elementType: "label",
+//                stylers: [
+//                    {visibility: "off"}
+//                ]
+//            }
+//        ];
+//
+//        var latlng = new google.maps.LatLng($("#map_canvas").attr('data-lat'), $("#map_canvas").attr('data-lng')), // Stockholm
+//
+//                mapOptions = {
+//                    mapTypeControlOptions: {
+//                        mapTypeIds: [google.maps.MapTypeId.ROADMAP, "Edited"]
+//                    },
+//                    zoom: 14,
+//                    center: latlng
+//                },
+//                map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions),
+//                styledMapType = new google.maps.StyledMapType(stylez, {name: "Edited"}),
+//                marker = new google.maps.Marker({
+//                    position: latlng,
+//                    map: map,
+//                    animation: google.maps.Animation.DROP,
+//                    title: "Hello World!"
+//                }),
+//                infowindow = new InfoBubble({
+//                    content: "<div class='marker_window'>This</div>",
+//                    map: map,
+//                    position: new google.maps.LatLng(-32.0, 149.0),
+//                    shadowStyle: 1,
+//                    padding: 0,
+//                    backgroundColor: 'rgb(57,57,57)',
+//                    borderRadius: 5,
+//                    arrowSize: 10,
+//                    borderWidth: 1,
+//                    borderColor: '#2c2c2c',
+//                    disableAutoPan: true,
+//                    hideCloseButton: true,
+//                    arrowPosition: 30,
+//                    backgroundClassName: 'transparent',
+//                    arrowStyle: 2
+//                });
+//        google.maps.event.addListenerOnce(map, 'idle', function () {
+//            jQuery('.gm-style-iw').prev('div').remove();
+//        });
+//
+//        map.mapTypes.set("Edited", styledMapType);
+//        map.setMapTypeId('Edited');
+//
+//        function toggleBounce() {
+//            if (marker.getAnimation() != null) {
+//                marker.setAnimation(null);
+//            } else {
+//                marker.setAnimation(google.maps.Animation.BOUNCE);
+//            }
+//        }
+//        console.log(map)
+//        // Add click listener to toggle bounce
+//        google.maps.event.addListener(marker, 'click', function () {
+//            // toggleBounce();
+//            infowindow.open();
+//            $(".gm-style-iw").next("div").hide();
+//
+//            //setTimeout(toggleBounce, 1500);
+//        });
+//
+//    }
+
+    $(window).resize(function () {
+        $(".bars").css("display", "none");
+        var screensize = document.documentElement.clientWidth;
+        console.log(screensize);
+        if (parseInt(screensize) < 1024) {
+            $(".bars").css("display", "block");
+        }
+    });
+
+    function contact_submit(thss) {
+
+        var error = false;
+        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        var message = $("#txtContactMessage").val();
+        var name = $("#txtContactName").val();
+        var mail = $('#txtContactEmail').val();
 
 
-                    function initialize() {
-                        var stylez = [
-                            {
-                                featureType: "all",
-                                stylers: [
-                                    {hue: "#0000ff"},
-                                    {saturation: -75}
-                                ]
-                            },
-                            {
-                                featureType: "poi",
-                                elementType: "label",
-                                stylers: [
-                                    {visibility: "off"}
-                                ]
-                            }
-                        ];
+        if (!name) {
+            info_msg('Name should not be empty!!');
+            error = true;
+        } else if (!mail) {
+            info_msg('E-Mail Address should not be empty!!');
+            error = true;
+        } else if (!pattern.test(mail)) {
+            info_msg('Incorrect E-Mail Address!!');
+            error = true;
+        } else if (!message) {
+            info_msg('Message should not be empty!!');
+            error = true;
+        }
 
-                        var latlng = new google.maps.LatLng($("#map_canvas").attr('data-lat'), $("#map_canvas").attr('data-lng')), // Stockholm
+        if (error == false) {
+            var form_data = new FormData();
+            form_data.append('message', message);
+            form_data.append('name', name);
+            form_data.append('mail', mail);
 
-                                mapOptions = {
-                                    mapTypeControlOptions: {
-                                        mapTypeIds: [google.maps.MapTypeId.ROADMAP, "Edited"]
-                                    },
-                                    zoom: 14,
-                                    center: latlng
-                                },
-                                map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions),
-                                styledMapType = new google.maps.StyledMapType(stylez, {name: "Edited"}),
-                                marker = new google.maps.Marker({
-                                    position: latlng,
-                                    map: map,
-                                    animation: google.maps.Animation.DROP,
-                                    title: "Hello World!"
-                                }),
-                                infowindow = new google.maps.InfoWindow({
-                                    content: "<div class='marker_window'></div>"
-                                });
-                        map.mapTypes.set("Edited", styledMapType);
-                        map.setMapTypeId('Edited');
-
-                        function toggleBounce() {
-                            if (marker.getAnimation() != null) {
-                                marker.setAnimation(null);
-                            } else {
-                                marker.setAnimation(google.maps.Animation.BOUNCE);
-                            }
-                        }
-                        console.log(map)
-                        // Add click listener to toggle bounce
-                        google.maps.event.addListener(marker, 'click', function () {
-                            // toggleBounce();
-                            infowindow.open(map, marker);
-                            //setTimeout(toggleBounce, 1500);
-                        });
+            $.ajax({
+                method: "POST",
+                url: "admin.php/contact/sendmail",
+                data: form_data, contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    if (data == 1) {
+                        success_msg('Mail sent Successfully!!!');
+                    } else {
+                        error_msg('Mail sending failed!!!');
                     }
+                }
+            });
+        }
+    }
 
-                    $(window).resize(function () {
-                        $(".bars").css("display", "none");
-                        var screensize = document.documentElement.clientWidth;
-                        console.log(screensize);
-                        if (parseInt(screensize) < 1024) {
-                            $(".bars").css("display", "block");
-                        }
-                    });
+    function iagree(thss, opt) {
 
-                    function contact_submit(thss) {
+        $.ajax({
+            method: "POST",
+            url: "admin.php/home/accept_disclaimer",
+            data: {option: opt}
+        }).done(function (msg) {
+            if (msg == 1) {
+                $('#modal-disclaimer').modal('hide');
+                $(".da_input").val(msg);
+            }
+        });
 
-                        var error = false;
-                        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-                        var message = $("#txtContactMessage").val();
-                        var name = $("#txtContactName").val();
-                        var mail = $('#txtContactEmail').val();
+    }
 
+    function buildMenu(parent, items) {
+        $.each(items, function () {
+            var sPageURL = window.location.pathname;
+            var sURLVariables = sPageURL.split('/');
+            var li = $('<li class="nav-item custom-dropdown-box"><a href="' + this.url + '" class="' + (sURLVariables[2].toLowerCase() == this.menu_text.toLowerCase() ? 'active' : '') + '">' + this.menu_text + '</a></li>');
+            li.appendTo(parent);
+            if (this.List && this.List.length > 0)
+            {
+                var ul = $('<ul class="dropdown-child-manu"></ul>');
+                ul.appendTo(li);
+                buildMenu(ul, this.List);
+            }
+        });
+    }
 
-                        if (!name) {
-                            info_msg('Name should not be empty!!');
-                            error = true;
-                        } else if (!mail) {
-                            info_msg('E-Mail Address should not be empty!!');
-                            error = true;
-                        } else if (!pattern.test(mail)) {
-                            info_msg('Incorrect E-Mail Address!!');
-                            error = true;
-                        } else if (!message) {
-                            info_msg('Message should not be empty!!');
-                            error = true;
-                        }
+    function buildMobileMenu(parent, items) {
+        $.each(items, function () {
 
-                        if (error == false) {
-                            var form_data = new FormData();
-                            form_data.append('message', message);
-                            form_data.append('name', name);
-                            form_data.append('mail', mail);
+            var li = $('<li class=""><a href="' + this.url + '" class="dropdownlink" onclick="chooseThis($(this));">' + this.menu_text + '</a></li>');
+            li.appendTo(parent);
+            if (this.List && this.List.length > 0)
+            {
+                var ul = $('<ul class="submenuItems" style="">');
+                ul.appendTo(li);
+                buildMobileMenu(ul, this.List);
+            }
+        });
+    }
 
-                            $.ajax({
-                                method: "POST",
-                                url: "admin.php/contact/sendmail",
-                                data: form_data, contentType: false,
-                                cache: false,
-                                processData: false,
-                                success: function (data) {
-                                    if (data == 1) {
-                                        success_msg('Mail sent Successfully!!!');
-                                    } else {
-                                        error_msg('Mail sending failed!!!');
-                                    }
-                                }
-                            });
-                        }
-                    }
+    function chooseThis(thss) {
+        $("ul.mobile-list-nav > li").removeClass("open").removeClass('chosen');
+        $(thss).closest('li').addClass('chosen open');
+        $("ul.submenuItems").attr('style', '');
+        $("li.chosen > ul.submenuItems").attr('style', 'display:block;').fadeIn("slow");
+    }
 
-                    function iagree(thss, opt) {
+    function buildMenu1(parent, items) {
+        $.each(items, function () {
 
-                        $.ajax({
-                            method: "POST",
-                            url: "admin.php/home/accept_disclaimer",
-                            data: {option: opt}
-                        }).done(function (msg) {
-                            if (msg == 1) {
-                                $('#modal-disclaimer').modal('hide');
-                                $(".da_input").val(msg);
-                            }
-                        });
-
-                    }
-
-                    function buildMenu(parent, items) {
-                        $.each(items, function () {
-                            var sPageURL = window.location.pathname;
-                            var sURLVariables = sPageURL.split('/');
-                            var li = $('<li class="nav-item custom-dropdown-box"><a href="' + this.url + '" class="' + (sURLVariables[2].toLowerCase() == this.menu_text.toLowerCase() ? 'active' : '') + '">' + this.menu_text + '</a></li>');
-                            li.appendTo(parent);
-                            if (this.List && this.List.length > 0)
-                            {
-                                var ul = $('<ul class="dropdown-child-manu"></ul>');
-                                ul.appendTo(li);
-                                buildMenu(ul, this.List);
-                            }
-                        });
-                    }
-
-                    function buildMobileMenu(parent, items) {
-                        $.each(items, function () {
-
-                            var li = $('<li class=""><a href="' + this.url + '" class="dropdownlink" onclick="chooseThis($(this));">' + this.menu_text + '</a></li>');
-                            li.appendTo(parent);
-                            if (this.List && this.List.length > 0)
-                            {
-                                var ul = $('<ul class="submenuItems" style="">');
-                                ul.appendTo(li);
-                                buildMobileMenu(ul, this.List);
-                            }
-                        });
-                    }
-
-                    function chooseThis(thss) {
-                        $("ul.mobile-list-nav > li").removeClass("open").removeClass('chosen');
-                        $(thss).closest('li').addClass('chosen open');
-                        $("ul.submenuItems").attr('style', '');
-                        $("li.chosen > ul.submenuItems").attr('style', 'display:block;').fadeIn("slow");
-                    }
-
-                    function buildMenu1(parent, items) {
-                        $.each(items, function () {
-
-                            var li = $('<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="' + this.url + '">' + this.menu_text + '</a></li>');
-                            li.appendTo(parent);
-                            if (this.List && this.List.length > 0)
-                            {
-                                var ul = $('<ul class="dropdown-menu"></ul>');
-                                ul.appendTo(li);
-                                buildMenu(ul, this.List);
-                            }
-                        });
-                    }
+            var li = $('<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="' + this.url + '">' + this.menu_text + '</a></li>');
+            li.appendTo(parent);
+            if (this.List && this.List.length > 0)
+            {
+                var ul = $('<ul class="dropdown-menu"></ul>');
+                ul.appendTo(li);
+                buildMenu(ul, this.List);
+            }
+        });
+    }
 
 
-                    function success_msg(message)
-                    {
-                        var priority = 'success';
-                        var title = 'Success';
+    function success_msg(message)
+    {
+        var priority = 'success';
+        var title = 'Success';
 
-                        $.toaster({priority: priority, title: title, message: message});
-                    }
+        $.toaster({priority: priority, title: title, message: message});
+    }
 
-                    function error_msg(message)
-                    {
-                        var priority = 'danger';
-                        var title = 'Error';
+    function error_msg(message)
+    {
+        var priority = 'danger';
+        var title = 'Error';
 
-                        $.toaster({priority: priority, title: title, message: message});
-                    }
+        $.toaster({priority: priority, title: title, message: message});
+    }
 
-                    function info_msg(message)
-                    {
-                        var priority = 'info';
-                        var title = 'Information';
+    function info_msg(message)
+    {
+        var priority = 'info';
+        var title = 'Information';
 
-                        $.toaster({priority: priority, title: title, message: message});
-                    }
-                    function getUrlParam()
-                    {
-                        var sPageURL = window.location.pathname;
-                        var sURLVariables = sPageURL.split('/');
-                        var length = (sURLVariables.length) - 1;
-                        if ($.isNumeric(sURLVariables.length))
-                        {
-                            return sURLVariables;
-                        } else {
-                            return false;
-                        }
-                    }
+        $.toaster({priority: priority, title: title, message: message});
+    }
+    function getUrlParam()
+    {
+        var sPageURL = window.location.pathname;
+        var sURLVariables = sPageURL.split('/');
+        var length = (sURLVariables.length) - 1;
+        if ($.isNumeric(sURLVariables.length))
+        {
+            return sURLVariables;
+        } else {
+            return false;
+        }
+    }
 
 </script>
 </body>
