@@ -80,14 +80,14 @@
                 </div>
 
                 <div class="box-body no-padding qdItems_list">
-                    <table class="table table-striped faq_qd_list_dt" cellspacing="0" id="pa_list_dt"  style="width: 100%;">
+                    <table class="table table-striped pa_list_dt" cellspacing="0" id="pa_list_dt"  style="width: 100%;">
                         <thead>
                             <tr>
-                                <th class="dt_item_col faq_qd">Category</th>
-                                <th class="dt_item_col faq_qd">Slider Images</th>
-                                <th class="dt_content_col faq_qd">Content</th>
-                                <th class="dt_status_col faq_qd">Show / Hide</th>
-                                <th class="dt_action_col faq_qd">Action</th>
+                                <th class="dt_item_col pa_details">Category</th>
+                                <th class="dt_image_col pa_details">Slider Images</th>
+                                <th class="dt_content_col pa_details">Content</th>
+                                <th class="dt_status_col pa_details">Show / Hide</th>
+                                <th class="dt_action_col pa_details">Action</th>
                             </tr>
                         </thead>
 
@@ -101,7 +101,7 @@
 
 </section>
 
-<div class="modal fade" id="modal-delete_qditems">
+<div class="modal fade" id="modal-delete_PracticeAreaItem">
     <div class="modal-dialog ">
         <div class="modal-content del_conf">
             <div class="modal-header">
@@ -110,7 +110,7 @@
             </div>
             <div class="modal-body" id="modal-bodyku">Are you sure want to Delete?</div>
             <div class="modal-footer" >
-                <button type="button"  id="yes_conform" class="confirm_delete_QD btn btn-primary yes_popup_button " onclick="del_qdItem($(this));">Yes</button>
+                <button type="button"  id="yes_conform" class="confirm_delete_PracticeAreaItem btn btn-primary yes_popup_button " onclick="del_PracticeAreaItem($(this));">Yes</button>
                 <button type="button"class="btn btn btn-danger nobutton" data-dismiss="modal">No</button> 
 
             </div>

@@ -293,7 +293,7 @@ img {
     left: 54%;
     transform: translate(-50%);
     height: 3px;
-    background: rgb(197, 157, 95);
+    background: rgb(214, 179, 75);
     width: 84px;
     margin: 50px 0px;
 }
@@ -8392,7 +8392,7 @@ body.active #mobile-nav {
     left: 54%;
     transform: translate(-50%);
     height: 4px;
-    background: rgb(197, 157, 95);
+    background: rgb(214, 179, 75);
     width: 100px;
     margin: 50px 0px;
 }
@@ -11250,18 +11250,6 @@ img.marker_img {
     margin-top: 43px;
     position: relative;
     z-index: 2323423;
-}
-
-
-#map-header {
-  z-index: 10;
-}
-
-#map-banner {
-  margin-top: 100px;
-  position: absolute;
-  z-index: 99999;
-/*   color: black; */
 }
 
 /*.gm-style > div:first-child {

@@ -203,7 +203,7 @@ function pat_submit(thss) {
         });
     }
 }
-
+/* practice area details functions start */
 function pa_details_submit(thss) {
     var error = false;
     var pad_id = $(thss).attr('pad_id');
@@ -223,10 +223,12 @@ function pa_details_submit(thss) {
         form_data.append('pat_id', practiceCategory);
         form_data.append('pad_content', pc_content);
         var image_file_length = document.getElementById('imgPracticeItemUpload').files.length;
-        for (var index = 0; index < image_file_length; index++) {
-            form_data.append("fileToUpload[]", document.getElementById('imgPracticeItemUpload').files[index]);
+        if (image_file_length > 0) {
+            for (var index = 0; index < image_file_length; index++) {
+                form_data.append("fileToUpload[]", document.getElementById('imgPracticeItemUpload').files[index]);
+            }
         }
-        
+
         if (typeof (pad_id) !== 'undefined') {
             form_data.append('pad_id', pad_id);
         } else {
@@ -241,22 +243,156 @@ function pa_details_submit(thss) {
             success: function (data) {
                 if (data == 1) {
                     $(".btnUpdateQC").removeAttr("qc_id");
-                    $(".qc_select2").select2("val", 0);
-                    $('#txtquestion').val('');
-                    clearEditor("#txtanswer");
-                    success_msg('Question & Answer Updated Successfully!!!');
+                    $(".practicecategory_select2").select2("val", 0);
+                    $("#pat_image_preview").html('');
+                    clearEditor("#txt_pc_content");
+                    success_msg('Practice Area Details Updated Successfully!!!');
                     var table = 0;
                     if (table != 0) {
                         table.destroy();
                     }
-                    table = $('#faq_qd_list_dt').DataTable();
+                    table = $('#pa_list_dt').DataTable();
                     table.ajax.reload();
 
                 } else {
-                    error_msg('Question & Answer not Updated!!!');
+                    error_msg('Practice Area Details not Updated!!!');
                 }
             }
         });
     }
 
 }
+
+function getPAItemDetails(thss) { //getting question category details to edit 
+    var pad_id = $(thss).attr('pad_id');
+    $.ajax({
+        method: "POST",
+        url: "admin.php/practice/getPADetails",
+        data: {pad_id: pad_id}
+    }).done(function (msg) {
+        if (msg !== '')
+        {
+            var myObj = jQuery.parseJSON(msg);
+            $(".btnUpdatePAT").attr('pad_id', myObj[0].pad_id);
+            $(".practicecategory_select2").val(myObj[0].pat_id).trigger('change');
+            fillEditor('#txt_pc_content', myObj[0].pad_content);
+            var json_string = myObj[0].pad_image;
+            var array = $.parseJSON(json_string);
+            var thumbnails = '';
+            $.each(array, function (index, value)
+            {
+                thumbnails += '<span class="pat_thumbnail_outer" img_name = "' + value + '"><img class="pat_thumbnail" src="' + value + '"><span class="del_icon open_popup_modal"  data-toggle="modal" data-target="#modal-delete_PracticeAreaItem" pad_id = "' + pad_id + '" img_name = "' + value + '" onclick="delete_thumbnail($(this));"><i class="fa fa-remove"></i></span></span>';
+            });
+            $("#pat_image_preview").html(thumbnails)
+            //$("#txtCatName").val(myObj[0].qc_name);
+
+        }
+    });
+}
+
+function delPAItemDetails(thss) {
+    $('.confirm_delete_PracticeAreaItem').attr('pad_id', thss.attr('pad_id'));
+    $('.confirm_delete_PracticeAreaItem').removeAttr('img_name');
+}
+function delete_thumbnail(thss) {
+    $('.confirm_delete_PracticeAreaItem').attr('pad_id', thss.attr('pad_id'));
+    $('.confirm_delete_PracticeAreaItem').attr('img_name', thss.attr('img_name'));
+}
+
+
+function del_PracticeAreaItem(thss) { // delete Pracice Area item Image - from modal
+
+    var image = thss.attr('img_name');
+
+    if (typeof image == 'undefined') { // delete practice area details
+        $.ajax({
+            method: "POST",
+            url: "admin.php/practice/deletePADetail",
+            data: {pad_id: thss.attr('pad_id')}
+        }).done(function (msg) {
+            if (msg !== '')
+            {
+//                $('.nobutton').trigger('click');
+//                success_msg("Deleted Successfully!!!");
+//                var table = 0;
+//                if (table != 0) {
+//                    table.destroy();
+//                }
+//                table = $('#pa_list_dt').DataTable();
+//                table.ajax.reload();
+
+            } else {
+                error_msg("Failed to delete..");
+            }
+        });
+    } else { // delete practice area detail - image 
+        $.ajax({
+            method: "POST",
+            url: "admin.php/practice/deletePADetail", async: false,
+            data: {pad_id: thss.attr('pad_id'), img_name: thss.attr('img_name')}
+        }).done(function (msg) {
+            if (msg !== '')
+            {
+                $('.nobutton').trigger('click');
+                success_msg("Image Deleted Successfully!!!");
+                $(".pat_thumbnail_outer[img_name='" + thss.attr('img_name') + "']").remove();
+                var table = 0;
+                if (table != 0) {
+                    table.destroy();
+                }
+                table = $('#pa_list_dt').DataTable();
+                table.ajax.reload();
+                $.ajax({
+                    method: "POST",
+                    url: "admin.php/practice/getPADetails", async: false,
+                    data: {pad_id: thss.attr('pad_id')}
+                }).done(function (msg) {
+                    if (msg !== '')
+                    {
+                        var myObj = jQuery.parseJSON(msg);
+                        $(".btnUpdatePAT").attr('pad_id', myObj[0].pad_id);
+                        $(".practicecategory_select2").val(myObj[0].pat_id).trigger('change');
+                        fillEditor('#txt_pc_content', myObj[0].pad_content);
+                        var json_string = myObj[0].pad_image;
+                        var array = $.parseJSON(json_string);
+                        var thumbnails = '';
+                        $.each(array, function (index, value)
+                        {
+                            thumbnails += '<span class="pat_thumbnail_outer"><img class="pat_thumbnail" src="' + value + '"><span class="del_icon open_popup_modal"  data-toggle="modal" data-target="#modal-delete_PracticeAreaItem" pad_id = "' + thss.attr('pad_id') + '" img_name = "' + value + '" onclick="delete_thumbnail($(this));"><i class="fa fa-remove"></i></span></span>';
+                        });
+                        $("#pat_image_preview").html(thumbnails)
+                    }
+                });
+
+
+            } else {
+                error_msg("Failed to delete image..");
+            }
+        });
+    }
+
+}
+
+function change_dt_pad_status(thss) { // Status change for practice area details in datatable
+    var pad_id = $(thss).attr('pad_id');
+    var pad_status = ($(thss).attr('pad_status') == 1 ? 0 : 1);
+    $.ajax({
+        method: "POST",
+        url: "admin.php/practice/update_pad_status",
+        data: {pad_id: pad_id, pad_status: pad_status}
+    }).done(function (msg) {
+        if (msg !== '')
+        {
+            success_msg('Status changed successfully');
+        } else {
+            error_msg('Failed to change Status');
+        }
+        var table = 0;
+        if (table != 0) {
+            table.destroy();
+        }
+        table = $('#pa_list_dt').DataTable();
+        table.ajax.reload();
+    });
+}
+/* practice area details ends */

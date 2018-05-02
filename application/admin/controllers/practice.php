@@ -190,7 +190,7 @@ class Practice extends CI_Controller {
         echo json_encode($pat_itemDetails);
     }
 
-    function deletePATDetail() { // delete function for PracticeAreas Item - modal - ajax request
+    function deletePATDetail() { // delete function for PracticeAreas Types - modal - ajax request
         $deleted = 0;
         $id = $this->input->post('pat_id');
         if (isset($id) && !empty($id)) {
@@ -203,7 +203,7 @@ class Practice extends CI_Controller {
         echo $deleted;
     }
 
-    function update_about_pat() { // update functionality for about Practice Area Items - form_submit()
+    function update_about_pat() { // update functionality for about Practice Area Type Items - form_submit() - PAT - Practice Area Types
         $inserted = 0;
         $date = new DateTime();
         $foldername = 'PracticeAreas';
@@ -273,11 +273,16 @@ class Practice extends CI_Controller {
         echo $updated;
     }
 
-    function update_practiceAreaDetails() {// update for practice area details - pa_details_submit action
+    function update_practiceAreaDetails() { // update for practice area details - pa_details_submit action
         $inserted = 0;
         $date = new DateTime();
         $practiceAreaDetailsExists = $PADItem_image = $pad_images = '';
         $foldername = 'PracticeAreas';
+
+        $practiceAreaDetails = array(
+            'pat_id' => $this->input->post('pat_id'),
+            'pad_content' => $this->input->post('pad_content')
+        );
 
         if (!empty($_FILES['fileToUpload']['name'])) {
             $files_count = count($_FILES['fileToUpload']['name']);
@@ -304,13 +309,10 @@ class Practice extends CI_Controller {
                     $pad_images[] = cleanurl($pad_image);
                 }
             }
+            $practiceAreaDetails = array(
+                'pad_image' => json_encode($pad_images)
+            );
         }
-
-        $practiceAreaDetails = array(
-            'pat_id' => $this->input->post('pat_id'),
-            'pad_content' => $this->input->post('pad_content'),
-            'pad_image' => json_encode($pad_images)
-        );
 
         $checkPADArray = array_filter($practiceAreaDetails);
 
@@ -319,7 +321,13 @@ class Practice extends CI_Controller {
         if (isset($pad_id) && !empty($pad_id)) { //update search
             $practiceAreaDetailsExists = $this->pa_model->searchContent($this->practiceAreaDetails, array('pad_id' => $pad_id, 'pad_deleted' => 0)); //table, where
         }
-
+        if (isset($pad_images) && !empty($pad_images)) {
+            $old_images = json_decode($practiceAreaDetailsExists[0]['pad_image'], true);
+            $update_images = array_merge($old_images, $pad_images);
+            $practiceAreaDetails = array(
+                'pad_image' => json_encode($update_images)
+            );
+        }
         if (empty($pad_id) && isset($checkPADArray) && !empty($checkPADArray)) {
             $inserted = $this->pa_model->insertData($this->practiceAreaDetails, $practiceAreaDetails);
         } else {
@@ -334,8 +342,11 @@ class Practice extends CI_Controller {
     function get_PracticeAreaDetails() { // Practice Area details - for datatable
         $this->data1 = array();
         $data = array();
-        $select = 'practicearea_detail.pad_id as pad_id, practicearea_types.pat_header as pat_header, practicearea_detail.pad_image as pad_image,'
-                . 'practicearea_detail.pad_content as pad_id, practicearea_detail.pad_status';
+        $select = 'practicearea_detail.pad_id as pad_id, '
+                . 'practicearea_types.pat_header as pat_header, '
+                . 'practicearea_detail.pad_image as pad_image,'
+                . 'practicearea_detail.pad_content as pad_content, '
+                . 'practicearea_detail.pad_status as pad_status';
         $from = $this->practiceAreaDetails;
         $join = $this->practiceAreaTypes;
         $join_on = "practicearea_detail.pat_id = practicearea_types.pat_id";
@@ -344,17 +355,21 @@ class Practice extends CI_Controller {
         $orderby = "practicearea_detail.pad_id";
 
         $practiceAreaDetails = $this->pa_model->getJoinData($select, $from, $join, $join_on, $where, $orderby);
-       
+
         if (isset($practiceAreaDetails) && !empty($practiceAreaDetails)) {
             foreach ($practiceAreaDetails as $key => $value) {
+                $pad_image = json_decode($value['pad_image'], true);
+                $images = '';
+                foreach ($pad_image as $value_pi) {
+                    $images .= '<span class="pat_thumbnail_outer"><img class="pat_thumbnail" src="' . $value_pi . '"></span>';
+                }
 
-                $value['tms_name'] = character_limiter($value['tms_name'], 30);
-                $value['tms_content'] = $value['tms_content'];
-                $value['tms_image'] = '<img class="dt_image_tms ' . (!file_exists($value['tms_image']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['tms_image'])) ? $value['tms_image'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
-                $value['tms_image_sign'] = '<img class="dt_image_tms ' . (!file_exists($value['tms_image_sign']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['tms_image_sign'])) ? $value['tms_image_sign'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
-                $value['action'] = '<a onclick="getTMSItemDetails($(this));" tms_id="' . $value['tms_id'] . '" class="edit_tmsitems btn"><i class="fa fa-pencil"></i></a>' . '<a onclick="delTMSItemDetails($(this));" class="btn open_popup_modal" tms_id=' . $value['tms_id'] . '  data-toggle="modal" data-target="#modal-delete_tmsitems"><i class="fa fa-trash-o"></i></a>';
-                $value['tms_status'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['tms_status'] == 1 ? ' checked' : '') . ' onclick="change_dt_tms_status($(this));" tms_id="' . $value['tms_id'] . '" tms_status="' . $value['tms_status'] . '"><span class="slider round"></span></label></a>';
-                unset($value['tms_id']);
+                $value['pat_header'] = character_limiter($value['pat_header'], 50);
+                $value['pad_image'] = '<div class="pat_image_preview">' . $images . '</div>';
+                $value['pad_content'] = $value['pad_content'];
+                $value['action'] = '<a onclick="getPAItemDetails($(this));" pad_id="' . $value['pad_id'] . '" class="edit_paitems btn"><i class="fa fa-pencil"></i></a>' . '<a onclick="delPAItemDetails($(this));" class="btn open_popup_modal" pad_id=' . $value['pad_id'] . '  data-toggle="modal" data-target="#modal-delete_PracticeAreaItem"><i class="fa fa-trash-o"></i></a>';
+                $value['pad_status'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['pad_status'] == 1 ? ' checked' : '') . ' onclick="change_dt_pad_status($(this));" pad_id="' . $value['pad_id'] . '" pad_status="' . $value['pad_status'] . '"><span class="slider round"></span></label></a>';
+                unset($value['pad_id']);
                 $data['data'][] = array_values($value);
             }
         }
@@ -365,6 +380,51 @@ class Practice extends CI_Controller {
         } else {
             echo json_encode($data);
         }
+    }
+
+    function getPADetails() {
+        $select = 'pad_id, pat_id, pad_content, pad_image';
+        $from = $this->practiceAreaDetails;
+        $pad_id = $this->input->post('pad_id');
+
+        $PA_Details = $this->pa_model->getData($select, $from, array('pad_id' => $pad_id));
+
+        echo json_encode($PA_Details);
+    }
+
+    function deletePADetail() { // delete function for PracticeArea Details - modal - ajax request
+        $deleted = 0;
+        $id = $this->input->post('pad_id');
+        $img_name = $this->input->post('img_name');
+        if (isset($img_name) && !empty($img_name) && isset($id) && !empty($id)) {
+            $pad_items = $this->pa_model->searchContent($this->practiceAreaDetails, array('pad_id' => $id, 'pad_deleted' => 0)); //table, where
+            if (isset($pad_items) && !empty($pad_items)) {
+                $json_image = $pad_items[0]['pad_image'];
+                $array = json_decode($json_image, true);
+                foreach (array_keys($array, $img_name, true) as $key) {
+                    unset($array[$key]);
+                }
+                $from = $this->practiceAreaDetails;
+                $where = array('pad_id' => $id, 'pad_status' => 1, 'pad_deleted' => 0);
+                $update_value = array('pad_image' => json_encode(array_values($array)));
+                $deleted = $this->pa_model->deleteData($from, $where, $update_value);
+            }
+        } elseif (isset($id) && !empty($id)) {
+            $from = $this->practiceAreaDetails;
+            $where = array('pad_id' => $id);
+            $update_value = array('pad_deleted' => 1);
+            $deleted = $this->pa_model->deleteData($from, $where, $update_value);
+        }
+
+        echo $deleted;
+    }
+
+    function update_pad_status() {
+        $pad_id = $this->input->post('pad_id');
+        $pad_status = array('pad_status' => $this->input->post('pad_status'));
+        $updated = $this->pa_model->updateData($this->practiceAreaDetails, $pad_status, array('pad_id' => $pad_id));
+
+        echo $updated;
     }
 
     function print_me($message, $content) {

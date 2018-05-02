@@ -6220,6 +6220,33 @@ table.dataTable.faq_qc_list_dt td:nth-child(2), td:nth-child(3),table.dataTable.
 }
 
 /* question category end */
+
+/* practice details start */
+th.dt_item_col.pa_details{
+    width: 15% !important;
+}
+
+th.dt_image_col.pa_details{
+    width: 30% !important;
+}
+
+th.dt_content_col.pa_details{
+    width: 35% !important;
+}
+
+th.dt_status_col.pa_details{
+    width: 10% !important;
+}
+th.dt_action_col.pa_details{
+    width: 10% !important;
+}
+table.dataTable.pa_list_dt td:nth-child(4),table.dataTable.pa_list_dt th:nth-child(4){
+    text-align: center;    vertical-align: inherit;
+}
+table.dataTable.pa_list_dt td:last-child,table.dataTable.pa_list_dt th:last-child{
+    text-align: center;    vertical-align: inherit;
+}
+/* practice details end */
 /* dashboard start */
 
 table.dataTable.ud_hslist_dt td:nth-child(4),table.dataTable.ud_hslist_dt th:nth-child(4) {
@@ -6524,4 +6551,10 @@ span.del_icon {
 }
 span.del_icon {
     cursor: pointer;
+}
+
+#pa_list_dt .pat_thumbnail {
+    width: 75px;
+    height: 55px;
+    padding: 2px;
 }
