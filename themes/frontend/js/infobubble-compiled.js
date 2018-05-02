@@ -49,7 +49,6 @@
     function m(a) {
         var c = a.c = document.createElement("DIV");
         c.style.position = "absolute";
-        console.log(a.g)
         c.style.zIndex = a.g;
         (a.i = document.createElement("DIV")).style.position = "relative";
         var d = a.j = document.createElement("IMG");

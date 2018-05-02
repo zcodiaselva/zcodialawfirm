@@ -523,6 +523,21 @@
         /* Upload Preview for Head Logo  - End */
 
 
+        var pa_list_dt = 0;
+        if (pa_list_dt !== 0) {
+            pa_list_dt.destroy();
+        }
+        pa_list_dt = $('#pa_list_dt').DataTable({
+            "responsive": true, "scrollX": true,
+            "processing": true,
+            "ajax": "admin.php/practice/get_PracticeAreaDetails",
+            "aaSorting": [[2, "desc"]],
+            // "sPaginationType": "full_numbers",
+            "bServerSide": false,
+            "fnDrawCallback": function (oSettings) {
+            }
+        });
+
         var hslist_dt = 0;
         if (hslist_dt !== 0) {
             hslist_dt.destroy();
@@ -922,9 +937,9 @@
             $(".btnEditSubMenu,.btnDelSubMenu").prop("disabled", true);
         }
     }
-function change_this(thss){
-    info_msg('here');
-}
+    function change_this(thss) {
+        info_msg('here');
+    }
     function fillEditor(selector, value) {
         var content = $(selector);
         var contentPar = content.parent()
@@ -973,7 +988,7 @@ function change_this(thss){
         });
 
         $("#txtAbtItemContent,#txtHomeContentTMS,#txtHomeTMContent,#txtContentAboutMe,#txtAbtTLSubHeader,#txtanswer,#txtPAContent,#txtAbtAttyContent,#txt_pc_content").wysihtml5();
-$('.my-colorpicker2').colorpicker();
+        $('.my-colorpicker2').colorpicker();
     })
 </script>
 </body>

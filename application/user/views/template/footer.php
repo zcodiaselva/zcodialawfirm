@@ -213,12 +213,12 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                                 map = new google.maps.Map(document.getElementById('map'), {
                                     zoom: 14,
                                     center: mapCenter,
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP, disableDefaultUI: true,
                                 });
 
                         var marker = new google.maps.Marker({
                             map: map,
-                            style: stylez,
+                           // style: stylez,
                             position: new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng')),
                             //draggable: true,
                             icon: 'themes/frontend/images/empty_marker.png'
@@ -245,6 +245,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
           
                     }
                     google.maps.event.addDomListener(window, 'load', init);
+                    
                     function setMapOnAll(map) {
                         console.log(markers.length)
                         for (var i = 0; i < markers.length; i++) {
@@ -363,8 +364,12 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         // Call initialize -- in prod, add this to window.onload or some other DOM ready alternative
         // initialize();
         var placeholder_img = 'themes/frontend/images/placeholder.png';
-        console.log($("._ibani1_").html());
+        //console.log($("._ibani1_").html());
         //$('._ibani1_').before($('<img class="marker_img" src="' + placeholder_img + '" />'));
+        //console.log('here');
+        console.log($("#map").html());
+        //console.log($(".gm-style-pbc").attr('style'))
+        $(".gm-style-pbt").html('');
     });
 
 

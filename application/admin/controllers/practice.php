@@ -278,10 +278,6 @@ class Practice extends CI_Controller {
         $date = new DateTime();
         $practiceAreaDetailsExists = $PADItem_image = $pad_images = '';
         $foldername = 'PracticeAreas';
-        $practiceAreaDetails = array(
-            'pat_id' => $this->input->post('pat_id'),
-            'pad_content' => $this->input->post('pad_content')
-        );
 
         if (!empty($_FILES['fileToUpload']['name'])) {
             $files_count = count($_FILES['fileToUpload']['name']);
@@ -293,28 +289,29 @@ class Practice extends CI_Controller {
                 $_FILES['file']['error'] = $_FILES['fileToUpload']['error'][$i];
                 $_FILES['file']['size'] = $_FILES['fileToUpload']['size'][$i];
 
-                $uploadPath = 'uploads/' . $foldername . '/';
-                $config['upload_path'] = $uploadPath;
-                $config['allowed_types'] = 'gif|jpg|png';
-
-                $this->load->library('upload', $config);
-                $this->upload->initialize($config);
-                if ($this->upload->do_upload('file')) {
-                    $fileData = $this->upload->data();
-                    $info = new SplFileInfo($fileData['file_name']);
-                    $PADItem_image = $uploadPath . $date->getTimestamp() . $i . 'pad_image.' . $info->getExtension();
-                    if (isset($PADItem_image) && !empty($PADItem_image)) {
-                        $pad_images[] = cleanurl($PADItem_image);
+                $info = new SplFileInfo($_FILES['file']['name']);
+                $pad_image = $date->getTimestamp() . 'pad_image' . $i . '.' . $info->getExtension();
+                if ($this->fileupload->uploadfile('file', $pad_image, $foldername)) {
+                    if (isset($foldername) && !empty($foldername)) {
+                        $upd_foldername = $foldername . '/';
+                        $pad_image = 'uploads/' . $upd_foldername . $pad_image;
+                    } else {
+                        $pad_image = 'uploads/' . $pad_image;
                     }
+                }
+
+                if (isset($pad_image) && !empty($pad_image)) {
+                    $pad_images[] = cleanurl($pad_image);
                 }
             }
         }
 
-        if (isset($pad_images) && !empty($pad_images) && is_array($pad_images)) {
-            echo '<pre>';
-            print_r($pad_images);
-            die;
-        }
+        $practiceAreaDetails = array(
+            'pat_id' => $this->input->post('pat_id'),
+            'pad_content' => $this->input->post('pad_content'),
+            'pad_image' => json_encode($pad_images)
+        );
+
         $checkPADArray = array_filter($practiceAreaDetails);
 
         $pad_id = $this->input->post('pad_id');
@@ -332,6 +329,42 @@ class Practice extends CI_Controller {
         }
 
         echo $inserted;
+    }
+
+    function get_PracticeAreaDetails() { // Practice Area details - for datatable
+        $this->data1 = array();
+        $data = array();
+        $select = 'practicearea_detail.pad_id as pad_id, practicearea_types.pat_header as pat_header, practicearea_detail.pad_image as pad_image,'
+                . 'practicearea_detail.pad_content as pad_id, practicearea_detail.pad_status';
+        $from = $this->practiceAreaDetails;
+        $join = $this->practiceAreaTypes;
+        $join_on = "practicearea_detail.pat_id = practicearea_types.pat_id";
+        $where = array('practicearea_detail.pad_status' => 1, 'practicearea_detail.pad_deleted' => 0,
+            'practicearea_types.pat_status' => 1, 'practicearea_types.pat_deleted' => 0);
+        $orderby = "practicearea_detail.pad_id";
+
+        $practiceAreaDetails = $this->pa_model->getJoinData($select, $from, $join, $join_on, $where, $orderby);
+       
+        if (isset($practiceAreaDetails) && !empty($practiceAreaDetails)) {
+            foreach ($practiceAreaDetails as $key => $value) {
+
+                $value['tms_name'] = character_limiter($value['tms_name'], 30);
+                $value['tms_content'] = $value['tms_content'];
+                $value['tms_image'] = '<img class="dt_image_tms ' . (!file_exists($value['tms_image']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['tms_image'])) ? $value['tms_image'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
+                $value['tms_image_sign'] = '<img class="dt_image_tms ' . (!file_exists($value['tms_image_sign']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['tms_image_sign'])) ? $value['tms_image_sign'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
+                $value['action'] = '<a onclick="getTMSItemDetails($(this));" tms_id="' . $value['tms_id'] . '" class="edit_tmsitems btn"><i class="fa fa-pencil"></i></a>' . '<a onclick="delTMSItemDetails($(this));" class="btn open_popup_modal" tms_id=' . $value['tms_id'] . '  data-toggle="modal" data-target="#modal-delete_tmsitems"><i class="fa fa-trash-o"></i></a>';
+                $value['tms_status'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['tms_status'] == 1 ? ' checked' : '') . ' onclick="change_dt_tms_status($(this));" tms_id="' . $value['tms_id'] . '" tms_status="' . $value['tms_status'] . '"><span class="slider round"></span></label></a>';
+                unset($value['tms_id']);
+                $data['data'][] = array_values($value);
+            }
+        }
+
+        if (empty($data)) {
+            $data['data'] = [];
+            echo json_encode($data);
+        } else {
+            echo json_encode($data);
+        }
     }
 
     function print_me($message, $content) {

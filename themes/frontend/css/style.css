@@ -11239,9 +11239,9 @@ img.js-info-bubble-close {
     display: none;
 }
 img.logo_img {
-    height: 47px;
+    height: 55px;
     margin-top: 52px;
-    margin-left: 18px;
+    margin-left: 13px;
 }
 
 img.marker_img {
@@ -11250,6 +11250,18 @@ img.marker_img {
     margin-top: 43px;
     position: relative;
     z-index: 2323423;
+}
+
+
+#map-header {
+  z-index: 10;
+}
+
+#map-banner {
+  margin-top: 100px;
+  position: absolute;
+  z-index: 99999;
+/*   color: black; */
 }
 
 /*.gm-style > div:first-child {
