@@ -64,7 +64,7 @@ class Home extends CI_Controller {
         $data['appt_details'] = $this->home_model->getData('*', $this->appt_table, array('appt_status' => 1, 'appt_deleted' => 0), 'appt_id');
         $data['logo_details'] = $this->home_model->getData('*', $this->logo_table, array('logo_status' => 1, 'logo_deleted' => 0), 'logo_id');
         $data['about_pa'] = $this->home_model->getData('*', $this->practiceAreas, array('pa_status' => 1, 'pa_deleted' => 0), 'pa_id');
-        $data['about_patypes'] = $this->home_model->getData('*', $this->practiceAreaTypes, array('pat_status' => 1, 'pat_deleted' => 0), 'pat_id');
+        $data['about_patypes'] = $this->home_model->getData('*', $this->practiceAreaTypes, array('pat_home_flag' => 1, 'pat_deleted' => 0), 'pat_id');
         $data['home_counter'] = $this->home_model->getData('*', $this->home_counter, array('hc_status' => 1, 'hc_deleted' => 0), 'hc_id');
         $data['about_attorney'] = $this->home_model->getData('*', $this->aboutAttorney_table, array('atty_status' => 1, 'atty_deleted' => 0), 'atty_id');
         $data['attorney_details'] = $this->home_model->getAttorneyData();

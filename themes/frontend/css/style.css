@@ -381,7 +381,9 @@ img {
     margin: auto;
     color: #3b3b3b;
 }
-
+.practArea .section-head-3-1 {
+    margin-bottom: 0px;
+}
 .section-head-3-1 {
     margin-bottom: 80px;
 }
@@ -662,7 +664,11 @@ img {
     }
 
 }
-
+.home-one .btn-1:hover {
+    color: #22242f;
+    background: #d6b34b !important;
+    border: 1px solid #d6b34b !important;
+}
 .btn-1 {
     font-size: 14px;
     /* background: #22242f; */
@@ -7737,6 +7743,16 @@ body.active #mobile-nav {
     -moz-box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
     -o-box-shadow: 0px 3px 9px 0px rgba(117, 117, 117, 0.35);
     margin-bottom: 32px;
+    height:350px;width:300px;
+}
+
+.lawer-info-widget > .info-img {
+    margin-left: 30px;
+}
+
+.info-img > img {
+    bottom: -40px;
+    position: relative;
 }
 
 .team-detals-content {
@@ -7966,10 +7982,10 @@ body.active #mobile-nav {
 @media (min-width: 768px) and (max-width: 992px) {
 
     .info-img {
-        width: 350px;
+        width: 300px;
         height: 350px;
         margin: 0 auto;
-        margin-bottom: 50px;
+        margin-bottom: 48px;
     }
     .lawer-info-widget {
         border-bottom: 0px solid #d8d8d8;
@@ -7985,7 +8001,7 @@ body.active #mobile-nav {
 
 
     .info-img {
-        width: 350px;
+        width: 300px;
         height: 350px;
         margin: 0 auto;
         margin-bottom: 50px;
@@ -8003,10 +8019,12 @@ body.active #mobile-nav {
 @media (min-width: 320px) and (max-width: 575px) {
 
     .info-img {
-        width: 275px;
+        width: 225px;
         height: 275px;
     }
-
+    .lawer-info-widget > .info-img {
+        margin-left: 60px;
+    }
     .sin-sidebar {
         margin-bottom: 0px;
     }
@@ -8500,7 +8518,9 @@ body.active #mobile-nav {
 .mar-r {
     /*margin-right: 2%;*/
 }
-
+.con-page-form.per-form input {
+    margin-top: 0px;
+}
 .con-page-form input[type="submit"] {
     background-color: #212529;
     color: #fff;
@@ -9071,6 +9091,9 @@ input.btn-1:hover {
     .single-team  .default {
         margin-left: 0px;
     }
+    .lawer-info-widget > .info-img {
+        margin-left: 75px;
+    }
     .post-single-des .blog-title {
         font-size: 15px;
         line-height: 24px;
@@ -9153,7 +9176,9 @@ input.btn-1:hover {
 }
 
 @media only screen and (max-width: 575px) {
-
+    .lawer-info-widget > .info-img {
+        margin-left: 90px;
+    }
     .blog-meta {
         width: 100%;
     }
@@ -9341,12 +9366,12 @@ input.btn-1:hover {
     color: #5a5a5a;
     line-height: 24px;
     padding: 0px 18px 38px 0px;
+    text-align: justify
 }
 .atty-team-3-part .team-3-details  a {
     background-color: #212529;
     color: #fff;
     padding: 16px 40px;
-    margin-left: -20px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -11066,14 +11091,23 @@ div#modal-body-disclaimer {
     }
 }
 @media only screen and (min-width: 768px){
-
+    .team-3-details > a {
+        margin-left: -15px;
+    }
 
 }
 @media only screen and (min-width: 1024px){
-
+    .team-3-details > a {
+        margin-left: -15px;
+    }
+    .lawer-info-widget > .info-img {
+        margin-left: -5px;
+    }
 }
 @media only screen and (min-width: 1440px){ 
-
+    .lawer-info-widget > .info-img {
+        margin-left: 40px;
+    }
     .skill-part .section-head-2 {
         margin-bottom: 54px;
         text-align: left;
@@ -11140,10 +11174,18 @@ div#modal-body-disclaimer {
         position: absolute;
         left: 200px;
     }
+    .team-3-details > a {
+        margin-left: -15px;
+    }
 }
 
 @media only screen and (min-width: 2560px){
-
+    .team-3-details > a {
+        margin-left: -15px;
+    }
+    .lawer-info-widget > .info-img {
+        margin-left: 35px;
+    }
     .skill-part .section-head-2 {
         margin-bottom: 54px;
         text-align: left;
@@ -11207,6 +11249,9 @@ div#modal-body-disclaimer {
     }
     .count-des {
         padding-left: 18px;
+    }
+    .team-3-details > a {
+        margin-left: -15px;
     }
 }
 
@@ -11340,7 +11385,9 @@ img.marker_img {
 .atty-team-3-part .team_member {
     position: relative;
     margin-bottom: 80px;
+    text-align: -webkit-center;
 }
+
 
 .atty-team-3-part .team_member img {
     width: 100%;
@@ -11593,7 +11640,7 @@ img.marker_img {
 .atty-team-3-part .team_member .member_name {
     border-radius: 10px;
     bottom: -45px;
-    left: 45%;
+    left: 50%;
     margin-bottom: 0;
     margin-right: auto;
     margin-top: 0;
@@ -11628,3 +11675,154 @@ img.marker_img {
     font-weight: 300;
 }
 /* attorney team 3 part custom end */
+
+/* Practice area start */
+
+.auto-container {
+    position: static;
+    max-width: 1200px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+.practArea{
+    position:relative;
+    overflow:hidden;
+    padding:110px 0px 0px;
+}
+
+.practArea .row{
+    margin:0px -7px;
+}
+
+.practArea .big-column{
+    position: relative;
+    width: 40%;
+    float: left;
+    padding: 0px 3px;
+}
+
+.practArea .small-column{
+    position: relative;
+    width: 20%;
+    float: left;
+    padding: 0px 3px;
+}
+
+.practArea .filters{
+    position:relative;
+}
+
+.practArea .filters .filter-tabs{
+    position:relative;
+    margin-bottom:60px;
+    text-align:center;
+}
+
+.practArea .filters .filter-tabs .filter{
+    position:relative;
+    color:#222222;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:400;
+    padding:0px 20px;
+    text-transform:uppercase;
+    display:inline-block;
+    line-height:1em;
+    transition:all 0.3s ease;
+    -moz-transition:all 0.3s ease;
+    -webkit-transition:all 0.3s ease;
+    -ms-transition:all 0.3s ease;
+    -o-transition:all 0.3s ease;
+}
+
+.practArea .filters .filter-tabs .filter:after{
+    position:absolute;
+    content:'/';
+    right:-2px;
+    top:0px;
+    color:#222222;
+    font-size:18px;
+}
+
+.practArea .filters .filter-tabs .filter:last-child::after{
+    display:none;
+}
+
+.practArea .filters .filter-tabs .filter.active,
+.practArea .filters .filter-tabs .filter:hover{
+    color:#d6b34b;
+}
+
+.practArea .default-portfolio-item{
+    margin-bottom:6px;
+}
+
+.practArea .latest-posts a.img {
+    border-radius: 5px 5px 0 0;
+}
+.practArea .post--preview > * {
+    background-color: white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+.practArea .embed-responsive {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+.practArea .latest-posts .description h3 > a {
+    color: #404040;
+    margin-bottom: 0.25em;
+}
+
+.practArea .latest-posts h2.block-title,
+.practArea .latest-posts h2.block-title > u {
+    color: #404040;
+}
+
+.practArea .latest-posts h2.block-title {
+    margin-bottom: 50px;
+}
+
+.practArea .latest-posts {
+    background-color: #f8f8fd;
+}
+
+.practArea .post--preview > * {
+    background-color: white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+.practArea .latest-posts a.img {
+    border-radius: 5px 5px 0 0;
+}
+
+.practArea .latest-posts a.img:hover img {
+    transform: scale(1.1);
+}
+
+.practArea .latest-posts .description {
+    padding: 30px 20px;
+    border-radius: 0 0 5px 5px;
+}
+
+.practArea .latest-posts .description h3 > a {
+    color: #404040;
+    margin-bottom: 0.25em;
+}
+
+.practArea .latest-posts .description h4,
+.practArea .latest-posts .description h4 * {
+    font-weight: 300;
+    color: #525252;
+    opacity: 0.8;
+    font-size: 12px;
+}
+
+.practArea .latest-posts .description p {
+    color: #525252;
+    margin-bottom: 0.1em;
+}
+
+/* Practice area end */

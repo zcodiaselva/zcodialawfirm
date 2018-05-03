@@ -152,7 +152,7 @@ class Practice extends CI_Controller {
     function get_pat_details() { // PracticeArea Items slider - for datatable
         $this->data1 = array();
         $data = array();
-        $select = 'pat_id, pat_header, pat_content,pat_icon_class, pat_icon, pat_status';
+        $select = 'pat_id, pat_header, pat_content,pat_icon_class, pat_icon, pat_home_flag, pat_status';
         $from = $this->practiceAreaTypes;
         $where = array('pat_deleted' => 0);
         $orderby = "pat_id";
@@ -166,6 +166,7 @@ class Practice extends CI_Controller {
                 $value['pat_icon_class'] = '<div class="icon-box"><i class="flat_icon ' . $value['pat_icon_class'] . '"></i></div>';
                 $value['pat_icon'] = '<img class="dt_image_pat ' . (!file_exists($value['pat_icon']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['pat_icon'])) ? $value['pat_icon'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
                 $value['action'] = '<a onclick="getPATItemDetails($(this));" pat_id="' . $value['pat_id'] . '" class="edit_patitems btn"><i class="fa fa-pencil"></i></a>' . '<a onclick="delPATItemDetails($(this));" class="btn open_popup_modal" pat_id=' . $value['pat_id'] . '  data-toggle="modal" data-target="#modal-delete_patitems"><i class="fa fa-trash-o"></i></a>';
+                $value['pat_home_flag'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['pat_home_flag'] == 1 ? ' checked' : '') . ' onclick="change_dt_pat_hf_status($(this));" pat_id="' . $value['pat_id'] . '" pat_home_flag="' . $value['pat_home_flag'] . '"><span class="slider round"></span></label></a>';
                 $value['pat_status'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['pat_status'] == 1 ? ' checked' : '') . ' onclick="change_dt_pat_status($(this));" pat_id="' . $value['pat_id'] . '" pat_status="' . $value['pat_status'] . '"><span class="slider round"></span></label></a>';
                 unset($value['pat_id']);
                 $data['data'][] = array_values($value);
@@ -269,6 +270,14 @@ class Practice extends CI_Controller {
         $pat_id = $this->input->post('pat_id');
         $pat_status = array('pat_status' => $this->input->post('pat_status'));
         $updated = $this->pa_model->updateData($this->practiceAreaTypes, $pat_status, array('pat_id' => $pat_id));
+
+        echo $updated;
+    }
+    
+    function update_pat_hf_status(){ // home flag status change - for Pratice Area Items = in datatable
+        $pat_id = $this->input->post('pat_id');
+        $pat_home_flag = array('pat_home_flag' => $this->input->post('pat_home_flag'));
+        $updated = $this->pa_model->updateData($this->practiceAreaTypes, $pat_home_flag, array('pat_id' => $pat_id));
 
         echo $updated;
     }

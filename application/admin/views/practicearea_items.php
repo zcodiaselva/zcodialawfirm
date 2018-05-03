@@ -88,6 +88,7 @@ $pat_mainheader = $pat_subheader = $pat_content = $pat_image = $pat_sideimage = 
                                 <th class="dt_content_col pat_dt">Content</th>
                                 <th class="dt_item_col pat_dt">Icon Class</th>
                                 <th class="dt_image_col pat_dt">Image</th>
+                                <th class="dt_status_col pat_dt">Show in Home</th>
                                 <th class="dt_status_col pat_dt">Show / Hide</th>
                                 <th class="dt_action_col pat_dt">Action</th>
                             </tr>

@@ -110,13 +110,36 @@ function del_patItem(thss) { // delete testimonial slider item - from modal
     });
 }
 
-function change_dt_pat_status(thss) { // temstimonial items - status change - datatable
+function change_dt_pat_status(thss) { // Practice area types - status change in datatable
     var pat_id = $(thss).attr('pat_id');
     var pat_status = ($(thss).attr('pat_status') == 1 ? 0 : 1);
     $.ajax({
         method: "POST",
         url: "admin.php/practice/update_pat_status",
         data: {pat_id: pat_id, pat_status: pat_status}
+    }).done(function (msg) {
+        if (msg !== '')
+        {
+            success_msg('Status changed successfully');
+        } else {
+            error_msg('Failed to change Status');
+        }
+        var table = 0;
+        if (table != 0) {
+            table.destroy();
+        }
+        table = $('#pat_list_dt').DataTable();
+        table.ajax.reload();
+    });
+}
+
+function change_dt_pat_hf_status(thss) { // Practice area types - Home flag status change in datatable
+    var pat_id = $(thss).attr('pat_id');
+    var pat_home_flag = ($(thss).attr('pat_home_flag') == 1 ? 0 : 1);
+    $.ajax({
+        method: "POST",
+        url: "admin.php/practice/update_pat_hf_status",
+        data: {pat_id: pat_id, pat_home_flag: pat_home_flag}
     }).done(function (msg) {
         if (msg !== '')
         {
