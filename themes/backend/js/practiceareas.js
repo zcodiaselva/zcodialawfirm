@@ -312,14 +312,14 @@ function del_PracticeAreaItem(thss) { // delete Pracice Area item Image - from m
         }).done(function (msg) {
             if (msg !== '')
             {
-//                $('.nobutton').trigger('click');
-//                success_msg("Deleted Successfully!!!");
-//                var table = 0;
-//                if (table != 0) {
-//                    table.destroy();
-//                }
-//                table = $('#pa_list_dt').DataTable();
-//                table.ajax.reload();
+                $('.nobutton').trigger('click');
+                success_msg("Deleted Successfully!!!");
+                var table = 0;
+                if (table != 0) {
+                    table.destroy();
+                }
+                table = $('#pa_list_dt').DataTable();
+                table.ajax.reload();
 
             } else {
                 error_msg("Failed to delete..");

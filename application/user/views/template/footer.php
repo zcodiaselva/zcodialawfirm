@@ -218,12 +218,12 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 
                         var marker = new google.maps.Marker({
                             map: map,
-                           // style: stylez,
+                            // style: stylez,
                             position: new google.maps.LatLng($("#map").attr('data-lat'), $("#map").attr('data-lng')),
                             //draggable: true,
                             icon: 'themes/frontend/images/empty_marker.png'
                         });
-                         markers.push(marker);
+                        markers.push(marker);
                         var header_logo = $('.header_logo img').attr('src');
 
                         var contentString = '<div id="content">' +
@@ -239,13 +239,15 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                         map.mapTypes.set("Edited", styledMapType);
                         map.setMapTypeId('Edited');
 //                        setMapOnAll(null);
-                         setMapOnAll(map);
+                        setMapOnAll(map);
                         infoBubble.open(map, marker);
-                                updateStyles();
-          
+                        updateStyles();
+
                     }
-                    google.maps.event.addDomListener(window, 'load', init);
-                    
+                    var param = (getUrlParam());
+                    if (param[2] == 'contactus') {
+                        google.maps.event.addDomListener(window, 'load', init);
+                    }
                     function setMapOnAll(map) {
                         console.log(markers.length)
                         for (var i = 0; i < markers.length; i++) {
@@ -253,9 +255,21 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                         }
                     }
 
+                    function getUrlParam()
+                    {
+                        var sPageURL = window.location.pathname;
+                        var sURLVariables = sPageURL.split('/');
+                        var length = (sURLVariables.length) - 1;
+                        if ($.isNumeric(sURLVariables.length))
+                        {
+                            return sURLVariables;
+                        } else {
+                            return false;
+                        }
+                    }
                     function updateStyles() {
                         var shadowStyle = 0;//document.getElementById('shadowstyle').value;
-                       infoBubble.setShadowStyle(shadowStyle);
+                        infoBubble.setShadowStyle(shadowStyle);
 
                         var padding = 0;//document.getElementById('padding').value;
                         infoBubble.setPadding(padding);
@@ -364,12 +378,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         // Call initialize -- in prod, add this to window.onload or some other DOM ready alternative
         // initialize();
         var placeholder_img = 'themes/frontend/images/placeholder.png';
-        //console.log($("._ibani1_").html());
         //$('._ibani1_').before($('<img class="marker_img" src="' + placeholder_img + '" />'));
-        //console.log('here');
-        console.log($("#map").html());
-        //console.log($(".gm-style-pbc").attr('style'))
-        $(".gm-style-pbt").html('');
     });
 
 

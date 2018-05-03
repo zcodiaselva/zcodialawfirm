@@ -86,7 +86,7 @@ class Pa_model extends CI_Model {
         }
 
         $query = $this->db->get();
-      
+        //echo $this->db->last_query();die;
 
         if ($query->num_rows() > 0) {
             return $query->result_array();

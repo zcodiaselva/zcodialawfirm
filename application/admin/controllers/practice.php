@@ -350,12 +350,12 @@ class Practice extends CI_Controller {
         $from = $this->practiceAreaDetails;
         $join = $this->practiceAreaTypes;
         $join_on = "practicearea_detail.pat_id = practicearea_types.pat_id";
-        $where = array('practicearea_detail.pad_status' => 1, 'practicearea_detail.pad_deleted' => 0,
+        $where = array( 'practicearea_detail.pad_deleted' => 0,
             'practicearea_types.pat_status' => 1, 'practicearea_types.pat_deleted' => 0);
         $orderby = "practicearea_detail.pad_id";
 
         $practiceAreaDetails = $this->pa_model->getJoinData($select, $from, $join, $join_on, $where, $orderby);
-
+        //echo '<pre>sd:';print_r($practiceAreaDetails);die;
         if (isset($practiceAreaDetails) && !empty($practiceAreaDetails)) {
             foreach ($practiceAreaDetails as $key => $value) {
                 $pad_image = json_decode($value['pad_image'], true);
