@@ -23,7 +23,7 @@ if (isset($attorney_breadcrumb) && !empty($attorney_breadcrumb)) {
             </div>
         </div>
         <div class="breadcrumb-link">
-            <ul class="flat-list">
+            <ul class="flat-list hide">
                 <li><a href="./">Home</a></li>
                 <li><a href="#">ATTORNEYS</a></li>
             </ul>
@@ -31,13 +31,15 @@ if (isset($attorney_breadcrumb) && !empty($attorney_breadcrumb)) {
     </div>
 </section>
 <!-- BreadCrumb Part End -->
+
+
 <!-- Team-3 Part End -->
-<section class="team-3-part section-p">
+<section class="team-3-part section-p atty-team-3-part">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
                 <div class="section-head">
-                    <h2><?php echo $attyTitle; ?></h2>
+                    <h2><?php echo strtoupper($attyTitle); ?></h2>
                     <p><?php echo $attyContent; ?></p>
                 </div>
             </div>
@@ -47,35 +49,43 @@ if (isset($attorney_breadcrumb) && !empty($attorney_breadcrumb)) {
             if (isset($attorney_details) && !empty($attorney_details)) {
                 foreach ($attorney_details['attorney'] as $key => $value) {
                     ?>
+
                     <!-- Single Team style three -->
                     <div class="col-12 col-sm-6 col-lg-4 text-center">
                         <div class="team-3-item">
-                            <div class="team-3-img">
-                                <img src="<?php echo $value['attyItem_image']; ?>" alt="">
-                                <div class="team-3-social">
-                                    <ul>
-                                        <?php
-                                        if (isset($value['social']) && !empty($value['social'])) {
-                                            foreach ($value['social'] as $key1 => $value1) {
-                                                ?>
-                                                <li><a href="<?php echo $value1['attySocialLink']; ?>"><i class='<?php echo $value1['social_class']; ?>'></i></a></li>
+                            <div class="col-md-12 team-3-desc-col">
+                                <div class="team_member">
+                                    <figure class="effect-julia">
+                                        <img src="<?php echo $value['attyItem_image']; ?>" alt="">
+                                        <figcaption>
+                                            <ul>
                                                 <?php
-                                            }
-                                        }
-                                        ?>
-                                    </ul>
+                                                if (isset($value['social']) && !empty($value['social'])) {
+                                                    foreach ($value['social'] as $key1 => $value1) {
+                                                        ?>
+                                                        <li><a href="<?php echo $value1['attySocialLink']; ?>"><i class='<?php echo $value1['social_class']; ?>'></i></a></li>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </ul>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="member_name">
+                                        <h3><?php echo $value['attyItem_name']; ?></h3>
+                                        <span><?php echo $value['attyItem_designation']; ?></span>
+                                    </div>
+
                                 </div>
+                                <div class="team-3-details">
+                                    <p>The classic Lorem ipsum dolor sit amet passage is attributed to a remixing of Romanphi losopher Cicero's text De Finibus Bonorum.</p>
+                                    <a href="#" >ABOUT ME</a>    
+                                </div>
+
                             </div>
-                            <div class="team-3-des">
-                                <h4><?php echo $value['attyItem_name']; ?></h4>
-                                <p><?php echo $value['attyItem_designation']; ?></p>
-                            </div>
-                            <div class="team-3-details">
-                                <p>The classic Lorem ipsum dolor sit amet passage is attributed to a remixing of Romanphi losopher Cicero's text De Finibus Bonorum.</p>
-                            </div>
-                            <a href="#">ABOUT ME</a>
                         </div>
                     </div>
+
                     <?php
                 }
             }
