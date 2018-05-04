@@ -65,7 +65,6 @@ class Attorney extends CI_Controller {
     }
 
     public function index() {
-
         $this->load->view('template/header', $this->data);
         $this->load->view('attorney/attorney_team3', $this->data);
         $this->load->view('template/footer', $this->data);

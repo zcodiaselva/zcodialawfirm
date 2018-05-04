@@ -37,7 +37,6 @@ class News extends CI_Controller {
     public $newsfeed_table = 'news_feed';
     public $map_table = 'map';
 
-
     function __construct() {
         parent::__construct();
         $this->load->helper('url');
@@ -81,25 +80,24 @@ class News extends CI_Controller {
         $this->data['seo_page'] = $this->news_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == '' ? 'Home' : ''), 'sp_status' => 1, 'sp_deleted' => 0));
         $this->data['footer_submenus'] = $this->news_model->getSubMenus();
         $this->data['google_map_entries'] = $this->news_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
-   
     }
 
     public function runCommand($command) {
         return shell_exec($command);
     }
 
-    public function getCurrentMacAddress($interface)
-    {
-        
-        $ifconfig = $this->runCommand("arp -a");//ifconfig {$interface}");
-        print_r($ifconfig);die;
+    public function getCurrentMacAddress($interface) {
+
+        $ifconfig = $this->runCommand("arp -a"); //ifconfig {$interface}");
+        print_r($ifconfig);
+        die;
         preg_match("/" . $this->valid_mac . "/i", $ifconfig, $ifconfig);
         if (isset($ifconfig[0])) {
             return trim(strtoupper($ifconfig[0]));
         }
         return false;
     }
-    
+
     public function index() {
 
 //        $mycom = '';
@@ -108,7 +106,7 @@ class News extends CI_Controller {
 //        system($cmd);
 //        $mycom = ob_get_contents();
 //        ob_clean();
-    
+
         $this->data['news_feed'] = $this->unique_multidim_array($this->news_model->getData('*', $this->newsfeed_table, '', 'nf_id', 1, 14), 'uuid');
         // $this->data['news_feed'] = $this->unique_multidim_array($this->data['news_feed'], 'uuid');
         $this->load->view('template/header', $this->data);
@@ -145,7 +143,6 @@ class News extends CI_Controller {
             $this->load->library('pagination');
             $config['base_url'] = base_url('index.php/news/view_news');
             $config['total_rows'] = $total_rows;
-            //$config['per_page'] = 8;
             $config['full_tag_open'] = '<a href="' . base_url('index.php/news/view_news/1') . '" class="pagination-prev"><i class="fa fa-long-arrow-left d-none d-sm-inline-block"></i> Prev</a><ul class="flat-list ml-auto mr-auto">';
             $config['full_tag_close'] = '</ul><a href="' . base_url('index.php/news/view_news/') . $next_page . '" class="pagination-next">next <i class="fa fa-long-arrow-right d-none d-sm-inline-block"></i></a>';
             $config['first_tag_open'] = '<li>';
@@ -173,8 +170,8 @@ class News extends CI_Controller {
     }
 
     public function single_page() {
-   $this->data['news_feed'] = $this->unique_multidim_array($this->news_model->getData('*', $this->newsfeed_table, '', 'nf_id', 1, 14), 'uuid');
-    
+        $this->data['news_feed'] = $this->unique_multidim_array($this->news_model->getData('*', $this->newsfeed_table, '', 'nf_id', 1, 14), 'uuid');
+
         $result = $this->news_model->getData('*', $this->newsfeed_table, array('nf_id' => $this->encrypt->decode(str_replace(' ', '+', $_GET['id']))));
         if (isset($result) && !empty($result)) {
             $thread = json_decode($result[0]['thread'], true);
@@ -217,9 +214,9 @@ class News extends CI_Controller {
         foreach ($ip_keys as $key) {
             if (array_key_exists($key, $_SERVER) === true) {
                 foreach (explode(',', $_SERVER[$key]) as $ip) {
-// trim for safety measures
+                    // trim for safety measures
                     $ip = trim($ip);
-// attempt to validate IP
+                    // attempt to validate IP
                     if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false) {
                         return $ip;
                     }

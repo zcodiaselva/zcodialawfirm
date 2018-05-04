@@ -21,6 +21,7 @@ class Header extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('allowed_url');
         $this->load->helper('text');
+        
     }
 
     function index() {

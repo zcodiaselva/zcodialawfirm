@@ -1,3 +1,25 @@
+<?php
+$title = $fav_image = $logo_title = $logo_href = $logo_image = $logo_retina_image = '';
+$logo_alt_text = $logo_sticky_image = $logo_sticky_retina_image = $logo_sticky_alt_text = '';
+$logo_mobile_image = $logo_mobile_retina_image = $logo_mobile_retina_alt_text = $logo_mobile_sticky_image = '';
+$logo_mobile_sticky_retina_image = $logo_mobile_sticky_retina_alt_text = $logo_data_height = $logo_data_height = '';
+$logo_data_padding = $logo_main_data_height = $logo_sticky_data_height = $logo_mobile_data_height = $logo_mobile_sticky_data_height = '';
+
+if (isset($logo_details) && isset($logo_details)) {
+
+    $title = $logo_details[0]['title'];
+    $fav_image = $logo_details[0]['fav_image'];
+    $logo_title = $logo_details[0]['logo_title'];
+    $logo_href = $logo_details[0]['logo_href'];
+    $logo_image = $logo_details[0]['logo_image'];
+    $logo_alt_text = $logo_details[0]['logo_alt_text'];
+    $logo_data_height = $logo_details[0]['logo_data_height'];
+    $logo_data_padding = $logo_details[0]['logo_data_padding'];
+    $logo_main_data_height = $logo_details[0]['logo_main_data_height'];
+    $logo_sticky_data_height = $logo_details[0]['logo_sticky_data_height'];
+    $logo_mobile_data_height = $logo_details[0]['logo_mobile_data_height'];
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,12 +28,15 @@
         <title>Admin - <?php echo $this->config->item('website_name', 'tank_auth'); ?></title>
         <base href="<?php echo base_url(); ?>">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="<?php echo $fav_image; ?>" type="image/x-icon">
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" href="themes/backend/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="themes/backend/assets/bower_components/font-awesome/css/font-awesome.min.css">
-        
+
         <!-- Ionicons -->
         <link rel="stylesheet" href="themes/backend/assets/bower_components/Ionicons/css/ionicons.min.css">
         <link rel="stylesheet" href="themes/backend/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">

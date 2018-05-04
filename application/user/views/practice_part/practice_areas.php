@@ -25,7 +25,7 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
 </section>
 
 <!-- Practice area Part start -->
-<section class="practise-4-part section-p pad-bot-30 practArea">
+<section class="practise-4-part section-p pad-bot-30 practArea latest-posts">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -95,8 +95,10 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
 
         <div class="row">
             <!--  --Post 1  -->
-            <article class="post--preview col-12 col-md-4">
-                <a class="img embed-responsive embed-responsive-16by9" href=""><img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt=""></a>
+            <article class="post--preview col-12 col-md-4 ">
+                <a class="img embed-responsive embed-responsive-16by9" href="">
+                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt=""></a>
+                    
                 <div class="description">
                     <h3><a href="">Organization of the workplace</a></h3>
                     <h4>

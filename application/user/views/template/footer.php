@@ -343,14 +343,14 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
             }
         });
 
-        /* if ($(".da_input").val() !== "1") {
-         $('#modal-disclaimer').modal('show');
-         $('#modal-disclaimer').modal({
-         backdrop: 'static',
-         keyboard: false
-         });
-         }
-         */
+        if ($(".da_input").val() !== "1") {
+            $('#modal-disclaimer').modal('show');
+            $('#modal-disclaimer').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        }
+
 //                         var screensize = document.documentElement.clientWidth;
 //                            alert(screensize);
         $(".bars").css("display", "none");
@@ -366,6 +366,8 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
             $("div#nav-list ul > li:nth-child(2) > a").addClass('active');
         } else if (param[2] == 'practice') {
             $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
+        } else if (param[2] == 'practiceareas') {
+            $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
         } else if (param[2] == 'about-us') {
             $("div#nav-list ul > li:nth-child(4) > a").addClass('active');
         } else if (param[2] == 'news') {
@@ -380,85 +382,6 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         var placeholder_img = 'themes/frontend/images/placeholder.png';
         //$('._ibani1_').before($('<img class="marker_img" src="' + placeholder_img + '" />'));
     });
-
-
-//    function initialize() {
-//        var stylez = [
-//            {
-//                featureType: "all",
-//                stylers: [
-//                    {hue: "#0000ff"},
-//                    {saturation: -75}
-//                ]
-//            },
-//            {
-//                featureType: "poi",
-//                elementType: "label",
-//                stylers: [
-//                    {visibility: "off"}
-//                ]
-//            }
-//        ];
-//
-//        var latlng = new google.maps.LatLng($("#map_canvas").attr('data-lat'), $("#map_canvas").attr('data-lng')), // Stockholm
-//
-//                mapOptions = {
-//                    mapTypeControlOptions: {
-//                        mapTypeIds: [google.maps.MapTypeId.ROADMAP, "Edited"]
-//                    },
-//                    zoom: 14,
-//                    center: latlng
-//                },
-//                map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions),
-//                styledMapType = new google.maps.StyledMapType(stylez, {name: "Edited"}),
-//                marker = new google.maps.Marker({
-//                    position: latlng,
-//                    map: map,
-//                    animation: google.maps.Animation.DROP,
-//                    title: "Hello World!"
-//                }),
-//                infowindow = new InfoBubble({
-//                    content: "<div class='marker_window'>This</div>",
-//                    map: map,
-//                    position: new google.maps.LatLng(-32.0, 149.0),
-//                    shadowStyle: 1,
-//                    padding: 0,
-//                    backgroundColor: 'rgb(57,57,57)',
-//                    borderRadius: 5,
-//                    arrowSize: 10,
-//                    borderWidth: 1,
-//                    borderColor: '#2c2c2c',
-//                    disableAutoPan: true,
-//                    hideCloseButton: true,
-//                    arrowPosition: 30,
-//                    backgroundClassName: 'transparent',
-//                    arrowStyle: 2
-//                });
-//        google.maps.event.addListenerOnce(map, 'idle', function () {
-//            jQuery('.gm-style-iw').prev('div').remove();
-//        });
-//
-//        map.mapTypes.set("Edited", styledMapType);
-//        map.setMapTypeId('Edited');
-//
-//        function toggleBounce() {
-//            if (marker.getAnimation() != null) {
-//                marker.setAnimation(null);
-//            } else {
-//                marker.setAnimation(google.maps.Animation.BOUNCE);
-//            }
-//        }
-//        console.log(map)
-//        // Add click listener to toggle bounce
-//        google.maps.event.addListener(marker, 'click', function () {
-//            // toggleBounce();
-//            infowindow.open();
-//            $(".gm-style-iw").next("div").hide();
-//
-//            //setTimeout(toggleBounce, 1500);
-//        });
-//
-//    }
 
     $(window).resize(function () {
         $(".bars").css("display", "none");

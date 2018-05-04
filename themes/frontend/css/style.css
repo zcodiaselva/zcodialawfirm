@@ -11678,12 +11678,7 @@ img.marker_img {
 
 /* Practice area start */
 
-.auto-container {
-    position: static;
-    max-width: 1200px;
-    padding: 0px 15px;
-    margin: 0 auto;
-}
+
 .practArea{
     position:relative;
     overflow:hidden;
@@ -11757,9 +11752,7 @@ img.marker_img {
     margin-bottom:6px;
 }
 
-.practArea .latest-posts a.img {
-    border-radius: 5px 5px 0 0;
-}
+
 .practArea .post--preview > * {
     background-color: white;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
@@ -11771,21 +11764,21 @@ img.marker_img {
     padding: 0;
     overflow: hidden;
 }
-.practArea .latest-posts .description h3 > a {
+.practArea .description h3 > a {
     color: #404040;
     margin-bottom: 0.25em;
 }
 
-.practArea .latest-posts h2.block-title,
-.practArea .latest-posts h2.block-title > u {
+.practArea h2.block-title,
+.practArea h2.block-title > u {
     color: #404040;
 }
 
-.practArea .latest-posts h2.block-title {
+.practArea h2.block-title {
     margin-bottom: 50px;
 }
 
-.practArea .latest-posts {
+.practArea {
     background-color: #f8f8fd;
 }
 
@@ -11794,35 +11787,52 @@ img.marker_img {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
 }
 
-.practArea .latest-posts a.img {
+.practArea a.img {
     border-radius: 5px 5px 0 0;
 }
+a.img img{
+    transition: all 0.5s ease-in-out; 
+}
 
-.practArea .latest-posts a.img:hover img {
+a.img:hover img {
+    background: linear-gradient(rgba(87, 87, 87, 0.53),rgba(87, 87, 87, 0.53));
     transform: scale(1.1);
 }
 
-.practArea .latest-posts .description {
+.practArea .description {
     padding: 30px 20px;
     border-radius: 0 0 5px 5px;
 }
 
-.practArea .latest-posts .description h3 > a {
+.practArea .description h3 > a {
     color: #404040;
     margin-bottom: 0.25em;
 }
 
-.practArea .latest-posts .description h4,
-.practArea .latest-posts .description h4 * {
+.practArea .description h4,
+.practArea .description h4 * {
     font-weight: 300;
     color: #525252;
     opacity: 0.8;
     font-size: 12px;
 }
 
-.practArea .latest-posts .description p {
+.practArea .description p {
     color: #525252;
     margin-bottom: 0.1em;
 }
+.practArea {
+    background-color: #f8f8fd;
+}
+
+.practArea .embed-responsive::before {
+    display: block;
+    content: "";
+}
+
+.post--preview .embed-responsive:hover {
+    
+}
+
 
 /* Practice area end */
