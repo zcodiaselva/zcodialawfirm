@@ -182,8 +182,16 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $gmapkey; ?>"></script>
 <!--Custom js  -->
 <script src="themes/frontend/js/custom.js"></script>
+<script src="themes/frontend/js/slick.js"></script>
 <script src="themes/frontend/js/infobubble.js"></script>
 <script src="themes/frontend/js/infobubble-compiled.js"></script>
+
+<script type="text/javascript" src="themes/frontend/news_part/js/df983.js"></script>
+
+<script type="text/javascript" src="themes/frontend/news_part/js/1118c.js"></script>
+<script type="text/javascript" src="themes/frontend/news_part/js/0a1f3.js"></script>
+<script type="text/javascript" src="themes/frontend/news_part/js/29e8b.js"></script>
+
 <!--script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"-->
 
 <script>
@@ -343,13 +351,13 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
             }
         });
 
-        if ($(".da_input").val() !== "1") {
-            $('#modal-disclaimer').modal('show');
-            $('#modal-disclaimer').modal({
-                backdrop: 'static',
-                keyboard: false
-            });
-        }
+//        if ($(".da_input").val() !== "1") {
+//            $('#modal-disclaimer').modal('show');
+//            $('#modal-disclaimer').modal({
+//                backdrop: 'static',
+//                keyboard: false
+//            });
+//        }
 
 //                         var screensize = document.documentElement.clientWidth;
 //                            alert(screensize);

@@ -85,6 +85,10 @@
         <link rel="stylesheet" href="themes/frontend/css/magnific-popup.css">
         <!-- Main style css -->
         <link rel="stylesheet" href="themes/frontend/css/style.css">
+        <link rel="stylesheet" href="themes/frontend/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="themes/frontend/news_part/css/news_style.css" media="all" />
+
+
         <script type="text/javascript">
 <?php echo $seo_ga_script; ?>
         </script>

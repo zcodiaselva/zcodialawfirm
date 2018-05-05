@@ -110,7 +110,8 @@ class News extends CI_Controller {
         $this->data['news_feed'] = $this->unique_multidim_array($this->news_model->getData('*', $this->newsfeed_table, '', 'nf_id', 1, 14), 'uuid');
         // $this->data['news_feed'] = $this->unique_multidim_array($this->data['news_feed'], 'uuid');
         $this->load->view('template/header', $this->data);
-        $this->load->view('news_part/blog', $this->data);
+        //$this->load->view('news_part/blog', $this->data);
+         $this->load->view('news_part/news', $this->data);
         $this->load->view('template/footer', $this->data);
     }
 
