@@ -915,7 +915,10 @@
         var selectedMainMenu = $('.ddMainMenu').val();
         $(".confirm_delete_menuItem").attr('parent_id', 0).attr("menu_id", selectedMainMenu);
         $(".confirm_delete_submenuItem").removeAttr('parent_id').removeAttr("menu_id");
+         console.log(selectedMainMenu)
+         console.log('here')
         if (selectedMainMenu > 0) {
+           
             $(".btnEditMainMenu,.btnDelMainMenu").removeAttr("disabled");
             $(".btnAddSubMenu,.ddSubMenu").prop("disabled", false);
             $.ajax({

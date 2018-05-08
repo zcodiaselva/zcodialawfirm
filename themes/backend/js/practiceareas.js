@@ -232,9 +232,13 @@ function pa_details_submit(thss) {
     var pad_id = $(thss).attr('pad_id');
 
     var practiceCategory = $('.practicecategory_select2').select2("val");
+    var pc_head = $("#txt_pc_head").val();
     var pc_content = $("textArea#txt_pc_content").val();
     if (practiceCategory < 0) {
         info_msg('Please select Practice Category!');
+        error = true;
+    } else if (!pc_head) {
+        info_msg('Heading should not be empty!');
         error = true;
     } else if (!pc_content) {
         info_msg('Content should not be empty!');
@@ -244,6 +248,7 @@ function pa_details_submit(thss) {
     if (error == false) {
         var form_data = new FormData();
         form_data.append('pat_id', practiceCategory);
+        form_data.append('pad_head', pc_head);
         form_data.append('pad_content', pc_content);
         var image_file_length = document.getElementById('imgPracticeItemUpload').files.length;
         if (image_file_length > 0) {
@@ -268,6 +273,7 @@ function pa_details_submit(thss) {
                     $(".btnUpdateQC").removeAttr("qc_id");
                     $(".practicecategory_select2").select2("val", 0);
                     $("#pat_image_preview").html('');
+                    $("#txt_pc_head").val('');
                     clearEditor("#txt_pc_content");
                     success_msg('Practice Area Details Updated Successfully!!!');
                     var table = 0;
@@ -297,6 +303,7 @@ function getPAItemDetails(thss) { //getting question category details to edit
         {
             var myObj = jQuery.parseJSON(msg);
             $(".btnUpdatePAT").attr('pad_id', myObj[0].pad_id);
+            $("#txt_pc_head").val(myObj[0].pad_head);
             $(".practicecategory_select2").val(myObj[0].pat_id).trigger('change');
             fillEditor('#txt_pc_content', myObj[0].pad_content);
             var json_string = myObj[0].pad_image;

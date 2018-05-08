@@ -367,10 +367,11 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         if (parseInt(screensize) < 1024) {
             $(".bars").css("display", "block");
         } else if (parseInt(screensize) <= 320) {
-            console.log('320')
+            
             $(".singlecenter  .slick-active .post-head.no-image").css("left", "0px")
         }
         var param = (getUrlParam());
+        
         if (param[2] == '') {
             $("div#nav-list ul > li:nth-child(1) > a").addClass('active');
         } else if (param[2] == 'attorney') {
@@ -387,16 +388,12 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
             $("div#nav-list ul > li:last-child > a").addClass('active');
         }
 
-
-        // Call initialize -- in prod, add this to window.onload or some other DOM ready alternative
-        // initialize();
         var placeholder_img = 'themes/frontend/images/placeholder.png';
-        //$('._ibani1_').before($('<img class="marker_img" src="' + placeholder_img + '" />'));
 
         $(".post--preview").hover(function () {
             $(".post--preview:hover .pract.btn-1").removeClass("hide");
         }, function () {
-            $(".post--preview:hover .pract.btn-1").addClass("hide");
+            $(".post--preview .pract.btn-1").addClass("hide");
         });
 
     });

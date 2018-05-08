@@ -273,8 +273,8 @@ class Practice extends CI_Controller {
 
         echo $updated;
     }
-    
-    function update_pat_hf_status(){ // home flag status change - for Pratice Area Items = in datatable
+
+    function update_pat_hf_status() { // home flag status change - for Pratice Area Items = in datatable
         $pat_id = $this->input->post('pat_id');
         $pat_home_flag = array('pat_home_flag' => $this->input->post('pat_home_flag'));
         $updated = $this->pa_model->updateData($this->practiceAreaTypes, $pat_home_flag, array('pat_id' => $pat_id));
@@ -290,6 +290,7 @@ class Practice extends CI_Controller {
 
         $practiceAreaDetails = array(
             'pat_id' => $this->input->post('pat_id'),
+            'pad_head' => $this->input->post('pad_head'),
             'pad_content' => $this->input->post('pad_content')
         );
 
@@ -331,8 +332,14 @@ class Practice extends CI_Controller {
             $practiceAreaDetailsExists = $this->pa_model->searchContent($this->practiceAreaDetails, array('pad_id' => $pad_id, 'pad_deleted' => 0)); //table, where
         }
         if (isset($pad_images) && !empty($pad_images)) {
-            $old_images = json_decode($practiceAreaDetailsExists[0]['pad_image'], true);
-            $update_images = array_merge($old_images, $pad_images);
+            $old_images = $update_images = '';
+            if (isset($practiceAreaDetailsExists) && !empty($practiceAreaDetailsExists)) {
+                $old_images = json_decode($practiceAreaDetailsExists[0]['pad_image'], true);
+                $update_images = array_merge($old_images, $pad_images);
+            } else {
+                $update_images = $pad_images;
+            }
+
             $practiceAreaDetails = array(
                 'pad_image' => json_encode($update_images)
             );
@@ -359,7 +366,7 @@ class Practice extends CI_Controller {
         $from = $this->practiceAreaDetails;
         $join = $this->practiceAreaTypes;
         $join_on = "practicearea_detail.pat_id = practicearea_types.pat_id";
-        $where = array( 'practicearea_detail.pad_deleted' => 0,
+        $where = array('practicearea_detail.pad_deleted' => 0,
             'practicearea_types.pat_status' => 1, 'practicearea_types.pat_deleted' => 0);
         $orderby = "practicearea_detail.pad_id";
 
@@ -392,7 +399,7 @@ class Practice extends CI_Controller {
     }
 
     function getPADetails() {
-        $select = 'pad_id, pat_id, pad_content, pad_image';
+        $select = 'pad_id, pat_id,pad_head, pad_content, pad_image';
         $from = $this->practiceAreaDetails;
         $pad_id = $this->input->post('pad_id');
 

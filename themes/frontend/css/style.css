@@ -7159,7 +7159,7 @@ body.active #mobile-nav {
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
-    height: 2px;
+    height: 4px;
     background: #d6b34b;
 }
 
@@ -8030,6 +8030,12 @@ body.active #mobile-nav {
         top: 123px;
         right: 28px;
     }
+    .post--preview {
+        padding-bottom: 50px;
+    }
+    .btn-1{
+        padding: 9px 14px;
+    }
 }
 @media only screen and (min-width: 375px){
     .post--preview:hover .img::before {
@@ -8045,6 +8051,9 @@ body.active #mobile-nav {
         position: absolute;
         top: 160px;
         right: 28px;
+    } 
+    .post--preview {
+        padding-bottom: 50px;
     }
 }
 
@@ -8080,6 +8089,9 @@ body.active #mobile-nav {
         top: 153px;
         right: 44px;
     }
+    .post--preview {
+        padding-bottom: 75px;
+    }
 }
 @media only screen and (min-width: 1024px){
     .post--preview:hover .img::before {
@@ -8094,6 +8106,9 @@ body.active #mobile-nav {
         position: absolute;
         top: 130px;
         right: 35px;
+    }
+    .post--preview {
+        padding-bottom: 100px;
     }
 }
 @media only screen and (min-width: 1362px){
@@ -8110,6 +8125,9 @@ body.active #mobile-nav {
         top: 179px;
         right: 35px;
     }
+    .post--preview {
+        padding-bottom: 100px;
+    }
 }
 @media only screen and (min-width: 1440px){
     .post--preview:hover .img::before {
@@ -8124,6 +8142,9 @@ body.active #mobile-nav {
         position: absolute;
         top: 179px;
         right: 35px;
+    }
+    .post--preview {
+        padding-bottom: 100px;
     }
 }
 @media (min-width: 320px) and (max-width: 575px) {
@@ -8213,9 +8234,13 @@ body.active #mobile-nav {
 
 .prac-det-inner p {
     font-size: 14px;
-    color: #6b6969
+    color: #6b6969;
+    text-align: justify;
 }
-
+section.contuct-bottom {
+    margin-bottom: -100px;
+    margin-top: -100px;
+}
 .prac-det-inner blockquote {
     color: #565656;
     font-size: 16px;
@@ -8284,7 +8309,7 @@ body.active #mobile-nav {
 
 .about-author {
     padding-bottom: 40px;
-    border-bottom: 1px solid #efeeee;
+    border-bottom: 1px solid transparent;
 }
 
 .about-author .avator {
@@ -11917,6 +11942,7 @@ a.img:hover img {
 .practArea .description h3 > a {
     color: #404040;
     margin-bottom: 0.25em;
+    font: 1000 25px 'Open Sans', sans-serif;
 }
 
 .practArea .description h4,
@@ -11961,5 +11987,7 @@ img.embed-responsive-item {
 .post--preview .btn_rm::before{
     display:none;
 }
-
+.post--preview {
+    /*padding-bottom: 100px;*/
+}
 /* Practice area end */

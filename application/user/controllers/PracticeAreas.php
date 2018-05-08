@@ -70,6 +70,12 @@ class PracticeAreas extends CI_Controller {
         $this->load->view('template/footer', $this->data);
     }
 
+    public function details() {
+        $this->load->view('template/header', $this->data);
+        $this->load->view('practice_part/practice_details_part', $this->data);
+        $this->load->view('template/footer', $this->data);
+    }
+
     public function slider() {
         $this->load->view('temp');
     }

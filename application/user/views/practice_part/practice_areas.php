@@ -6,7 +6,7 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
 }
 ?>
 <!-- BreadCrumb Part Start -->
-<section class="breadcrumb-part" style="background: url(<?php echo $bc_image; ?>) no-repeat;">
+<section class="breadcrumb-part1" style="background: url(<?php echo $bc_image; ?>) no-repeat;">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -44,54 +44,7 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
                 </div>
             </div>
         </div>
-        <div class="row">
-            <!-- Single team -->
-            <div class="col-sm-6 col-lg-4">
-                <div class="sin-practice-4">
-                    <img src="themes/frontend/images/practice/pracd1.jpg" alt="">
-                    <div class="pra-four-inner">
-                        <h5><a href="#">Health & Admiralty Law</a></h5>
-                        <p>Advocacy (written and oral) in administrative hearings adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                        <div class="read-more4">
-                            <a href="#" class="line-style">READ MORE</a>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single team -->
-            <div class="col-sm-6 col-lg-4">
-                <div class="sin-practice-4">
-                    <img src="themes/frontend/images/practice/pracd2.jpg" alt="">
-                    <div class="pra-four-inner">
-                        <h5><a href="#">Health & Admiralty Law</a></h5>
-                        <p>Advocacy (written and oral) in administrative hearings adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                        <div class="read-more4">
-                            <a href="#" class="line-style">READ MORE</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single team -->
-            <div class="col-sm-6 col-lg-4">
-                <div class="sin-practice-4">
-                    <img src="themes/frontend/images/practice/pracd3.jpg" alt="">
-                    <div class="pra-four-inner">
-                        <h5><a href="#">Health & Admiralty Law</a></h5>
-                        <p>Advocacy (written and oral) in administrative hearings adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                        <div class="read-more4">
-                            <a href="#" class="line-style">READ MORE</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
 
         <div class="row">
             <!--  --Post 1  -->
@@ -115,27 +68,96 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
             <!--  --/Post 1  -->
             <!--  --Post 2  -->
             <article class="post--preview col-sm-6 col-lg-4 ">
-                <a class="img embed-responsive embed-responsive-16by9" href=""><img class="embed-responsive-item" src="themes/frontend/images/practice/pracd2.jpg" alt=""></a>
-                <div class="description">
-                    <h3><a href="">What should be in the bedroom?</a></h3>
-                    <h4>
-                        <a class="adress">Autor name</a> ―
-                        <a class="time">12 yan 2018</a>
-                    </h4>
-                    <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="img">
+
+                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
+
+                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
+
+                    <div class="description">
+                        <h3><a href="">Organization of the workplace</a></h3>
+                        <h4>
+                            <a class="adress">Autor name</a> ―
+                            <a class="time">12 yan 2018</a>
+                        </h4>
+                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
                 </div>
             </article>
             <!--  --/Post 2  -->
             <!--  --Post 3  -->
-            <article class="post--preview col-sm-6 col-lg-4">
-                <a class="img embed-responsive embed-responsive-16by9" href=""><img class="embed-responsive-item" src="themes/frontend/images/practice/pracd3.jpg" alt=""></a>
-                <div class="description">
-                    <h3><a href="">How to make the living room cozy?</a></h3>
-                    <h4>
-                        <a class="adress">Autor name</a> ―
-                        <a class="time">12 yan 2018</a>
-                    </h4>
-                    <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <article class="post--preview col-sm-6 col-lg-4 ">
+                <div class="img">
+
+                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
+
+                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
+
+                    <div class="description">
+                        <h3><a href="">Organization of the workplace</a></h3>
+                        <h4>
+                            <a class="adress">Autor name</a> ―
+                            <a class="time">12 yan 2018</a>
+                        </h4>
+                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </article>
+            <!--  --/Post 3  -->
+            <!--  --Post 1  -->
+            <article class="post--preview col-sm-6 col-lg-4 ">
+                <div class="img">
+
+                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
+
+                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
+
+                    <div class="description">
+                        <h3><a href="">Organization of the workplace</a></h3>
+                        <h4>
+                            <a class="adress">Autor name</a> ―
+                            <a class="time">12 yan 2018</a>
+                        </h4>
+                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </article>
+            <!--  --/Post 1  -->
+            <!--  --Post 2  -->
+            <article class="post--preview col-sm-6 col-lg-4 ">
+                <div class="img">
+
+                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
+
+                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
+
+                    <div class="description">
+                        <h3><a href="">Organization of the workplace</a></h3>
+                        <h4>
+                            <a class="adress">Autor name</a> ―
+                            <a class="time">12 yan 2018</a>
+                        </h4>
+                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </article>
+            <!--  --/Post 2  -->
+            <!--  --Post 3  -->
+            <article class="post--preview col-sm-6 col-lg-4 ">
+                <div class="img">
+
+                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
+
+                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
+
+                    <div class="description">
+                        <h3><a href="">Organization of the workplace</a></h3>
+                        <h4>
+                            <a class="adress">Autor name</a> ―
+                            <a class="time">12 yan 2018</a>
+                        </h4>
+                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
                 </div>
             </article>
             <!--  --/Post 3  -->

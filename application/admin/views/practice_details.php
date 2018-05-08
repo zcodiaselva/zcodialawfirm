@@ -39,12 +39,16 @@
                             ?>
                         </select>
                     </div>
+                     <div class="form-group">
+                        <label for="txt_pc_head">Heading</label>
+                        <input type="text" class="form-control " id="txt_pc_head" value="<?php //echo $pa_mainheader; ?>">
+                    </div>
                     <div class="form-group ">
                         <div class="row">
                             <div class="col-md-12 col-sm-6 col-lg-12 col-xs-12">
                                 <label>Item Image</label>
                                 <div class="imgPracticeItemOuter">
-                                    <label for="imgPracticeItemUpload" id="imgPracticeItemLabel">Choose File</label>
+                                    <label for="imgPracticeItemUpload" id="imgPracticeItemLabel">Choose File(s)</label>
                                     <input type="file"  class="imgPracticeItemUpload" name="imgPracticeItemUpload[]" id="imgPracticeItemUpload"   accept="image/gif,image/jpeg,image/png" onchange="preview_images();" multiple/>
                                     <div id="pat_image_preview"></div>
                                 </div>
