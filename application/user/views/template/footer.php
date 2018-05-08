@@ -366,9 +366,9 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         console.log(screensize);
         if (parseInt(screensize) < 1024) {
             $(".bars").css("display", "block");
-        }else if (parseInt(screensize) <=320){
+        } else if (parseInt(screensize) <= 320) {
             console.log('320')
-            $(".singlecenter  .slick-active .post-head.no-image").css("left","0px")
+            $(".singlecenter  .slick-active .post-head.no-image").css("left", "0px")
         }
         var param = (getUrlParam());
         if (param[2] == '') {
@@ -392,6 +392,13 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         // initialize();
         var placeholder_img = 'themes/frontend/images/placeholder.png';
         //$('._ibani1_').before($('<img class="marker_img" src="' + placeholder_img + '" />'));
+
+        $(".post--preview").hover(function () {
+            $(".post--preview:hover .pract.btn-1").removeClass("hide");
+        }, function () {
+            $(".post--preview:hover .pract.btn-1").addClass("hide");
+        });
+
     });
 
     $(window).resize(function () {
