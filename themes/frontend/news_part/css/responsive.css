@@ -16,7 +16,7 @@
 	/* General */
 	.row { padding-left: 2px; padding-right: 2px; }
 	.content-wrap .container { padding: 0; }
-	.read-more { display: none!important; }
+	.read-more { display: none; }
 	.breadcrumb-line { margin-left: 15px; }
 	.typography-title, .typography-subtitle, .typography-subtitle-1 { padding: 0 14px; }
 	.comments-list .children { margin-left: 20px; }

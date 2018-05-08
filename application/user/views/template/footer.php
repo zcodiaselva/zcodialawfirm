@@ -366,6 +366,9 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         console.log(screensize);
         if (parseInt(screensize) < 1024) {
             $(".bars").css("display", "block");
+        }else if (parseInt(screensize) <=320){
+            console.log('320')
+            $(".singlecenter  .slick-active .post-head.no-image").css("left","0px")
         }
         var param = (getUrlParam());
         if (param[2] == '') {
