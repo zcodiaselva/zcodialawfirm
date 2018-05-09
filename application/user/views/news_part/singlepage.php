@@ -34,7 +34,7 @@ if (isset($single_page) && !empty($single_page)) {
                         <div class="social ">
                             <div class="title">+ SHARE </br><span>THIS POST</span></div>
                             <ul>
-                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo 'http://localhost:8080' . $_SERVER['REQUEST_URI']; ?>" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo 'http://192.168.0.115:8080' . $_SERVER['REQUEST_URI']; ?>" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/intent/tweet?text=Finland%20in%20the%20Summer%20Quirky,%20Isolated,%20and%20Pretty&amp;url=http://ninamag.dexterthemes.com/2017/10/06/t-cont-15/&amp;" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="../../../../../pinterest.com/pin/create/button/index4165.html?url=http://ninamag.dexterthemes.com/2017/10/06/t-cont-15/&amp;media=http://ninamag.dexterthemes.com/wp-content/uploads/2017/10/post_banner_black.jpg" target="_blank" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
                                 <li><a href="https://plus.google.com/share?url=http://ninamag.dexterthemes.com/2017/10/06/t-cont-15/" target="_blank" class="google"><i class="fa fa-google-plus"></i></a></li>
