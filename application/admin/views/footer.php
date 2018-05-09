@@ -535,6 +535,8 @@
         if (pa_list_dt !== 0) {
             pa_list_dt.destroy();
         }
+
+
         pa_list_dt = $('#pa_list_dt').DataTable({
             "responsive": true, "scrollX": true,
             "processing": true,
@@ -915,10 +917,10 @@
         var selectedMainMenu = $('.ddMainMenu').val();
         $(".confirm_delete_menuItem").attr('parent_id', 0).attr("menu_id", selectedMainMenu);
         $(".confirm_delete_submenuItem").removeAttr('parent_id').removeAttr("menu_id");
-         console.log(selectedMainMenu)
-         console.log('here')
+        console.log(selectedMainMenu)
+        console.log('here')
         if (selectedMainMenu > 0) {
-           
+
             $(".btnEditMainMenu,.btnDelMainMenu").removeAttr("disabled");
             $(".btnAddSubMenu,.ddSubMenu").prop("disabled", false);
             $.ajax({

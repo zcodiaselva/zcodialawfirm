@@ -1396,6 +1396,12 @@ img.mfp-img {
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    .singlecenter  .item.slick-slide  .post-head.no-image {
+        margin-left: -8px;
+        width: 100%;
+        height: 640px;
+    }
+
 }
 
 /* iPads (portrait) ----------- */
@@ -1414,7 +1420,13 @@ img.mfp-img {
 
 }
 
-
+@media only screen and (min-device-width : 425px) and (max-device-width : 768px) {
+    .singlecenter  .item.slick-slide  .post-head.no-image {
+        margin-left: -8px;
+        width: 100%;
+        height: 640px;
+    }
+}
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
 }
@@ -1431,6 +1443,7 @@ img.mfp-img {
 
 
 @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+ 
 }
 
 
@@ -2917,3 +2930,16 @@ aside.no-image{
     color: #fff;
 }
 
+.entry-content:before,
+.entry-content:after{
+
+    content: "";
+    display: table;
+    table-layout: fixed
+}
+.entry-content:after{
+    clear: both
+}
+.entry-content{
+    margin: 0
+}

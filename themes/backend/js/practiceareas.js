@@ -425,4 +425,7 @@ function change_dt_pad_status(thss) { // Status change for practice area details
         table.ajax.reload();
     });
 }
+
+
+
 /* practice area details ends */

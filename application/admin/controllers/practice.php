@@ -18,6 +18,7 @@ class Practice extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('allowed_url');
         $this->load->helper('text');
+       
     }
 
     function index() {
@@ -319,9 +320,7 @@ class Practice extends CI_Controller {
                     $pad_images[] = cleanurl($pad_image);
                 }
             }
-            $practiceAreaDetails = array(
-                'pad_image' => json_encode($pad_images)
-            );
+            $practiceAreaDetails['pad_image'] = json_encode($pad_images);
         }
 
         $checkPADArray = array_filter($practiceAreaDetails);
@@ -340,10 +339,10 @@ class Practice extends CI_Controller {
                 $update_images = $pad_images;
             }
 
-            $practiceAreaDetails = array(
-                'pad_image' => json_encode($update_images)
-            );
+            $practiceAreaDetails['pad_image'] = json_encode($update_images);
         }
+
+
         if (empty($pad_id) && isset($checkPADArray) && !empty($checkPADArray)) {
             $inserted = $this->pa_model->insertData($this->practiceAreaDetails, $practiceAreaDetails);
         } else {
@@ -358,20 +357,26 @@ class Practice extends CI_Controller {
     function get_PracticeAreaDetails() { // Practice Area details - for datatable
         $this->data1 = array();
         $data = array();
+
+
         $select = 'practicearea_detail.pad_id as pad_id, '
                 . 'practicearea_types.pat_header as pat_header, '
+                . 'practicearea_detail.pad_head as pad_head,'
                 . 'practicearea_detail.pad_image as pad_image,'
                 . 'practicearea_detail.pad_content as pad_content, '
                 . 'practicearea_detail.pad_status as pad_status';
         $from = $this->practiceAreaDetails;
         $join = $this->practiceAreaTypes;
         $join_on = "practicearea_detail.pat_id = practicearea_types.pat_id";
+
         $where = array('practicearea_detail.pad_deleted' => 0,
             'practicearea_types.pat_status' => 1, 'practicearea_types.pat_deleted' => 0);
+
+
+
         $orderby = "practicearea_detail.pad_id";
 
         $practiceAreaDetails = $this->pa_model->getJoinData($select, $from, $join, $join_on, $where, $orderby);
-        //echo '<pre>sd:';print_r($practiceAreaDetails);die;
         if (isset($practiceAreaDetails) && !empty($practiceAreaDetails)) {
             foreach ($practiceAreaDetails as $key => $value) {
                 $pad_image = json_decode($value['pad_image'], true);
@@ -379,13 +384,14 @@ class Practice extends CI_Controller {
                 foreach ($pad_image as $value_pi) {
                     $images .= '<span class="pat_thumbnail_outer"><img class="pat_thumbnail" src="' . $value_pi . '"></span>';
                 }
-
-                $value['pat_header'] = character_limiter($value['pat_header'], 50);
+                $value['pat_header'] = character_limiter($value['pat_header'], 75);
+                $value['pad_head'] = character_limiter($value['pad_head'], 100);
                 $value['pad_image'] = '<div class="pat_image_preview">' . $images . '</div>';
-                $value['pad_content'] = $value['pad_content'];
+                //$value['pad_content'] = character_limiter($value['pad_content'], 150);
                 $value['action'] = '<a onclick="getPAItemDetails($(this));" pad_id="' . $value['pad_id'] . '" class="edit_paitems btn"><i class="fa fa-pencil"></i></a>' . '<a onclick="delPAItemDetails($(this));" class="btn open_popup_modal" pad_id=' . $value['pad_id'] . '  data-toggle="modal" data-target="#modal-delete_PracticeAreaItem"><i class="fa fa-trash-o"></i></a>';
                 $value['pad_status'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['pad_status'] == 1 ? ' checked' : '') . ' onclick="change_dt_pad_status($(this));" pad_id="' . $value['pad_id'] . '" pad_status="' . $value['pad_status'] . '"><span class="slider round"></span></label></a>';
                 unset($value['pad_id']);
+                unset($value['pad_content']);
                 $data['data'][] = array_values($value);
             }
         }

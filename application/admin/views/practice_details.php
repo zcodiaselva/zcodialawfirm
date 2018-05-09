@@ -26,7 +26,7 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label>Practice Category</label>
-                        <select class="form-control practicecategory_select2" style="width: 100%;">
+                        <select class="form-control practicecategory_select2"  id="pc_select2" style="width: 100%;">
                             <option selected="selected" value="0">Please Select...</option>
                             <?php
                             if (isset($practicearea_types) && !empty($practicearea_types)) {
@@ -88,8 +88,8 @@
                         <thead>
                             <tr>
                                 <th class="dt_item_col pa_details">Category</th>
+                                <th class="dt_item_col pa_details">Heading</th>
                                 <th class="dt_image_col pa_details">Slider Images</th>
-                                <th class="dt_content_col pa_details">Content</th>
                                 <th class="dt_status_col pa_details">Show / Hide</th>
                                 <th class="dt_action_col pa_details">Action</th>
                             </tr>

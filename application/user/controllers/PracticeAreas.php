@@ -12,6 +12,7 @@ class PracticeAreas extends CI_Controller {
     public $home_testimonial_bg = 'home_testimonial_bg';
     public $practiceAreas = 'practiceareas';
     public $practiceAreaTypes = 'practicearea_types';
+    public $practiceAreaDetail = 'practicearea_detail';
     public $timeline_table = 'aboutus_timeline';
     public $timelineitems_table = 'aboutus_timeline_items';
     public $aboutus_table = 'aboutus';
@@ -42,7 +43,9 @@ class PracticeAreas extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('pa_model');
         $this->load->model('home_model');
-
+        $this->load->library('encrypt');
+        $this->load->helper('text');
+        
         $this->data['testimonial_slider_details'] = $this->pa_model->getData('*', $this->TMS_table, array('tms_status' => 1));
         $this->data['about_pa'] = $this->pa_model->getData('*', $this->practiceAreas, array('pa_status' => 1, 'pa_deleted' => 0));
         $this->data['practiceareas_items'] = $this->pa_model->getData('*', $this->practiceAreaTypes, array('pat_status' => 1, 'pat_deleted' => 0));
@@ -61,6 +64,7 @@ class PracticeAreas extends CI_Controller {
         $this->data['contact_call'] = $this->pa_model->getData('c_name,c_content,c_icon', 'contactus', array('c_name' => 'Call Us', 'c_status' => 1, 'c_deleted' => 0, 'c_type' => 1));
         $this->data['footer_submenus'] = $this->home_model->getSubMenus();
         $this->data['about_consultation'] = $this->pa_model->getData('*', $this->about_consultation_table, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0), 'abt_consult_id');
+        $this->data['practicearea_category'] = $this->pa_model->getData('*', $this->practiceAreaDetail, array('pad_status' => 1, 'pad_deleted' => 0));
     }
 
     public function index() {
@@ -73,6 +77,22 @@ class PracticeAreas extends CI_Controller {
     public function details() {
         $this->load->view('template/header', $this->data);
         $this->load->view('practice_part/practice_details_part', $this->data);
+        $this->load->view('template/footer', $this->data);
+    }
+
+    public function getCategoryDetails() {
+        $pat_id = '';
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+            $pat_id = $this->encrypt->decode(str_replace(' ', '+', $_GET['id']));
+        }
+        if ($pat_id > 0) {
+            $this->data['practicearea_category'] = $this->pa_model->getData('*', $this->practiceAreaDetail, array('pad_status' => 1, 'pad_deleted' => 0, 'pat_id' => $pat_id));
+        } else {
+            $this->data['practicearea_category'] = $this->pa_model->getData('*', $this->practiceAreaDetail, array('pad_status' => 1, 'pad_deleted' => 0));
+        }
+
+        $this->load->view('template/header', $this->data);
+        $this->load->view('practice_part/practice_areas', $this->data);
         $this->load->view('template/footer', $this->data);
     }
 

@@ -35,10 +35,16 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
                 <div class="auto-container">
                     <div class="filters">
                         <ul class="filter-tabs filter-btns clearfix">
-                            <li class="active filter" >VIEW ALL</li>
-                            <li class="filter" >CIVIL</li>
-                            <li class="filter" >CRIMINAL</li>
-                            <li class="filter" >CYBER-CRIME</li>
+                            <li class="active filter" ><?php echo anchor("practiceareas/getCategoryDetails", 'VIEW ALL'); ?></li>
+                            <?php
+                            if (isset($practiceareas_items) && !empty($practiceareas_items)) {
+                                foreach ($practiceareas_items as $key => $value) {
+                                    ?>
+                                    <li class="filter" pid="<?php echo $value['pat_id']; ?>" ><?php echo anchor("practiceareas/getCategoryDetails/?id=" . $this->encrypt->encode($value['pat_id'], 'Jfmamjjas0nd'), $value['pat_header']); ?></li>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -47,120 +53,40 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
 
 
         <div class="row">
-            <!--  --Post 1  -->
-            <article class="post--preview col-sm-6 col-lg-4 ">
-                <div class="img">
+            <?php
+            if (isset($practicearea_category) && !empty($practicearea_category)) {
+                foreach ($practicearea_category as $key => $value) {
+                    $pad_image = json_decode($value['pad_image'], true);
+                    ?> 
 
-                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
+                    <!--  --Post 1  -->
+                    <article class="post--preview col-sm-6 col-lg-4 ">
+                        <div class="img">
 
-                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
+                            <img class="embed-responsive-item" src="<?php echo $pad_image[0]; ?>" alt="">
 
-                    <div class="description">
-                        <h3><a href="">Organization of the workplace</a></h3>
-                        <h4>
-                            <a class="adress">Autor name</a> ―
-                            <a class="time">12 yan 2018</a>
-                        </h4>
-                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </article>
-            <!--  --/Post 1  -->
-            <!--  --Post 2  -->
-            <article class="post--preview col-sm-6 col-lg-4 ">
-                <div class="img">
+                            <div class="btn_rm">
+                                <?php echo anchor("practiceareas/getContent/?id=" . $this->encrypt->encode($value['pad_id'], 'Jfmamjjas0nd'), 'Read More', array('class' => 'pract btn-1 hide')); ?>
+                            </div>
 
-                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
+                            <div class="description">
+                                <h3>
+                                    <?php echo anchor("practiceareas/getContent/?id=" . $this->encrypt->encode($value['pad_id'], 'Jfmamjjas0nd'), $value['pad_head']); ?>
+                                </h3>
+                                <h4 class="hide">
+                                    <a class="adress">Autor name</a> ―
+                                    <a class="time">12 yan 2018</a>
+                                </h4>
+                                <p class="mini"><?php echo character_limiter($value['pad_content'], 150); ?></p>
+                            </div>
+                        </div>
+                    </article>
+                    <!--  --/Post 1  -->
+                    <?php
+                }
+            }
+            ?>
 
-                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
-
-                    <div class="description">
-                        <h3><a href="">Organization of the workplace</a></h3>
-                        <h4>
-                            <a class="adress">Autor name</a> ―
-                            <a class="time">12 yan 2018</a>
-                        </h4>
-                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </article>
-            <!--  --/Post 2  -->
-            <!--  --Post 3  -->
-            <article class="post--preview col-sm-6 col-lg-4 ">
-                <div class="img">
-
-                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
-
-                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
-
-                    <div class="description">
-                        <h3><a href="">Organization of the workplace</a></h3>
-                        <h4>
-                            <a class="adress">Autor name</a> ―
-                            <a class="time">12 yan 2018</a>
-                        </h4>
-                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </article>
-            <!--  --/Post 3  -->
-            <!--  --Post 1  -->
-            <article class="post--preview col-sm-6 col-lg-4 ">
-                <div class="img">
-
-                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
-
-                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
-
-                    <div class="description">
-                        <h3><a href="">Organization of the workplace</a></h3>
-                        <h4>
-                            <a class="adress">Autor name</a> ―
-                            <a class="time">12 yan 2018</a>
-                        </h4>
-                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </article>
-            <!--  --/Post 1  -->
-            <!--  --Post 2  -->
-            <article class="post--preview col-sm-6 col-lg-4 ">
-                <div class="img">
-
-                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
-
-                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
-
-                    <div class="description">
-                        <h3><a href="">Organization of the workplace</a></h3>
-                        <h4>
-                            <a class="adress">Autor name</a> ―
-                            <a class="time">12 yan 2018</a>
-                        </h4>
-                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </article>
-            <!--  --/Post 2  -->
-            <!--  --Post 3  -->
-            <article class="post--preview col-sm-6 col-lg-4 ">
-                <div class="img">
-
-                    <img class="embed-responsive-item" src="themes/frontend/images/practice/pracd1.jpg" alt="">
-
-                    <div class="btn_rm"><a href="javascript:void(0);" class="pract btn-1 hide">Read More</a></div>
-
-                    <div class="description">
-                        <h3><a href="">Organization of the workplace</a></h3>
-                        <h4>
-                            <a class="adress">Autor name</a> ―
-                            <a class="time">12 yan 2018</a>
-                        </h4>
-                        <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </article>
-            <!--  --/Post 3  -->
         </div>
     </div>
 </section>
