@@ -8036,6 +8036,12 @@ body.active #mobile-nav {
     .btn-1{
         padding: 9px 14px;
     }
+    img.embed-responsive-item {
+        height: 186px;width: 100%;
+    }
+    .practArea .description {
+        /*        height: 290px;*/
+    }
 }
 @media only screen and (min-width: 375px){
     .post--preview:hover .img::before {
@@ -8055,6 +8061,12 @@ body.active #mobile-nav {
     .post--preview {
         padding-bottom: 50px;
     }
+    img.embed-responsive-item {
+        height: 227px;width: 100%;
+    }
+    .practArea .description {
+        /*height: 257px;*/
+    }
 }
 
 
@@ -8062,9 +8074,9 @@ body.active #mobile-nav {
 @media only screen and (min-width: 425px){
     .post--preview:hover .img::before {
         top: 0;
-        height: 253px;
+        height: 249px;
         left: 15px;
-        width: 372px;
+        width: 380px;
         border-radius: 9px;
         display: block;
 
@@ -8073,6 +8085,8 @@ body.active #mobile-nav {
         position: absolute;
         top: 186px;
         right: 44px;
+    }img.embed-responsive-item {
+        height: 248px;width: 100%;
     }
 }
 @media only screen and (min-width: 768px){
@@ -8093,7 +8107,10 @@ body.active #mobile-nav {
         padding-bottom: 75px;
     }
     img.embed-responsive-item {
-        height: 221px;
+        height: 221px;width: 100%;
+    }
+    .practArea .description {
+        height: 257px;
     }
 }
 @media only screen and (min-width: 1024px){
@@ -8101,7 +8118,7 @@ body.active #mobile-nav {
         top: 0;
         height: 194px;
         left: 15px;
-        width: 283px;
+        width: 286px;
         border-radius: 9px;
         display: block;
     }
@@ -8114,25 +8131,31 @@ body.active #mobile-nav {
         padding-bottom: 100px;
     }
     img.embed-responsive-item {
-        height: 194px;
+        height: 194px;width: 100%;
+    }.practArea .description {
+        height: 280px;
     }
 }
 @media only screen and (min-width: 1362px){
     .post--preview:hover .img::before {
         top: 0;
-        height: 248px;
+        height: 194px;
         left: 15px;
-        width: 365px;
+        width: 364px;
         border-radius: 9px;
         display: block;
     }
     a.pract.btn-1 {
         position: absolute;
-        top: 179px;
-        right: 35px;
+        top: 137px;
+        right: 37px;
     }
     .post--preview {
         padding-bottom: 100px;
+    }
+    img.embed-responsive-item {
+        height: 194px;
+        width: 100%;
     }
 }
 @media only screen and (min-width: 1440px){
@@ -8153,7 +8176,10 @@ body.active #mobile-nav {
         padding-bottom: 100px;
     }
     img.embed-responsive-item {
-        height: 247px;
+        height: 247px;width: 100%;
+    }
+    .practArea .description {
+        height: 260px;
     }
 }
 @media (min-width: 320px) and (max-width: 575px) {
@@ -8182,6 +8208,28 @@ body.active #mobile-nav {
     }
 }
 
+@media (min-width:320px) and (max-width:374px){
+    /*    .post--preview:hover .img::before {
+            top: 0;
+            height: 194px;
+            left: 15px;
+            width: 92%;
+            border-radius: 9px;
+            display: block;
+        }
+        a.pract.btn-1 {
+            position: absolute;
+            top: 130px;
+            right: 132px;
+        }
+        .post--preview {
+            padding-bottom: 100px;
+        }
+        img.embed-responsive-item {
+            height: 194px;
+        }*/
+}
+
 /* --------------------------------------------------
             ==  Practice  details page  ==
 --------------------------------------------------- */
@@ -8195,7 +8243,7 @@ body.active #mobile-nav {
     height: 10px;
     display: inline-block;
     border-radius: 100%;
-    background: #fff;
+    background: #22242f;
     opacity: 1;
 }
 
@@ -11947,7 +11995,7 @@ a.img:hover img {
 }
 
 .practArea .description {
-    padding: 30px 20px;
+    padding: 20px 20px;
     border-radius: 0 0 5px 5px;
 }
 
@@ -12001,5 +12049,14 @@ img.embed-responsive-item {
 }
 .post--preview {
     /*padding-bottom: 100px;*/
+}.post--preview .description > h3 {
+    padding-bottom: 10px;
+}
+
+.practice-slider .swiper-slide {
+    height: 555px;
+}
+.swiper-slide > img {
+    height: 100%;
 }
 /* Practice area end */

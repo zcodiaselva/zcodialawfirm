@@ -32,8 +32,13 @@
                         <label for="txtAttyDesignation">Designation</label>
                         <input type="text" class="form-control" id="txtAttyDesignation">
                     </div>
+                    <div class="form-group">
+                        <label for="txtAbtAttyDesc">Short Description</label>
+                        <textarea class="form-control AbtAttyDesc" id="txtAbtAttyDesc"></textarea>
+                    </div>
                 </div>
                 <div class="col-md-6">
+
                     <div class="form-group">
 
                         <label>Attorney Image</label>

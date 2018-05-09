@@ -39,7 +39,7 @@ class Home_model extends CI_Model {
         }
     }
 
-    function getSubMenus() {
+    function getSubMenus_old() {
         $this->db->select('sm.menu_id, sm.menu_text,sm.url');
         $this->db->from('main_menu m');
         $this->db->join('main_menu sm', 'm.menu_id = sm.parent_id');
@@ -52,8 +52,8 @@ class Home_model extends CI_Model {
             return false;
         }
     }
-
-    function getAttorneyData() {
+    
+     function getAttorneyData() {
 
         $array = array();
         $result_array = array();

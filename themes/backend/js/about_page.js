@@ -16,11 +16,15 @@ function attyDetails_submit(thss) {
     var attyItem_id = $(thss).attr('attyItem_id');
     var txtAttyName = $("#txtAttyName").val();
     var txtAttyDesignation = $("#txtAttyDesignation").val();
+    var txtAbtAttyDesc = $("textArea#txtAbtAttyDesc").val();
     if (!txtAttyName) {
         info_msg('Attorney Name is empty');
         error = true;
     } else if (!txtAttyDesignation) {
         info_msg('Attorney Designation is empty');
+        error = true;
+    } else if (!txtAbtAttyDesc) {
+        info_msg("Attorney's Description is empty");
         error = true;
     }
 
@@ -28,6 +32,7 @@ function attyDetails_submit(thss) {
         var form_data = new FormData();
         form_data.append('attyItem_name', txtAttyName);
         form_data.append('attyItem_designation', txtAttyDesignation);
+        form_data.append('attyItem_desc', txtAbtAttyDesc);
         form_data.append('attyItem_image', $('#imgAttyUpload').prop('files')[0]);
         if (typeof (attyItem_id) !== 'undefined') {
             form_data.append('attyItem_id', attyItem_id);
@@ -44,6 +49,7 @@ function attyDetails_submit(thss) {
                 if (data == 1) {
                     $("#txtAttyName").val("");
                     $("#txtAttyDesignation").val("");
+                    $("textArea#txtAbtAttyDesc").val("");
                     document.getElementById("imgAttyUpload").value = "";
                     $("#imgAttyPreview").removeAttr("style");
                     $("#imgAttyLabel").html("CHOOSE FILE");
@@ -472,6 +478,7 @@ function getAttyDetails(thss, dd) { //getting Attorney Details to edit
                 var myObj = jQuery.parseJSON(msg);
                 $("#txtAttyName").val(myObj[0].attyItem_name);
                 $('#txtAttyDesignation').val(myObj[0].attyItem_designation);
+                $('#txtAbtAttyDesc').val(myObj[0].attyItem_desc);
                 $(".btnUpdateAttyDetails").attr("attyItem_id", myObj[0].attyItem_id);
                 if (myObj[0].attyItem_image !== '') {
                     $('#imgAttyLabel').html("CHANGE FILE");
@@ -643,10 +650,7 @@ function attySocialDetails_submit(thss) {
     } else if (!txtSocialName) {
         info_msg('Please select the Social Name.');
         error = true;
-    } else if (!txtSocialLink) {
-        info_msg('Social Link should not be empty');
-        error = true;
-    }
+    } 
 
     if (error == false) {
         var form_data = new FormData();

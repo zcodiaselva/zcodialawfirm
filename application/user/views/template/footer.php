@@ -67,11 +67,21 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                         <h3>PRACTICE AREAS</h3>
                         <ul class="footer-widget-link">
                             <?php
+//                            if (isset($footer_submenus) && !empty($footer_submenus)) {
+//                                foreach ($footer_submenus as $key => $value) {
+//                                    
+                            ?>
+                                    <!--li><a href="<?php //echo $value['url'];   ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];   ?></a></li-->
+                            <?php
+//                                }
+//                            }
+
                             if (isset($footer_submenus) && !empty($footer_submenus)) {
                                 foreach ($footer_submenus as $key => $value) {
                                     ?>
-                                    <li><a href="<?php echo $value['url']; ?>"><i class="fa fa-angle-double-right"></i> <?php echo $value['menu_text']; ?></a></li>
+                                    <li><a href="practiceareas"><i class="fa fa-angle-double-right"></i> <?php echo $value['pat_header']; ?></a></li>
                                     <?php
+                                    //getCategoryDetails/<?php echo $value['pat_id']; 
                                 }
                             }
                             ?>
@@ -84,7 +94,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                         <h3>CONTACT US</h3>
 
                         <ul class="footer-widget-contact">
-                            <?php if (isset($contact_email) && !empty($contact_email)) { ?>
+<?php if (isset($contact_email) && !empty($contact_email)) { ?>
                                 <li><i class="fa fa-envelope"></i>
                                     <p><?php echo $contact_email[0]['c_content']; ?></p>
                                 </li>
@@ -97,7 +107,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                             <?php } ?>
                             <?php if (isset($contact_address) && !empty($contact_address)) { ?>
                                 <li><i class="fa fa-map-marker"></i><?php echo $contact_address[0]['c_content']; ?></li>
-                            <?php } ?>
+<?php } ?>
                         </ul>
 
                     </div>
@@ -367,11 +377,11 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         if (parseInt(screensize) < 1024) {
             $(".bars").css("display", "block");
         } else if (parseInt(screensize) <= 320) {
-            
+
             $(".singlecenter  .slick-active .post-head.no-image").css("left", "0px")
         }
         var param = (getUrlParam());
-        
+
         if (param[2] == '') {
             $("div#nav-list ul > li:nth-child(1) > a").addClass('active');
         } else if (param[2] == 'attorney') {
@@ -380,7 +390,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
             $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
         } else if (param[2] == 'practiceareas') {
             $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
-        } else if (param[2] == 'about-us') {
+        } else if (param[2] == 'aboutus') {
             $("div#nav-list ul > li:nth-child(4) > a").addClass('active');
         } else if (param[2] == 'news') {
             $("div#nav-list ul > li:nth-child(5) > a").addClass('active');

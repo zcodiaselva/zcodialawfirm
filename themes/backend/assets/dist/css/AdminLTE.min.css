@@ -5902,7 +5902,7 @@ textarea#txtAbtTLSubHeader {
     margin: auto;
     text-align: center;
 }
-textarea#txtAbtUsMainDesc {
+textarea#txtAbtUsMainDesc,textarea#txtAbtAttyDesc {
     height: 80px;
     resize: none;
     width: 100%;

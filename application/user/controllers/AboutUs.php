@@ -46,7 +46,8 @@ class AboutUs extends CI_Controller {
         $this->data['contactus_social'] = $this->aboutus_model->getData('c_social_link,c_social_name', 'contactus', array('c_status' => 1, 'c_deleted' => 0, 'c_type' => 2));
         $this->data['contactus_footer'] = $this->aboutus_model->getData('c_footer_content', 'contactus', array('c_status' => 1, 'c_deleted' => 0, 'c_type' => 3));
         $this->data['logo_details'] = $this->aboutus_model->getData('*', $this->logo_table, array('logo_status' => 1, 'logo_deleted' => 0), 'logo_id');
-        $this->data['footer_submenus'] = $this->home_model->getSubMenus();
+        // $this->data['footer_submenus'] = $this->home_model->getSubMenus();
+        $this->data['footer_submenus'] = $this->aboutus_model->getData('*', $this->practiceAreaTypes, array('pat_home_flag' => 1, 'pat_status' => 1, 'pat_deleted' => 0));
     }
 
     public function index() {

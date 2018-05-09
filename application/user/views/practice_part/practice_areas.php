@@ -35,16 +35,28 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
                 <div class="auto-container">
                     <div class="filters">
                         <ul class="filter-tabs filter-btns clearfix">
-                            <li class="active filter" ><?php echo anchor("practiceareas/getCategoryDetails", 'VIEW ALL'); ?></li>
-                            <?php
-                            if (isset($practiceareas_items) && !empty($practiceareas_items)) {
-                                foreach ($practiceareas_items as $key => $value) {
-                                    ?>
-                                    <li class="filter" pid="<?php echo $value['pat_id']; ?>" ><?php echo anchor("practiceareas/getCategoryDetails/?id=" . $this->encrypt->encode($value['pat_id'], 'Jfmamjjas0nd'), $value['pat_header']); ?></li>
-                                    <?php
-                                }
+                            <li class="<?php
+                            if ($this->uri->segment(4) == "") {
+                                echo "active";
+                            } else {
+                                echo "";
                             }
-                            ?>
+                            ?> filter" ><?php echo anchor("practiceareas/getCategoryDetails", 'VIEW ALL'); ?></li>
+                                <?php
+                                if (isset($practiceareas_items) && !empty($practiceareas_items)) {
+                                    foreach ($practiceareas_items as $key => $value) {
+                                        ?>
+                                    <li class="filter <?php
+                                    if ($this->uri->segment(4) == $key && $this->uri->segment(4) <> '') {
+                                        echo "active";
+                                    } else {
+                                        echo "";
+                                    }
+                                    ?>" pid="<?php echo $value['pat_id']; ?>"><?php echo anchor("practiceareas/getCategoryDetails/" . $value['pat_id'] . "/" . $key, $value['pat_header']); ?></li>
+                                        <?php
+                                    }
+                                }
+                                ?>
                         </ul>
                     </div>
                 </div>

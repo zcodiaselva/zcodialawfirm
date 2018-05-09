@@ -45,7 +45,7 @@ class PracticeAreas extends CI_Controller {
         $this->load->model('home_model');
         $this->load->library('encrypt');
         $this->load->helper('text');
-        
+
         $this->data['testimonial_slider_details'] = $this->pa_model->getData('*', $this->TMS_table, array('tms_status' => 1));
         $this->data['about_pa'] = $this->pa_model->getData('*', $this->practiceAreas, array('pa_status' => 1, 'pa_deleted' => 0));
         $this->data['practiceareas_items'] = $this->pa_model->getData('*', $this->practiceAreaTypes, array('pat_status' => 1, 'pat_deleted' => 0));
@@ -57,12 +57,14 @@ class PracticeAreas extends CI_Controller {
         $this->data['logo_details'] = $this->pa_model->getData('*', $this->logo_table, array('logo_status' => 1, 'logo_deleted' => 0), 'logo_id');
         $this->data['attorney_skills'] = $this->pa_model->getData('*', $this->attorney_skills_table, array('atty_skill_status' => 1, 'atty_skill_deleted' => 0), 'atty_skill_id');
         $this->data['breadcrumb'] = $this->pa_model->getData('*', $this->attorney_breadcrumb_table, array('atty_bc_status' => 1, 'atty_bc_deleted' => 0), 'atty_bc_id');
+        $this->data['footer_about'] = $this->pa_model->getData('c_content', 'contactus', array('c_name' => 'footer_content', 'c_status' => 1, 'c_deleted' => 0, 'c_type' => 1));
 
         $this->data['about_attorney'] = $this->pa_model->getData('*', $this->aboutAttorney_table, array('atty_status' => 1, 'atty_deleted' => 0), 'atty_id');
         $this->data['contact_address'] = $this->pa_model->getData('c_name,c_content,c_icon', 'contactus', array('c_name' => 'Address', 'c_status' => 1, 'c_deleted' => 0, 'c_type' => 1));
         $this->data['contact_email'] = $this->pa_model->getData('c_name,c_content,c_icon', 'contactus', array('c_name' => 'Email', 'c_status' => 1, 'c_deleted' => 0, 'c_type' => 1));
         $this->data['contact_call'] = $this->pa_model->getData('c_name,c_content,c_icon', 'contactus', array('c_name' => 'Call Us', 'c_status' => 1, 'c_deleted' => 0, 'c_type' => 1));
-        $this->data['footer_submenus'] = $this->home_model->getSubMenus();
+        // $this->data['footer_submenus'] = $this->home_model->getSubMenus();
+        $this->data['footer_submenus'] = $this->pa_model->getData('*', $this->practiceAreaTypes, array('pat_home_flag' => 1, 'pat_status' => 1, 'pat_deleted' => 0));
         $this->data['about_consultation'] = $this->pa_model->getData('*', $this->about_consultation_table, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0), 'abt_consult_id');
         $this->data['practicearea_category'] = $this->pa_model->getData('*', $this->practiceAreaDetail, array('pad_status' => 1, 'pad_deleted' => 0));
     }
@@ -82,17 +84,31 @@ class PracticeAreas extends CI_Controller {
 
     public function getCategoryDetails() {
         $pat_id = '';
-        if (isset($_GET['id']) && !empty($_GET['id'])) {
-            $pat_id = $this->encrypt->decode(str_replace(' ', '+', $_GET['id']));
-        }
+        $pat_id = $this->uri->segment(3);
+
         if ($pat_id > 0) {
             $this->data['practicearea_category'] = $this->pa_model->getData('*', $this->practiceAreaDetail, array('pad_status' => 1, 'pad_deleted' => 0, 'pat_id' => $pat_id));
         } else {
             $this->data['practicearea_category'] = $this->pa_model->getData('*', $this->practiceAreaDetail, array('pad_status' => 1, 'pad_deleted' => 0));
         }
-
+        $this->data['selected_category'] = $this->uri->segment(4);
         $this->load->view('template/header', $this->data);
         $this->load->view('practice_part/practice_areas', $this->data);
+        $this->load->view('template/footer', $this->data);
+    }
+
+    public function getContent() {
+        $pad_id = '';
+
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+            $pad_id = $this->encrypt->decode(str_replace(' ', '+', $_GET['id']));
+        }
+        if ($pad_id > 0) {
+            $this->data['pa_content'] = $this->pa_model->getData('*', $this->practiceAreaDetail, array('pad_status' => 1, 'pad_deleted' => 0, 'pad_id' => $pad_id));
+        }
+
+        $this->load->view('template/header', $this->data);
+        $this->load->view('practice_part/practice_details_part', $this->data);
         $this->load->view('template/footer', $this->data);
     }
 

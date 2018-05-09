@@ -50,7 +50,7 @@ class Attorney_model extends CI_Model {
                 join social on social.social_id = attorney_social.social_id 
                  join attorney_items on attorney_items.attyItem_id = attorney_social.attyItem_id  
                 where attorney_social.attySocial_status =1 and attorney_social.attySocial_deleted = 0 and 
-                social.social_status = 1 and social.social_deleted = 0 and attorney_social.attyItem_id = " . $value['attyItem_id'];
+                social.social_status = 1 and social.social_deleted = 0 and attorney_social.attySocialLink <> '' and attorney_social.attyItem_id = " . $value['attyItem_id'];
 
             $query1 = $this->db->query($sql1);
             $result1 = $query1->result_array();

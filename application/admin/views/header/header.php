@@ -345,18 +345,6 @@ if (isset($logo_details) && isset($logo_details)) {
                                         echo "active";
                                     }
                                     ?>"><a href="admin.php/about/slider"><i class="fa fa-angle-double-right"></i>Slider</a></li>
-
-
-                                    <li class="<?php
-                                    if ($this->uri->segment(2) == "attorney_skills") {
-                                        echo "active";
-                                    }
-                                    ?>"><a href="admin.php/about/attorney_skills"><i class="fa fa-angle-double-right"></i>Attorney Skills</a></li>
-                                    <li class="<?php
-                                    if ($this->uri->segment(2) == "attorney_skills_category") {
-                                        echo "active";
-                                    }
-                                    ?>"><a href="admin.php/about/attorney_skills_category"><i class="fa fa-angle-double-right"></i>Attorney Skills Category</a></li>
                                     <li class="<?php
                                     if ($this->uri->segment(2) == "attorney_details") {
                                         echo "active";

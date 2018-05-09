@@ -76,7 +76,8 @@ class Home extends CI_Controller {
         $this->data['disclaimer'] = $this->home_model->getData('*', $this->disclaimer_table, array('disclaimer_status' => 1, 'disclaimer_deleted' => 0), 'disclaimer_id', 3);
         $this->data['seo_header'] = $this->home_model->getData('*', $this->seo_header_table, array('sh_status' => 1, 'sh_deleted' => 0), 'sh_id');
         $this->data['seo_page'] = $this->home_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == '' ? 'Home' : ''), 'sp_status' => 1, 'sp_deleted' => 0));
-        $this->data['footer_submenus'] = $this->home_model->getSubMenus();
+        $this->data['footer_submenus'] = $this->home_model->getData('*', $this->practiceAreaTypes,array('pat_home_flag' => 1, 'pat_status' => 1, 'pat_deleted' => 0));
+       
         $this->data['google_map_entries'] = $this->home_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
         $this->data['about_testimonial'] = $this->home_model->getData('*', $this->about_testimonial_table, array('abt_tm_status' => 1, 'abt_tm_deleted' => 0), 'abt_tm_id');
         $this->data['about_consultation'] = $this->home_model->getData('*', $this->about_consultation_table, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0), 'abt_consult_id');

@@ -313,7 +313,7 @@ class About extends CI_Controller {
         $aboutItem = array('auti_name' => $this->input->post('auti_name'),
             'auti_content' => $this->input->post('auti_content')
         );
-        
+
         $IsEmpty_aboutItem = array_filter($aboutItem);
 
         if (isset($abtItem_image) && !empty($abtItem_image)) {
@@ -586,7 +586,8 @@ class About extends CI_Controller {
 
         $aboutAttorney = array(
             'attyItem_name' => $this->input->post('attyItem_name'),
-            'attyItem_designation' => $this->input->post('attyItem_designation'));
+            'attyItem_designation' => $this->input->post('attyItem_designation'),
+            'attyItem_desc' => $this->input->post('attyItem_desc'));
 
         if (isset($abtAtty_image) && !empty($abtAtty_image)) {
             $aboutAttorney['attyItem_image'] = cleanurl($abtAtty_image);
@@ -689,7 +690,7 @@ class About extends CI_Controller {
     }
 
     function getAttorneyDetails() {// getting  Attorney details for editing
-        $select = 'attyItem_id, attyItem_name, attyItem_designation, attyItem_image';
+        $select = 'attyItem_id, attyItem_name, attyItem_designation, attyItem_desc, attyItem_image';
         $from = $this->attorney_items;
         $attyItem_id = $this->input->post('attyItem_id');
         $au_itemDetails = $this->aboutus_model->getData($select, $from, array('attyItem_id' => $attyItem_id));

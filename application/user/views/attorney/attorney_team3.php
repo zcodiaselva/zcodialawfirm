@@ -78,8 +78,7 @@ if (isset($attorney_breadcrumb) && !empty($attorney_breadcrumb)) {
 
                                 </div>
                                 <div class="team-3-details">
-                                    <p>The classic Lorem ipsum dolor sit amet passage is attributed to a remixing of Romanphi losopher Cicero's text De Finibus Bonorum.</p>
-                                    <a href="#" >ABOUT ME</a>    
+                                    <p><?php echo character_limiter($value['attyItem_desc'],250); ?></p>
                                 </div>
 
                             </div>
