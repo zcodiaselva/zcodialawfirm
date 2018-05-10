@@ -1,4 +1,5 @@
 <?php
+
 $tm_bg_image = '';
 if (isset($home_testimonial_bg_image) && !empty($home_testimonial_bg_image)) {
     $tm_bg_image = $home_testimonial_bg_image[0]['tmimg_bg'];
@@ -32,15 +33,50 @@ $about_timeline = $abt_timeline[0];
 //}
 ?>
 
-<?php include APPPATH . 'views/template/home_slider.php'; ?>
-<?php include APPPATH . 'views/practice_part/our_practices_part.php'; ?>
-<?php include APPPATH . 'views/testimonial_part/testimonial_part.php'; ?>
-<?php include APPPATH . 'views/skill_part/skill_part.php'; ?>
+<?php
 
-<?php include APPPATH . 'views/about_part/about_lawyers_part.php'; ?>
-<?php include APPPATH . 'views/counter_part/counter_part.php'; ?>
+if (isset($home_slider_details) && !empty($home_slider_details)) {
+    include APPPATH . 'views/template/home_slider.php';
+}
+?>
 
-<?php //include APPPATH . 'views/social_part/social_media_part.php'; ?>
-<?php include APPPATH . 'views/team_part/team_part1.php'; ?>
-<?php //include APPPATH . 'views/experience_part/experience_part.php'; ?>
-<?php //include APPPATH . 'views/social_part/twitter_feed_part.php'; ?>
+<?php
+
+if (isset($about_pa) && !empty($about_pa)) {
+    include APPPATH . 'views/practice_part/our_practices_part.php';
+}
+?>
+
+<?php
+
+if (isset($about_testimonial) && !empty($about_testimonial)) {
+    include APPPATH . 'views/testimonial_part/testimonial_part.php';
+}
+?>
+
+<?php
+
+if (isset($attorney_skill_types) && !empty($attorney_skill_types)) {
+    include APPPATH . 'views/skill_part/skill_part.php';
+}
+?>
+
+<?php
+
+if (isset($wcu) && !empty($wcu)) {
+    include APPPATH . 'views/about_part/about_lawyers_part.php';
+}
+?>
+<?php
+
+if (isset($home_counter) && !empty($home_counter)) {
+    include APPPATH . 'views/counter_part/counter_part.php';
+}
+?>
+
+<?php
+
+if (isset($attorney_details) && !empty($attorney_details)) {
+    include APPPATH . 'views/team_part/team_part1.php';
+}
+?>

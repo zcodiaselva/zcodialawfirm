@@ -2,7 +2,6 @@
 $title = $fav_image = $logo_title = $logo_href = $logo_image = $logo_retina_image = $logo_alt_text = $logo_sticky_image = $logo_sticky_retina_image = $logo_sticky_alt_text = $logo_mobile_image = $logo_mobile_retina_image = $logo_mobile_retina_alt_text = $logo_mobile_sticky_image = $logo_mobile_sticky_retina_image = $logo_mobile_sticky_retina_alt_text = $logo_data_height = $logo_data_padding = $logo_main_data_height = $logo_sticky_data_height = $logo_mobile_data_height = $logo_mobile_sticky_data_height = '';
 $logo_header_height = $logo_header_width = $logo_footer_height = $logo_footer_width = '';
 if (isset($logo_details) && !empty($logo_details)) {
-    //echo '<pre>';print_r($logo_details);echo '</pre>';die;
     $title = $logo_details[0]['title'];
     $fav_image = $logo_details[0]['fav_image'];
     $logo_title = $logo_details[0]['logo_title'];
@@ -53,6 +52,6 @@ if (isset($logo_details) && !empty($logo_details)) {
         </div>
 
         <ul class="mobile-list-nav"></ul>
- </div>
+    </div>
 </div>
 <!-- Navigation Part End -->

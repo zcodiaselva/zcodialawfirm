@@ -87,19 +87,20 @@
         <link rel="stylesheet" href="themes/frontend/css/style.css">
         <link rel="stylesheet" href="themes/frontend/css/custom.css">
         <link rel="stylesheet" type="text/css" href="themes/frontend/news_part/css/news_style.css" media="all" />
-
-
         <script type="text/javascript">
-<?php echo $seo_ga_script; ?>
+            <?php echo $seo_ga_script; ?>
         </script>
     </head>
 
     <body>
         <div class="preloader" style="display: none;"></div>
         <!-- Header Part Start -->
-        <?php include APPPATH . 'views/template/get_appointment_part.php'; ?>
+        <?php
+        if (isset($appt_details) && !empty($appt_details)) {
+            include APPPATH . 'views/template/get_appointment_part.php';
+        }
+        ?>
         <!-- Header Part End -->
         <!-- Navigation Part Start -->
         <?php include APPPATH . 'views/template/desktop_menu.php'; ?>
-
         <!-- Banner Part Start -->

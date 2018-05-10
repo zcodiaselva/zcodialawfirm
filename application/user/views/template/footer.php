@@ -38,125 +38,129 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 
 <!-- Footer Part Start -->
 <footer class="footer-part footer-bg-dark">
-    <div class="footer-widget">
-        <div class="container">
-            <div class="row">
-                <!-- Single widget-->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="footer-logo">
-                        <input type="hidden" class="da_input" value="">
-                        <a href="<?php echo $logo_href; ?>"><img src="<?php echo $footer_logo; ?>" alt="<?php echo $logo_alt_text; ?>"></a>
-                        <p><?php echo $footer_about_content; ?></p>
-                        <ol class="flat-list">
-                            <?php
-                            if (isset($contactus_social) && !empty($contactus_social)) {
-                                foreach ($contactus_social as $key_social => $value_social) {
-                                    ?>
-                                    <li><a target=”_blank” href="<?php echo $value_social['c_social_link']; ?>"><i class="<?php echo $value_social['c_social_name']; ?>"></i></a></li>
-                                    <?php
+    <?php if (isset($logo_details) && !empty($logo_details)) { ?>
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <!-- Single widget-->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-logo">
+                            <input type="hidden" class="da_input" value="">
+                            <a href="<?php echo $logo_href; ?>"><img src="<?php echo $footer_logo; ?>" alt="<?php echo $logo_alt_text; ?>"></a>
+                            <p><?php echo $footer_about_content; ?></p>
+                            <ol class="flat-list">
+                                <?php
+                                if (isset($contactus_social) && !empty($contactus_social)) {
+                                    foreach ($contactus_social as $key_social => $value_social) {
+                                        ?>
+                                        <li><a target=”_blank” href="<?php echo $value_social['c_social_link']; ?>"><i class="<?php echo $value_social['c_social_name']; ?>"></i></a></li>
+                                        <?php
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
 
-                        </ol>
+                            </ol>
+                        </div>
                     </div>
-                </div>
-                <!-- Single widget-->
-                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-sm-0 footer_cols">
-                    <div class="footer-widget-item">
-                        <h3>PRACTICE AREAS</h3>
-                        <ul class="footer-widget-link">
-                            <?php
+                    <!-- Single widget-->
+                    <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-sm-0 footer_cols">
+                        <div class="footer-widget-item">
+                            <h3>PRACTICE AREAS</h3>
+                            <ul class="footer-widget-link">
+                                <?php
 //                            if (isset($footer_submenus) && !empty($footer_submenus)) {
 //                                foreach ($footer_submenus as $key => $value) {
 //                                    
-                            ?>
-                                    <!--li><a href="<?php //echo $value['url'];   ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];   ?></a></li-->
-                            <?php
+                                ?>
+                                        <!--li><a href="<?php //echo $value['url'];        ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];        ?></a></li-->
+                                <?php
 //                                }
 //                            }
 
-                            if (isset($footer_submenus) && !empty($footer_submenus)) {
-                                foreach ($footer_submenus as $key => $value) {
-                                    ?>
-                                    <li><a href="practiceareas"><i class="fa fa-angle-double-right"></i> <?php echo $value['pat_header']; ?></a></li>
-                                    <?php
-                                    //getCategoryDetails/<?php echo $value['pat_id']; 
+                                if (isset($footer_submenus) && !empty($footer_submenus)) {
+                                    foreach ($footer_submenus as $key => $value) {
+                                        ?>
+                                        <li><a href="practiceareas"><i class="fa fa-angle-double-right"></i> <?php echo $value['pat_header']; ?></a></li>
+                                        <?php
+                                    }
                                 }
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Single widget-->
-                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0 footer_cols">
-                    <div class="footer-widget-item">
-                        <h3>CONTACT US</h3>
-
-                        <ul class="footer-widget-contact">
-<?php if (isset($contact_email) && !empty($contact_email)) { ?>
-                                <li><i class="fa fa-envelope"></i>
-                                    <p><?php echo $contact_email[0]['c_content']; ?></p>
-                                </li>
-                            <?php } ?>
-                            <?php if (isset($contact_call) && !empty($contact_call)) {
                                 ?>
-                                <li><i class="fa fa-phone"></i>
-                                    <p><?php echo $contact_call[0]['c_content']; ?></p>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single widget-->
+                    <?php if (isset($contact_email) && !empty($contact_email)) { ?>
+                        <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0 footer_cols">
+                            <div class="footer-widget-item">
+                                <h3>CONTACT US</h3>
+
+                                <ul class="footer-widget-contact">
+                                    <?php if (isset($contact_email) && !empty($contact_email)) { ?>
+                                        <li><i class="fa fa-envelope"></i>
+                                            <p><?php echo $contact_email[0]['c_content']; ?></p>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if (isset($contact_call) && !empty($contact_call)) {
+                                        ?>
+                                        <li><i class="fa fa-phone"></i>
+                                            <p><?php echo $contact_call[0]['c_content']; ?></p>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if (isset($contact_address) && !empty($contact_address)) { ?>
+                                        <li><i class="fa fa-map-marker"></i><?php echo $contact_address[0]['c_content']; ?></li>
+                                    <?php } ?>
+                                </ul>
+
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <!-- Single widget-->
+                    <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0 footer_cols">
+                        <div class="footer-widget-item">
+                            <h3>OPEN TIME</h3>
+                            <ul class="footer-widget-office-time">
+                                <li>
+                                    <p>Opening Day:</p>
+                                    <p><?php echo $txtApptOpenDays; ?>: <?php echo $txtApptTimeBetween; ?></p>
+
                                 </li>
-                            <?php } ?>
-                            <?php if (isset($contact_address) && !empty($contact_address)) { ?>
-                                <li><i class="fa fa-map-marker"></i><?php echo $contact_address[0]['c_content']; ?></li>
-<?php } ?>
-                        </ul>
+                                <li>
+                                    <p>Vacation:</p>
+                                    <p><?php echo $txtApptVacationDays; ?></p>
 
-                    </div>
-                </div>
-                <!-- Single widget-->
-                <div class="col-12 col-sm-6 col-lg-3 mt-4 mt-lg-0 footer_cols">
-                    <div class="footer-widget-item">
-                        <h3>OPEN TIME</h3>
-                        <ul class="footer-widget-office-time">
-                            <li>
-                                <p>Opening Day:</p>
-                                <p><?php echo $txtApptOpenDays; ?>: <?php echo $txtApptTimeBetween; ?></p>
-
-                            </li>
-                            <li>
-                                <p>Vacation:</p>
-                                <p><?php echo $txtApptVacationDays; ?></p>
-
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
+    <?php if (isset($contactus_footer) && !empty($contactus_footer)) { ?>
+        <!-- Copy right Start -->
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
 
-    <!-- Copy right Start -->
-    <div class="footer-copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-
-                    <?php
-                    if (isset($contactus_footer) && !empty($contactus_footer)) {
-                        foreach ($contactus_footer as $key_footer => $value_footer) {
-                            echo $value_footer['c_footer_content'];
+                        <?php
+                        if (isset($contactus_footer) && !empty($contactus_footer)) {
+                            foreach ($contactus_footer as $key_footer => $value_footer) {
+                                echo $value_footer['c_footer_content'];
+                            }
                         }
-                    }
-                    ?>
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
 </footer>
-
-<div class="backtotop">
-    <i class="fa fa-angle-up backtotop_btn"></i>
-</div>
-
+<?php if (isset($appt_details) && !empty($appt_details)) { ?>
+    <div class="backtotop">
+        <i class="fa fa-angle-up backtotop_btn"></i>
+    </div>
+<?php } ?>
 <div class="modal fade" id="modal-disclaimer">
     <div class="modal-dialog disclaimer_dialog">
         <div class="modal-content disclaimer_conf">
