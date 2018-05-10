@@ -80,7 +80,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                                 if (isset($footer_submenus) && !empty($footer_submenus)) {
                                     foreach ($footer_submenus as $key => $value) {
                                         ?>
-                                        <li><a href="practiceareas"><i class="fa fa-angle-double-right"></i> <?php echo $value['pat_header']; ?></a></li>
+                                <li><a href="practiceareas/getCategoryDetails/<?php echo $value['pat_id']; ?>/<?php echo $key; ?>"><i class="fa fa-angle-double-right"></i> <?php echo $value['pat_header']; ?></a></li>
                                         <?php
                                     }
                                 }
@@ -409,7 +409,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         }, function () {
             $(".post--preview .pract.btn-1").addClass("hide");
         });
-
+$("..item.no-image.hide.slick-slide").remove();
     });
 
     $(window).resize(function () {

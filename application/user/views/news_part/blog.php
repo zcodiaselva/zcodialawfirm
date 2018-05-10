@@ -57,7 +57,7 @@
                                             </div>
                                             <div class="blog-content-wrap">
                                                 <div class="blog-con-two"> 
-                                                    <h2><?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), $thread['title'], array('class' => 'brm')); ?></h2>
+                                                    <h2><?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), $thread['title'], array('class' => 'brm')); ?></h2>
                                                     <span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $updated_published_date; ?> | <i class="fa fa-thumbs-up" aria-hidden="true"></i> <?php echo $thread['social']['facebook']['likes']; ?> | <a href="#"><i class="fa fa-tag" aria-hidden="true"></i>Tech
                                                         </a>
 
@@ -65,7 +65,7 @@
                                                     <p><?php echo character_limiter($text, 200); ?> </p>
                                                 </div>
                                                 <div class="blog-bottom">
-                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), 'Read More', array('class' => 'brm')); ?>
+                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), 'Read More', array('class' => 'brm')); ?>
 
                                                     <ul class = "blog-tag">
                                                         <li><a href = "#">photo </a></li>
@@ -129,7 +129,7 @@
                                         <div class="widget-blog-item d-flex">
                                             <div class="widget-blog-img"><img src="<?php echo ($thread['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread['main_image']); ?>" alt=""></div>
                                             <div class="widget-blog-des">
-                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), word_limiter($thread['title'], 10)); ?>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), word_limiter($thread['title'], 10)); ?>
                                                 <span><?php echo $updated_published_date; ?></span>
                                             </div>
                                         </div>

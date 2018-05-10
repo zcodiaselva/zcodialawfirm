@@ -17,7 +17,7 @@ if (isset($pa_content) && !empty($pa_content)) {
 }
 ?>
 <!-- BreadCrumb Part Start -->
-<section class="breadcrumb-part1" style="background: url(<?php echo $bc_image; ?>) no-repeat;">
+<section class="breadcrumb-part1" style="background: url(<?php echo $bc_image; ?>) no-repeat;background-size: cover;background-position: center;position: relative;">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">

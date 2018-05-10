@@ -75,33 +75,33 @@ if (isset($news_feed) && !empty($news_feed)) {
                                             $date = new DateTime($published_date, new DateTimeZone('UTC'));
                                             $date->setTimezone(new DateTimeZone($timezone));
                                             $updated_published_date = $date->format('M j, Y');
-                                            ?>
-                                            <div class="item <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image'); ?>" img_name="<?php echo $thread['main_image']; ?>">
-                                                <div class="col-xs-12 col-md-12 no-padding">
-                                                    <article class="post slider-style1 post-383 type-post status-publish format-quote has-post-thumbnail hentry category-travel tag-considerably tag-especially tag-europe tag-international post_format-post-format-quote">
-                                                        <figure class="post-item">
-                                                            <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), '<div class="overlay"></div><img src="' . $thread["main_image"] . '" class="img" width="1241" height="623" alt="" />'); ?>
+                                            if (isset($thread['main_image']) && !empty($thread['main_image'])) {
+                                                ?>
+                                                <div class="item <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image hide'); ?>" img_name="<?php echo $thread['main_image']; ?>">
+                                                    <div class="col-xs-12 col-md-12 no-padding">
+                                                        <article class="post slider-style1 post-383 type-post status-publish format-quote has-post-thumbnail hentry category-travel tag-considerably tag-especially tag-europe tag-international post_format-post-format-quote <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image hide'); ?>">
+                                                            <figure class="post-item <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image'); ?>">
+                                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), '<div class="overlay"></div><img src="' . $thread["main_image"] . '" class="img" width="1241" height="623" alt="" />'); ?>
 
-                                                        </figure>
-                                                        <header class="post-head <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image'); ?>">
-                                                            <h1 class="post-title">
-                                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), stripcslashes($thread['title']), array('rel' => 'bookmark')); ?>
-                                                            </h1>
-                                                            <aside class="post-meta <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image'); ?>">
-                                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), 'TRAVEL', array('class' => 'post-category category-link-bg-5', 'title' => 'View all posts in TRAVEL')); ?>
-                                                            </aside>
-                                                            <div class="post-content">
-                                                                <?php echo character_limiter($text, 150); ?> </div>
-                                                            <div class="read-more">
-                                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), 'Read More'); ?>
-                                                            </div>
-                                                        </header>
-                                                    </article>
+                                                            </figure>
+                                                            <header class="post-head <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image hide'); ?>">
+                                                                <h1 class="post-title">
+                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), stripcslashes($thread['title']), array('rel' => 'bookmark')); ?>
+                                                                </h1>
+                                                                <aside class="post-meta <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image'); ?>">
+                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), 'TRAVEL', array('class' => 'post-category category-link-bg-5', 'title' => 'View all posts in TRAVEL')); ?>
+                                                                </aside>
+                                                                <div class="post-content">
+                                                                    <?php echo character_limiter($text, 150); ?> </div>
+                                                                <div class="read-more">
+                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), 'Read More'); ?>
+                                                                </div>
+                                                            </header>
+                                                        </article>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <?php
-//                                            if ($thread['main_image'] = '')
-//                                            break;
+                                                <?php
+                                            }
                                         }
                                     }
                                 }
@@ -131,50 +131,102 @@ if (isset($news_feed) && !empty($news_feed)) {
         </div>                         
         <!--========== BEGIN .ROW ==========-->                         
         <div class="row no-gutter"> 
-            <!--========== BEGIN .COL-MD-6 ==========-->                             
-            <div class="col-sm-6 col-md-6"> 
-                <!--========== BEGIN .NEWS ==========-->                                 
-                <div class="news"> 
-                    <?php
-                    $thread = '';
-                    if (isset($news_feed) && !empty($news_feed)) {
-                        $l1 = 0;
-                        foreach ($news_feed as $key_nf => $value_nf) {
-                            $nf_id = $value_nf['nf_id'];
-                            $thread = json_decode($value_nf['thread'], true);
-                            $text = $value_nf['text'];
-                            if (isset($thread) && !empty($thread)) {
-                                $published_date = substr($thread['published'], 0, -6);
-                                $timezone = substr($thread['published'], -6);
-                                $date = new DateTime($published_date, new DateTimeZone('UTC'));
-                                $date->setTimezone(new DateTimeZone($timezone));
-                                $updated_published_date = $date->format('M j, Y');
-                                ?>
-                                <!-- Begin .item -->                                     
-                                <div class="item"> 
-                                    <div class="item-image-1">
-                                        <a class="img-link" href="#">
-                                            <img class="img-responsive img-full" src="<?php echo ($thread['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread['main_image']); ?>" alt="">
-                                        </a>
-                                        <span>
-                                            <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), 'News', array('class' => 'label-1')); ?>
-                                        </span>
-                                    </div>                                         
-                                    <div class="item-content"> 
-                                        <div class="title-left title-style04 underline04"> 
-                                            <h3>
-                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), '<strong>Migrant</strong> Crisis'); ?>
-                                            </h3> 
-                                        </div>                                             
-                                        <p><a href="#" target="_blank" class="external-link">The proposal involves resettling one Syrian refugee in Europe for each</a></p> 
-                                        <p><a href="#" target="_blank" class="external-link">The U.N. says the mass return of refugees to a third country would</a></p> 
-                                        <div>
-                                            <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), '<span class="read-more">Read More</span>', array('class' => 'label-1', 'target' => '_blank')); ?>
-                                        </div>                                             
-                                    </div>                                         
-                                </div>                                     
-                                <!-- End .item -->                                     
-                                <?php
+            <!--========== BEGIN .COL-MD-6 ==========-->      
+            <?php
+            $thread = '';
+            if (isset($news_feed) && !empty($news_feed)) {
+                $l1 = 0;
+                $news_feed_size = sizeof($news_feed) / 2;
+                $news_feed_chunk = array_chunk($news_feed, $news_feed_size);
+                ?>
+                <div class="col-sm-6 col-md-6"> 
+                    <!--========== BEGIN .NEWS ==========-->                                 
+                    <div class="news"> 
+                        <?php
+                        if (isset($news_feed_chunk[0]) && !empty($news_feed_chunk[0])) {
+//                            echo '<pre>';print_r($news_feed_chunk[0]);echo '</pre>';die;
+                            foreach ($news_feed_chunk[0] as $key_nf => $value_nf) {
+                                $nf_id = $value_nf['nf_id'];
+                                $thread = json_decode($value_nf['thread'], true);
+                                $text = $value_nf['text'];
+                                if (isset($thread) && !empty($thread)) {
+                                    $published_date = substr($thread['published'], 0, -6);
+                                    $timezone = substr($thread['published'], -6);
+                                    $date = new DateTime($published_date, new DateTimeZone('UTC'));
+                                    $date->setTimezone(new DateTimeZone($timezone));
+                                    $updated_published_date = $date->format('M j, Y');
+                                    
+                                    ?>
+                                    <!-- Begin .item -->                                     
+                                    <div class="item"> 
+                                        <div class="item-image-1">
+                                            <a class="img-link" href="#">
+                                                <img class="img-responsive img-full" src="<?php echo ($thread['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread['main_image']); ?>" alt="">
+                                            </a>
+                                            <span>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), 'News', array('class' => 'label-1')); ?>
+                                            </span>
+                                        </div>                                         
+                                        <div class="item-content"> 
+                                            <div class="title-left title-style04 underline04"> 
+                                                <h3>
+                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), character_limiter($thread['title'], 15)); ?>
+                                                </h3> 
+                                            </div>                                             
+                                            <p><a href="#" target="_blank" class="external-link"><?php echo character_limiter($value_nf['text'], 100); ?></a></p> 
+                                            <div>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), '<span class="read-more">Read More</span>', array('class' => 'label-1 hide', 'target' => '_blank')); ?>
+                                            </div>                                             
+                                        </div>                                         
+                                    </div>                                     
+                                    <!-- End .item -->                                     
+                                    <?php
+                                }
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>  
+                <div class="col-sm-6 col-md-6"> 
+                    <div class="news"> 
+                        <?php
+                        if (isset($news_feed_chunk[1]) && !empty($news_feed_chunk[1])) {
+                            foreach ($news_feed_chunk[1] as $key_nf1 => $value_nf1) {
+                                $nf_id1 = $value_nf1['nf_id'];
+                                $thread1 = json_decode($value_nf1['thread'], true);
+                                $text1 = $value_nf1['text'];
+                                if (isset($thread1) && !empty($thread1)) {
+                                    $published_date1 = substr($thread1['published'], 0, -6);
+                                    $timezone1 = substr($thread1['published'], -6);
+                                    $date1 = new DateTime($published_date1, new DateTimeZone('UTC'));
+                                    $date1->setTimezone(new DateTimeZone($timezone1));
+                                    $updated_published_date1 = $date1->format('M j, Y');
+                                    ?>
+                                    <!-- Begin .item -->                                     
+                                    <div class="item"> 
+                                        <div class="item-image-1">
+                                            <a class="img-link" href="#">
+                                                <img class="img-responsive img-full" src="<?php echo ($thread1['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread1['main_image']); ?>" alt="">
+                                            </a>
+                                            <span>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, 'LGlVr5GiXE9bGf3UqDH'), 'News', array('class' => 'label-1')); ?>
+                                            </span>
+                                        </div>                                         
+                                        <div class="item-content"> 
+                                            <div class="title-left title-style04 underline04"> 
+                                                <h3>
+                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, 'LGlVr5GiXE9bGf3UqDH'), character_limiter($thread1['title'], 15)); ?>
+                                                </h3> 
+                                            </div>                                             
+                                            <p><a href="#" target="_blank" class="external-link"><?php echo character_limiter($value_nf1['text'], 100); ?></a></p> 
+                                            <div>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, 'LGlVr5GiXE9bGf3UqDH'), '<span class="read-more">Read More</span>', array('class' => 'label-1 hide', 'target' => '_blank')); ?>
+                                            </div>                                             
+                                        </div>                                         
+                                    </div>                                     
+                                    <!-- End .item -->                                     
+                                    <?php
+                                }
                             }
                         }
                     }

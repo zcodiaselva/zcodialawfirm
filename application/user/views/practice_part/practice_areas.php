@@ -78,12 +78,12 @@ if (isset($breadcrumb) && !empty($breadcrumb)) {
                             <img class="embed-responsive-item" src="<?php echo $pad_image[0]; ?>" alt="">
 
                             <div class="btn_rm">
-                                <?php echo anchor("practiceareas/getContent/?id=" . $this->encrypt->encode($value['pad_id'], 'Jfmamjjas0nd'), 'Read More', array('class' => 'pract btn-1 hide')); ?>
+                                <?php echo anchor("practiceareas/getContent/?id=" . $this->encrypt->encode($value['pad_id'], 'LGlVr5GiXE9bGf3UqDH'), 'Read More', array('class' => 'pract btn-1 hide')); ?>
                             </div>
 
                             <div class="description">
                                 <h3>
-                                    <?php echo anchor("practiceareas/getContent/?id=" . $this->encrypt->encode($value['pad_id'], 'Jfmamjjas0nd'), $value['pad_head']); ?>
+                                    <?php echo anchor("practiceareas/getContent/?id=" . $this->encrypt->encode($value['pad_id'], 'LGlVr5GiXE9bGf3UqDH'), $value['pad_head']); ?>
                                 </h3>
                                 <h4 class="hide">
                                     <a class="adress">Autor name</a> ―

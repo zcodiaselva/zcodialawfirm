@@ -385,7 +385,7 @@ img {
     margin-bottom: 0px;
 }
 .section-head-3-1 {
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }
 .team-2-part .section-head-3-1 {
     margin-bottom: 50px;
@@ -552,7 +552,7 @@ img {
         padding: 70px 0 !important;
     }
     .section-head-3-1 {
-        margin-bottom: 55px;
+        margin-bottom: 0px;
     }
     .pad-bot-50 {
         padding-bottom: 30px !important;
@@ -567,6 +567,27 @@ img {
         margin-bottom: 55px;
     }
 
+    .prac-det-carousel .swiper-slide img {
+        width: 100%;
+        height: 310px;
+    }
+    .prac-det-carousel .swiper-slide::after {
+        position: absolute;
+        content: '';
+        background: -webkit-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: -o-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: linear-gradient(to top, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 56%;
+        z-index: 9999;
+        top: 0;
+    }
+
+    .practice-slider .swiper-slide {
+        height: 309px;
+    }
 }
 
 .brand-color {
@@ -7130,6 +7151,15 @@ body.active #mobile-nav {
     width: 100%;
     /*background: linear-gradient(to right, #e53b89, #ee7e33);*/
 }
+.breadcrumb-part1::after {
+    /*position: absolute;*/
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /*background: linear-gradient(to right, #e53b89, #ee7e33);*/
+}
 
 .breadcrumb-part .container {
     position: relative;
@@ -8039,8 +8069,26 @@ body.active #mobile-nav {
     img.embed-responsive-item {
         height: 186px;width: 100%;
     }
-    .practArea .description {
-        /*        height: 290px;*/
+    .prac-det-carousel .swiper-slide img {
+        width: 100%;
+        height: 220px;
+    }
+    .prac-det-carousel .swiper-slide::after {
+        position: absolute;
+        content: '';
+        background: -webkit-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: -o-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: linear-gradient(to top, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 220px;
+        z-index: 9999;
+        top: 0;
+    }
+
+    .practice-slider .swiper-slide {
+        height: 220px;
     }
 }
 @media only screen and (min-width: 375px){
@@ -8087,6 +8135,28 @@ body.active #mobile-nav {
         right: 44px;
     }img.embed-responsive-item {
         height: 248px;width: 100%;
+    }
+
+    .prac-det-carousel .swiper-slide img {
+        width: 100%;
+        height: 310px;
+    }
+    .prac-det-carousel .swiper-slide::after {
+        position: absolute;
+        content: '';
+        background: -webkit-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: -o-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: linear-gradient(to top, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 56%;
+        z-index: 9999;
+        top: 0;
+    }
+
+    .practice-slider .swiper-slide {
+        height: 309px;
     }
 }
 @media only screen and (min-width: 768px){
@@ -10617,7 +10687,29 @@ p.no-support {
     padding: 10px 30px;
     font-size: 17px;
 }
+@media (min-width: 1025px) and (max-width: 1439px) {
+    .prac-det-carousel .swiper-slide img {
+        width: 100%;
+        height: 490px;
+    }
+    .prac-det-carousel .swiper-slide::after {
+        position: absolute;
+        content: '';
+        background: -webkit-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: -o-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: linear-gradient(to top, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 490px;
+        z-index: 9999;
+        top: 0;
+    }
 
+    .practice-slider .swiper-slide {
+        height: 490px;
+    }
+}
 @media (min-width: 992px) and (max-width: 1199px) {
     .posted-author .author-img {
         margin: 0 10px 0 0;
@@ -11347,6 +11439,28 @@ div#modal-body-disclaimer {
     .about-details .section-head-2 {
         padding-bottom: 70px;
     }
+
+    .prac-det-carousel .swiper-slide img {
+        width: 100%;
+        height: 500px;
+    }
+    .prac-det-carousel .swiper-slide::after {
+        position: absolute;
+        content: '';
+        background: -webkit-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: -o-linear-gradient(bottom, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        background: linear-gradient(to top, rgba(42, 42, 42, 0.3) 39%, rgba(17, 17, 17, 0) 100%);
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 500px;
+        z-index: 9999;
+        top: 0;
+    }
+
+    .practice-slider .swiper-slide {
+        height: 500px;
+    }
 }
 @media only screen and (min-width: 1500px){
     .home-one .banner-caption {
@@ -12056,7 +12170,7 @@ img.embed-responsive-item {
 }
 
 .practice-slider .swiper-slide {
-    height: 555px;
+    /*    height: 555px;*/
 }
 .swiper-slide > img {
     height: 100%;

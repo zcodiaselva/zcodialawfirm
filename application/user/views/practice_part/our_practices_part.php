@@ -16,7 +16,7 @@
                     <div class="col-sm-6 col-lg-4">
                         <div class="practise-item">
                             <div class="icon-box"><i class="<?php echo $value_pat['pat_icon_class']; ?>"></i></div>
-                            <h2><a href="#"><?php echo $value_pat['pat_header']; ?></a></h2>
+                            <h2><a href="practiceareas/getCategoryDetails/<?php echo $value_pat['pat_id']; ?>/<?php echo $key_pat; ?>"><?php echo $value_pat['pat_header']; ?></a></h2>
                             <p><?php echo $value_pat['pat_content']; ?></p>
                         </div>
                     </div>

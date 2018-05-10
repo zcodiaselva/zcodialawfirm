@@ -97,7 +97,7 @@ if (isset($single_page) && !empty($single_page)) {
                                         <div class="widget-blog-item d-flex">
                                             <div class="widget-blog-img"><img src="<?php echo ($thread['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread['main_image']); ?>" alt=""></div>
                                             <div class="widget-blog-des">
-                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'Jfmamjjas0nd'), word_limiter($thread['title'], 10)); ?>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), word_limiter($thread['title'], 10)); ?>
                                                 <span><?php echo $updated_published_date; ?></span>
                                             </div>
                                         </div> 

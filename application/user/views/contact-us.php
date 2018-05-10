@@ -41,7 +41,12 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 }
 ?>
 
-
+<style>
+    section.contuct-bottom {
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+</style>
 
 <?php include APPPATH . 'views/contactus_part/google_map.php'; ?>
 <?php //include APPPATH . 'views/contactus_part/contactus_info.php'; ?>
