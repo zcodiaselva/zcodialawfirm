@@ -1207,11 +1207,12 @@ class About extends CI_Controller {
                 $value['wcu_type_name_hl'] = $value['wcu_type_name_hl'];
 
                 $value['wcu_type_icon'] = '<div class="icon-box"><i class="flat_icon ' . $value['wcu_type_icon'] . '"></i></div>';
-                $value['wcu_type_image'] = '<img class="dt_image_wcu ' . (!file_exists($value['wcu_type_image']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['wcu_type_image'])) ? $value['wcu_type_image'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
+               // $value['wcu_type_image'] = '<img class="dt_image_wcu ' . (!file_exists($value['wcu_type_image']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['wcu_type_image'])) ? $value['wcu_type_image'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
                 $value['wcu_type_status'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['wcu_type_status'] == 1 ? ' checked' : '') . ' onclick="change_dt_wcuType_status($(this));" wcu_type_id="' . $value['wcu_type_id'] . '" wcu_type_status="' . $value['wcu_type_status'] . '"><span class="slider round"></span></label></a>';
                 $value['action'] = '<a onclick="getWCUTypes($(this));" wcu_type_id="' . $value['wcu_type_id'] . '" class="edit_WCUDetails btn"><i class="fa fa-pencil"></i></a>' . '<a class="btn open_popup_modal" wcu_type_id=' . $value['wcu_type_id'] . '  data-toggle="modal" data-target="#modal-delete_WCUTypes" onclick="delWCUTypes($(this));"><i class="fa fa-trash-o"></i></a>';
 
                 unset($value['wcu_type_id']);
+                unset($value['wcu_type_image']);
                 $data['data'][] = array_values($value);
             }
         }

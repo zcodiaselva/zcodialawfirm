@@ -29,8 +29,10 @@ class Aboutus_model extends CI_Model {
     function getData($select, $from, $where = false, $order_by = false) {
         $query = '';
         $this->db->select($select);
-        if (isset($order_by) && !empty($order_by)) {
+        if (isset($order_by) && !empty($order_by) && empty($sort_by)) {
             $this->db->order_by($order_by, "desc");
+        } else if (isset($sort_by) && !empty($sort_by)) {
+            $this->db->order_by($order_by, $sort_by);
         }
         if (isset($where) && !empty($where)) {
             $query = $this->db->get_where($from, $where);

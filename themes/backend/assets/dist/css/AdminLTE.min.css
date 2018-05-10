@@ -5753,8 +5753,12 @@ textArea#txtPATContent,textArea#txt_pc_content{
     height: 280px !important; /* 240px*/
     resize: none;
 }
-textArea#txtWCUDesc,textArea#txtWCUTypeDesc{
+textArea#txtWCUDesc{
     height: 65px !important;
+    resize: none;
+}
+textArea#txtWCUTypeDesc{
+    height: 140px !important;
     resize: none;
 }
 

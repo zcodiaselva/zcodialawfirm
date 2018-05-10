@@ -11947,7 +11947,9 @@ img.marker_img {
     margin-bottom:6px;
 }
 
-
+.progressbar-box {
+    text-align: center;
+}
 .practArea .post--preview > * {
     background-color: white;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);

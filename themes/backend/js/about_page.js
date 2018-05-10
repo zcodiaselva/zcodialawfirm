@@ -967,9 +967,9 @@ function WCU_submit(thss) {
     var txtWCUDesc = $("textArea#txtWCUDesc").val();
     var txtWCUImageClass = $("#txtWCUImageClass").val();
     var txtWCUTypeIcon = $("#txtWCUTypeIcon").val();
-    var txtWCUBoxHeading = $("#txtWCUBoxHeading").val();
-    var txtWCUBoxDesc = $("#txtWCUBoxDesc").val();
-    var txtWCUTypeHeader = $("#txtWCUTypeHead").val();
+//    var txtWCUBoxHeading = $("#txtWCUBoxHeading").val();
+//    var txtWCUBoxDesc = $("#txtWCUBoxDesc").val();
+    var txtWCUTypeHead = $("#txtWCUTypeHead").val();
     var txtWCUTypeHeadLink = $("#txtWCUTypeHeadLink").val();
     var txtWCUTypeDesc = $("textArea#txtWCUTypeDesc").val();
     if (!txtWCUHeader) {
@@ -978,13 +978,13 @@ function WCU_submit(thss) {
     } else if (!txtWCUDesc) {
         info_msg('WCU Description is empty');
         error = true;
-    } else if (!txtWCUImageClass) {
-        info_msg('Image Class is empty');
+    } else if (!txtWCUTypeIcon) {
+        info_msg('WCU Type Icon Class is empty');
         error = true;
-    } else if (!txtWCUBoxHeading) {
+    } else if (!txtWCUTypeHead) {
         info_msg('Box Heading is empty');
         error = true;
-    } else if (!txtWCUBoxDesc) {
+    } else if (!txtWCUTypeDesc) {
         info_msg('Box Description is empty');
         error = true;
     }
@@ -995,13 +995,11 @@ function WCU_submit(thss) {
         form_data.append('wcu_desc', txtWCUDesc);
         form_data.append('wcu_box_image', txtWCUImageClass);
         form_data.append('wcu_type_icon', txtWCUTypeIcon);
-        form_data.append('wcu_box_head', txtWCUBoxHeading);
-        form_data.append('wcu_box_desc', txtWCUBoxDesc);
-        form_data.append('wcu_type_name', txtWCUTypeHeader);
+        form_data.append('wcu_type_name', txtWCUTypeHead);
         form_data.append('wcu_type_name_hl', txtWCUTypeHeadLink);
         form_data.append('wcu_type_desc', txtWCUTypeDesc);
-        form_data.append('wcu_image', $('#imgWCUBGUpload').prop('files')[0]);
-        form_data.append('wcu_type_image', $('#imgWCUTypeUpload').prop('files')[0]);
+//        form_data.append('wcu_image', $('#imgWCUBGUpload').prop('files')[0]);
+//        form_data.append('wcu_type_image', $('#imgWCUTypeUpload').prop('files')[0]);
         if (typeof (wcu_type_id) !== 'undefined') {
             form_data.append('wcu_type_id', wcu_type_id);
         } else {
@@ -1017,7 +1015,7 @@ function WCU_submit(thss) {
                 if (data == 1) {
                     $("#txtWCUTypeHead, #txtWCUTypeDesc,#txtWCUTypeIcon").val("");
                     $("#txtWCUTypeHeadLink").val(0).trigger('change');
-                    document.getElementById("imgWCUTypeUpload").value = "";
+                    //document.getElementById("imgWCUTypeUpload").value = "";
                     $("#imgWCUTypePreview").removeAttr("style");
                     $("#imgWCUTypeLabel").html("CHOOSE FILE");
                     $(".btnUpdateWCU").removeAttr("wcu_type_id");

@@ -26,7 +26,7 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="txtHomeSliderMainHeading">Main Heading</label>
-                        <input type="text" class="form-control HomeSliderMainHeading" id="txtHomeSliderMainHeading" value="<?php //echo $auHeaderTitle;     ?>">
+                        <input type="text" class="form-control HomeSliderMainHeading" id="txtHomeSliderMainHeading" value="<?php //echo $auHeaderTitle;          ?>">
                     </div>
                     <div class="form-group au_header_bgimage">
                         <div class="row">
@@ -61,15 +61,20 @@
                         <label for="txtHomeSliderBtnText">Button Text</label>
                         <input type="text" class="form-control HomeSliderBtnText" id="txtHomeSliderBtnText">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"> 
+
                         <label for="txtHomeSliderBtnLink">Button Link</label>
                         <select class="form-control buttonlink_select2"  id="txtHomeSliderBtnLink" style="width: 100%;">
                             <option selected="selected" value="0">Please Select...</option>
-                            <option value="HomePage">HomePage</option>
-                            <option value="AboutUs">AboutUs</option>
-                            <option value="PracticeAreas">PracticeAreas</option>
-                            <option value="FAQ">FAQ</option>
-                            <option value="ContactUs">ContactUs</option>
+                            <?php
+                            if (isset($dropdown_menus) && !empty($dropdown_menus)) {
+                                foreach ($dropdown_menus as $key => $value) {
+                                    ?>
+                                    <option value="<?php echo $value['url'] ?>"><?php echo $value['menu_text'] ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>

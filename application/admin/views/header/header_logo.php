@@ -77,13 +77,13 @@ if (isset($logo_details) && !empty($logo_details)) {
                         <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 no-padding">
                             <div class="form-group">
                                 <label for="txtHeaderLogoWidth">Header Logo Width</label>
-                                <input type="number" placeholder="60"  min="0" max="200"  class="form-control " id="txtHeaderLogoWidth" value="<?php echo $logo_header_width; ?>">
+                                <input type="number" placeholder="166"  min="0" max="200"  class="form-control " id="txtHeaderLogoWidth" value="<?php echo $logo_header_width; ?>">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 no-pad-right">
                             <div class="form-group">
                                 <label for="txtHeaderLogoHeight">Header Logo Height</label>
-                                <input type="number" placeholder="30"  min="0" max="200"  class="form-control " id="txtHeaderLogoHeight" value="<?php echo $logo_header_height; ?>">
+                                <input type="number" placeholder="69"  min="0" max="200"  class="form-control " id="txtHeaderLogoHeight" value="<?php echo $logo_header_height; ?>">
                             </div>
                         </div>
                     </div>
@@ -91,13 +91,13 @@ if (isset($logo_details) && !empty($logo_details)) {
                         <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 no-padding">
                             <div class="form-group">
                                 <label for="txtFooterLogoWidth">Footer Logo Width</label>
-                                <input type="number" placeholder="60"  min="0" max="200"  class="form-control " id="txtFooterLogoWidth" value="<?php echo $logo_footer_width; ?>">
+                                <input type="number" placeholder="188"  min="0" max="200"  class="form-control " id="txtFooterLogoWidth" value="<?php echo $logo_footer_width; ?>">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12  no-pad-right">
                             <div class="form-group">
                                 <label for="txtFooterLogoHeight">Footer Logo Height</label>
-                                <input type="number" placeholder="30"  min="0" max="200"  class="form-control " id="txtFooterLogoHeight" value="<?php echo $logo_footer_height; ?>">
+                                <input type="number" placeholder="87"  min="0" max="200"  class="form-control " id="txtFooterLogoHeight" value="<?php echo $logo_footer_height; ?>">
                             </div>
                         </div>
                     </div>

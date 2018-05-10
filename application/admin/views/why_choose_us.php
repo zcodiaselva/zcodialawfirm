@@ -64,41 +64,21 @@ if (isset($why_us) && !empty($why_us)) {
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="txtWCUTypeDesc">WCU Type Description</label>
-                        <textarea type="text"  class="form-control" id="txtWCUTypeDesc" ></textarea>
-                    </div>
-
-
+                   
                 </div>
                 <!-- /.col -->
-                <div class="col-md-6">
+                <div class="col-md-6 ">
+                     <div class="form-group">
+                        <label for="txtWCUTypeDesc">WCU Type Description</label>
+                        <textarea type="text"  class="form-control" id="txtWCUTypeDesc" ></textarea>
+                    </div>  
                     <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
-                                <label for="txtWCUImageClass">Image Class</label>
-                                <input type="text" class="form-control" id="txtWCUImageClass" value="<?php echo $wcu_box_image; ?>" >
-                            </div> 
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
-                                <label for="txtWCUBoxHeading">Box Heading</label>
-                                <input type="text" class="form-control" id="txtWCUBoxHeading" value="<?php echo $wcu_box_head; ?>" >
-                            </div>
-                        </div> 
+                        <label for="txtWCUTypeIcon">WCU Type Image Classname</label>
+                        <input type="text" class="form-control" id="txtWCUTypeIcon" value="" placeholder="flaticon-bank-building">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group hide">
                         <div class="row">
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
-                                <label for="txtWCUBoxDesc">Box Description</label>
-                                <input type="text" class="form-control" id="txtWCUBoxDesc" value="<?php echo $wcu_box_desc; ?>" >
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
-                                <label for="txtWCUTypeIcon">WCU Type Image Classname</label>
-                                <input type="text" class="form-control" id="txtWCUTypeIcon" value="" >
-                            </div> </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12 hide">
                                 <label>WCU Type Image</label>
                                 <div class="imgWCUBGOuter">
                                     <div id="imgWCUTypePreview">
@@ -151,7 +131,7 @@ if (isset($why_us) && !empty($why_us)) {
                                 <th class="dt_content_col attyWCUTypes">Description</th>
                                 <th class="dt_item_col attyWCUTypes">Referral Page</th>
                                 <th class="dt_image_col attyWCUTypes">Icon</th>
-                                <th class="dt_image_col attyWCUTypes">Image</th>
+                                <!--th class="dt_image_col attyWCUTypes">Image</th-->
                                 <th class="dt_status_col attyWCUTypes">Show / Hide</th>
                                 <th class="dt_action_col attyWCUTypes">Action</th>
                             </tr>

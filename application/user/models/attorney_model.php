@@ -18,8 +18,10 @@ class Attorney_model extends CI_Model {
         $query = '';
         $this->db->select($select);
 
-        if (isset($order_by) && !empty($order_by)) {
+        if (isset($order_by) && !empty($order_by) && empty($sort_by)) {
             $this->db->order_by($order_by, "desc");
+        } else if (isset($sort_by) && !empty($sort_by)) {
+            $this->db->order_by($order_by, $sort_by);
         }
         if (isset($limit) && !empty($limit)) {
             $this->db->limit($limit);

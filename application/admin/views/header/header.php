@@ -346,6 +346,11 @@ if (isset($logo_details) && isset($logo_details)) {
                                     }
                                     ?>"><a href="admin.php/about/slider"><i class="fa fa-angle-double-right"></i>Slider</a></li>
                                     <li class="<?php
+                                    if ($this->uri->segment(2) == "attorney_skills") {
+                                        echo "active";
+                                    }
+                                    ?>"><a href="admin.php/about/attorney_skills"><i class="fa fa-angle-double-right"></i>Attorney Skill</a></li> 
+                                    <li class="<?php
                                     if ($this->uri->segment(2) == "attorney_details") {
                                         echo "active";
                                     }
@@ -356,11 +361,11 @@ if (isset($logo_details) && isset($logo_details)) {
                                     }
                                     ?>"><a href="admin.php/about/attorney_social"><i class="fa fa-angle-double-right"></i>Attorney Social Details</a></li> 
 
-                                    <li class="<?php
-                                    if ($this->uri->segment(2) == "our_experience") {
-                                        echo "active";
-                                    }
-                                    ?>"><a href="admin.php/about/our_experience"><i class="fa fa-angle-double-right"></i>Our Experience</a></li>
+                                    <!--li class="<?php
+//                                    if ($this->uri->segment(2) == "our_experience") {
+//                                        echo "active";
+//                                    }
+                                    ?>"><a href="admin.php/about/our_experience"><i class="fa fa-angle-double-right"></i>Our Experience</a></li-->
                                     <li class="<?php
                                     if ($this->uri->segment(2) == "timeline") {
                                         echo "active";

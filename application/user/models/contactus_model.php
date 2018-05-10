@@ -16,8 +16,10 @@ class Contactus_model extends CI_Model {
         $query = '';
         $this->db->select($select);
 
-        if (isset($order_by) && !empty($order_by)) {
+        if (isset($order_by) && !empty($order_by) && empty($sort_by)) {
             $this->db->order_by($order_by, "desc");
+        } else if (isset($sort_by) && !empty($sort_by)) {
+            $this->db->order_by($order_by, $sort_by);
         }
         if (isset($limit) && !empty($limit)) {
             if (isset($offset) && !empty($offset)) {
@@ -40,8 +42,8 @@ class Contactus_model extends CI_Model {
             return false;
         }
     }
-    
-     function getSubMenus() {
+
+    function getSubMenus() {
         $this->db->select('sm.menu_id, sm.menu_text,sm.url');
         $this->db->from('main_menu m');
         $this->db->join('main_menu sm', 'm.menu_id = sm.parent_id');

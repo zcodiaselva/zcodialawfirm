@@ -387,19 +387,19 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         var param = (getUrlParam());
 
         if (param[2] == '') {
-            $("div#nav-list ul > li:nth-child(1) > a").addClass('active');
-        } else if (param[2] == 'attorney') {
-            $("div#nav-list ul > li:nth-child(2) > a").addClass('active');
-        } else if (param[2] == 'practice') {
-            $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
-        } else if (param[2] == 'practiceareas') {
-            $("div#nav-list ul > li:nth-child(3) > a").addClass('active');
-        } else if (param[2] == 'aboutus') {
-            $("div#nav-list ul > li:nth-child(4) > a").addClass('active');
-        } else if (param[2] == 'news') {
-            $("div#nav-list ul > li:nth-child(5) > a").addClass('active');
-        } else if (param[2] == 'contactus') {
-            $("div#nav-list ul > li:last-child > a").addClass('active');
+            $("div#nav-list ul > li.home > a").addClass('active');
+        } else if (param[2] === 'attorney') {
+            $("div#nav-list ul > li.attorney > a").addClass('active');
+        } else if (param[2] === 'practice') {
+            $("div#nav-list ul > li.practice > a").addClass('active');
+        } else if (param[2] === 'practiceareas') {
+            $("div#nav-list ul > li.practice > a").addClass('active');
+        } else if (param[2] === 'aboutus') {
+            $("div#nav-list ul > li.about > a").addClass('active');
+        } else if (param[2] === 'news') {
+            $("div#nav-list ul > li.news > a").addClass('active');
+        } else if (param[2] === 'contactus') {
+            $("div#nav-list ul > li.contact > a").addClass('active');
         }
 
         var placeholder_img = 'themes/frontend/images/placeholder.png';
@@ -486,7 +486,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         $.each(items, function () {
             var sPageURL = window.location.pathname;
             var sURLVariables = sPageURL.split('/');
-            var li = $('<li class="nav-item custom-dropdown-box"><a href="' + this.url + '" class="' + (sURLVariables[2].toLowerCase() == this.menu_text.toLowerCase() ? 'active' : '') + '">' + this.menu_text + '</a></li>');
+            var li = $('<li class="nav-item custom-dropdown-box '+this.menu_text.toLowerCase()+'"><a href="' + this.url + '" class="' + (sURLVariables[2].toLowerCase() == this.menu_text.toLowerCase() ? 'active' : '') + '">' + this.menu_text + '</a></li>');
             li.appendTo(parent);
             if (this.List && this.List.length > 0)
             {

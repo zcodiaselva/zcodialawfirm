@@ -5,6 +5,7 @@ if (!defined('BASEPATH'))
 
 class Home extends CI_Controller {
 
+    public $data;
     public $homeTestimonials = 'home_testimonials';
     public $testimonialSlider = 'testimonial_slider';
     public $home_slider = 'home_slider';
@@ -15,6 +16,7 @@ class Home extends CI_Controller {
     public $disclaimer_acceptor = 'disclaimer_acceptor';
     public $about_testimonial_table = 'about_testimonial';
     public $about_consultation_table = 'about_consultation';
+    public $menu_table = 'main_menu';
 
     function __construct() {
         parent::__construct();
@@ -117,7 +119,7 @@ class Home extends CI_Controller {
         } else {
             $data['user_id'] = $this->tank_auth->get_user_id();
             $data['username'] = $this->tank_auth->get_username();
-
+            $data['dropdown_menus'] = $this->home_model->getData('*', $this->menu_table, array('menu_active' => 1, 'menu_status' => 1, 'menu_deleted' => 0), 'menu_text', '', 'asc');
 
             $this->load->view('header/header', $data);
             $this->load->view('home_slider', $data);
@@ -153,8 +155,8 @@ class Home extends CI_Controller {
             $this->load->view('footer');
         }
     }
-    
-    function consultation(){
+
+    function consultation() {
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -838,8 +840,6 @@ class Home extends CI_Controller {
 
         echo $deleted;
     }
-    
-    
 
     function update_consultation() { //on trigger of abtCounsultation_submit()
         $inserted = 0;
