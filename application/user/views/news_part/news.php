@@ -154,7 +154,7 @@ $enc_key = 'LGlVr5GiXE9bGf3UqDH';
                                     <!-- Begin .item -->                                     
                                     <div class="item"> 
                                         <div class="item-image-1">
-                                            <a class="img-link" href="#">
+                                            <a class="img-link" href="<?php echo "news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key);?>">
                                                 <img class="img-responsive img-full" src="<?php echo ($thread['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread['main_image']); ?>" alt="">
                                             </a>
                                             <span>
@@ -167,7 +167,8 @@ $enc_key = 'LGlVr5GiXE9bGf3UqDH';
                                                     <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), word_limiter($thread['title'], 10)); ?>
                                                 </h3> 
                                             </div>                                             
-                                            <p><a href="#" target="_blank" class="external-link"><?php echo word_limiter($value_nf['text'], 20); ?></a></p> 
+                                            <p>
+                                                <a href="<?php echo "news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key);?>" target="_blank" class="external-link"><?php echo word_limiter($value_nf['text'], 20); ?></a></p> 
                                             <div>
                                                 <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), '<span class="read-more">Read More</span>', array('class' => 'label-1 hide', 'target' => '_blank')); ?>
                                             </div>                                             
@@ -199,7 +200,7 @@ $enc_key = 'LGlVr5GiXE9bGf3UqDH';
                                     <!-- Begin .item -->                                     
                                     <div class="item"> 
                                         <div class="item-image-1">
-                                            <a class="img-link" href="#">
+                                            <a class="img-link" href="<?php echo "news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key);?>">
                                                 <img class="img-responsive img-full" src="<?php echo ($thread1['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread1['main_image']); ?>" alt="">
                                             </a>
                                             <span>
@@ -212,7 +213,7 @@ $enc_key = 'LGlVr5GiXE9bGf3UqDH';
                                                     <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key), word_limiter($thread1['title'], 10)); ?>
                                                 </h3> 
                                             </div>                                             
-                                            <p><a href="#" target="_blank" class="external-link"><?php echo word_limiter($value_nf1['text'], 20); ?></a></p> 
+                                            <p><a href="<?php echo "news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key);?>" target="_blank" class="external-link"><?php echo word_limiter($value_nf1['text'], 20); ?></a></p> 
                                             <div>
                                                 <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key), '<span class="read-more">Read More</span>', array('class' => 'label-1 hide', 'target' => '_blank')); ?>
                                             </div>                                             
