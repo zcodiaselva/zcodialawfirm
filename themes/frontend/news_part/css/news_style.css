@@ -252,7 +252,7 @@ article {
     text-align:justify;
 }
 .justify-content .post-head > h1 {
-    text-align: left;
+    text-align: left;    font-size: inherit;
 }
 .post .post-item .overlay {
     position:absolute;
@@ -545,7 +545,7 @@ article {
     background-attachment:fixed
 }
 .post-detail {
-    margin-top:65px;
+    margin-top:19px;
     font:500 22px 'Open Sans',
         sans-serif
 }
@@ -2900,8 +2900,9 @@ a:hover[class^="label-"] {
 }
 
 
-.module.highlight a:hover,  .module.highlight .read-more:hover {
-    color: #d6b34b;
+.module.highlight a:hover, .module.highlight .read-more:hover {
+    color: #6f6f6f;
+    font-weight: bold;
 }
 
 .read-more:hover:before {
@@ -2947,4 +2948,12 @@ aside.no-image{
 }
 .entry-content{
     margin: 0
+}
+aside.post-meta a:hover {
+    color: #fff;
+    cursor: default;
+}
+aside.post-meta a:hover > time:hover {
+    color: #777 !important;
+    cursor: default;
 }

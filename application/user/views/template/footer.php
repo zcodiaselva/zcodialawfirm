@@ -72,7 +72,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 //                                foreach ($footer_submenus as $key => $value) {
 //                                    
                                 ?>
-                                        <!--li><a href="<?php //echo $value['url'];        ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];        ?></a></li-->
+                                        <!--li><a href="<?php //echo $value['url'];           ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];           ?></a></li-->
                                 <?php
 //                                }
 //                            }
@@ -80,7 +80,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                                 if (isset($footer_submenus) && !empty($footer_submenus)) {
                                     foreach ($footer_submenus as $key => $value) {
                                         ?>
-                                <li><a href="practiceareas/getCategoryDetails/<?php echo $value['pat_id']; ?>/<?php echo $key; ?>"><i class="fa fa-angle-double-right"></i> <?php echo $value['pat_header']; ?></a></li>
+                                        <li><a href="practiceareas/getCategoryDetails/<?php echo $value['pat_id']; ?>/<?php echo $key; ?>"><i class="fa fa-angle-double-right"></i> <?php echo $value['pat_header']; ?></a></li>
                                         <?php
                                     }
                                 }
@@ -409,7 +409,8 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         }, function () {
             $(".post--preview .pract.btn-1").addClass("hide");
         });
-$("..item.no-image.hide.slick-slide").remove();
+      
+
     });
 
     $(window).resize(function () {
@@ -486,7 +487,7 @@ $("..item.no-image.hide.slick-slide").remove();
         $.each(items, function () {
             var sPageURL = window.location.pathname;
             var sURLVariables = sPageURL.split('/');
-            var li = $('<li class="nav-item custom-dropdown-box '+this.menu_text.toLowerCase()+'"><a href="' + this.url + '" class="' + (sURLVariables[2].toLowerCase() == this.menu_text.toLowerCase() ? 'active' : '') + '">' + this.menu_text + '</a></li>');
+            var li = $('<li class="nav-item custom-dropdown-box ' + this.menu_text.toLowerCase() + '"><a href="' + this.url + '" class="' + (sURLVariables[2].toLowerCase() == this.menu_text.toLowerCase() ? 'active' : '') + '">' + this.menu_text + '</a></li>');
             li.appendTo(parent);
             if (this.List && this.List.length > 0)
             {

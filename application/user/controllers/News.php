@@ -126,12 +126,12 @@ class News extends CI_Controller {
 
             $date = new DateTime(substr($thread['published'], 0, -6), new DateTimeZone('UTC'));
             $date->setTimezone(new DateTimeZone(substr($thread['published'], -6)));
-
             $result = array(
                 'main_image' => $thread['main_image'],
                 'published_date' => $date->format('M j, Y'),
                 'title' => $thread['title'],
-                'text' => $result[0]['text']
+                'text' => $result[0]['text'],
+                'category_tag' => $thread['site_categories']
             );
 
             $this->data['single_page'] = $result;

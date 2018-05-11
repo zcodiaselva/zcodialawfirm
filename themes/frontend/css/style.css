@@ -9288,7 +9288,9 @@ input.btn-1:hover {
 .blog-pagination .pagination-next:hover {
     color: #d6b34b;
 }
-
+.blog-pagination ul li:contains('First') {
+    padding: 0 15px;
+}
 .blog-pagination ul li {
     padding: 0 1px;
 }
@@ -10181,6 +10183,15 @@ p.no-support {
     background: #d6b34b !important;
     color: #fff;width: 28px;
 }
+
+.blog-pagination ul li:last-child:hover a, .blog-pagination ul li:last-child.active a{
+    font-weight:bold;
+    color: #d6b34b;background: transparent !important;width: 50px;
+}
+/*.blog-pagination ul li:first-child:hover a, .blog-pagination ul li:first-child.active a{
+    font-weight:bold;
+    color: #d6b34b;background: transparent !important;width: 50px;
+}*/
 .blog-img-two {
     border: 10px solid #fff;
     position: relative;
