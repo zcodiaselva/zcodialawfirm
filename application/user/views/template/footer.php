@@ -365,13 +365,13 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
             }
         });
 
-//        if ($(".da_input").val() !== "1") {
-//            $('#modal-disclaimer').modal('show');
-//            $('#modal-disclaimer').modal({
-//                backdrop: 'static',
-//                keyboard: false
-//            });
-//        }
+        if ($(".da_input").val() !== "1") {
+            $('#modal-disclaimer').modal('show');
+            $('#modal-disclaimer').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        }
 
 //                         var screensize = document.documentElement.clientWidth;
 //                            alert(screensize);
