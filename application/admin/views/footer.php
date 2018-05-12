@@ -899,7 +899,11 @@
         fillEditor('#txtDisclaimerContent', $('textArea#txtDisclaimerContent').attr('value'));
         $("table.dataTable.socialiconslist_dt").removeAttr('style');
         
+<<<<<<< HEAD
        
+=======
+        $("#txtPAButtonLink").val(0).trigger('change');
+>>>>>>> b01ede8fba297823403171b7eb91f4e9da16a111
     });
     function addSubMenuDetails(thss) {
         $(".menuModalLabel.name").html('Sub Menu Name');
