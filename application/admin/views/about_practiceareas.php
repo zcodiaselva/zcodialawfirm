@@ -59,7 +59,7 @@ if (isset($about_pa) && !empty($about_pa)) {
                 <div class="col-md-7">
                     <div class="form-group">
                         <label for="txtPAButtonText">Button Text</label>
-                        <input type="text" class="form-control PAButtonText" id="txtPAButtonText" value="<?php echo $pa_buttontext;  ?>">
+                        <input type="text" class="form-control PAButtonText" id="txtPAButtonText" value="<?php echo $pa_buttontext; ?>">
                     </div>
 
                     <div class="form-group">
@@ -67,11 +67,15 @@ if (isset($about_pa) && !empty($about_pa)) {
                         <input type="hidden" class="hidden_buttonlink" value="<?php echo $pa_buttonlink; ?>">
                         <select class="form-control PAButtonlink_select2"  id="txtPAButtonLink" style="width: 100%;">
                             <option selected="selected" value="0">Please Select...</option>
-                            <option value="HomePage">HomePage</option>
-                            <option value="AboutUs">AboutUs</option>
-                            <option value="PracticeAreas">PracticeAreas</option>
-                            <option value="FAQ">FAQ</option>
-                            <option value="ContactUs">ContactUs</option>
+                            <?php
+                            if (isset($dropdown_menus) && !empty($dropdown_menus)) {
+                                foreach ($dropdown_menus as $key => $value) {
+                                    ?>
+                                    <option value="<?php echo $value['url'] ?>"><?php echo $value['menu_text'] ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="form-group">

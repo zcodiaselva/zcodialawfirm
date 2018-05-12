@@ -31,7 +31,7 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
         <!-- /.box-header -->
         <div class="box-body">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="form-group">
                         <label for="txtGMapLat">Latitude</label>
                         <input type="number" min="0" max="100" class="form-control" id="txtGMapLat" value="<?php echo $gmaplat; ?>" >
@@ -46,7 +46,7 @@ if (isset($google_map_enries) && !empty($google_map_enries)) {
                     </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-md-6">
+                <div class="col-md-6 hide">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">

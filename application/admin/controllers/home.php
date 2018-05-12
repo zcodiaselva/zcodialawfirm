@@ -148,6 +148,7 @@ class Home extends CI_Controller {
             $data['user_id'] = $this->tank_auth->get_user_id();
             $data['username'] = $this->tank_auth->get_username();
             $data['hsb'] = $this->home_model->getData('*', $this->home_slider_box, array('hsb_status' => 1), 'hsb_id');
+            $data['dropdown_menus'] = $this->home_model->getData('*', $this->menu_table, array('menu_active' => 1, 'menu_status' => 1, 'menu_deleted' => 0), 'menu_text', '', 'asc');
 
 
             $this->load->view('header/header', $data);

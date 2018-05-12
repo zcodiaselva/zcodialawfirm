@@ -898,6 +898,8 @@
         //console.log($('textArea#txtDisclaimerContent').attr('value'));
         fillEditor('#txtDisclaimerContent', $('textArea#txtDisclaimerContent').attr('value'));
         $("table.dataTable.socialiconslist_dt").removeAttr('style');
+        
+       
     });
     function addSubMenuDetails(thss) {
         $(".menuModalLabel.name").html('Sub Menu Name');

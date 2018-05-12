@@ -37,7 +37,7 @@ class Contact extends CI_Controller {
         }
     }
 
-    function content() {
+    function content() { // load contact us content
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -50,7 +50,7 @@ class Contact extends CI_Controller {
         }
     }
 
-    function google_maps() {
+    function google_maps() { // load google maps
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -321,14 +321,6 @@ class Contact extends CI_Controller {
 
         $returndata['admin_mail'] = $this->load->view('email_template_admin', $data1, true);
         $returndata['user_mail'] = $this->load->view('email_template_user', $data1, true);
-
-
-
-//        $admin_message = $this->output
-//                        ->set_header("HTTP/1.0 200 OK")
-//                        ->set_content_type('application/json')
-//                        ->set_output(($returndata));
-
 
 
         $config = Array(

@@ -53,22 +53,26 @@ if (isset($why_us) && !empty($why_us)) {
                                     <label for="txtWCUTypeHeadLink">Referral Page</label>
                                     <select class="form-control buttonlink_select2"  id="txtWCUTypeHeadLink" style="width: 100%;">
                                         <option selected="selected" value="0">Please Select...</option>
-                                        <option value="HomePage">HomePage</option>
-                                        <option value="AboutUs">AboutUs</option>
-                                        <option value="PracticeAreas">PracticeAreas</option>
-                                        <option value="FAQ">FAQ</option>
-                                        <option value="ContactUs">ContactUs</option>
+                                        <?php
+                                        if (isset($dropdown_menus) && !empty($dropdown_menus)) {
+                                            foreach ($dropdown_menus as $key => $value) {
+                                                ?>
+                                                <option value="<?php echo $value['url'] ?>"><?php echo $value['menu_text'] ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                   
+
                 </div>
                 <!-- /.col -->
                 <div class="col-md-6 ">
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="txtWCUTypeDesc">WCU Type Description</label>
                         <textarea type="text"  class="form-control" id="txtWCUTypeDesc" ></textarea>
                     </div>  

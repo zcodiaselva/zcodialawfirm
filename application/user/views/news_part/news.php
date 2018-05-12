@@ -4,13 +4,7 @@
 
 <?php
 $thread = '';
-if (isset($news_feed) && !empty($news_feed)) {
-
-//    echo '<pre>';
-//    print_r($news_feed);
-//    echo '</pre>';
-//    die;
-}
+$enc_key = 'LGlVr5GiXE9bGf3UqDH';
 ?>
 <div class="bc-style2">
     <div class="bc-title">
@@ -75,26 +69,27 @@ if (isset($news_feed) && !empty($news_feed)) {
                                             $date = new DateTime($published_date, new DateTimeZone('UTC'));
                                             $date->setTimezone(new DateTimeZone($timezone));
                                             $updated_published_date = $date->format('M j, Y');
+
                                             if (isset($thread['main_image']) && !empty($thread['main_image'])) {
                                                 ?>
                                                 <div class="item <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image hide'); ?>" img_name="<?php echo $thread['main_image']; ?>">
                                                     <div class="col-xs-12 col-md-12 no-padding">
-                                                        <article class="post slider-style1 post-383 type-post status-publish format-quote has-post-thumbnail hentry category-travel tag-considerably tag-especially tag-europe tag-international post_format-post-format-quote <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image hide'); ?>">
+                                                        <article class="post slider-style1 post-383 type-post status-publish format-quote has-post-thumbnail hentry category-travel tag-considerably tag-especially tag-europe tag-international post_format-post-format-quote ">
                                                             <figure class="post-item <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image'); ?>">
-                                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), '<div class="overlay"></div><img src="' . $thread["main_image"] . '" class="img" width="1241" height="623" alt="" />'); ?>
+                                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), '<div class="overlay"></div><img src="' . $thread["main_image"] . '" class="img" width="1241" height="623" alt="" />'); ?>
 
                                                             </figure>
                                                             <header class="post-head <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image hide'); ?>">
                                                                 <h1 class="post-title">
-                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), stripcslashes($thread['title']), array('rel' => 'bookmark')); ?>
+                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), stripcslashes($thread['title']), array('rel' => 'bookmark')); ?>
                                                                 </h1>
                                                                 <aside class="post-meta <?php echo (isset($thread['main_image']) && !empty($thread['main_image']) ? 'has-bg-image' : 'no-image'); ?>">
-                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), 'TRAVEL', array('class' => 'post-category category-link-bg-5', 'title' => 'View all posts in TRAVEL')); ?>
+                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), 'TRAVEL', array('class' => 'post-category category-link-bg-5', 'title' => 'View all posts in TRAVEL')); ?>
                                                                 </aside>
                                                                 <div class="post-content">
-                                                                    <?php echo character_limiter($text, 150); ?> </div>
+                                                                    <?php echo word_limiter($text, 20); ?> </div>
                                                                 <div class="read-more">
-                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), 'Read More'); ?>
+                                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), 'Read More'); ?>
                                                                 </div>
                                                             </header>
                                                         </article>
@@ -155,27 +150,27 @@ if (isset($news_feed) && !empty($news_feed)) {
                                     $date = new DateTime($published_date, new DateTimeZone('UTC'));
                                     $date->setTimezone(new DateTimeZone($timezone));
                                     $updated_published_date = $date->format('M j, Y');
-                                    
                                     ?>
                                     <!-- Begin .item -->                                     
                                     <div class="item"> 
                                         <div class="item-image-1">
-                                            <a class="img-link" href="#">
+                                            <a class="img-link" href="<?php echo "news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key);?>">
                                                 <img class="img-responsive img-full" src="<?php echo ($thread['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread['main_image']); ?>" alt="">
                                             </a>
                                             <span>
-                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), 'News', array('class' => 'label-1')); ?>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), 'News', array('class' => 'label-1')); ?>
                                             </span>
                                         </div>                                         
                                         <div class="item-content"> 
                                             <div class="title-left title-style04 underline04"> 
                                                 <h3>
-                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), character_limiter($thread['title'], 15)); ?>
+                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), word_limiter($thread['title'], 10)); ?>
                                                 </h3> 
                                             </div>                                             
-                                            <p><a href="#" target="_blank" class="external-link"><?php echo character_limiter($value_nf['text'], 100); ?></a></p> 
+                                            <p>
+                                                <a href="<?php echo "news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key);?>" target="_blank" class="external-link"><?php echo word_limiter($value_nf['text'], 20); ?></a></p> 
                                             <div>
-                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, 'LGlVr5GiXE9bGf3UqDH'), '<span class="read-more">Read More</span>', array('class' => 'label-1 hide', 'target' => '_blank')); ?>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id, $enc_key), '<span class="read-more">Read More</span>', array('class' => 'label-1 hide', 'target' => '_blank')); ?>
                                             </div>                                             
                                         </div>                                         
                                     </div>                                     
@@ -205,22 +200,22 @@ if (isset($news_feed) && !empty($news_feed)) {
                                     <!-- Begin .item -->                                     
                                     <div class="item"> 
                                         <div class="item-image-1">
-                                            <a class="img-link" href="#">
+                                            <a class="img-link" href="<?php echo "news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key);?>">
                                                 <img class="img-responsive img-full" src="<?php echo ($thread1['main_image'] == '' ? 'themes/backend/assets/dist/img/noimage.png' : $thread1['main_image']); ?>" alt="">
                                             </a>
                                             <span>
-                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, 'LGlVr5GiXE9bGf3UqDH'), 'News', array('class' => 'label-1')); ?>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key), 'News', array('class' => 'label-1')); ?>
                                             </span>
                                         </div>                                         
                                         <div class="item-content"> 
                                             <div class="title-left title-style04 underline04"> 
                                                 <h3>
-                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, 'LGlVr5GiXE9bGf3UqDH'), character_limiter($thread1['title'], 15)); ?>
+                                                    <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key), word_limiter($thread1['title'], 10)); ?>
                                                 </h3> 
                                             </div>                                             
-                                            <p><a href="#" target="_blank" class="external-link"><?php echo character_limiter($value_nf1['text'], 100); ?></a></p> 
+                                            <p><a href="<?php echo "news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key);?>" target="_blank" class="external-link"><?php echo word_limiter($value_nf1['text'], 20); ?></a></p> 
                                             <div>
-                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, 'LGlVr5GiXE9bGf3UqDH'), '<span class="read-more">Read More</span>', array('class' => 'label-1 hide', 'target' => '_blank')); ?>
+                                                <?php echo anchor("news/single_page/?id=" . $this->encrypt->encode($nf_id1, $enc_key), '<span class="read-more">Read More</span>', array('class' => 'label-1 hide', 'target' => '_blank')); ?>
                                             </div>                                             
                                         </div>                                         
                                     </div>                                     

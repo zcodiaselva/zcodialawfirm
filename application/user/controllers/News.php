@@ -100,20 +100,13 @@ class News extends CI_Controller {
     }
 
     public function index() {
-
-//        $mycom = '';
-//        ob_start();
-//        $cmd = 'GETMAC /S ' . $this->get_ip_address() . ' /NH';
-//        system($cmd);
-//        $mycom = ob_get_contents();
-//        ob_clean();
-
-        $this->data['news_feed'] = $this->unique_multidim_array($this->news_model->getData('*', $this->newsfeed_table, '', 'nf_id', 1, 7), 'uuid');
-        // $this->data['news_feed'] = $this->unique_multidim_array($this->data['news_feed'], 'uuid');
-        $this->load->view('template/header', $this->data);
-        //$this->load->view('news_part/blog', $this->data);
-        $this->load->view('news_part/news', $this->data);
-        $this->load->view('template/footer', $this->data);
+$this->view_news();
+//        $this->data['news_feed'] = $this->unique_multidim_array($this->news_model->getData('*', $this->newsfeed_table, '', 'nf_id', 1, 7), 'uuid');
+//        // $this->data['news_feed'] = $this->unique_multidim_array($this->data['news_feed'], 'uuid');
+//        $this->load->view('template/header', $this->data);
+//        //$this->load->view('news_part/blog', $this->data);
+//        $this->load->view('news_part/news', $this->data);
+//        $this->load->view('template/footer', $this->data);
     }
 
     function single_page() {
@@ -126,12 +119,12 @@ class News extends CI_Controller {
 
             $date = new DateTime(substr($thread['published'], 0, -6), new DateTimeZone('UTC'));
             $date->setTimezone(new DateTimeZone(substr($thread['published'], -6)));
-
             $result = array(
                 'main_image' => $thread['main_image'],
                 'published_date' => $date->format('M j, Y'),
                 'title' => $thread['title'],
-                'text' => $result[0]['text']
+                'text' => $result[0]['text'],
+                'category_tag' => $thread['site_categories']
             );
 
             $this->data['single_page'] = $result;

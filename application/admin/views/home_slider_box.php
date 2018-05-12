@@ -25,7 +25,7 @@ if (isset($hsb) && !empty($hsb)) {
                 <div class="col-md-7">
                     <div class="form-group">
                         <label for="txtHSBPercentageText">Text Percentage</label>
-                        <input type="text" class="form-control HSBPercentageText" id="txtHSBPercentageText" value="<?php echo $hsb_percentage;?>">
+                        <input type="text" class="form-control HSBPercentageText" id="txtHSBPercentageText" value="<?php echo $hsb_percentage; ?>">
                     </div>
                     <div class="form-group">
                         <label for="txtHSBPercentageText1">Text</label>
@@ -33,14 +33,18 @@ if (isset($hsb) && !empty($hsb)) {
                     </div>
                     <div class="form-group">
                         <label for="txtHSBBtnLink">Button Link</label>
-                        <input type="hidden" class="hiddenHSBButtonLink" value="<?php echo $hsb_buttonlink;?>">
+                        <input type="hidden" class="hiddenHSBButtonLink" value="<?php echo $hsb_buttonlink; ?>">
                         <select class="form-control HSBbuttonlink_select2"  id="txtHSBBtnLink" style="width: 100%;">
                             <option selected="selected" value="0">Please Select...</option>
-                            <option value="HomePage">HomePage</option>
-                            <option value="AboutUs">AboutUs</option>
-                            <option value="PracticeAreas">PracticeAreas</option>
-                            <option value="FAQ">FAQ</option>
-                            <option value="ContactUs">ContactUs</option>
+                            <?php
+                            if (isset($dropdown_menus) && !empty($dropdown_menus)) {
+                                foreach ($dropdown_menus as $key => $value) {
+                                    ?>
+                                    <option value="<?php echo $value['url'] ?>"><?php echo $value['menu_text'] ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
 

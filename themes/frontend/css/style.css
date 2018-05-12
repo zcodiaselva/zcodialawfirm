@@ -8810,9 +8810,9 @@ input.btn-1:hover {
 --------------------------------------------------- */
 
 .bc-style2 .bc-title {
-    background: url(../images/bg/bc-bg.jpg) repeat;
+/*    background: url(../images/bg/bc-bg.jpg) repeat;*/
     text-align: center;
-    padding: 70px 0px;
+    padding: 30px 0px;
 }
 
 .bc-style2 .bc-title h2 {
@@ -9288,7 +9288,9 @@ input.btn-1:hover {
 .blog-pagination .pagination-next:hover {
     color: #d6b34b;
 }
-
+.blog-pagination ul li:contains('First') {
+    padding: 0 15px;
+}
 .blog-pagination ul li {
     padding: 0 1px;
 }
@@ -9432,7 +9434,8 @@ input.btn-1:hover {
         margin-top: 0;
     }
     .bc-style2 .bc-title h2 {
-        font-size: 25px;
+        /*        font-size: 25px;*/
+            font: 40px 'Open Sans', sans-serif;
     }
 
 }
@@ -10181,6 +10184,15 @@ p.no-support {
     background: #d6b34b !important;
     color: #fff;width: 28px;
 }
+
+.blog-pagination ul li:last-child:hover a, .blog-pagination ul li:last-child.active a{
+    font-weight:bold;
+    color: #d6b34b;background: transparent !important;width: 50px;
+}
+/*.blog-pagination ul li:first-child:hover a, .blog-pagination ul li:first-child.active a{
+    font-weight:bold;
+    color: #d6b34b;background: transparent !important;width: 50px;
+}*/
 .blog-img-two {
     border: 10px solid #fff;
     position: relative;
@@ -12176,3 +12188,9 @@ img.embed-responsive-item {
     height: 100%;
 }
 /* Practice area end */
+
+/*.mylivechat_collapsed {
+    background-color: #212529;
+    border: 1px solid #212529;
+}*/
+
