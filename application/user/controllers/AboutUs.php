@@ -51,10 +51,6 @@ class AboutUs extends CI_Controller {
     }
 
     public function index() {
-//        echo '<pre>';
-//        print_r($this->data);
-//        echo '</pre>';
-//        die;
         $this->load->view('template/header', $this->data);
         $this->load->view('about-us', $this->data);
         $this->load->view('template/footer', $this->data);
@@ -64,16 +60,16 @@ class AboutUs extends CI_Controller {
         $this->load->view('temp');
     }
 
-    function upload_img_status() {
-        $selector = $this->input->post('selector');
-
-        if ($selector == 1) {
-            $this->session->set_userdata("aboutus_header_img", "1");
-        }
-        if ($selector == 2) {
-            $this->session->set_userdata("aboutus_content_img", "1");
-        }
-        echo $selector;
-    }
+//    function upload_img_status() {
+//        $selector = $this->input->post('selector');
+//
+//        if ($selector == 1) {
+//            $this->session->set_userdata("aboutus_header_img", "1");
+//        }
+//        if ($selector == 2) {
+//            $this->session->set_userdata("aboutus_content_img", "1");
+//        }
+//        echo $selector;
+//    }
 
 }

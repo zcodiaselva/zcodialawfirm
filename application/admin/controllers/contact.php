@@ -13,6 +13,7 @@ class Contact extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->helper('mailto');
         $this->load->library('tank_auth');
         $this->load->model('contact_model');
         $this->load->library("FileUpload");
@@ -37,7 +38,7 @@ class Contact extends CI_Controller {
         }
     }
 
-    function content() {
+    function content() { // load contact us content
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -50,7 +51,7 @@ class Contact extends CI_Controller {
         }
     }
 
-    function google_maps() {
+    function google_maps() { // load google maps
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -323,45 +324,20 @@ class Contact extends CI_Controller {
         $returndata['user_mail'] = $this->load->view('email_template_user', $data1, true);
 
 
-
-//        $admin_message = $this->output
-//                        ->set_header("HTTP/1.0 200 OK")
-//                        ->set_content_type('application/json')
-//                        ->set_output(($returndata));
-
-
-
-        $config = Array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_port' => 465,
-            'smtp_user' => 'murali.zt91emp24@gmail.com',
-            'smtp_pass' => 'zt91emp24',
-            'mailtype' => 'html',
-            'charset' => 'iso-8859-1',
-            'wordwrap' => TRUE
+        $mail2admin = array(
+            'from' => $mail,
+            'to' => 'murali.zt91emp24@gmail.com',
+            'subject' => 'You got a mail from a User - Lawyer',
+            'message' => $returndata['admin_mail']
         );
-
-
-        $this->load->library('email', $config);
-        $this->email->set_newline("\r\n");
-        $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
-        $this->email->set_header('Content-type', 'text/html');
-        /* mail to admin start */
-        $this->email->from('murali.zt91emp24@gmail.com');
-        $this->email->to($mail);
-        $this->email->subject('You got a mail from a User - Lawyer');
-        $this->email->message($returndata['admin_mail']);
-        $status = $this->email->send();
-        /* mail to admin end */
-
-        /* mail to user start */
-        $this->email->from($data1['user_data']['from']);
-        $this->email->to($data1['user_data']['to']);
-        $this->email->subject('Thanks mail from ZT Lawyer Firm');
-        $this->email->message($returndata['user_mail']);
-        $status = $this->email->send();
-        /* mail to user end */
+        $mail2user = array(
+            'from' => 'murali.zt91emp24@gmail.com',
+            'to' => $mail,
+            'subject' => 'Thanks mail from ZT Lawyer Firm',
+            'message' => $returndata['user_mail']
+        );
+        $status = send_mail($mail2admin);
+        $status = send_mail($mail2user);
 
         if ($status) {
             echo 1;

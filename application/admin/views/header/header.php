@@ -204,7 +204,7 @@ if (isset($logo_details) && isset($logo_details)) {
                         <!-- sidebar menu: : style can be found in sidebar.less -->
                         <ul class="sidebar-menu" data-widget="tree">
                             <li class="header hide">MAIN NAVIGATION</li>
-                            <li class="treeview <?php
+                            <li class="treeview  <?php
                             if ($this->uri->segment(1) == "dashboard") {
                                 echo "active menu-open";
                             }
@@ -419,7 +419,7 @@ if (isset($logo_details) && isset($logo_details)) {
                                     ?>"><a href="admin.php/practice/parallax"><i class="fa fa-angle-double-right"></i>Parallax</a></li> 
                                 </ul>
                             </li>
-                            <li class="treeview <?php
+                            <li class="treeview hide <?php
                             if ($this->uri->segment(1) == "faq") {
                                 echo "active menu-open";
                             }

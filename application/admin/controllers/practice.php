@@ -8,6 +8,7 @@ class Practice extends CI_Controller {
     public $practiceAreas = 'practiceareas';
     public $practiceAreaTypes = 'practicearea_types';
     public $practiceAreaDetails = 'practicearea_detail';
+    public $menu_table = 'main_menu';
 
     function __construct() {
         parent::__construct();
@@ -18,7 +19,6 @@ class Practice extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('allowed_url');
         $this->load->helper('text');
-       
     }
 
     function index() {
@@ -45,6 +45,7 @@ class Practice extends CI_Controller {
             $data['user_id'] = $this->tank_auth->get_user_id();
             $data['username'] = $this->tank_auth->get_username();
             $data['about_pa'] = $this->pa_model->getData('*', $this->practiceAreas, array('pa_status' => 1), 'pa_id');
+            $data['dropdown_menus'] = $this->pa_model->getData('*', $this->menu_table, array('menu_active' => 1, 'menu_status' => 1, 'menu_deleted' => 0), 'menu_text', '', 'asc');
 
             $this->load->view('header/header', $data);
             $this->load->view('about_practiceareas', $data);

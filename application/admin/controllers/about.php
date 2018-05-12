@@ -21,6 +21,7 @@ class About extends CI_Controller {
     public $wcuTypes_table = 'wcu_type';
     public $attorney_breadcrumb_table = 'attorney_breadcrumb';
     public $attorney_skill_category_table = 'attorney_skill_category';
+    public $menu_table = 'main_menu';
 
     function __construct() {
         parent::__construct();
@@ -78,6 +79,7 @@ class About extends CI_Controller {
             $data['user_id'] = $this->tank_auth->get_user_id();
             $data['username'] = $this->tank_auth->get_username();
             $data['why_us'] = $this->aboutus_model->getData('*', $this->wcu_table, array('wcu_status' => 1), 'wcu_id');
+            $data['dropdown_menus'] = $this->aboutus_model->getData('*', $this->menu_table, array('menu_active' => 1, 'menu_status' => 1, 'menu_deleted' => 0), 'menu_text', '', 'asc');
 
             $this->load->view('header/header', $data);
             $this->load->view('why_choose_us', $data);
@@ -156,7 +158,7 @@ class About extends CI_Controller {
         }
     }
 
-    function attorney_skills() {
+    function attorney_skills() { // about attorney skills
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -169,7 +171,7 @@ class About extends CI_Controller {
         }
     }
 
-    function attorney_skill_category() {
+    function attorney_skill_category() { // about attorney skill category
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -182,20 +184,22 @@ class About extends CI_Controller {
         }
     }
 
-    function our_experience() {
+    function our_experience() { // about attorney experience
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
             $data['user_id'] = $this->tank_auth->get_user_id();
             $data['username'] = $this->tank_auth->get_username();
             $data['attorney_experience'] = $this->aboutus_model->getData('*', $this->attorney_experience_table, array('atty_exp_status' => 1, 'atty_exp_deleted' => 0), 'atty_exp_id');
+            $data['dropdown_menus'] = $this->aboutus_model->getData('*', $this->menu_table, array('menu_active' => 1, 'menu_status' => 1, 'menu_deleted' => 0), 'menu_text', '', 'asc');
+
             $this->load->view('header/header', $data);
             $this->load->view('our_experience', $data);
             $this->load->view('footer');
         }
     }
 
-    function timeline() {
+    function timeline() { // about attorney timeline
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -210,7 +214,7 @@ class About extends CI_Controller {
         }
     }
 
-    function update_about_attorney() { //update about attorney form_subit() ajax
+    function update_about_attorney() { //update about attorney form_submit() ajax
         $inserted = 0;
         $date = new DateTime();
         $abtAttyItem_image = $actual_abtAttyItem_image = $isAboutAttyItemExists = '';
@@ -419,14 +423,10 @@ class About extends CI_Controller {
                 $value['action'] = '<a onclick="getTimelineItemDetails($(this));" autli_id="' . $value['autli_id'] . '" class="edit_timelineitems btn"><i class="fa fa-pencil"></i></a>' . '<a class="btn open_popup_modal" autli_id=' . $value['autli_id'] . '  data-toggle="modal" data-target="#modal-delete_timelineitems" onclick="delTimelineItemDetails($(this));"><i class="fa fa-trash-o"></i></a>';
 
                 unset($value['autli_id']);
-                // unset($value['autli_fromyear']);
                 unset($value['autli_toyear']);
-                //  unset($value['autli_head']);
-                //  unset($value['autli_content']);
                 $data['data'][] = array_values($value);
             }
         }
-        //echo '<pre>';print_r($data);die;
         if (empty($data)) {
             $data['data'] = [];
             echo json_encode($data);
@@ -448,8 +448,6 @@ class About extends CI_Controller {
         $orderby = "auti_id";
 
         $aitems_list = $this->aboutus_model->getData($select, $from, $where, $orderby);
-
-//$this->print_die('aiitems_list:',$aitems_list);
 
         if (!empty($aitems_list)) {
             foreach ($aitems_list as $key => $value) {
@@ -680,7 +678,7 @@ class About extends CI_Controller {
         echo $inserted;
     }
 
-    function update_ai_status() {
+    function update_ai_status() { // status change for aboutus items
 
         $auti_id = $this->input->post('auti_id');
         $auti_status = array('auti_status' => $this->input->post('auti_status'));
@@ -805,7 +803,7 @@ class About extends CI_Controller {
     }
 
     //attorney skills start 
-    function update_attorney_skills() { //update about attorney_skills form_subit() ajax
+    function update_attorney_skills() { //update about attorney_skills form_submit() ajax
         $inserted = 0;
         $date = new DateTime();
         $abtAttySkill_image = $actual_abtAttySkill_image = $isAboutAttySkillExists = '';
@@ -931,7 +929,7 @@ class About extends CI_Controller {
         }
     }
 
-    function update_attySkillTypes_status() {
+    function update_attySkillTypes_status() { // update status functionality for attorney skill types
         $atty_st_id = $this->input->post('atty_st_id');
         $atty_st_status = array('atty_st_status' => $this->input->post('atty_st_status'));
         $updated = $this->aboutus_model->updateData($this->attorney_skillsType_table, $atty_st_status, array('atty_st_id' => $atty_st_id));
@@ -950,7 +948,7 @@ class About extends CI_Controller {
 
     //attorney skills end
     //experience part start 
-    function update_attorney_experience() { //update about attorney experience form_subit() ajax
+    function update_attorney_experience() { //update about attorney experience form_submit() ajax
         $inserted = 0;
         $date = new DateTime();
         $abtAttyExperience_image = $actual_abtAttyExperience_image = $isAboutAttyExperienceExists = '';
@@ -1026,9 +1024,6 @@ class About extends CI_Controller {
 
         $isAttorneyExperiencesExists = $this->aboutus_model->searchContent($this->attorney_experience_table, array('atty_exp_status' => 1, 'atty_exp_deleted' => 0));
 
-
-
-
         if ($isAttorneyExperiencesExists == 0) {
             $inserted = $this->aboutus_model->insertData($this->attorney_experience_table, $aboutAttorneyExperiences);
         } else if ($isAttorneyExperiencesExists <> 0) {
@@ -1078,7 +1073,7 @@ class About extends CI_Controller {
         }
     }
 
-    function update_attyExperienceTypes_status() {
+    function update_attyExperienceTypes_status() { //update status functionality for attorney experience types
         $atty_et_id = $this->input->post('atty_et_id');
         $atty_et_status = array('atty_et_status' => $this->input->post('atty_et_status'));
         $updated = $this->aboutus_model->updateData($this->attorney_experience_types_table, $atty_et_status, array('atty_et_id' => $atty_et_id));
@@ -1109,7 +1104,7 @@ class About extends CI_Controller {
         echo $deleted;
     }
 
-    function update_wcu() { //update wcu form_subit() ajax
+    function update_wcu() { //update wcu form_submit() ajax
         $inserted = 0;
         $date = new DateTime();
         $wcu_bg_image = $isWCUExists = '';
@@ -1207,7 +1202,7 @@ class About extends CI_Controller {
                 $value['wcu_type_name_hl'] = $value['wcu_type_name_hl'];
 
                 $value['wcu_type_icon'] = '<div class="icon-box"><i class="flat_icon ' . $value['wcu_type_icon'] . '"></i></div>';
-               // $value['wcu_type_image'] = '<img class="dt_image_wcu ' . (!file_exists($value['wcu_type_image']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['wcu_type_image'])) ? $value['wcu_type_image'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
+                // $value['wcu_type_image'] = '<img class="dt_image_wcu ' . (!file_exists($value['wcu_type_image']) ? 'no_image' : '') . '"  src="' . ((file_exists($value['wcu_type_image'])) ? $value['wcu_type_image'] : 'themes/backend/assets/dist/img/noimage.png') . '" />';
                 $value['wcu_type_status'] = '<a class="dt_action_switch"><label class="switch"><input type="checkbox" ' . ($value['wcu_type_status'] == 1 ? ' checked' : '') . ' onclick="change_dt_wcuType_status($(this));" wcu_type_id="' . $value['wcu_type_id'] . '" wcu_type_status="' . $value['wcu_type_status'] . '"><span class="slider round"></span></label></a>';
                 $value['action'] = '<a onclick="getWCUTypes($(this));" wcu_type_id="' . $value['wcu_type_id'] . '" class="edit_WCUDetails btn"><i class="fa fa-pencil"></i></a>' . '<a class="btn open_popup_modal" wcu_type_id=' . $value['wcu_type_id'] . '  data-toggle="modal" data-target="#modal-delete_WCUTypes" onclick="delWCUTypes($(this));"><i class="fa fa-trash-o"></i></a>';
 
@@ -1256,7 +1251,7 @@ class About extends CI_Controller {
     }
 
     //attorney breadcrumb start 
-    function update_attorney_bc() { //update about attorney_bc form_subit() ajax
+    function update_attorney_bc() { //update about attorney_bc form_submit() ajax
         $inserted = 0;
         $date = new DateTime();
         $abtAttyBC_image = $actual_abtAttyBC_image = $isAboutAttyBCExists = '';

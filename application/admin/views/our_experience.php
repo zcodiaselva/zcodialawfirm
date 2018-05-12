@@ -45,11 +45,15 @@ if (isset($attorney_experience) && !empty($attorney_experience)) {
                         <input type="hidden" id="attyExpBtnLink">
                         <select class="form-control buttonlink_select2"  id="txtExperienceBtnLink" style="width: 100%;">
                             <option selected="selected" value="0">Please Select...</option>
-                            <option value="HomePage">HomePage</option>
-                            <option value="AboutUs">AboutUs</option>
-                            <option value="PracticeAreas">PracticeAreas</option>
-                            <option value="FAQ">FAQ</option>
-                            <option value="ContactUs">ContactUs</option>
+                            <?php
+                            if (isset($dropdown_menus) && !empty($dropdown_menus)) {
+                                foreach ($dropdown_menus as $key => $value) {
+                                    ?>
+                                    <option value="<?php echo $value['url'] ?>"><?php echo $value['menu_text'] ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>

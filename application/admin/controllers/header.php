@@ -21,7 +21,6 @@ class Header extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('allowed_url');
         $this->load->helper('text');
-        
     }
 
     function index() {
@@ -40,8 +39,7 @@ class Header extends CI_Controller {
         }
     }
 
-    function logo() {
-
+    function logo() { //load header logo settings page
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -57,8 +55,7 @@ class Header extends CI_Controller {
         }
     }
 
-    function appointment() {
-
+    function appointment() { //load header appointment settings page
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -75,7 +72,7 @@ class Header extends CI_Controller {
         }
     }
 
-    function seo() {
+    function seo() { //load header seo settings page
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {
@@ -91,7 +88,7 @@ class Header extends CI_Controller {
             }
             $unwanted = array('index.html');
             $pages = str_replace('.php', '', array_values(array_diff($map, $unwanted)));
-            
+
             sort($pages);
             $data['controller_pages'] = $pages;
 
@@ -101,8 +98,7 @@ class Header extends CI_Controller {
         }
     }
 
-    function menu() {
-
+    function menu() {  //load header menu settings page
         if (!$this->tank_auth->is_logged_in()) {
             redirect('/auth/login/');
         } else {

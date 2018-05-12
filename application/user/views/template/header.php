@@ -88,9 +88,9 @@
         <link rel="stylesheet" href="themes/frontend/css/custom.css">
         <link rel="stylesheet" type="text/css" href="themes/frontend/news_part/css/news_style.css" media="all" />
         <script type="text/javascript">
-<?php echo $seo_ga_script; ?>
+            <?php echo $seo_ga_script; ?>
         </script>
-        <script type="text/javascript">function add_chatinline() {
+        <!--script type="text/javascript">function add_chatinline() {
                 var hccid = 25707434;
                 var nt = document.createElement("script");
                 nt.async = true;
@@ -98,7 +98,7 @@
                 var ct = document.getElementsByTagName("script")[0];
                 ct.parentNode.insertBefore(nt, ct);
             }
-            add_chatinline();</script>
+            add_chatinline();</script-->
     </head>
 
     <body>

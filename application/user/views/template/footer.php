@@ -72,7 +72,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 //                                foreach ($footer_submenus as $key => $value) {
 //                                    
                                 ?>
-                                        <!--li><a href="<?php //echo $value['url'];           ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];           ?></a></li-->
+                                        <!--li><a href="<?php //echo $value['url'];              ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];              ?></a></li-->
                                 <?php
 //                                }
 //                            }
@@ -364,8 +364,8 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 //                                $("ul.submenuItems > li > a").removeAttr('class');
             }
         });
-
-        if ($(".da_input").val() !== "1") {
+        var dis_data = sessionStorage.getItem('dis_accept');
+        if ($(".da_input").val() !== "1" && dis_data !== '1') {
             $('#modal-disclaimer').modal('show');
             $('#modal-disclaimer').modal({
                 backdrop: 'static',
@@ -409,10 +409,16 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
         }, function () {
             $(".post--preview .pract.btn-1").addClass("hide");
         });
-      
+
 
     });
-
+//    $(window).bind('beforeunload', function () {
+//        //save info somewhere
+//        return 'are you sure you want to leave?';
+//    });
+    $(window).unload(function () {
+        alert('closing')
+    });
     $(window).resize(function () {
         $(".bars").css("display", "none");
         var screensize = document.documentElement.clientWidth;
@@ -478,6 +484,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
             if (msg == 1) {
                 $('#modal-disclaimer').modal('hide');
                 $(".da_input").val(msg);
+                sessionStorage.setItem('dis_accept', '1');
             }
         });
 
