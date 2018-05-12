@@ -72,7 +72,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 //                                foreach ($footer_submenus as $key => $value) {
 //                                    
                                 ?>
-                                        <!--li><a href="<?php //echo $value['url'];              ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];              ?></a></li-->
+                                        <!--li><a href="<?php //echo $value['url'];               ?>"><i class="fa fa-angle-double-right"></i> <?php //echo $value['menu_text'];               ?></a></li-->
                                 <?php
 //                                }
 //                            }
@@ -466,6 +466,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
                 success: function (data) {
                     if (data == 1) {
                         success_msg('Mail sent Successfully!!!');
+                        
                     } else {
                         error_msg('Mail sending failed!!!');
                     }
