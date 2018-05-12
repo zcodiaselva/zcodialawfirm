@@ -20,7 +20,7 @@ if (isset($user_data) && !empty($user_data)) {
                 <tr>
                     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td width="144"><a href= "http://192.168.0.118:8080/lawyer" target="_blank"><img src="<?php echo $logo_image; ?>" width="<?php echo $logo_width; ?>" height="<?php echo $logo_height; ?>" border="0" alt=""/></a></td>
+                                <td width="144"><a href= "http://localhost:8080/lawyer" target="_blank"><img src="<?php echo $logo_image; ?>" width="<?php echo $logo_width; ?>" height="<?php echo $logo_height; ?>" border="0" alt=""/></a></td>
                                 <td width="393">
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
