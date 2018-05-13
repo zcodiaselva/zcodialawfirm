@@ -416,13 +416,7 @@ if (isset($google_map_entries) && !empty($google_map_entries)) {
 //        //save info somewhere
 //        return 'are you sure you want to leave?';
 //    });
-<<<<<<< HEAD
-   
-=======
-    $(window).unload(function () {
-        alert('closing')
-    });
->>>>>>> b01ede8fba297823403171b7eb91f4e9da16a111
+
     $(window).resize(function () {
         $(".bars").css("display", "none");
         var screensize = document.documentElement.clientWidth;

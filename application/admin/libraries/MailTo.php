@@ -17,13 +17,14 @@ class MailTo {
     public function __construct() {
         $this->CI = & get_instance();
         $config = Array(
+           // 'protocol' => 'smtp',
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_port' => 465,
             'smtp_user' => 'murali.zt91emp24@gmail.com',
             'smtp_pass' => 'zt91emp24',
-            'mailtype' => 'html',
-            'charset' => 'iso-8859-1',
+            'mailtype' => 'html', 'starttls'  => true,'newline'   => "\r\n",
+            'charset' =>  'utf-8',
             'wordwrap' => TRUE
         );
 
@@ -32,11 +33,11 @@ class MailTo {
 
     public function send_mail($array) {
        
-        $this->CI->email->set_newline("\r\n");
-        $this->CI->email->set_header('MIME-Version', '1.0; charset=utf-8');
-        $this->CI->email->set_header('Content-type', 'text/html');
+//        $this->CI->email->set_newline("\r\n");
+//        $this->CI->email->set_header('MIME-Version', '1.0; charset=utf-8');
+//        $this->CI->email->set_header('Content-type', 'text/html');
 
-        $this->CI->email->from($array['from']);
+        $this->CI->email->from($array['from'],$array['name']);
         $this->CI->email->to($array['to']);
         $this->CI->email->subject($array['subject']);
         $this->CI->email->message($array['message']);
