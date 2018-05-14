@@ -761,7 +761,7 @@ img {
 
 .backtotop {
     position: fixed;
-    bottom: 25px;
+    bottom: 110px;
     right: 25px;
     border: 2px solid #fff;
     cursor: pointer;
@@ -8810,7 +8810,7 @@ input.btn-1:hover {
 --------------------------------------------------- */
 
 .bc-style2 .bc-title {
-/*    background: url(../images/bg/bc-bg.jpg) repeat;*/
+    /*    background: url(../images/bg/bc-bg.jpg) repeat;*/
     text-align: center;
     padding: 30px 0px;
 }
@@ -9435,7 +9435,7 @@ input.btn-1:hover {
     }
     .bc-style2 .bc-title h2 {
         /*        font-size: 25px;*/
-            font: 40px 'Open Sans', sans-serif;
+        font: 40px 'Open Sans', sans-serif;
     }
 
 }
@@ -12194,3 +12194,27 @@ img.embed-responsive-item {
     border: 1px solid #212529;
 }*/
 
+/* chat color start */
+a#online-icon {
+    background-color: #1e2128 !important;    border: 2px solid #d39c27 !important;
+}
+
+#lhc_need_help_container {
+    background: #e5c963 !important;
+    border: 1px solid #d6b34b !important;
+}
+#lhc_need_help_triangle {
+    border-top: 15px solid #d6b34b !important;
+}
+#lhc_need_help_container{
+    color: #1e2128 !important;
+}
+#lhc_container.lhc-min {
+    bottom: 87px!important;
+    right: 20px!important;}
+
+a#lhc_status-icon-restore {
+/*    background: #e5c963 !important;
+    border: 1px solid #d6b34b !important;*/
+}
+/* chat color end */

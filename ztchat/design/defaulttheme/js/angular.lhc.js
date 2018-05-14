@@ -1002,6 +1002,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	this.startChatOperator = function(user_id) {
 		LiveHelperChatFactory.getActiveOperatorChat(user_id).then(function(data) {
+                    alert('ang_lhc_here:'+user_id);
 			if (data.has_chat === true) {
 				lhinst.startChat(data.chat_id,$('#tabs'),LiveHelperChatFactory.truncate(data.nick,10));
 			} else {

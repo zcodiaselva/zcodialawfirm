@@ -401,7 +401,7 @@
 		</div>
 	</div>
 		<style type="text/css">
-        #lhc_status-icon{border: 2px solid #{{bactract_bg_color_bor_bcolor}};
+        #lhc_status-icon{border: 2px solid #d39c27; /*#{{bactract_bg_color_bor_bcolor}}*/
             -webkit-border-radius: 47px;
             border-radius: 47px;
             -webkit-box-shadow: 0px 0px 17px rgba(50, 50, 50, 0.5);
@@ -421,7 +421,8 @@
 		#lhc_status_container:hover{}
 		#lhc_status_container #offline-icon{background-image:url('<?php if ($object->offline_image_url != '') : ?><?php echo $object->offline_image_url;?><?php else : ?><?php echo erLhcoreClassDesign::design('images/icons/user_gray_chat.png');?><?php endif;?>')}
 		#lhc_status_container{box-sizing: content-box;-webkit-border-top-left-radius: 20px;-moz-border-radius-topleft: 20px;border-top-left-radius: 20px;-webkit-box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);border:1px solid #{{bactract_bg_color_bor_bcolor}};border-right:0;border-bottom:0;-moz-box-shadow:-1px -1px 5px rgba(50, 50, 50, 0.17);box-shadow: -1px -1px 5px rgba(50, 50, 50, 0.17);padding:5px 0px 0px 5px;width:190px;font-family:arial;font-size:12px;transition: 1s;background-color:#{{bactract_bg_color_onl_bcolor}};z-index:9989;}
-		@media only screen and (max-width : 640px) {#lhc_status_container{position:relative;top:0;right:0;bottom:0;left:0;width:auto;border-radius:2px;box-shadow:none;border:1px solid #e3e3e3;margin-bottom:5px;}}
+	#lhc_status-icon {background: #212529 url(//192.168.0.118:8080/zcodialawfirm/ztchat/design/defaulttheme/images/getstatus/online.svg) no-repeat center center !important;}
+                @media only screen and (max-width : 640px) {#lhc_status_container{position:relative;top:0;right:0;bottom:0;left:0;width:auto;border-radius:2px;box-shadow:none;border:1px solid #e3e3e3;margin-bottom:5px;}}
 		</style>
 				
 		<style type="text/css">
