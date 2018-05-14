@@ -329,7 +329,7 @@ if (isset($user_data) && !empty($user_data)) {
                                 </tr>
                                 <tr>
                                     <td class="content-block powered-by">
-                                        Powered by <a href="http://localhost:8080/ztlawfirm">Zcodia Technologies</a>.
+                                        Powered by <a href="http://192.168.0.118:8080/zcodialawfirm">Zcodia Technologies</a>.
                                     </td>
                                 </tr>
                             </table>

@@ -88,17 +88,19 @@
         <link rel="stylesheet" href="themes/frontend/css/custom.css">
         <link rel="stylesheet" type="text/css" href="themes/frontend/news_part/css/news_style.css" media="all" />
         <script type="text/javascript">
-            <?php echo $seo_ga_script; ?>
+<?php echo $seo_ga_script; ?>
         </script>
-        <!--script type="text/javascript">function add_chatinline() {
-                var hccid = 25707434;
-                var nt = document.createElement("script");
-                nt.async = true;
-                nt.src = "https://mylivechat.com/chatinline.aspx?hccid=" + hccid;
-                var ct = document.getElementsByTagName("script")[0];
-                ct.parentNode.insertBefore(nt, ct);
-            }
-            add_chatinline();</script-->
+        <script type="text/javascript">
+            var LHCFormOptions = {};
+            (function () {
+                var po = document.createElement('script');
+                po.type = 'text/javascript';
+                po.async = true;
+                po.src = '//192.168.0.118:8080/zcodialawfirm/ztchat/index.php/form/embed/null';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+            })();
+        </script>
     </head>
 
     <body>
@@ -111,5 +113,5 @@
         ?>
         <!-- Header Part End -->
         <!-- Navigation Part Start -->
-        <?php include APPPATH . 'views/template/desktop_menu.php'; ?>
+<?php include APPPATH . 'views/template/desktop_menu.php'; ?>
         <!-- Banner Part Start -->

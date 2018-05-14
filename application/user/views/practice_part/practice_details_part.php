@@ -82,11 +82,11 @@ if (isset($pa_content) && !empty($pa_content)) {
                             <span>Share Post :</span>
                             <div class="per-social">
                                 <ul>
-                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo 'http://localhost:8080' . $_SERVER['REQUEST_URI']; ?>"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="https://twitter.com/intent/tweet?url=<?php echo 'http://localhost:8080' . $_SERVER['REQUEST_URI']; ?>"><i class="fa fa-twitter"></i></a></li>
-                                    <!--li><a class="hide" href="https://www.facebook.com/sharer/sharer.php?u=<?php //echo 'http://localhost:8080' . $_SERVER['REQUEST_URI'];        ?>"><i class="fa fa-pinterest-p"></i></a></li>
-                                    <li><a class="hide" href="https://www.facebook.com/sharer/sharer.php?u=<?php //echo 'http://localhost:8080' . $_SERVER['REQUEST_URI'];        ?>"><i class="fa fa-instagram"></i></a></li-->
-                                    <li><a href="https://plus.google.com/share?url=<?php echo 'http://localhost:8080' . $_SERVER['REQUEST_URI']; ?>"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo 'http://192.168.0.118:8080' . $_SERVER['REQUEST_URI']; ?>"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/intent/tweet?url=<?php echo 'http://192.168.0.118:8080' . $_SERVER['REQUEST_URI']; ?>"><i class="fa fa-twitter"></i></a></li>
+                                    <!--li><a class="hide" href="https://www.facebook.com/sharer/sharer.php?u=<?php //echo 'http://192.168.0.118:8080' . $_SERVER['REQUEST_URI'];        ?>"><i class="fa fa-pinterest-p"></i></a></li>
+                                    <li><a class="hide" href="https://www.facebook.com/sharer/sharer.php?u=<?php //echo 'http://192.168.0.118:8080' . $_SERVER['REQUEST_URI'];        ?>"><i class="fa fa-instagram"></i></a></li-->
+                                    <li><a href="https://plus.google.com/share?url=<?php echo 'http://192.168.0.118:8080' . $_SERVER['REQUEST_URI']; ?>"><i class="fa fa-google-plus"></i></a></li>
                                 </ul>
                             </div>
                         </div>
