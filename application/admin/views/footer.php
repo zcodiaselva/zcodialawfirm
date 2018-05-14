@@ -61,6 +61,7 @@
 
 <?php } ?>
 <script>
+
 //b8e43301009243d7a70d4cf8c82a10d0
 //579b464db66ec23bdd000001f18aac9377f54c65535c0ee2474f85fc
     function readURL(input, selector) {
@@ -898,8 +899,8 @@
         //console.log($('textArea#txtDisclaimerContent').attr('value'));
         fillEditor('#txtDisclaimerContent', $('textArea#txtDisclaimerContent').attr('value'));
         $("table.dataTable.socialiconslist_dt").removeAttr('style');
-        
 
+    });
     function addSubMenuDetails(thss) {
         $(".menuModalLabel.name").html('Sub Menu Name');
         $(".menuModalText,.menuModalUrl").val('');

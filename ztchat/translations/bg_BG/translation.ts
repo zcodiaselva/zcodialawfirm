@@ -1821,11 +1821,11 @@
       <translation>Копирайте кода от полето в страницата на мястото, на което желаете да се показва</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation>Поставете този маркер, където искате за активация на Chatbox модул.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation>Поставете този маркер след Chatbox модул.</translation>
     </message>
     <message>
@@ -8267,8 +8267,8 @@
       <translation>Формат на часовете (Ч:м:с)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Обновяване на Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Обновяване на ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Инструкции за обновяване</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Информация за обновяване на Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Информация за обновяване на ZTLawFirm</translation>
     </message>
   </context>
   <context>

@@ -1821,12 +1821,12 @@
       <translation>Salin kode dari area teks ke halaman yang Anda inginkan untuk dirender</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Tempatkan tag ini di mana Anda ingin untuk membuat modul Live Helper Chatbox.</translation>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
+      <translation>Tempatkan tag ini di mana Anda ingin untuk membuat modul ZTLawFirmbox.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Tempatkan tag ini setelah tag modul Live Helper Chatbox.</translation>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
+      <translation>Tempatkan tag ini setelah tag modul ZTLawFirmbox.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -8267,8 +8267,8 @@
       <translation>Format jam Cth. (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Live Helper Chat diperbarui</translation>
+      <source>ZTLawFirm update</source>
+      <translation>ZTLawFirm diperbarui</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Instruksi pembaharuan</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Live Helper Chat informasi pembaharuan</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>ZTLawFirm informasi pembaharuan</translation>
     </message>
   </context>
   <context>

@@ -1821,11 +1821,11 @@
       <translation>Copie el código del área de texto a la página en el lugar donde quiere que se muestre</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8267,8 +8267,8 @@
       <translation>Formato de hora Ej. (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Actualización de Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Actualización de ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Instrucciones para actualizar</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Información de actualización de Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Información de actualización de ZTLawFirm</translation>
     </message>
   </context>
   <context>

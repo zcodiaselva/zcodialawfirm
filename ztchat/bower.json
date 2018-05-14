@@ -1,6 +1,6 @@
 {
-  "name": "Live Helper Chat",
-  "description": "Live Helper Chat external dependencies",
+  "name": "ZTLawFirm",
+  "description": "ZTLawFirm external dependencies",
   "version": "1.0.0",
   "dependencies": {
     "jqueryui" : "*",

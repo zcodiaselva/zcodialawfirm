@@ -6892,7 +6892,7 @@
             },
             {
                 "identifier": "application_name",
-                "value": "a:6:{s:3:\"eng\";s:31:\"Live Helper Chat - live support\";s:3:\"lit\";s:26:\"Live Helper Chat - pagalba\";s:3:\"hrv\";s:0:\"\";s:3:\"esp\";s:0:\"\";s:3:\"por\";s:0:\"\";s:10:\"site_admin\";s:31:\"Live Helper Chat - live support\";}",
+                "value": "a:6:{s:3:\"eng\";s:31:\"ZTLawFirm - live support\";s:3:\"lit\";s:26:\"ZTLawFirm - pagalba\";s:3:\"hrv\";s:0:\"\";s:3:\"esp\";s:0:\"\";s:3:\"por\";s:0:\"\";s:10:\"site_admin\";s:31:\"ZTLawFirm - live support\";}",
                 "type": "1",
                 "explain": "Support application name, visible in browser title.",
                 "hidden": "0"
@@ -6983,7 +6983,7 @@
             },
             {
                 "identifier": "customer_company_name",
-                "value": "Live Helper Chat",
+                "value": "ZTLawFirm",
                 "type": "0",
                 "explain": "Your company name - visible in bottom left corner",
                 "hidden": "0"
@@ -6997,7 +6997,7 @@
             },
             {
                 "identifier": "customer_site_url",
-                "value": "http:\/\/livehelperchat.com",
+                "value": "http:\/\/ZTLawFirm.com",
                 "type": "0",
                 "explain": "Your site URL address",
                 "hidden": "0"
@@ -7903,7 +7903,7 @@
             {
                 "id": "1",
                 "name": "Send mail to user",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -7935,7 +7935,7 @@
             {
                 "id": "3",
                 "name": "User mail for himself",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -7951,7 +7951,7 @@
             {
                 "id": "4",
                 "name": "New chat request",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -7967,7 +7967,7 @@
             {
                 "id": "5",
                 "name": "Chat was closed",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -7983,7 +7983,7 @@
             {
                 "id": "6",
                 "name": "New FAQ question",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -7999,7 +7999,7 @@
             {
                 "id": "7",
                 "name": "New unread message",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -8015,7 +8015,7 @@
             {
                 "id": "8",
                 "name": "Filled form",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -8031,7 +8031,7 @@
             {
                 "id": "9",
                 "name": "Chat was accepted",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -8047,7 +8047,7 @@
             {
                 "id": "10",
                 "name": "Permission request",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",
@@ -8063,7 +8063,7 @@
             {
                 "id": "11",
                 "name": "You have unread messages",
-                "from_name": "Live Helper Chat",
+                "from_name": "ZTLawFirm",
                 "from_name_ac": "0",
                 "from_email": "",
                 "from_email_ac": "0",

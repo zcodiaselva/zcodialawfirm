@@ -1821,11 +1821,11 @@
       <translation>复制代码从文本区的页面，你想让它呈现</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8267,7 +8267,7 @@
       <translation>时间格式 例如 (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
+      <source>ZTLawFirm update</source>
       <translation>助手聊天的实时更新</translation>
     </message>
     <message>
@@ -8550,7 +8550,7 @@
       <translation>更新说明</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
+      <source>ZTLawFirm update information</source>
       <translation>生活助手聊天更新信息</translation>
     </message>
   </context>

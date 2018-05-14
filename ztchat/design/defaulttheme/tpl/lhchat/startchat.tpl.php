@@ -23,7 +23,7 @@
 
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Fill out this form to start a chat');?></h4>
 
-<form id="form-start-chat" method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?><?php $input_data->vid !== false ? print '/(vid)/'.htmlspecialchars($input_data->vid) : ''?><?php $input_data->hash_resume !== false ? print '/(hash_resume)/'.htmlspecialchars($input_data->hash_resume) : ''?><?php echo $append_mode_theme?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
+<form class="fsc1" id="form-start-chat" method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/startchat')?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $input_data->priority !== false ? print '/(priority)/'.$input_data->priority : ''?><?php $input_data->vid !== false ? print '/(vid)/'.htmlspecialchars($input_data->vid) : ''?><?php $input_data->hash_resume !== false ? print '/(hash_resume)/'.htmlspecialchars($input_data->hash_resume) : ''?><?php echo $append_mode_theme?>" onsubmit="return lhinst.addCaptcha('<?php echo time()?>',$(this))">
 
 <?php $formResubmitId = 'form-start-chat'; ?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/auto_resubmit.tpl.php'));?>
@@ -37,28 +37,30 @@
 		<?php else : ?>
 		<div class="form-group<?php if (isset($errors['nick'])) : ?> has-error<?php endif;?>">
 			<label class="control-label" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');?><?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>*<?php endif;?></label>
-			<input maxlength="100" autofocus="autofocus" <?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" class="form-control" type="text" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
+			<input maxlength="100" autofocus="autofocus" <?php if (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your name');?>" class="form-control" type="text" pattern="[a-zA-Z]{3,16}" name="Username" value="<?php echo htmlspecialchars($input_data->username);?>" />
 		</div>
 		<?php endif; ?>
 	<?php endif; ?>
 <?php endif; ?>
 
-<?php if (isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true) : ?>
+<?php 
+//echo '<pre>';print_r($start_data_fields);die;
+//if (isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true) : ?>
 	<?php if (isset($start_data_fields['email_hidden']) && $start_data_fields['email_hidden'] == true) : ?>
 	<input type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 	<?php else : ?>
 		<?php if (in_array('email', $input_data->hattr)) : ?>
-			<input class="form-control" type="hidden" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+			<input class="form-control" type="hideen" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 		<?php else : ?>
 		<div class="form-group<?php if (isset($errors['email'])) : ?> has-error<?php endif;?>">
 			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','E-mail');?><?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>*<?php endif;?></label>
-			<input autofocus="autofocus" <?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" class="form-control" type="text" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
+			<input autofocus="autofocus" <?php if (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your email address')?>" class="form-control" type="email" name="Email" value="<?php echo htmlspecialchars($input_data->email);?>" />
 		</div>
 		<?php endif; ?>
 	<?php endif; ?>
-<?php endif; ?>
+<?php //endif; ?>
 
-<?php if (isset($start_data_fields['phone_visible_in_popup']) && $start_data_fields['phone_visible_in_popup'] == true) : ?>
+<?php //if (isset($start_data_fields['phone_visible_in_popup']) && $start_data_fields['phone_visible_in_popup'] == true) : ?>
 
 <?php if (isset($start_data_fields['phone_hidden']) && $start_data_fields['phone_hidden'] == true) : ?>
 <input type="hidden" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
@@ -68,12 +70,12 @@
 		<?php else : ?>
 		<div class="form-group<?php if (isset($errors['phone'])) : ?> has-error<?php endif;?>">
 			<label class="control-label"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');?><?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>*<?php endif;?></label>
-			<input autofocus="autofocus" <?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" class="form-control" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
+			<input autofocus="autofocus" <?php if (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required') : ?>aria-required="true" required<?php endif;?> aria-label="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" pattern="[0-9]{9}" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Enter your phone')?>" class="form-control" type="text" name="Phone" value="<?php echo htmlspecialchars($input_data->phone);?>" />
 		</div>
 		<?php endif; ?>
 <?php endif; ?>
 
-<?php endif; ?>
+<?php //endif; ?>
 
 <?php $adminCustomFieldsMode = 'on';?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/admin_form_variables.tpl.php'));?>

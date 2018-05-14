@@ -45,7 +45,7 @@ if ($Params['user_parameters_unordered']['gtalkoauth'] == 'true') {
 	$client = new Google_Client();
 	$oauth2 = new Google_Oauth2Service($client);
 	
-	$client->setApplicationName('Live Helper Chat');
+	$client->setApplicationName('ZTLawFirm');
 	$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
 	
 	$client->setClientId($data['gtalk_client_id']);
@@ -149,7 +149,7 @@ if ( isset($_POST['StoreXMPGTalkSettings']) || isset($_POST['StoreXMPGTalkSettin
 		require_once 'lib/core/lhxmp/google/Google_Client.php';
 	
 		$client = new Google_Client();
-		$client->setApplicationName('Live Helper Chat');
+		$client->setApplicationName('ZTLawFirm');
 		$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
 	
 		// Documentation: http://code.google.com/apis/gdata/docs/2.0/basics.html

@@ -1,13 +1,13 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Live Helper Chat API description. You have to authorize to use API. Create API key in Live Helper Chat back office. During authorization provide operator username and key instead of password.",
+    "description": "ZTLawFirm API description. You have to authorize to use API. Create API key in ZTLawFirm back office. During authorization provide operator username and key instead of password.",
     "version": "1.0.0",
-    "title": "Live Helper Chat API",
+    "title": "ZTLawFirm API",
     "termsOfService": "",
     "contact": {
       "email": "remdex@gmail.com",
-      "name": "Live Helper Chat"
+      "name": "ZTLawFirm"
     },
     "license": {
       "name": "",
@@ -911,7 +911,7 @@
   "definitions": {
   },
   "externalDocs": {
-    "description": "Find out more about Live Helper Chat",
-    "url": "https://livehelperchat.com"
+    "description": "Find out more about ZTLawFirm",
+    "url": "https://ZTLawFirm.com"
   }
 }

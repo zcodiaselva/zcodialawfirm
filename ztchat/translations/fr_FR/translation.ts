@@ -1821,12 +1821,12 @@
       <translation>Copier le code du champs vers la page où vous voulez le faire apparaître</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Placer cet élément à l&apos;endroit où vous voulez que le module Live Helper Chatbox apparaisse.</translation>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
+      <translation>Placer cet élément à l&apos;endroit où vous voulez que le module ZTLawFirmbox apparaisse.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Placer cet élément après l&apos;élément du module Live Helper Chatbox</translation>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
+      <translation>Placer cet élément après l&apos;élément du module ZTLawFirmbox</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -1902,11 +1902,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation>Placer cet élément à l&apos;endroit où vous voulez que le module Live Helper Chatbox FAQ apparaisse.</translation>
+      <translation>Placer cet élément à l&apos;endroit où vous voulez que le module ZTLawFirmbox FAQ apparaisse.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation>Placer cet élément après l&apos;élément du module Live Helper Chatbox FAQ</translation>
+      <translation>Placer cet élément après l&apos;élément du module ZTLawFirmbox FAQ</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -8267,8 +8267,8 @@
       <translation>Format de l&apos;heure, par exemple (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Mise à jour de Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Mise à jour de ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Instructions de mise à jour</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Informations de la mise à jour de Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Informations de la mise à jour de ZTLawFirm</translation>
     </message>
   </context>
   <context>

@@ -1821,11 +1821,11 @@
       <translation>Nukopijuokite žemiau esantį kodą į tą vietą, kur norite kad būtų matomas įskiepis</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation>Įterpkite šį kodą kur norite, kad būtų sugeneruotas Chatbox modulis.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation>Įterpkite šį kodą po Chatbox modulio įterpimo kodu.</translation>
     </message>
     <message>
@@ -2006,11 +2006,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation>Įterpkite šį kodą kur norite, kad būtų sugeneruotas Live Helper Chat modulis.</translation>
+      <translation>Įterpkite šį kodą kur norite, kad būtų sugeneruotas ZTLawFirm modulis.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation>Įterpkite šį kodą po Live Helper Chat modulio įterpimo kodu.</translation>
+      <translation>Įterpkite šį kodą po ZTLawFirm modulio įterpimo kodu.</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -2110,11 +2110,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation>Įterpkitę šį kodą kur norite, kad būtų sugeneruotas Live Helper Chat statusas</translation>
+      <translation>Įterpkitę šį kodą kur norite, kad būtų sugeneruotas ZTLawFirm statusas</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation>Įterpkite šį kodą po Live Helper Chat statuso kodu</translation>
+      <translation>Įterpkite šį kodą po ZTLawFirm statuso kodu</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -8267,7 +8267,7 @@
       <translation>Valandų formatas Pvz. (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
+      <source>ZTLawFirm update</source>
       <translation>Live Helpe Chat atnaujinimai</translation>
     </message>
     <message>
@@ -8550,8 +8550,8 @@
       <translation>Atnaujinimo instrukcijos</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Live Helper Chat atnaujinimo informacija</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>ZTLawFirm atnaujinimo informacija</translation>
     </message>
   </context>
   <context>

@@ -1821,11 +1821,11 @@
       <translation> Sao chép mã từ vùng văn bản để trang mà bạn muốn nó được trả lại</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8267,8 +8267,8 @@
       <translation>Định dạng giờ, ví dụ (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Cập nhật Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Cập nhật ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Hướng dẫn cập nhật</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Cập nhật thông tin Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Cập nhật thông tin ZTLawFirm</translation>
     </message>
   </context>
   <context>

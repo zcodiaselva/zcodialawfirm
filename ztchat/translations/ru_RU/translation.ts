@@ -1821,12 +1821,12 @@
       <translation>Скопируйте код из текстового поля на страницу, где вы хотите отобразить этот блок</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Поместите тег там, где должен выводиться модуль Live Helper Chatbox</translation>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
+      <translation>Поместите тег там, где должен выводиться модуль ZTLawFirmbox</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Поместите этот тег после тега модуля Live Helper Chatbox </translation>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
+      <translation>Поместите этот тег после тега модуля ZTLawFirmbox </translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -8268,7 +8268,7 @@
       <translation>Формат времени, например, (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
+      <source>ZTLawFirm update</source>
       <translation>Обновление чата</translation>
     </message>
     <message>
@@ -8551,7 +8551,7 @@
       <translation>Инструкции по обновлению</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
+      <source>ZTLawFirm update information</source>
       <translation>Живой чат дополнительные сведения об обновлении</translation>
     </message>
   </context>

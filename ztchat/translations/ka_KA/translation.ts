@@ -1821,11 +1821,11 @@
       <translation>დააკოპირეთ კოდი გვერდის ტექსტის არედან, სადაც გსურთ რომ აისახოს</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8267,7 +8267,7 @@
       <translation>საათის ფორმატი მაგ. (საათი:სუთი:წამი)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
+      <source>ZTLawFirm update</source>
       <translation>ონალინ დამხმარე ჩეთის განახლება</translation>
     </message>
     <message>
@@ -8550,7 +8550,7 @@
       <translation>განახლების ინსტრუქციები</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
+      <source>ZTLawFirm update information</source>
       <translation>ონლაინ დახმარების ჩეთის  განახლების ინფორმაცია</translation>
     </message>
   </context>

@@ -1821,11 +1821,11 @@
       <translation>Copie o código de área de texto para a página onde você quer que ele seja processado</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation>Coloque esta tag onde você deseja que o chat do Live Helper apareça.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation>Coloque esta tag depois da tag do módulo do chat do Live Helper</translation>
     </message>
     <message>
@@ -8268,8 +8268,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Formato de hora Ex.: (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Atualizar Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Atualizar ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8551,8 +8551,8 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Instruções de atualização</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Informações de atualização do Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Informações de atualização do ZTLawFirm</translation>
     </message>
   </context>
   <context>

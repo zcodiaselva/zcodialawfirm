@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Live Helper Chat update');?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','ZTLawFirm update');?></h1>
 
 <?php if (isset($updated) && $updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Settings updated'); ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
@@ -8,8 +8,8 @@
 	<div class="col-md-4">
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Your version')?> - <?php echo sprintf("%0.2f", erLhcoreClassUpdate::LHC_RELEASE/100);?></h3>
 		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Current version')?> - <span class="success-color" id="recent-version">...</span></h3>
-		<a class="btn btn-default btn-xs" href="http://livehelperchat.com/news-5c.html" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','News')?></a>
-		<a class="btn btn-default btn-xs" href="http://livehelperchat.com/article/view/63" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Update instructions')?></a>
+		<a class="btn btn-default btn-xs" href="http://ZTLawFirm.com/news-5c.html" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','News')?></a>
+		<a class="btn btn-default btn-xs" href="http://ZTLawFirm.com/article/view/63" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Update instructions')?></a>
 		
 	</div>
 	<div class="col-md-8">
@@ -30,7 +30,7 @@ function updateDatabase() {
 (function() {
 	
   $.ajax({
-      url: 'https://livehelperchat.com/update/version',   
+      url: 'https://ZTLawFirm.com/update/version',   
       dataType: 'jsonp',      
       jsonp: 'callback',
       jsonpCallback: 'jsonpCallbackLHC',

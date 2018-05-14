@@ -1821,11 +1821,11 @@
       <translation>Copiaţi codul de zonă de text la pagina în care doriţi să fie prestate</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8267,8 +8267,8 @@
       <translation>Format ora (ex: H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Actualizare Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Actualizare ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Instructiuni de actualizare</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Informatii actualizare Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Informatii actualizare ZTLawFirm</translation>
     </message>
   </context>
   <context>

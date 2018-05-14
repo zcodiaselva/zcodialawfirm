@@ -74,7 +74,7 @@ $FunctionList['configuresmtp'] = array('explain' => 'Allow user to configure SMT
 $FunctionList['configurelanguages'] = array('explain' => 'Allow user to configure languages');
 $FunctionList['changelanguage'] = array('explain' => 'Allow user to change his languages');
 $FunctionList['timezone'] = array('explain' => 'Allow user to change global time zone');
-$FunctionList['performupdate'] = array('explain' => 'Allow user to update Live Helper Chat');
+$FunctionList['performupdate'] = array('explain' => 'Allow user to update ZTLawFirm');
 $FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-mail templates');
 $FunctionList['generate_js_tab'] = array('explain' => 'User can see embed code tab');
 $FunctionList['transferconfiguration'] = array('explain' => 'User can configure transfer options');

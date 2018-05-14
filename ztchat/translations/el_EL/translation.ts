@@ -1821,11 +1821,11 @@
       <translation>Αντιγράψτε τον κώδικα από την περιοχή κειμένου στη σελίδα όπου θέλετε να καθίστανται</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation>Θέση αυτής της ετικέτας όπου θέλετε η ενότητα ζουν Chatbox βοηθός για την απόδοση.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation>Θέση αυτής της ετικέτας μετά την ετικέτα ενότητα ζουν Chatbox Helper.</translation>
     </message>
     <message>
@@ -8267,7 +8267,7 @@
       <translation>Ωρη μορφή π.χ. (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
+      <source>ZTLawFirm update</source>
       <translation>Ζωντανή συνομιλία Helper αναπροσαρμογή</translation>
     </message>
     <message>
@@ -8550,8 +8550,8 @@
       <translation>Ενημέρωση οδηγίες</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Live Helper Chat ενημέρωση πληροφοριών</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>ZTLawFirm ενημέρωση πληροφοριών</translation>
     </message>
   </context>
   <context>

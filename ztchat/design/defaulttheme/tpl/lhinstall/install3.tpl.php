@@ -1,4 +1,4 @@
-<img src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="Live Helper Chat" title="Live Helper Chat" />
+<img src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="ZTLawFirm" title="ZTLawFirm" />
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('install/install')?>/3" method="post" autocomplete="off" >
 <h1>Installation step 3</h1>

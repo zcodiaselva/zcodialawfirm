@@ -1821,12 +1821,12 @@
       <translation>Zkopírujte kód z textového okna do místa v kódu stránky, kde chcete zobrazovat okno LHC </translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Umístěte tento tag na místo, kde chcete vykreslit Live Helper Chatbox modul.</translation>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
+      <translation>Umístěte tento tag na místo, kde chcete vykreslit ZTLawFirmbox modul.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Umístěte tento tag za tagem Live Helper Chatbox modulu.</translation>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
+      <translation>Umístěte tento tag za tagem ZTLawFirmbox modulu.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -8267,8 +8267,8 @@
       <translation>Formát hodin, např. (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Aktualizace Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Aktualizace ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Instrukce k aktualizaci</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Informace k aktualizaci Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Informace k aktualizaci ZTLawFirm</translation>
     </message>
   </context>
   <context>

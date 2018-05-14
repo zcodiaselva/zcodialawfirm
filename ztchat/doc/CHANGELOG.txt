@@ -645,7 +645,7 @@ Sponsored release
 2. Futher Bootstrap fixes. Were missing some places with old foundation 4 syntax.
 3. A little bit refactored chat window. Removed subtabs.
 4. Microphone settings moved to actions block and in it's place added automatic translations button.
-5. Allow operators to chat even if they do not have permission to open others operators chats. https://forum.livehelperchat.com/viewtopic.php?id=1019
+5. Allow operators to chat even if they do not have permission to open others operators chats. https://forum.ZTLawFirm.com/viewtopic.php?id=1019
 6. Right columns nicer interface
 7. Co-Browsing scroll sync stopped to work after jQuery update. Switched to native JS API
 
@@ -1088,7 +1088,7 @@ Features
 Bugfixes
 1. FF browsers did not showed scrollbar in popup.
 2. Then chat was accepted using chrome browser notification was not hidden automatically. Seems there was some internal browser API changes.
-3. Some complex cases fixed then site is using https and in some places http. Read http://livehelperchat.com/how-to-configure-https-and-http-259a.html
+3. Some complex cases fixed then site is using https and in some places http. Read http://ZTLawFirm.com/how-to-configure-https-and-http-259a.html
 4. Correct cache key for chatbox then memcached is used.
 
 execute doc/update_db/update_71.sql for update
@@ -1682,7 +1682,7 @@ execute doc/update_db/update_33.sql
 2. Then you open let say three chats at the same time and close one. I now activate the very first tab to left. Feels very natural closing workflow.
 3. Fixed bug, then closing chat in tab it removed subtabs from other chat tabs.
 4. Added more clear way what embed codes system can generate
-5. Switched to https support by using double slash E.g //demo.livehelperchat.com -  so I do not have to detect in what enviroment we are running.
+5. Switched to https support by using double slash E.g //demo.ZTLawFirm.com -  so I do not have to detect in what enviroment we are running.
 6. You now can disable or enable invitation if there is or not online operators.
 7. You can set online visitors timeout, to see only the recent visitors.
 8. Check messages from operator JS call won't be counted as last visit.
@@ -2040,8 +2040,8 @@ execute doc/update_db/update_12.sql
 
 1. Canned messages
 execute doc/update_db/update_10.sql
-http://livehelperchat.com/canned-messages-feature-93a.html
-http://livehelperchat.com/canned-messages-92a.html
+http://ZTLawFirm.com/canned-messages-feature-93a.html
+http://ZTLawFirm.com/canned-messages-92a.html
 
 2. Now the operator and user can see when each is typing.
 https://github.com/remdex/livehelperchat/issues/4
@@ -2120,7 +2120,7 @@ No new features was implemented.
 1.01v
 
 1. Added a header background
-2. Added a logo of Live Helper Chat
+2. Added a logo of ZTLawFirm
 
 ******************************
 1.0v Initial release 2009-07-26

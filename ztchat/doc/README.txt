@@ -9,5 +9,5 @@ Live helper chat
   http://www.apache.org/licenses/LICENSE-2.0
   
   More information
-  https://livehelperchat.com/commercial-support-13c.html
+  https://ZTLawFirm.com/commercial-support-13c.html
 ************************

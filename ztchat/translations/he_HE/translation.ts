@@ -1821,12 +1821,12 @@
       <translation>העתק את הקוד לדף בו אתה רוצה שהצ&apos;אט יוצג</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>מקם את התג במקום שבו תרצה שהמודול  Live Helper Chatbox  יוצג</translation>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
+      <translation>מקם את התג במקום שבו תרצה שהמודול  ZTLawFirmbox  יוצג</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>מקם את התג אחרי התג  Live Helper Chatbox </translation>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
+      <translation>מקם את התג אחרי התג  ZTLawFirmbox </translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -8267,8 +8267,8 @@
       <translation>פורמט שעה, לדוגמה (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>עדכן את Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>עדכן את ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>הוראות עדכון</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>הוראות עדכון Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>הוראות עדכון ZTLawFirm</translation>
     </message>
   </context>
   <context>

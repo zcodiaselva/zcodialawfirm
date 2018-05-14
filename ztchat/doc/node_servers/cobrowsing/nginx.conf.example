@@ -17,7 +17,7 @@
 // Path in lhc in this case has to be just empty
 server {
     listen         *:80;
-    server_name     nodecobrowsing.livehelperchat.com;
+    server_name     nodecobrowsing.ZTLawFirm.com;
     
     location / {
           proxy_set_header X-Real-IP $remote_addr;

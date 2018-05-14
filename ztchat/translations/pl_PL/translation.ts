@@ -1821,12 +1821,12 @@
       <translation>Skopiuj kod z pola tekstowego i wklej do kodu strony, na której chcesz, aby wyświetlał się widżet</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Umieść ten znacznik tam, gdzie moduł Live Helper Chatu ma się wyświetlać.</translation>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
+      <translation>Umieść ten znacznik tam, gdzie moduł ZTLawFirmu ma się wyświetlać.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Umieść ten znacznik po znaczniku modułu Live Helper Chatu</translation>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
+      <translation>Umieść ten znacznik po znaczniku modułu ZTLawFirmu</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -1902,11 +1902,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper FAQ module to render.</source>
-      <translation>Umieść ten znacznik tam, gdzie moduł FAQ Live Helper Chatu ma się wyświetlać.</translation>
+      <translation>Umieść ten znacznik tam, gdzie moduł FAQ ZTLawFirmu ma się wyświetlać.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper FAQ module tag.</source>
-      <translation>Umieść ten znaczniku modułu FAQ Live Helper Chatu.</translation>
+      <translation>Umieść ten znaczniku modułu FAQ ZTLawFirmu.</translation>
     </message>
     <message>
       <source>Status text</source>
@@ -1930,11 +1930,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Questionary module to render.</source>
-      <translation>Umieść ten znacznik tam, gdzie ma się wyświetlać moduł kwestionariusza Live Helper Chatu.</translation>
+      <translation>Umieść ten znacznik tam, gdzie ma się wyświetlać moduł kwestionariusza ZTLawFirmu.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Questionary module tag.</source>
-      <translation>Umieść ten znacznik po module kwestionariusza Live Helper Chatu.</translation>
+      <translation>Umieść ten znacznik po module kwestionariusza ZTLawFirmu.</translation>
     </message>
     <message>
       <source>Help us to grow</source>
@@ -2006,11 +2006,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Plugin to render.</source>
-      <translation>Umieść ten znacznik tam, gdzie ma się wyświetlać Plugin Live Helper Chatu.</translation>
+      <translation>Umieść ten znacznik tam, gdzie ma się wyświetlać Plugin ZTLawFirmu.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper Plugin tag.</source>
-      <translation>Umieść ten znacznik po znaczniku modułu Plugin Live Helper Chatu.</translation>
+      <translation>Umieść ten znacznik po znaczniku modułu Plugin ZTLawFirmu.</translation>
     </message>
     <message>
       <source>On a mouse click show the page widget</source>
@@ -2110,11 +2110,11 @@
     </message>
     <message>
       <source>Place this tag where you want the Live Helper Status to render.</source>
-      <translation>Umieść ten znacznik tam, gdzie ma się wyświetlać Status Live Helper Chatu.</translation>
+      <translation>Umieść ten znacznik tam, gdzie ma się wyświetlać Status ZTLawFirmu.</translation>
     </message>
     <message>
       <source>Place this tag after the Live Helper status tag.</source>
-      <translation>Umieść ten znacznik po znaczniku modułu Statusu Live Helper Chatu.</translation>
+      <translation>Umieść ten znacznik po znaczniku modułu Statusu ZTLawFirmu.</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -8267,7 +8267,7 @@
       <translation>Format godzinny np (H:m:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
+      <source>ZTLawFirm update</source>
       <translation>Aktualizacja aplikacji</translation>
     </message>
     <message>
@@ -8550,7 +8550,7 @@
       <translation>Instrukcje aktualizacji</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
+      <source>ZTLawFirm update information</source>
       <translation>Informacja o aktualizacji aplikacji</translation>
     </message>
   </context>

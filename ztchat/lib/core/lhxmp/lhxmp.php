@@ -56,7 +56,7 @@ class erLhcoreClassXMP {
 				require_once 'lib/core/lhxmp/google/Google_Client.php';
 				
 				$client = new Google_Client();
-				$client->setApplicationName('Live Helper Chat');
+				$client->setApplicationName('ZTLawFirm');
 				$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
 				$client->setClientId($data['gtalk_client_id']);
 				$client->setClientSecret($data['gtalk_client_secret']);
@@ -97,7 +97,7 @@ class erLhcoreClassXMP {
 												
 				require_once 'lib/core/lhxmp/google/Google_Client.php';				
 				$client = new Google_Client();
-				$client->setApplicationName('Live Helper Chat');
+				$client->setApplicationName('ZTLawFirm');
 				$client->setScopes(array("https://www.googleapis.com/auth/googletalk","https://www.googleapis.com/auth/userinfo.email"));
 				$client->setClientId($data['gtalk_client_id']);
 				$client->setClientSecret($data['gtalk_client_secret']);

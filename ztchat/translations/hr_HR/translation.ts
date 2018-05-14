@@ -1821,11 +1821,11 @@
       <translation>Kopiraj kod iz kućice s tekstom na stranicu na kojoj treba biti prikazan</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8267,8 +8267,8 @@
       <translation>Format sati, npr. (S:m:e)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Ažuriranje za Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Ažuriranje za ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Ažuriraj upute</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Informacije o ažuriranju Live Helper Chata.</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Informacije o ažuriranju ZTLawFirma.</translation>
     </message>
   </context>
   <context>

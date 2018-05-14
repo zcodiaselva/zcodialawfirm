@@ -1821,11 +1821,11 @@
       <translation>Kopier koden fra tekstområdet til siden hvor du ønsker det skal gengives</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8267,8 +8267,8 @@
       <translation>Timeformat fx (T:m:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Live Helper Chat opdatering</translation>
+      <source>ZTLawFirm update</source>
+      <translation>ZTLawFirm opdatering</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Opdateringensinstrukser</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Live Helper Chat opdateringsoplysninger</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>ZTLawFirm opdateringsoplysninger</translation>
     </message>
   </context>
   <context>

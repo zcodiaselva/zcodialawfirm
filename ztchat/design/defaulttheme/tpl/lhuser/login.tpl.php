@@ -13,7 +13,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif;?>
 
-<form id="form-start-chat" method="post" action="<?php echo erLhcoreClassDesign::baseurl('user/login')?>">
+<form id="form-start-chat" class="fsc_admin" method="post" action="<?php echo erLhcoreClassDesign::baseurl('user/login')?>">
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Username');?></label>

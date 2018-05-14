@@ -1,1 +1,1 @@
-'<!-- '+<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Place this tag where you want the Live Helper Chatbox module to render.')))?>+' -->'
+'<!-- '+<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Place this tag where you want the ZTLawFirmbox module to render.')))?>+' -->'

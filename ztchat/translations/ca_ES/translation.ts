@@ -1821,11 +1821,11 @@
       <translation>Copieu el codi des-de l&apos;àrea de text a la pàgina on voleu que sigui mostrat</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Col·loqueu aquesta etiqueta allà on vulgueu mostrar el xat integrat de Live Helper Chat.</translation>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
+      <translation>Col·loqueu aquesta etiqueta allà on vulgueu mostrar el xat integrat de ZTLawFirm.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
       <translation>Col·loqueu aquesta etiqueta a sota l&apos;etiqueta del xat integrat de LHC.</translation>
     </message>
     <message>
@@ -8268,8 +8268,8 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Format horari. P. ex. H:i:s</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Actualització de Live Helper Chat</translation>
+      <source>ZTLawFirm update</source>
+      <translation>Actualització de ZTLawFirm</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8551,8 +8551,8 @@ dashboard, online_map, online_users, pending_chats, online_map, active_chats, un
       <translation>Instruccions d&apos;actualització</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Informació d&apos;actualització de Live Helper Chat</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>Informació d&apos;actualització de ZTLawFirm</translation>
     </message>
   </context>
   <context>

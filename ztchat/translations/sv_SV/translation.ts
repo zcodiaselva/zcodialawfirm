@@ -1821,12 +1821,12 @@
       <translation>Kopiera koden från textrutan till sidan där du vill att den ska visas</translation>
     </message>
     <message>
-      <source>Place this tag where you want the Live Helper Chatbox module to render.</source>
-      <translation>Placera denna taggen där du vill att Live Helper Chattbox-modulen ska visas.</translation>
+      <source>Place this tag where you want the ZTLawFirmbox module to render.</source>
+      <translation>Placera denna taggen där du vill att ZTLawFirmtbox-modulen ska visas.</translation>
     </message>
     <message>
-      <source>Place this tag after the Live Helper Chatbox module tag.</source>
-      <translation>Placera denna taggen efter Live Helper Chattbox-modulens tagg.</translation>
+      <source>Place this tag after the ZTLawFirmbox module tag.</source>
+      <translation>Placera denna taggen efter ZTLawFirmtbox-modulens tagg.</translation>
     </message>
     <message>
       <source>Chatbox</source>
@@ -4731,7 +4731,7 @@
     </message>
     <message>
       <source>Update information</source>
-      <translation>Uppdateringsinformation för Live Helper Chat</translation>
+      <translation>Uppdateringsinformation för ZTLawFirm</translation>
     </message>
     <message>
       <source>Pro active chat invitations</source>
@@ -8267,8 +8267,8 @@
       <translation>Timformat, exempelvis (H:i:s)</translation>
     </message>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>Live Helper Chat uppdatering</translation>
+      <source>ZTLawFirm update</source>
+      <translation>ZTLawFirm uppdatering</translation>
     </message>
     <message>
       <source>Comparing current database structure, please wait...</source>
@@ -8550,8 +8550,8 @@
       <translation>Instruktioner för uppdatering</translation>
     </message>
     <message>
-      <source>Live Helper Chat update information</source>
-      <translation>Live Helper Chat uppdateringsinformation</translation>
+      <source>ZTLawFirm update information</source>
+      <translation>ZTLawFirm uppdateringsinformation</translation>
     </message>
   </context>
   <context>
