@@ -321,7 +321,6 @@ class Contact extends CI_Controller {
 
         $data1['logo_details'] = $this->contact_model->getData('*', $this->logo_table, array('logo_status' => 1, 'logo_deleted' => 0), 'logo_id');
         $returndata['admin_mail'] = $this->load->view('email_template/email',$data1,true);
-        //$returndata['admin_mail'] = $this->load->view('email_template/email_template_admin', $data1, true);
         $returndata['user_mail'] = $this->load->view('email_template/email_template_user', $data1, true);
 
         $admin_mail = array('from' => 'murali.zt91emp24@gmail.com', 'name' => 'Admin', 'to' => $mail, 'subject' => 'You got a mail from a User - Lawyer', 'message' => $returndata['admin_mail']);

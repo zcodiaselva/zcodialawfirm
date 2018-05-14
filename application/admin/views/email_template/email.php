@@ -1,8 +1,17 @@
 <!doctype html>
 <?php
-$logo_image = '';
+$logo_image = $logo_height = $logo_width = '';
 if (isset($logo_details) && !empty($logo_details)) {
     $logo_image = $logo_details[0]['logo_image'];
+    $logo_height = $logo_details[0]['logo_header_height'];
+    $logo_width = $logo_details[0]['logo_header_width'];
+}
+$message = $name = $from = $to = '';
+if (isset($admin_data) && !empty($admin_data)) {
+    $from = $admin_data['from'];
+    $name = $admin_data['name'];
+    $to = $admin_data['to'];
+    $message = $admin_data['message'];
 }
 ?>
 <html>
@@ -297,26 +306,25 @@ if (isset($logo_details) && !empty($logo_details)) {
                                     <table border="0" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td>
-                                                <div class="logo_img1 "><img class="logo_img" src="<?php echo base_url(). $logo_image; ?>" /></div>
+                                                <div class="logo_img1 "><img class="logo_img" src="<?php echo base_url() . $logo_image; ?>" /></div>
                                                 <p>Hi there,</p>
-                                                <p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
-                                                <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="left">
-                                                                <table border="0" cellpadding="0" cellspacing="0">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td> <a href="http://htmlemail.io" target="_blank">Call To Action</a> </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
+                                                <p>You got a mail from the below mentioned user.</p>
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td width="10%">&nbsp;</td>
+                                                        <td width="80%" align="left" valign="top">
+                                                            <table>
+                                                                <tr><td>Name</td><td>:</td><td><?php echo $name; ?></td></tr>
+                                                                <tr><td>Email Address</td><td>:</td><td><?php echo $from; ?></td></tr>
+                                                                <tr><td>Message</td><td>:</td><td><?php echo $message; ?></td></tr>
+                                                            </table>
+
+                                                        </td>
+                                                        <td width="10%">&nbsp;</td>
+                                                    </tr>
+                                                    
                                                 </table>
-                                                <p>This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.</p>
-                                                <p>Good luck! Hope it works.</p>
+
                                             </td>
                                         </tr>
                                     </table>
@@ -327,11 +335,11 @@ if (isset($logo_details) && !empty($logo_details)) {
                         </table>
 
                         <!-- START FOOTER -->
-                        <div class="footer">
+                        <div class="footer hide">
                             <table border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td class="content-block">
-                                        <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
+                                        <span class="apple-link">Plot no:3, Flat no: F3, Telephone Colony 1st Street, Adambakkam, Chennai-88.</span>
                                     </td>
                                 </tr>
                                 <tr>

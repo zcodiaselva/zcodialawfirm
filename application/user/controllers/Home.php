@@ -42,6 +42,7 @@ class Home extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('home_model');
         $this->load->library('ConvertColorCode');
+        $this->load->library('Lhc');
 
         $this->data['home_slider_details'] = $this->home_model->getData('*', $this->home_slider, array('hs_status' => 1, 'hs_deleted' => 0));
         $this->data['home_sliderbox_details'] = $this->home_model->getData('*', $this->home_slider_box, array('hsb_status' => 1, 'hsb_deleted' => 0));
@@ -82,6 +83,9 @@ class Home extends CI_Controller {
         $this->data['about_testimonial'] = $this->home_model->getData('*', $this->about_testimonial_table, array('abt_tm_status' => 1, 'abt_tm_deleted' => 0), 'abt_tm_id');
         $this->data['about_consultation'] = $this->home_model->getData('*', $this->about_consultation_table, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0), 'abt_consult_id');
         $this->data['dropdown_menus'] = $this->home_model->getData('*', $this->menu_table, array('menu_active' => 1, 'menu_status' => 1, 'menu_deleted' => 0));
+    
+        $this->data['lhc'] = $this->lhc->init();
+        
     }
 
     public function index() {
