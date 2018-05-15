@@ -77,7 +77,7 @@ class News extends CI_Controller {
         $this->data['wcu_types'] = $this->news_model->getData('*', $this->wcuTypes_table, array('wcu_type_status' => 1, 'wcu_type_deleted' => 0), 'wcu_type_id', 3);
         $this->data['disclaimer'] = $this->news_model->getData('*', $this->disclaimer_table, array('disclaimer_status' => 1, 'disclaimer_deleted' => 0), 'disclaimer_id', 3);
         $this->data['seo_header'] = $this->news_model->getData('*', $this->seo_header_table, array('sh_status' => 1, 'sh_deleted' => 0), 'sh_id');
-        $this->data['seo_page'] = $this->news_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == 'news' ? 'News' : ''), 'sp_status' => 1, 'sp_deleted' => 0));
+        $this->data['seo_page'] = $this->news_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == '' ? 'Home' : $this->uri->segment(1)), 'sp_status' => 1, 'sp_deleted' => 0));
         // $this->data['footer_submenus'] = $this->home_model->getSubMenus();
         $this->data['footer_submenus'] = $this->news_model->getData('*', $this->practiceAreaTypes, array('pat_home_flag' => 1, 'pat_status' => 1, 'pat_deleted' => 0));
         $this->data['google_map_entries'] = $this->news_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));

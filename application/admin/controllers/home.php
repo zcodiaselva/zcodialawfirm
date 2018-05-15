@@ -270,7 +270,6 @@ class Home extends CI_Controller {
     }
 
     function get_HomeSliderItems() { // for datatable
-        // $data1 = $this->data;
         $this->data1 = array();
         $data = array();
         $aitems_options = array();
@@ -304,7 +303,6 @@ class Home extends CI_Controller {
     }
 
     function get_HomeCounterItems() { // for datatable
-        // $data1 = $this->data;
         $this->data1 = array();
         $data = array();
         $aitems_options = array();
@@ -442,8 +440,6 @@ class Home extends CI_Controller {
         }
 
         if (!empty($_FILES['HomeTMS_image_sign']['name'])) {
-            echo 'here';
-            die;
             $TMS_image_sign = $this->fileupload->custom_file_upload('HomeTMS_image_sign', $foldername);
         }
 
@@ -483,7 +479,6 @@ class Home extends CI_Controller {
                 }
             }
 
-
             if (isset($TMSItem['tms_image_sign']) && !empty($TMSItem['tms_image_sign']) && isset($IsEmpty_TMSItem) && !empty($IsEmpty_TMSItem)) {
                 if (isset($isTMSItemExists[0]['tms_image_sign']) && !empty($isTMSItemExists[0]['tms_image_sign'])) {
                     if (file_exists($isTMSItemExists[0]['tms_image_sign'])) {
@@ -518,18 +513,7 @@ class Home extends CI_Controller {
         $foldername = 'Home_Counter';
 
         if (!empty($_FILES['hc_image']['name'])) {
-            $actual_hc_bg_image = $_FILES['hc_image']['name'];
-            $info = new SplFileInfo($_FILES['hc_image']['name']);
-            $hc_image = $date->getTimestamp() . 'hc_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('hc_image', $hc_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $hc_image = 'uploads/' . $upd_foldername . $hc_image;
-                } else {
-                    $hc_image = 'uploads/' . $hc_image;
-                }
-            }
+            $hc_image = $this->fileupload->custom_file_upload('hc_image', $foldername);
         }
 
         $hc_item = array(
@@ -645,24 +629,20 @@ class Home extends CI_Controller {
         if (!empty($_FILES['hsb_buttonimage']['name'])) {
             $hsb_button_image = $this->fileupload->custom_file_upload('hsb_buttonimage', $foldername);
         }
-
         $hsb_item = array(
             'hsb_percentage' => $this->input->post('hsb_percentage'),
             'hsb_text' => $this->input->post('hsb_text'),
             'hsb_buttonlink' => $this->input->post('hsb_buttonlink'),
         );
-
         if (isset($hsb_button_image) && !empty($hsb_button_image)) {
             $hsb_item['hsb_buttonimage'] = cleanurl($hsb_button_image);
         }
-
         $isAboutMeExists = $this->home_model->searchContent($this->home_slider_box, array('hsb_status' => 1));
         if ($isAboutMeExists == 0) {
             $inserted = $this->home_model->insertData($this->home_slider_box, $hsb_item);
         } else {
             $inserted = $this->home_model->updateData($this->home_slider_box, $hsb_item, array('hsb_status' => 1));
         }
-
         echo $inserted;
     }
 
@@ -711,7 +691,6 @@ class Home extends CI_Controller {
             $update_value = array('hs_deleted' => 1);
             $deleted = $this->home_model->deleteData($from, $where, $update_value);
         }
-
         echo $deleted;
     }
 
@@ -724,7 +703,6 @@ class Home extends CI_Controller {
             $update_value = array('hc_deleted' => 1);
             $deleted = $this->home_model->deleteData($from, $where, $update_value);
         }
-
         echo $deleted;
     }
 
@@ -737,7 +715,6 @@ class Home extends CI_Controller {
             $update_value = array('tms_deleted' => 1);
             $deleted = $this->home_model->deleteData($from, $where, $update_value);
         }
-
         echo $deleted;
     }
 
@@ -750,7 +727,6 @@ class Home extends CI_Controller {
             $update_value = array('ht_deleted' => 1);
             $deleted = $this->home_model->deleteData($from, $where, $update_value);
         }
-
         echo $deleted;
     }
 
@@ -770,7 +746,6 @@ class Home extends CI_Controller {
         } else {
             $inserted = $this->home_model->updateData($this->about_consultation_table, $ConsultationItems, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0));
         }
-
         echo $inserted;
     }
 

@@ -326,7 +326,6 @@ class Header extends CI_Controller {
             //  echo '<pre>';print_r($isLogoDetailsExists);die;
             $inserted = $this->header_model->updateData($this->logo_table, $logoDetails, array('logo_status' => 1, 'logo_deleted' => 0));
         }
-
         echo $inserted;
     }
 
@@ -344,7 +343,6 @@ class Header extends CI_Controller {
         if (!empty($_FILES['appt_clock_image']['name'])) {
             $appt_clock_image_upload = $this->fileupload->custom_file_upload('appt_clock_image', $foldername);
         }
-
 
         $appointmentDetails = array(
             'appt_phone' => $this->input->post('appt_phone'),
@@ -369,7 +367,6 @@ class Header extends CI_Controller {
         } else {
             $inserted = $this->header_model->updateData($this->appt_table, $appointmentDetails, array('appt_status' => 1, 'appt_deleted' => 0));
         }
-
         echo $inserted;
     }
 

@@ -44,7 +44,7 @@ class Attorney extends CI_Controller {
         $this->load->model('home_model');
         $this->load->library('ConvertColorCode');
         $this->load->helper('text');
-        
+
         $this->data['about_attorney'] = $this->attorney_model->getData('*', $this->aboutAttorney_table, array('atty_status' => 1, 'atty_deleted' => 0), 'atty_id');
         $this->data['attorney_details'] = $this->attorney_model->getAttorneyData();
         $this->data['attorney_skills'] = $this->attorney_model->getData('*', $this->attorney_skills_table, array('atty_skill_status' => 1, 'atty_skill_deleted' => 0), 'atty_skill_id');
@@ -65,6 +65,8 @@ class Attorney extends CI_Controller {
         $this->data['footer_submenus'] = $this->attorney_model->getData('*', $this->practiceAreaTypes, array('pat_home_flag' => 1, 'pat_status' => 1, 'pat_deleted' => 0));
         $this->data['about_consultation'] = $this->attorney_model->getData('*', $this->about_consultation_table, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0), 'abt_consult_id');
         $this->data['footer_about'] = $this->attorney_model->getData('c_content', 'contactus', array('c_name' => 'footer_content', 'c_status' => 1, 'c_deleted' => 0, 'c_type' => 1));
+        $this->data['seo_header'] = $this->attorney_model->getData('*', $this->seo_header_table, array('sh_status' => 1, 'sh_deleted' => 0), 'sh_id');
+        $this->data['seo_page'] = $this->attorney_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == '' ? 'Home' : $this->uri->segment(1)), 'sp_status' => 1, 'sp_deleted' => 0));
     }
 
     public function index() {

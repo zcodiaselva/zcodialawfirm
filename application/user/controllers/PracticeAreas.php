@@ -67,6 +67,9 @@ class PracticeAreas extends CI_Controller {
         $this->data['footer_submenus'] = $this->pa_model->getData('*', $this->practiceAreaTypes, array('pat_home_flag' => 1, 'pat_status' => 1, 'pat_deleted' => 0));
         $this->data['about_consultation'] = $this->pa_model->getData('*', $this->about_consultation_table, array('abt_consult_status' => 1, 'abt_consult_deleted' => 0), 'abt_consult_id');
         $this->data['practicearea_category'] = $this->pa_model->getData('*', $this->practiceAreaDetail, array('pad_status' => 1, 'pad_deleted' => 0));
+        $this->data['seo_header'] = $this->pa_model->getData('*', $this->seo_header_table, array('sh_status' => 1, 'sh_deleted' => 0), 'sh_id');
+        $this->data['seo_page'] = $this->pa_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == '' ? 'Home' : $this->uri->segment(1)), 'sp_status' => 1, 'sp_deleted' => 0));
+        
     }
 
     public function index() {

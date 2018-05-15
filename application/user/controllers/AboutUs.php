@@ -34,7 +34,7 @@ class AboutUs extends CI_Controller {
         $this->data['contactus_social'] = $this->aboutus_model->getData('*', 'contactus', array('c_status' => 1, 'c_deleted' => 0, 'c_type' => 2));
         $this->data['contactus_footer'] = $this->aboutus_model->getData('*', 'contactus', array('c_status' => 1, 'c_deleted' => 0, 'c_type' => 3));
         $this->data['seo_header'] = $this->aboutus_model->getData('*', $this->seo_header_table, array('sh_status' => 1, 'sh_deleted' => 0), 'sh_id');
-        $this->data['seo_page'] = $this->aboutus_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == 'aboutus' ? 'AboutUs' : ''), 'sp_status' => 1, 'sp_deleted' => 0));
+        $this->data['seo_page'] = $this->aboutus_model->getData('*', $this->seo_page_table, array('sp_name' => ($this->uri->segment(1) == 'aboutus' ? 'AboutUs' : $this->uri->segment(1)), 'sp_status' => 1, 'sp_deleted' => 0));
         $this->data['google_map_entries'] = $this->aboutus_model->getData('*', $this->map_table, array('map_status' => 1, 'map_deleted' => 0));
         $this->data['about_attorney'] = $this->aboutus_model->getData('*', $this->aboutAttorney_table, array('atty_status' => 1, 'atty_deleted' => 0), 'atty_id');
         $this->data['attorney_details'] = $this->home_model->getAttorneyData();
