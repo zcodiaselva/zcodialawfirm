@@ -48,7 +48,7 @@ class FileUpload {
     }
 
     public function upload_files($file, $filename, $folder_name = false) {
-       
+
         $chkfolder = $config = '';
 
         if (isset($folder_name) && !empty($folder_name)) {
@@ -63,42 +63,35 @@ class FileUpload {
         $config['allowed_types'] = 'gif|jpg|png';
         $config['file_name'] = $filename;
 
-//        $files = $_FILES;
-//        for ($i = 0; $i < count($_FILES[$file]['name']); $i++) {
-//            $_FILES[$file]['name'] = $files[$file]['name'][$i];
-//            $_FILES[$file]['type'] = $files[$file]['type'][$i];
-//            $_FILES[$file]['tmp_name'] = $files[$file]['tmp_name'][$i];
-//            $_FILES[$file]['error'] = $files[$file]['error'][$i];
-//            $_FILES[$file]['size'] = $files[$file]['size'][$i];
-
-
-            $this->CI->upload->initialize($config);
-           
-            if (!$this->CI->upload->do_upload($file)) {
-                $error = array('error' => $this->CI->upload->display_errors());
-                echo '<pre>error_upload:';
-                print_r($error);
-                die;
-                return false;
-            } else {
-                return $this->CI->upload->data();
-            }
-//        }
-    }
-
-    public function cupload($file, $filename) {
-        $config['upload_path'] = "uploads/";
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['file_name'] = $filename;
-
-
         $this->CI->upload->initialize($config);
+
         if (!$this->CI->upload->do_upload($file)) {
             $error = array('error' => $this->CI->upload->display_errors());
+            echo '<pre>error_upload:';
+            print_r($error);
+            die;
             return false;
         } else {
             return $this->CI->upload->data();
         }
+    }
+
+    public function custom_file_upload($file, $foldername = false) {
+        $date = new DateTime();
+        if (!empty($_FILES[$file]['name'])) {
+            $info = new SplFileInfo($_FILES[$file]['name']);
+            $file_name = $date->getTimestamp() . $file . '.' . $info->getExtension();
+            if ($this->uploadfile($file, $file_name, $foldername)) {
+                if (isset($foldername) && !empty($foldername)) {
+                    $upd_foldername = $foldername . '/';
+                    $file_name = 'uploads/' . $upd_foldername . $file_name;
+                } else {
+                    $file_name = 'uploads/' . $file_name;
+                }
+            }
+        }
+      
+        return $file_name;
     }
 
 }

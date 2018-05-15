@@ -352,40 +352,16 @@ class Home extends CI_Controller {
 
     function update_testimonials() { //on trigger of testimonials_submit()
         $inserted = 0;
-        $date = new DateTime();
-        $testimonial_image = $actual_testimonial_image = $isAboutItemExists = $testimonial_bg_Item = '';
-        $testimonial_bg_image = $actual_testimonial_bg_image = '';
+        $testimonial_image = $isAboutItemExists = $testimonial_bg_Item = '';
+        $testimonial_bg_image = '';
         $foldername = 'Testimonials';
         if (!empty($_FILES['testimonial_image']['name'])) {
-
-            $actual_testimonial_image = $_FILES['testimonial_image']['name'];
-            $info = new SplFileInfo($_FILES['testimonial_image']['name']);
-            $testimonial_image = $date->getTimestamp() . 'testimonial_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('testimonial_image', $testimonial_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $testimonial_image = 'uploads/' . $upd_foldername . $testimonial_image;
-                } else {
-                    $testimonial_image = 'uploads/' . $testimonial_image;
-                }
-            }
+            $testimonial_image = $this->fileupload->custom_file_upload('testimonial_image', $foldername);
         }
 
         if (!empty($_FILES['testimonial_bg_image']['name'])) {
-
-            $actual_testimonial_bg_image = $_FILES['testimonial_bg_image']['name'];
-            $info = new SplFileInfo($_FILES['testimonial_bg_image']['name']);
-            $testimonial_bg_image = $date->getTimestamp() . 'testimonial_bg_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('testimonial_bg_image', $testimonial_bg_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $testimonial_bg_image = 'uploads/' . $upd_foldername . $testimonial_bg_image;
-                } else {
-                    $testimonial_bg_image = 'uploads/' . $testimonial_bg_image;
-                }
-            }
+            $testimonial_bg_image = $this->fileupload->custom_file_upload('testimonial_bg_image', $foldername);
         }
-
 
         $testimonialItem = array('ht_value' => $this->input->post('txtTMName'),
             'ht_text' => $this->input->post('txtHomeTMContent')
@@ -444,9 +420,7 @@ class Home extends CI_Controller {
 
     function update_disclaimer() {      // update for disclaimer content - form_submit action
         $inserted = 0;
-
         $disclaimerData = array('disclaimer_content' => $this->input->post('disclaimer_content'));
-
         $isDisclaimerExists = $this->home_model->searchContent($this->disclaimer_table, array('disclaimer_status' => 1, 'disclaimer_deleted' => 0)); //insert - table, where
 
         if (empty($isDisclaimerExists)) {
@@ -460,37 +434,17 @@ class Home extends CI_Controller {
 
     function update_TMS() { // update for testimonial slider - tms_form_submit action
         $inserted = 0;
-        $date = new DateTime();
-        $TMS_image = $actual_TMS_image = $isTMSItemExists = '';
-        $TMS_image_sign = $actual_TMS_image_sign = '';
+        $TMS_image = $isTMSItemExists = $TMS_image_sign = '';
         $foldername = 'Testimonials';
 
         if (!empty($_FILES['HomeTMS_image']['name'])) {
-            $actual_TMS_image = $_FILES['HomeTMS_image']['name'];
-            $info = new SplFileInfo($_FILES['HomeTMS_image']['name']);
-            $TMS_image = $date->getTimestamp() . 'HomeTMS_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('HomeTMS_image', $TMS_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $TMS_image = 'uploads/' . $upd_foldername . $TMS_image;
-                } else {
-                    $TMS_image = 'uploads/' . $TMS_image;
-                }
-            }
+            $TMS_image = $this->fileupload->custom_file_upload('HomeTMS_image', $foldername);
         }
 
         if (!empty($_FILES['HomeTMS_image_sign']['name'])) {
-            $actual_TMS_image_sign = $_FILES['HomeTMS_image_sign']['name'];
-            $info = new SplFileInfo($_FILES['HomeTMS_image_sign']['name']);
-            $TMS_image_sign = $date->getTimestamp() . 'HomeTMS_image_sign.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('HomeTMS_image_sign', $TMS_image_sign, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $TMS_image_sign = 'uploads/' . $upd_foldername . $TMS_image_sign;
-                } else {
-                    $TMS_image_sign = 'uploads/' . $TMS_image_sign;
-                }
-            }
+            echo 'here';
+            die;
+            $TMS_image_sign = $this->fileupload->custom_file_upload('HomeTMS_image_sign', $foldername);
         }
 
         $abt_testimonial = array('abt_tm_main_title' => $this->input->post('abt_tm_main_title'),
@@ -559,7 +513,6 @@ class Home extends CI_Controller {
 
     function update_counter() { // home counter - update function on form_submit 
         $inserted = 0;
-        $date = new DateTime();
         $hc_item = $hc_image = '';
         $hc_image_class = $actual_hc_image_class = $ishcItemExists = '';
         $foldername = 'Home_Counter';
@@ -578,7 +531,6 @@ class Home extends CI_Controller {
                 }
             }
         }
-
 
         $hc_item = array(
             'hc_name' => $this->input->post('hc_name'),
@@ -621,40 +573,15 @@ class Home extends CI_Controller {
 
     function update_hs() { // home slider - update function on form_submit 
         $inserted = 0;
-        $date = new DateTime();
-        $hs_item = '';
-        $hs_bg_image = $actual_hs_bg_image = $ishsItemExists = '';
-        $hs_sign_image = $actual_hs_sign_image = $ishsSignItemExists = '';
+        $hs_item = $hs_bg_image = $ishsItemExists = $hs_sign_image = $ishsSignItemExists = '';
         $foldername = 'Home_Slider';
 
         if (!empty($_FILES['hs_bg_image']['name'])) {
-            $actual_hs_bg_image = $_FILES['hs_bg_image']['name'];
-            $info = new SplFileInfo($_FILES['hs_bg_image']['name']);
-            $hs_bg_image = $date->getTimestamp() . 'hs_bg_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('hs_bg_image', $hs_bg_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $hs_bg_image = 'uploads/' . $upd_foldername . $hs_bg_image;
-                } else {
-                    $hs_bg_image = 'uploads/' . $hs_bg_image;
-                }
-            }
+            $hs_bg_image = $this->fileupload->custom_file_upload('hs_bg_image', $foldername);
         }
 
         if (!empty($_FILES['hs_sign_image']['name'])) {
-            $actual_hs_sign_image = $_FILES['hs_sign_image']['name'];
-            $info = new SplFileInfo($_FILES['hs_sign_image']['name']);
-            $hs_sign_image = $date->getTimestamp() . 'hs_sign_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('hs_sign_image', $hs_sign_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $hs_sign_image = 'uploads/' . $upd_foldername . $hs_sign_image;
-                } else {
-                    $hs_sign_image = 'uploads/' . $hs_sign_image;
-                }
-            }
+            $hs_sign_image = $this->fileupload->custom_file_upload('hs_sign_image', $foldername);
         }
 
         $hs_item = array(
@@ -712,27 +639,12 @@ class Home extends CI_Controller {
 
     function update_hsb() { // home slider box - update function on form_submit 
         $inserted = 0;
-        $date = new DateTime();
-        $hsb_item = '';
-        $hsb_button_image = $actual_hsb_button_image = $ishsbItemExists = '';
-        $hsb_sign_image = $actual_hsb_sign_image = $ishsbSignItemExists = '';
+        $hsb_item = $hsb_button_image = $ishsbItemExists = $hsb_sign_image = $ishsbSignItemExists = '';
         $foldername = 'Home_Slider';
 
         if (!empty($_FILES['hsb_buttonimage']['name'])) {
-            $actual_hsb_button_image = $_FILES['hsb_buttonimage']['name'];
-            $info = new SplFileInfo($_FILES['hsb_buttonimage']['name']);
-            $hsb_button_image = $date->getTimestamp() . 'hsb_buttonimage.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('hsb_buttonimage', $hsb_button_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $hsb_button_image = 'uploads/' . $upd_foldername . $hsb_button_image;
-                } else {
-                    $hsb_button_image = 'uploads/' . $hsb_button_image;
-                }
-            }
+            $hsb_button_image = $this->fileupload->custom_file_upload('hsb_buttonimage', $foldername);
         }
-
 
         $hsb_item = array(
             'hsb_percentage' => $this->input->post('hsb_percentage'),
@@ -844,7 +756,6 @@ class Home extends CI_Controller {
 
     function update_consultation() { //on trigger of abtCounsultation_submit()
         $inserted = 0;
-
         $ConsultationItems = array(
             'abt_consult_main_title' => $this->input->post('abt_consult_main_title'),
             'abt_consult_sub_title' => $this->input->post('abt_consult_sub_title'),

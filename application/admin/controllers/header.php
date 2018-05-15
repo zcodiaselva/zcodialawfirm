@@ -238,126 +238,36 @@ class Header extends CI_Controller {
 
     function update_logo() { // update functionality for Logo - form_submit()
         $inserted = 0;
-        $date = new DateTime();
         $foldername = 'Logo';
         $fav_image = $logo_image = $logo_retina_image = $logo_sticky_retina_image = $logo_mobile_image = $logo_mobile_retina_image = $logo_mobile_sticky_image = $logo_sticky_image = $logo_mobile_sticky_retina_image = '';
         $fav_upload = $logo_upload = $logo_retina_upload = $logo_sticky_retina_upload = $logo_mobile_upload = $logo_mobile_retina_upload = $logo_mobile_sticky_upload = $logo_sticky_upload = $logo_mobile_sticky_retina_upload = '';
 
         if (!empty($_FILES['fav_image']['name'])) {
-            $info = new SplFileInfo($_FILES['fav_image']['name']);
-            $fav_image = $date->getTimestamp() . 'fav_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('fav_image', $fav_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $fav_upload = 'uploads/' . $upd_foldername . $fav_image;
-                } else {
-                    $fav_upload = 'uploads/' . $fav_image;
-                }
-            }
+            $fav_upload = $this->fileupload->custom_file_upload('fav_image', $foldername);
         }
         if (!empty($_FILES['logo_image']['name'])) {
-            $info = new SplFileInfo($_FILES['logo_image']['name']);
-            $logo_image = $date->getTimestamp() . 'logo_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('logo_image', $logo_image, $foldername)) { //$file, $filename,$folder_name
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $logo_upload = 'uploads/' . $upd_foldername . $logo_image;
-                } else {
-                    $logo_upload = 'uploads/' . $logo_image;
-                }
-            }
+            $logo_upload = $this->fileupload->custom_file_upload('logo_image', $foldername);
         }
         if (!empty($_FILES['logo_retina_image']['name'])) {
-            $info = new SplFileInfo($_FILES['logo_retina_image']['name']);
-            $logo_retina_image = $date->getTimestamp() . 'logo_retina_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('logo_retina_image', $logo_retina_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $logo_retina_upload = 'uploads/' . $upd_foldername . $logo_retina_image;
-                } else {
-                    $logo_retina_upload = 'uploads/' . $logo_retina_image;
-                }
-            }
+            $logo_retina_upload = $this->fileupload->custom_file_upload('logo_retina_image', $foldername);
         }
         if (!empty($_FILES['logo_sticky_image']['name'])) {
-            $info = new SplFileInfo($_FILES['logo_sticky_image']['name']);
-            $logo_sticky_image = $date->getTimestamp() . 'logo_sticky_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('logo_sticky_image', $logo_sticky_image, $foldername)) { //$file, $filename,$folder_name
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $logo_sticky_upload = 'uploads/' . $upd_foldername . $logo_sticky_image;
-                } else {
-                    $logo_sticky_upload = 'uploads/' . $logo_sticky_image;
-                }
-            }
+            $logo_sticky_upload = $this->fileupload->custom_file_upload('logo_sticky_image', $foldername);
         }
         if (!empty($_FILES['logo_sticky_retina_image']['name'])) {
-            $info = new SplFileInfo($_FILES['logo_sticky_retina_image']['name']);
-            $logo_sticky_retina_image = $date->getTimestamp() . 'logo_sticky_retina_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('logo_sticky_retina_image', $logo_sticky_retina_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $logo_sticky_retina_upload = 'uploads/' . $upd_foldername . $logo_sticky_retina_image;
-                } else {
-                    $logo_sticky_retina_upload = 'uploads/' . $logo_sticky_retina_image;
-                }
-            }
+            $logo_sticky_retina_upload = $this->fileupload->custom_file_upload('logo_sticky_retina_image', $foldername);
         }
         if (!empty($_FILES['logo_mobile_image']['name'])) {
-            $info = new SplFileInfo($_FILES['logo_mobile_image']['name']);
-            $logo_mobile_image = $date->getTimestamp() . 'logo_mobile_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('logo_mobile_image', $logo_mobile_image, $foldername)) { //$file, $filename,$folder_name
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $logo_mobile_upload = 'uploads/' . $upd_foldername . $logo_mobile_image;
-                } else {
-                    $logo_mobile_upload = 'uploads/' . $logo_mobile_image;
-                }
-            }
+            $logo_mobile_upload = $this->fileupload->custom_file_upload('logo_mobile_image', $foldername);
         }
         if (!empty($_FILES['logo_mobile_retina_image']['name'])) {
-            $info = new SplFileInfo($_FILES['logo_mobile_retina_image']['name']);
-            $logo_mobile_retina_image = $date->getTimestamp() . 'logo_mobile_retina_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('logo_mobile_retina_image', $logo_mobile_retina_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $logo_mobile_retina_upload = 'uploads/' . $upd_foldername . $logo_mobile_retina_image;
-                } else {
-                    $logo_mobile_retina_upload = 'uploads/' . $logo_mobile_retina_image;
-                }
-            }
+            $logo_mobile_retina_upload = $this->fileupload->custom_file_upload('logo_mobile_retina_image', $foldername);
         }
         if (!empty($_FILES['logo_mobile_sticky_image']['name'])) {
-            $info = new SplFileInfo($_FILES['logo_mobile_sticky_image']['name']);
-            $logo_mobile_sticky_image = $date->getTimestamp() . 'logo_mobile_sticky_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('logo_mobile_sticky_image', $logo_mobile_sticky_image, $foldername)) { //$file, $filename,$folder_name
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $logo_mobile_sticky_upload = 'uploads/' . $upd_foldername . $logo_mobile_sticky_image;
-                } else {
-                    $logo_mobile_sticky_upload = 'uploads/' . $logo_mobile_sticky_image;
-                }
-            }
+            $logo_mobile_sticky_upload = $this->fileupload->custom_file_upload('logo_mobile_sticky_image', $foldername);
         }
         if (!empty($_FILES['logo_mobile_sticky_retina_image']['name'])) {
-            $info = new SplFileInfo($_FILES['logo_mobile_sticky_retina_image']['name']);
-            $logo_mobile_sticky_retina_image = $date->getTimestamp() . 'logo_mobile_sticky_retina_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('logo_mobile_sticky_retina_image', $logo_mobile_sticky_retina_image, $foldername)) { //$file, $filename,$folder_name
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $logo_mobile_sticky_retina_upload = 'uploads/' . $upd_foldername . $logo_mobile_sticky_retina_image;
-                } else {
-                    $logo_mobile_sticky_retina_upload = 'uploads/' . $logo_mobile_sticky_retina_image;
-                }
-            }
+            $logo_mobile_sticky_retina_upload = $this->fileupload->custom_file_upload('logo_mobile_sticky_retina_image', $foldername);
         }
 
         $logoDetails = array(
@@ -428,31 +338,11 @@ class Header extends CI_Controller {
         $appt_phone_image_upload = $appt_clock_image_upload = '';
 
         if (!empty($_FILES['appt_phone_image']['name'])) {
-            $info = new SplFileInfo($_FILES['appt_phone_image']['name']);
-            $appt_phone_image = $date->getTimestamp() . 'appt_phone_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('appt_phone_image', $appt_phone_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $appt_phone_image_upload = 'uploads/' . $upd_foldername . $appt_phone_image;
-                } else {
-                    $appt_phone_image_upload = 'uploads/' . $appt_phone_image;
-                }
-            }
+            $appt_phone_image_upload = $this->fileupload->custom_file_upload('appt_phone_image', $foldername);
         }
 
         if (!empty($_FILES['appt_clock_image']['name'])) {
-            $info = new SplFileInfo($_FILES['appt_clock_image']['name']);
-            $appt_clock_image = $date->getTimestamp() . 'appt_clock_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('appt_clock_image', $appt_clock_image, $foldername)) { //$file, $filename,$folder_name
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $appt_clock_image_upload = 'uploads/' . $upd_foldername . $appt_clock_image;
-                } else {
-                    $appt_clock_image_upload = 'uploads/' . $appt_clock_image;
-                }
-            }
+            $appt_clock_image_upload = $this->fileupload->custom_file_upload('appt_clock_image', $foldername);
         }
 
 

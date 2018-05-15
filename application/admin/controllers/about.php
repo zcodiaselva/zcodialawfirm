@@ -216,35 +216,15 @@ class About extends CI_Controller {
 
     function update_about_attorney() { //update about attorney form_submit() ajax
         $inserted = 0;
-        $date = new DateTime();
-        $abtAttyItem_image = $actual_abtAttyItem_image = $isAboutAttyItemExists = '';
-        $abtAttyBGItem_image = $actual_abtAttyBGItem_image = $isAboutAttyBGItemExists = '';
+        $abtAttyItem_image = $isAboutAttyItemExists = $abtAttyBGItem_image = $isAboutAttyBGItemExists = '';
         $foldername = 'Attorney';
 
         if (!empty($_FILES['atty_title_image']['name'])) {
-            $info = new SplFileInfo($_FILES['atty_title_image']['name']);
-            $abtAttyItem_image = $date->getTimestamp() . 'atty_title_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('atty_title_image', $abtAttyItem_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAttyItem_image = 'uploads/' . $upd_foldername . $abtAttyItem_image;
-                } else {
-                    $abtAttyItem_image = 'uploads/' . $abtAttyItem_image;
-                }
-            }
+            $abtAttyItem_image = $this->fileupload->custom_file_upload('atty_title_image', $foldername);
         }
 
         if (!empty($_FILES['atty_bg_image']['name'])) {
-            $info = new SplFileInfo($_FILES['atty_bg_image']['name']);
-            $abtAttyBGItem_image = $date->getTimestamp() . 'atty_bg_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('atty_bg_image', $abtAttyBGItem_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAttyBGItem_image = 'uploads/' . $upd_foldername . $abtAttyBGItem_image;
-                } else {
-                    $abtAttyBGItem_image = 'uploads/' . $abtAttyBGItem_image;
-                }
-            }
+            $abtAttyBGItem_image = $this->fileupload->custom_file_upload('atty_bg_image', $foldername);
         }
 
         $aboutAttyItem = array(
@@ -277,34 +257,15 @@ class About extends CI_Controller {
 
     function update_about_item() { // About Us - form_submit - ajax request
         $inserted = 0;
-        $date = new DateTime();
-        $abtItem_image = $actual_abtItem_image = $abtSideItem_image = $actual_abtSideItem_image = $isAboutUsExists = $isAboutItemExists = '';
+        $abtItem_image = $abtSideItem_image = $isAboutUsExists = $isAboutItemExists = '';
         $foldername = 'About_Items';
 
         if (!empty($_FILES['auti_image']['name'])) {
-            $info = new SplFileInfo($_FILES['auti_image']['name']);
-            $abtItem_image = $date->getTimestamp() . 'abtItem_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('auti_image', $abtItem_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtItem_image = 'uploads/' . $upd_foldername . $abtItem_image;
-                } else {
-                    $abtItem_image = 'uploads/' . $abtItem_image;
-                }
-            }
+            $abtItem_image = $this->fileupload->custom_file_upload('auti_image', $foldername);
         }
 
         if (!empty($_FILES['au_side_image']['name'])) {
-            $info = new SplFileInfo($_FILES['au_side_image']['name']);
-            $abtSideItem_image = $date->getTimestamp() . 'au_side_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('au_side_image', $abtSideItem_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtSideItem_image = 'uploads/' . $upd_foldername . $abtSideItem_image;
-                } else {
-                    $abtSideItem_image = 'uploads/' . $abtSideItem_image;
-                }
-            }
+            $abtSideItem_image = $this->fileupload->custom_file_upload('au_side_image', $foldername);
         }
 
         $aboutUs = array('au_header_title' => $this->input->post('au_header_title'),
@@ -528,7 +489,6 @@ class About extends CI_Controller {
 
     function update_attorneySocialDetails() { // update functionality for attorney social details - form_submit()
         $inserted = 0;
-        $date = new DateTime();
         $foldername = 'Attorney';
         $isAttySocialDetailsExists = '';
 
@@ -563,24 +523,12 @@ class About extends CI_Controller {
 
     function update_attorneyDetails() { // update functionality for about attorney details - form_submit()
         $inserted = 0;
-        $date = new DateTime();
         $foldername = 'Attorney';
-        $actual_abtAtty_image = $actual_abtAtty_image = $abtAtty_image = $atty_image = $isAttyDetailsExists = '';
+        $actual_abtAtty_image = $abtAtty_image = $atty_image = $isAttyDetailsExists = '';
 
         if (!empty($_FILES['attyItem_image']['name'])) {
-            $info = new SplFileInfo($_FILES['attyItem_image']['name']);
-            $atty_image = $date->getTimestamp() . 'attyItem_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('attyItem_image', $atty_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAtty_image = 'uploads/' . $upd_foldername . $atty_image;
-                } else {
-                    $abtAtty_image = 'uploads/' . $atty_image;
-                }
-            }
+            $abtAtty_image = $this->fileupload->custom_file_upload('attyItem_image', $foldername);
         }
-
 
         $aboutAttorney = array(
             'attyItem_name' => $this->input->post('attyItem_name'),
@@ -622,36 +570,15 @@ class About extends CI_Controller {
 
     function update_about_myself() { // update functionality for about myself - form_submit()
         $inserted = 0;
-        $date = new DateTime();
         $foldername = 'About_Slider';
-        $actual_abtSlider_image = $actual_abtContent_image = $abtContent_image = $abtSlider_image = '';
+        $abtContent_image = $abtSlider_image = '';
 
         if (!empty($_FILES['abtSlider_image']['name'])) {
-            $info = new SplFileInfo($_FILES['abtSlider_image']['name']);
-            $slider_image = $date->getTimestamp() . 'abtMyself_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('abtSlider_image', $slider_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtSlider_image = 'uploads/' . $upd_foldername . $slider_image;
-                } else {
-                    $abtSlider_image = 'uploads/' . $slider_image;
-                }
-            }
+            $abtSlider_image = $this->fileupload->custom_file_upload('abtSlider_image', $foldername);
         }
 
         if (!empty($_FILES['abtContent_image']['name'])) {
-            $info = new SplFileInfo($_FILES['abtContent_image']['name']);
-            $content_image = $date->getTimestamp() . 'abtMyself_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('abtContent_image', $content_image, $foldername)) { //$file, $filename,$folder_name
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtContent_image = 'uploads/' . $upd_foldername . $content_image;
-                } else {
-                    $abtContent_image = 'uploads/' . $content_image;
-                }
-            }
+            $abtContent_image = $this->fileupload->custom_file_upload('abtContent_image', $foldername);
         }
 
         $aboutMyself = array('au_header_title' => $this->input->post('txtAbtMainHeader'),
@@ -679,7 +606,6 @@ class About extends CI_Controller {
     }
 
     function update_ai_status() { // status change for aboutus items
-
         $auti_id = $this->input->post('auti_id');
         $auti_status = array('auti_status' => $this->input->post('auti_status'));
         $updated = $this->aboutus_model->updateData($this->aboutus_items, $auti_status, array('auti_id' => $auti_id));
@@ -729,24 +655,11 @@ class About extends CI_Controller {
 
     function update_timeline() { // update functionality for timeline on form_submit
         $inserted = 0;
-        $date = new DateTime();
         $foldername = 'Timeline';
-        $abtTLItem_item = $autli_image = '';
-        $actual_abtTLItem_bg_image = $actual_autli_image_class = $isabtTLItemItemExists = $isTLItemsExists = '';
+        $abtTLItem_item = $autli_image = $isabtTLItemItemExists = $isTLItemsExists = '';
 
         if (!empty($_FILES['autli_image']['name'])) {
-            $actual_abtTLItem_bg_image = $_FILES['autli_image']['name'];
-            $info = new SplFileInfo($_FILES['autli_image']['name']);
-            $autli_image = $date->getTimestamp() . 'autli_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('autli_image', $autli_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $autli_image = 'uploads/' . $upd_foldername . $autli_image;
-                } else {
-                    $autli_image = 'uploads/' . $autli_image;
-                }
-            }
+            $autli_image = $this->fileupload->custom_file_upload('autli_image', $foldername);
         }
 
         $aboutTimeline = array(
@@ -806,34 +719,15 @@ class About extends CI_Controller {
     function update_attorney_skills() { //update about attorney_skills form_submit() ajax
         $inserted = 0;
         $date = new DateTime();
-        $abtAttySkill_image = $actual_abtAttySkill_image = $isAboutAttySkillExists = '';
-        $abtAttySkillType_image = $actual_abtAttySkillType_image = $isAboutAttySkillTypeExists = '';
+        $abtAttySkill_image = $isAboutAttySkillExists = $abtAttySkillType_image = $isAboutAttySkillTypeExists = '';
         $foldername = 'Attorney_Skills';
 
         if (!empty($_FILES['atty_skill_bg_image']['name'])) {
-            $info = new SplFileInfo($_FILES['atty_skill_bg_image']['name']);
-            $abtAttySkill_image = $date->getTimestamp() . 'atty_skill_bg_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('atty_skill_bg_image', $abtAttySkill_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAttySkill_image = 'uploads/' . $upd_foldername . $abtAttySkill_image;
-                } else {
-                    $abtAttySkill_image = 'uploads/' . $abtAttySkill_image;
-                }
-            }
+            $abtAttySkill_image = $this->fileupload->custom_file_upload('atty_skill_bg_image', $foldername);
         }
 
         if (!empty($_FILES['atty_st_image']['name'])) {
-            $info = new SplFileInfo($_FILES['atty_st_image']['name']);
-            $abtAttySkillType_image = $date->getTimestamp() . 'atty_st_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('atty_st_image', $abtAttySkillType_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAttySkillType_image = 'uploads/' . $upd_foldername . $abtAttySkillType_image;
-                } else {
-                    $abtAttySkillType_image = 'uploads/' . $abtAttySkillType_image;
-                }
-            }
+            $abtAttySkillType_image = $this->fileupload->custom_file_upload('atty_st_image', $foldername);
         }
 
         $atty_st_id = $this->input->post('atty_st_id');
@@ -950,51 +844,21 @@ class About extends CI_Controller {
     //experience part start 
     function update_attorney_experience() { //update about attorney experience form_submit() ajax
         $inserted = 0;
-        $date = new DateTime();
-        $abtAttyExperience_image = $actual_abtAttyExperience_image = $isAboutAttyExperienceExists = '';
-        $abtAttyExperienceType_image = $actual_abtAttyExperienceType_image = $isAboutAttyExperienceTypeExists = '';
-        $abtAttyExperienceSign_image = $actual_abtAttyExperienceSign_image = $isAboutAttyExperienceSignExists = '';
+        $abtAttyExperience_image = $isAboutAttyExperienceExists = $abtAttyExperienceType_image = $isAboutAttyExperienceTypeExists = '';
+        $abtAttyExperienceSign_image = $isAboutAttyExperienceSignExists = '';
         $foldername = 'Attorney_Experience';
 
         if (!empty($_FILES['atty_exp_bg_image']['name'])) {
-            $info = new SplFileInfo($_FILES['atty_exp_bg_image']['name']);
-            $abtAttyExperience_image = $date->getTimestamp() . 'atty_exp_bg_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('atty_exp_bg_image', $abtAttyExperience_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAttyExperience_image = 'uploads/' . $upd_foldername . $abtAttyExperience_image;
-                } else {
-                    $abtAttyExperience_image = 'uploads/' . $abtAttyExperience_image;
-                }
-            }
+            $abtAttyExperience_image = $this->fileupload->custom_file_upload('atty_exp_bg_image', $foldername);
         }
 
         if (!empty($_FILES['atty_et_image']['name'])) {
-            $info = new SplFileInfo($_FILES['atty_et_image']['name']);
-            $abtAttyExperienceType_image = $date->getTimestamp() . 'atty_et_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('atty_et_image', $abtAttyExperienceType_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAttyExperienceType_image = 'uploads/' . $upd_foldername . $abtAttyExperienceType_image;
-                } else {
-                    $abtAttyExperienceType_image = 'uploads/' . $abtAttyExperienceType_image;
-                }
-            }
+            $abtAttyExperienceType_image = $this->fileupload->custom_file_upload('atty_et_image', $foldername);
         }
 
         if (!empty($_FILES['atty_exp_sign_image']['name'])) {
-            $info = new SplFileInfo($_FILES['atty_exp_sign_image']['name']);
-            $abtAttyExperienceSign_image = $date->getTimestamp() . 'atty_exp_sign_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('atty_exp_sign_image', $abtAttyExperienceSign_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAttyExperienceSign_image = 'uploads/' . $upd_foldername . $abtAttyExperienceSign_image;
-                } else {
-                    $abtAttyExperienceSign_image = 'uploads/' . $abtAttyExperienceSign_image;
-                }
-            }
+            $abtAttyExperienceSign_image = $this->fileupload->custom_file_upload('atty_exp_sign_image', $foldername);
         }
-
 
         $atty_et_id = $this->input->post('atty_et_id');
 
@@ -1005,7 +869,6 @@ class About extends CI_Controller {
         $aboutAttorneyExperiencesType = array(
             'atty_et_link' => $this->input->post('atty_et_link')
         );
-
 
         if (isset($abtAttyExperience_image) && !empty($abtAttyExperience_image)) {
             $aboutAttorneyExperiences['atty_exp_bg_image'] = cleanurl($abtAttyExperience_image);
@@ -1020,7 +883,6 @@ class About extends CI_Controller {
         }
 
         $IsEmpty_aboutAttorneyExperiencesType = array_filter($aboutAttorneyExperiencesType);
-
 
         $isAttorneyExperiencesExists = $this->aboutus_model->searchContent($this->attorney_experience_table, array('atty_exp_status' => 1, 'atty_exp_deleted' => 0));
 
@@ -1042,11 +904,7 @@ class About extends CI_Controller {
 
     function get_attyExperienceTypes() { // getting attorney Experience Types for datatable on load
         $data1 = $this->data;
-        $this->data1 = array();
-
-        $data = array();
-
-        $atty_options = array();
+        $this->data1 = $data = $atty_options = array();
         $select = 'atty_et_id, atty_et_image, atty_et_link, atty_et_status';
         $from = $this->attorney_experience_types_table;
         $where = array('atty_et_deleted' => 0);
@@ -1106,53 +964,17 @@ class About extends CI_Controller {
 
     function update_wcu() { //update wcu form_submit() ajax
         $inserted = 0;
-        $date = new DateTime();
-        $wcu_bg_image = $isWCUExists = '';
-        $wcu_type_image = $isWCUTypeExists = '';
+        $wcu_bg_image = $isWCUExists = $wcu_type_image = $isWCUTypeExists = '';
         $foldername = 'whychooseus';
-
         if (!empty($_FILES['wcu_image']['name'])) {
-            $info = new SplFileInfo($_FILES['wcu_image']['name']);
-            $wcu_bg_image = $date->getTimestamp() . 'wcu_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('wcu_image', $wcu_bg_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $wcu_bg_image = 'uploads/' . $upd_foldername . $wcu_bg_image;
-                } else {
-                    $wcu_bg_image = 'uploads/' . $wcu_bg_image;
-                }
-            }
+            $wcu_bg_image = $this->fileupload->custom_file_upload('wcu_image', $foldername);
         }
-
         if (!empty($_FILES['wcu_type_image']['name'])) {
-            $info = new SplFileInfo($_FILES['wcu_type_image']['name']);
-            $wcu_type_image = $date->getTimestamp() . 'wcu_type_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('wcu_type_image', $wcu_type_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $wcu_type_image = 'uploads/' . $upd_foldername . $wcu_type_image;
-                } else {
-                    $wcu_type_image = 'uploads/' . $wcu_type_image;
-                }
-            }
+            $wcu_type_image = $this->fileupload->custom_file_upload('wcu_type_image', $foldername);
         }
-
         $wcu_type_id = $this->input->post('wcu_type_id');
-
-        $wcu = array(
-            'wcu_head' => $this->input->post('wcu_head'),
-            'wcu_desc' => $this->input->post('wcu_desc'),
-            'wcu_box_image' => $this->input->post('wcu_box_image'),
-            'wcu_box_head' => $this->input->post('wcu_box_head'),
-            'wcu_box_desc' => $this->input->post('wcu_box_desc')
-        );
-
-        $wcuType = array(
-            'wcu_type_name' => $this->input->post('wcu_type_name'),
-            'wcu_type_name_hl' => $this->input->post('wcu_type_name_hl'),
-            'wcu_type_desc' => $this->input->post('wcu_type_desc'),
-            'wcu_type_icon' => $this->input->post('wcu_type_icon')
-        );
+        $wcu = array('wcu_head' => $this->input->post('wcu_head'), 'wcu_desc' => $this->input->post('wcu_desc'), 'wcu_box_image' => $this->input->post('wcu_box_image'), 'wcu_box_head' => $this->input->post('wcu_box_head'), 'wcu_box_desc' => $this->input->post('wcu_box_desc'));
+        $wcuType = array('wcu_type_name' => $this->input->post('wcu_type_name'), 'wcu_type_name_hl' => $this->input->post('wcu_type_name_hl'), 'wcu_type_desc' => $this->input->post('wcu_type_desc'), 'wcu_type_icon' => $this->input->post('wcu_type_icon'));
 
 
         if (isset($wcu_bg_image) && !empty($wcu_bg_image)) {
@@ -1183,11 +1005,7 @@ class About extends CI_Controller {
 
     function get_WCUItems() {
         $data1 = $this->data;
-        $this->data1 = array();
-
-        $data = array();
-
-        $atty_options = array();
+        $this->data1 = $data = $atty_options = array();
         $select = 'wcu_type_id, wcu_type_name,wcu_type_desc, wcu_type_name_hl, wcu_type_icon, wcu_type_image,wcu_type_status';
         $from = $this->wcuTypes_table;
         $where = array('wcu_type_deleted' => 0);
@@ -1253,21 +1071,11 @@ class About extends CI_Controller {
     //attorney breadcrumb start 
     function update_attorney_bc() { //update about attorney_bc form_submit() ajax
         $inserted = 0;
-        $date = new DateTime();
-        $abtAttyBC_image = $actual_abtAttyBC_image = $isAboutAttyBCExists = '';
+        $abtAttyBC_image = $isAboutAttyBCExists = '';
         $foldername = 'Attorney';
 
         if (!empty($_FILES['atty_bc_bg_image']['name'])) {
-            $info = new SplFileInfo($_FILES['atty_bc_bg_image']['name']);
-            $abtAttyBC_image = $date->getTimestamp() . 'atty_bc_bg_image.' . $info->getExtension();
-            if ($this->fileupload->uploadfile('atty_bc_bg_image', $abtAttyBC_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtAttyBC_image = 'uploads/' . $upd_foldername . $abtAttyBC_image;
-                } else {
-                    $abtAttyBC_image = 'uploads/' . $abtAttyBC_image;
-                }
-            }
+            $abtAttyBC_image = $this->fileupload->custom_file_upload('atty_bc_bg_image', $foldername);
         }
 
         $aboutAttyBC = array(

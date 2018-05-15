@@ -93,37 +93,15 @@ class Practice extends CI_Controller {
 
     function update_about_pa() { // update functionality for about Practice Areas - form_submit()
         $inserted = 0;
-        $date = new DateTime();
         $foldername = 'PracticeAreas';
-        $actual_abtContent_image = $abtContent_image = $pa_image = $pa_sideimage = $abtPA_image = $abtPA_sideimage = '';
+        $abtContent_image = $pa_image = $pa_sideimage = $abtPA_image = $abtPA_sideimage = '';
 
         if (!empty($_FILES['pa_image']['name'])) {
-            $info = new SplFileInfo($_FILES['pa_image']['name']);
-            $pa_image = $date->getTimestamp() . 'abtpracticearea_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('pa_image', $pa_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtPA_image = 'uploads/' . $upd_foldername . $pa_image;
-                } else {
-                    $abtPA_image = 'uploads/' . $pa_image;
-                }
-            }
+            $abtPA_image = $this->fileupload->custom_file_upload('pa_image', $foldername);
         }
 
-
         if (!empty($_FILES['pa_sideimage']['name'])) {
-            $info = new SplFileInfo($_FILES['pa_sideimage']['name']);
-            $pa_sideimage = $date->getTimestamp() . 'abtpracticearea_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('pa_sideimage', $pa_sideimage, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $abtPA_sideimage = 'uploads/' . $upd_foldername . $pa_sideimage;
-                } else {
-                    $abtPA_sideimage = 'uploads/' . $pa_sideimage;
-                }
-            }
+            $abtPA_sideimage = $this->fileupload->custom_file_upload('pa_sideimage', $foldername);
         }
 
         $aboutPracticeAreas = array(
@@ -213,17 +191,7 @@ class Practice extends CI_Controller {
         $actual_patContent_image = $abtContent_image = $pat_image = $pat_sideimage = $PATItem_image = $practiceAreasItems = $isPATItemExists = '';
 
         if (!empty($_FILES['pat_icon']['name'])) {
-            $info = new SplFileInfo($_FILES['pat_icon']['name']);
-            $pat_image = $date->getTimestamp() . 'practiceareaitem_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('pat_icon', $pat_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $PATItem_image = 'uploads/' . $upd_foldername . $pat_image;
-                } else {
-                    $PATItem_image = 'uploads/' . $pat_image;
-                }
-            }
+            $PATItem_image = $this->fileupload->custom_file_upload('pat_icon', $foldername);
         }
 
         $practiceAreasItems = array(

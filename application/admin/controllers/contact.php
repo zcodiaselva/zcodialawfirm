@@ -160,17 +160,7 @@ class Contact extends CI_Controller {
         $actual_contactContent_image = $contactContent_image = $contact_image = $contact_sideimage = $contactItem_image = $contactItems = $iscontactItemExists = '';
 
         if (!empty($_FILES['c_icon']['name'])) {
-            $info = new SplFileInfo($_FILES['c_icon']['name']);
-            $c_image = $date->getTimestamp() . 'contactus_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('c_icon', $c_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $contactItem_image = 'uploads/' . $upd_foldername . $c_image;
-                } else {
-                    $contactItem_image = 'uploads/' . $c_image;
-                }
-            }
+            $contactItem_image = $this->fileupload->custom_file_upload('c_icon', $foldername);
         }
 
         $contactItems = array(
@@ -255,17 +245,7 @@ class Contact extends CI_Controller {
         $gmarker_image = $map_marker_image = $gmapItemExists = '';
 
         if (!empty($_FILES['map_marker_image']['name'])) {
-            $info = new SplFileInfo($_FILES['map_marker_image']['name']);
-            $map_marker_image = $date->getTimestamp() . 'map_marker_image.' . $info->getExtension();
-
-            if ($this->fileupload->uploadfile('map_marker_image', $map_marker_image, $foldername)) {
-                if (isset($foldername) && !empty($foldername)) {
-                    $upd_foldername = $foldername . '/';
-                    $gmarker_image = 'uploads/' . $upd_foldername . $map_marker_image;
-                } else {
-                    $gmarker_image = 'uploads/' . $map_marker_image;
-                }
-            }
+               $gmarker_image = $this->fileupload->custom_file_upload('map_marker_image', $foldername);
         }
 
         $GMapItems = array(
@@ -277,7 +257,6 @@ class Contact extends CI_Controller {
         if (isset($gmarker_image) && !empty($gmarker_image)) {
             $GMapItems['map_marker_image'] = cleanurl($gmarker_image);
         }
-
 
         $gmapItemExists = $this->contact_model->searchContent($this->map_table, array('map_status' => 1, 'map_deleted' => 0));
 
@@ -320,7 +299,7 @@ class Contact extends CI_Controller {
         );
 
         $data1['logo_details'] = $this->contact_model->getData('*', $this->logo_table, array('logo_status' => 1, 'logo_deleted' => 0), 'logo_id');
-        $returndata['admin_mail'] = $this->load->view('email_template/email',$data1,true);
+        $returndata['admin_mail'] = $this->load->view('email_template/email', $data1, true);
         $returndata['user_mail'] = $this->load->view('email_template/email_template_user', $data1, true);
 
         $admin_mail = array('from' => 'murali.zt91emp24@gmail.com', 'name' => 'Admin', 'to' => $mail, 'subject' => 'You got a mail from a User - Lawyer', 'message' => $returndata['admin_mail']);
